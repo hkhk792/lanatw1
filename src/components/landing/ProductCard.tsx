@@ -32,7 +32,7 @@ const ProductCard = ({ image, name, flavor, price, index }: Props) => {
       {/* Top tag */}
       <div className="absolute top-5 left-5 z-10">
         <span className="text-[9px] uppercase tracking-luxury text-foreground/60 group-hover:text-gold transition-colors duration-500">
-          0{index + 1} / Collection
+          0{index + 1} / 產品系列
         </span>
       </div>
 
@@ -51,7 +51,7 @@ const ProductCard = ({ image, name, flavor, price, index }: Props) => {
         </div>
 
         <div className="mt-4 pt-4 border-t hairline flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-          <span className="text-[10px] uppercase tracking-luxury text-foreground/70">Add to Cart</span>
+          <span className="text-[10px] uppercase tracking-luxury text-foreground/70">加入購物車</span>
           <span className="grid h-7 w-7 place-items-center rounded-full bg-gold text-primary-foreground">
             <Plus className="h-3.5 w-3.5" />
           </span>

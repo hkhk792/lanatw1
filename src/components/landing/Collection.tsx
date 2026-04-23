@@ -11,15 +11,15 @@ import p8 from "@/assets/product-8.png";
 import p9 from "@/assets/product-9.png";
 
 const products = [
-  { image: p1, name: "Ninja Edition", flavor: "Limited Artisan Series", price: "$148" },
-  { image: p2, name: "Lana Premium", flavor: "Ten Hue Collection", price: "$129" },
-  { image: p3, name: "SP2S Bullet", flavor: "Thirteen Color Atelier", price: "$112" },
-  { image: p4, name: "SP2S Pro", flavor: "Begonia · Chrome · Star", price: "$184" },
-  { image: p5, name: "Atomizing Rod", flavor: "380mAh · Type-C", price: "$89" },
-  { image: p6, name: "DIYA Ceramic", flavor: "2.5ml · 8W Output", price: "$136" },
-  { image: p7, name: "Lana Pods", flavor: "Peppermint · 30mg/ml", price: "$24" },
-  { image: p8, name: "DIYA Mega T25", flavor: "Nine Flavor Assortment", price: "$32" },
-  { image: p9, name: "SP2S Bullets", flavor: "3% Nicotine · 25 Flavors", price: "$28" },
+  { image: p1, name: "忍者限量版", flavor: "限定工藝系列", price: "$148" },
+  { image: p2, name: "蘭納精裝版", flavor: "十色精選系列", price: "$129" },
+  { image: p3, name: "SP2S 子彈版", flavor: "十三色工坊系列", price: "$112" },
+  { image: p4, name: "SP2S Pro", flavor: "秋海棠 · 鉻金 · 星辰", price: "$184" },
+  { image: p5, name: "霧化桿", flavor: "380mAh · Type-C", price: "$89" },
+  { image: p6, name: "DIYA 陶瓷芯", flavor: "2.5ml · 8W 輸出", price: "$136" },
+  { image: p7, name: "蘭納煙彈", flavor: "薄荷 · 30mg/ml", price: "$24" },
+  { image: p8, name: "DIYA Mega T25", flavor: "九種口味綜合", price: "$32" },
+  { image: p9, name: "SP2S 子彈", flavor: "3% 尼古丁 · 25種口味", price: "$28" },
 ];
 
 const Collection = () => {
@@ -32,16 +32,16 @@ const Collection = () => {
           <div className="max-w-2xl">
             <p className="text-[10px] uppercase tracking-luxury text-gold mb-5 flex items-center gap-3">
               <span className="h-px w-10 bg-gold/60" />
-              The Collection
+              產品系列
             </p>
             <h2 className="font-serif text-4xl md:text-6xl leading-[1.05]">
-              Nine pieces. <br />
-              <span className="italic text-foreground/70">One obsession with detail.</span>
+              九款產品。<br />
+              <span className="italic text-foreground/70">對細節的極致追求。</span>
             </h2>
           </div>
           <p className="md:max-w-sm text-sm text-muted-foreground leading-relaxed">
-            From flagship devices to ceramic-core pods, every product in the NOIRE catalogue
-            is selected for one quality — uncompromised craft.
+            從旗艦裝置到陶瓷芯煙彈，NOIRE 產品目錄中的每一件產品
+            都因一種品質而精心挑選 — 毫不妥協的工藝。
           </p>
         </div>
 
@@ -57,7 +57,7 @@ const Collection = () => {
             className="group inline-flex items-center gap-4 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold transition-colors duration-500"
           >
             <span className="h-px w-12 bg-foreground/30 group-hover:bg-gold transition-colors duration-500" />
-            View Full Catalogue
+            查看完整目錄
             <span className="h-px w-12 bg-foreground/30 group-hover:bg-gold transition-colors duration-500" />
           </a>
         </div>

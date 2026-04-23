@@ -22,24 +22,24 @@ const Hero = () => {
         <div className="max-w-3xl">
           <p className="inline-flex items-center gap-3 text-[10px] uppercase tracking-luxury text-gold mb-8 animate-fade-in-up">
             <span className="h-px w-10 bg-gold/60" />
-            Spring 2026 — Flagship Edition
+            2026 春季 — 旗艦版
           </p>
 
           <h1
             className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-foreground animate-fade-in-up"
             style={{ animationDelay: "0.1s" }}
           >
-            The Pinnacle
+            蒸氣藝術巔峰
             <br />
-            of <span className="italic text-gradient-gold">Vapor</span>.
+            <span className="italic text-gradient-gold">奢華體驗</span>
           </h1>
 
           <p
             className="mt-8 max-w-xl text-base md:text-lg text-foreground/70 leading-relaxed font-light animate-fade-in-up"
             style={{ animationDelay: "0.25s" }}
           >
-            Hand-finished aluminum. Ceramic-core atomization. A symphony of
-            engineering and craft — designed for those who demand more from every breath.
+            手工精加工鋁合金。陶瓷芯霧化技術。
+            工程與工藝的完美結合 — 為追求極致體驗的您量身打造。
           </p>
 
           <div
@@ -50,7 +50,7 @@ const Hero = () => {
               href="#collection"
               className="group inline-flex items-center gap-3 bg-foreground text-background px-9 py-4 text-[11px] uppercase tracking-luxury font-medium hover:bg-gold hover:text-primary-foreground transition-all duration-500 ease-luxury"
             >
-              Shop Now
+              立即選購
               <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
             </a>
             <a
@@ -58,7 +58,7 @@ const Hero = () => {
               className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-luxury text-foreground/80 hover:text-gold transition-colors duration-500"
             >
               <span className="h-px w-8 bg-foreground/40 group-hover:bg-gold transition-colors duration-500" />
-              Discover the Craft
+              探索工藝
             </a>
           </div>
         </div>
@@ -66,7 +66,7 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-foreground/50">
-        <span className="text-[9px] uppercase tracking-luxury">Scroll</span>
+        <span className="text-[9px] uppercase tracking-luxury">向下滾動</span>
         <span className="h-10 w-px bg-gradient-to-b from-foreground/40 to-transparent animate-float-slow" />
       </div>
     </section>

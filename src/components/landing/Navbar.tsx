@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, ShoppingBag } from "lucide-react";
 
-const links = ["Collection", "Technology", "Flavors", "Journal", "Contact"];
+const links = ["產品系列", "科技工藝", "口味系列", "品牌日誌", "聯絡我們"];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

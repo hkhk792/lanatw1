@@ -5,10 +5,11 @@ import Hero from "@/components/landing/Hero";
 import Collection from "@/components/landing/Collection";
 import Manifesto from "@/components/landing/Manifesto";
 import Footer from "@/components/landing/Footer";
+import WeChatIcon from "@/components/WeChatIcon";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "NOIRE — The Pinnacle of Vapor | Luxury Atomization Atelier";
+    document.title = "NOIRE — 蒸氣藝術巔峰 | 奢華霧化工坊";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`);
@@ -21,7 +22,7 @@ const Index = () => {
     };
     setMeta(
       "description",
-      "NOIRE — luxury vapor devices and ceramic-core pods crafted in Tokyo. Hand-finished aluminum, signature finishes, uncompromised engineering. 21+ only."
+      "NOIRE — 東京工藝打造的奢華蒸氣裝置與陶瓷芯煙彈。手工精加工鋁合金，獨特外觀，毫不妥協的工程設計。僅限18歲以上。"
     );
 
     let canon = document.querySelector('link[rel="canonical"]');
@@ -43,6 +44,7 @@ const Index = () => {
         <Manifesto />
       </main>
       <Footer />
+      <WeChatIcon />
     </div>
   );
 };

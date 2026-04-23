@@ -1,10 +1,10 @@
 import { useReveal } from "@/hooks/useReveal";
 
 const stats = [
-  { v: "2.5", u: "ml capacity" },
-  { v: "380", u: "mAh battery" },
-  { v: "8W", u: "power output" },
-  { v: "13", u: "signature finishes" },
+  { v: "2.5", u: "毫升容量" },
+  { v: "380", u: "毫安電池" },
+  { v: "8W", u: "功率輸出" },
+  { v: "13", u: "獨特外觀" },
 ];
 
 const Manifesto = () => {
@@ -13,14 +13,14 @@ const Manifesto = () => {
     <section id="technology" className="relative py-28 md:py-40 border-y hairline">
       <div className="container">
         <div ref={ref} className="reveal max-w-4xl mx-auto text-center">
-          <p className="text-[10px] uppercase tracking-luxury text-gold mb-6">— Manifesto —</p>
+          <p className="text-[10px] uppercase tracking-luxury text-gold mb-6">— 品牌宣言 —</p>
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.15]">
-            "We don't make accessories. <br />
-            We engineer <span className="italic text-gradient-gold">moments</span> — slow, deliberate,
-            and unforgettable."
+            "我們不製造配件。<br />
+            我們精心打造<span className="italic text-gradient-gold">時刻</span> — 沉穩、從容，
+            令人難忘。"
           </h2>
           <p className="mt-10 text-sm uppercase tracking-luxury text-muted-foreground">
-            — The NOIRE Atelier, Tokyo
+            — NOIRE 工坊，東京
           </p>
         </div>
 
