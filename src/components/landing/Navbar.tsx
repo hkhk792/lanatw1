@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, ShoppingBag } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
 
 const links = [
   { label: "Disposables", href: "#disposables" },
@@ -27,11 +27,11 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 group">
-          <span className="grid h-8 w-8 place-items-center rounded-full border border-electric/50 text-electric font-serif text-sm transition-all duration-500 group-hover:bg-electric group-hover:text-accent-foreground">
-            A
+          <span className="grid h-9 w-9 place-items-center rounded-full border border-gold-soft text-gradient-gold font-serif text-sm transition-all duration-500 group-hover:border-gold">
+            S
           </span>
-          <span className="font-serif text-xl tracking-wider-2">
-            AETHER<span className="text-electric">.</span>
+          <span className="font-serif text-2xl tracking-vogue text-gradient-gold">
+            SP2S
           </span>
         </a>
 
@@ -40,7 +40,7 @@ const Navbar = () => {
             <a
               key={l.label}
               href={l.href}
-              className="text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-electric transition-colors duration-500"
+              className="text-[11px] uppercase tracking-luxury text-foreground/60 hover:text-gradient-gold hover:text-gold transition-colors duration-500"
             >
               {l.label}
             </a>
@@ -50,17 +50,17 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <button
             aria-label="Cart"
-            className="relative grid h-10 w-10 place-items-center rounded-full hairline border hover:border-electric/60 transition-colors duration-500"
+            className="relative grid h-10 w-10 place-items-center rounded-full hairline border hover:border-gold transition-colors duration-500"
           >
-            <ShoppingBag className="h-4 w-4" />
-            <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-electric" />
+            <ShoppingBag className="h-4 w-4 text-gold" />
+            <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-gold" />
           </button>
           <button
             aria-label="Menu"
             className="md:hidden grid h-10 w-10 place-items-center rounded-full hairline border"
             onClick={() => setOpen(!open)}
           >
-            <Menu className="h-4 w-4" />
+            {open ? <X className="h-4 w-4 text-gold" /> : <Menu className="h-4 w-4 text-gold" />}
           </button>
         </div>
       </div>
@@ -73,7 +73,7 @@ const Navbar = () => {
                 key={l.label}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-xs uppercase tracking-luxury text-foreground/70 hover:text-electric"
+                className="text-xs uppercase tracking-luxury text-foreground/70 hover:text-gold"
               >
                 {l.label}
               </a>

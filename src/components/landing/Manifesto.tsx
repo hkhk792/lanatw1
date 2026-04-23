@@ -10,30 +10,31 @@ const stats = [
 const Manifesto = () => {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section id="manifesto" className="relative py-28 md:py-40 border-y hairline">
-      <div className="container">
+    <section id="manifesto" className="relative py-44 md:py-60 border-y hairline">
+      <div className="absolute inset-0 spotlight opacity-30 pointer-events-none" />
+      <div className="container relative">
         <div ref={ref} className="reveal max-w-4xl mx-auto text-center">
-          <p className="text-[10px] uppercase tracking-luxury text-electric mb-6">— Manifesto —</p>
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.15]">
-            "We do not make accessories.<br />
+          <p className="text-[10px] uppercase tracking-luxury text-gold mb-8">— Manifesto —</p>
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.15]">
+            <span className="text-gradient-gold">"We do not make accessories.</span><br />
             We craft <span className="italic text-foreground/70">moments</span> — composed, considered,
-            unforgettable."
+            <span className="text-gradient-gold"> unforgettable."</span>
           </h2>
-          <p className="mt-10 text-sm uppercase tracking-luxury text-muted-foreground">
-            — AETHER Atelier
+          <p className="mt-12 text-sm uppercase tracking-luxury text-muted-foreground">
+            — SP2S Atelier
           </p>
         </div>
 
-        <div className="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+        <div className="mt-28 md:mt-40 grid grid-cols-2 md:grid-cols-4 gap-px bg-gold/15">
           {stats.map((s) => (
             <div
               key={s.u}
-              className="bg-background p-8 md:p-10 text-center group hover:bg-card transition-colors duration-500"
+              className="bg-background p-10 md:p-14 text-center group hover:bg-card transition-colors duration-500"
             >
-              <p className="font-serif text-4xl md:text-5xl text-electric group-hover:scale-105 transition-transform duration-500">
+              <p className="font-serif text-5xl md:text-6xl text-gradient-gold group-hover:scale-105 transition-transform duration-500">
                 {s.v}
               </p>
-              <p className="mt-3 text-[10px] uppercase tracking-luxury text-muted-foreground">
+              <p className="mt-4 text-[10px] uppercase tracking-luxury text-muted-foreground">
                 {s.u}
               </p>
             </div>

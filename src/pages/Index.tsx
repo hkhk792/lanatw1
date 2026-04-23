@@ -11,7 +11,7 @@ import HealthWarning from "@/components/landing/HealthWarning";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "AETHER VAPE — Master the Essence | Luxury Vapor Atelier";
+    document.title = "SP2S — Master the Essence | Luxury Vapor Atelier";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`);
@@ -24,7 +24,7 @@ const Index = () => {
     };
     setMeta(
       "description",
-      "AETHER VAPE — next-generation flavor technology. Hand-finished devices, ceramic-coil pods and bespoke accessories crafted for a refined lifestyle. 21+ only."
+      "SP2S — next-generation flavor technology. Hand-finished devices, ceramic-coil pods and bespoke accessories crafted for a refined lifestyle. 21+ only."
     );
 
     let canon = document.querySelector('link[rel="canonical"]');

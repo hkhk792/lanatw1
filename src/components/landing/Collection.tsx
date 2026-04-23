@@ -20,39 +20,39 @@ const Collection = () => {
   const headRef = useReveal<HTMLDivElement>();
 
   return (
-    <section id="disposables" className="relative py-28 md:py-40">
+    <section id="disposables" className="relative py-44 md:py-60">
       <div className="container">
-        <div ref={headRef} className="reveal flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
+        <div ref={headRef} className="reveal flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24 md:mb-36">
           <div className="max-w-2xl">
-            <p className="text-[10px] uppercase tracking-luxury text-electric mb-5 flex items-center gap-3">
-              <span className="h-px w-10 bg-electric/60" />
+            <p className="text-[10px] uppercase tracking-luxury text-gold mb-6 flex items-center gap-3">
+              <span className="h-px w-10 bg-gold/60" />
               Disposable Collection
             </p>
-            <h2 className="font-serif text-4xl md:text-6xl leading-[1.05]">
-              Six devices.<br />
+            <h2 className="font-serif text-5xl md:text-7xl leading-[1.02]">
+              <span className="text-gradient-gold">Six devices.</span><br />
               <span className="italic text-foreground/70">One obsession with detail.</span>
             </h2>
           </div>
-          <p className="md:max-w-sm text-sm text-muted-foreground leading-relaxed">
+          <p className="md:max-w-sm text-sm text-muted-foreground leading-relaxed tracking-vogue">
             From flagship hardware to ceramic-core disposables, every piece in
-            the AETHER catalog is selected for one quality — uncompromising craft.
+            the SP2S catalog is selected for one quality — uncompromising craft.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {products.map((p, i) => (
             <ProductCard key={p.name} {...p} index={i} />
           ))}
         </div>
 
-        <div className="mt-20 flex justify-center">
+        <div className="mt-28 flex justify-center">
           <a
             href="#"
-            className="group inline-flex items-center gap-4 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-electric transition-colors duration-500"
+            className="group inline-flex items-center gap-4 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold transition-colors duration-500"
           >
-            <span className="h-px w-12 bg-foreground/30 group-hover:bg-electric transition-colors duration-500" />
+            <span className="h-px w-12 bg-gold/30 group-hover:bg-gold transition-colors duration-500" />
             View Full Catalog
-            <span className="h-px w-12 bg-foreground/30 group-hover:bg-electric transition-colors duration-500" />
+            <span className="h-px w-12 bg-gold/30 group-hover:bg-gold transition-colors duration-500" />
           </a>
         </div>
       </div>
