@@ -3,13 +3,15 @@ import AgeGate from "@/components/landing/AgeGate";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import Collection from "@/components/landing/Collection";
+import PodsAndLiquid from "@/components/landing/PodsAndLiquid";
+import Accessories from "@/components/landing/Accessories";
 import Manifesto from "@/components/landing/Manifesto";
 import Footer from "@/components/landing/Footer";
-import WeChatIcon from "@/components/WeChatIcon";
+import HealthWarning from "@/components/landing/HealthWarning";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "NOIRE — 蒸氣藝術巔峰 | 奢華霧化工坊";
+    document.title = "AETHER VAPE — Master the Essence | Luxury Vapor Atelier";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`);
@@ -22,7 +24,7 @@ const Index = () => {
     };
     setMeta(
       "description",
-      "NOIRE — 東京工藝打造的奢華蒸氣裝置與陶瓷芯煙彈。手工精加工鋁合金，獨特外觀，毫不妥協的工程設計。僅限18歲以上。"
+      "AETHER VAPE — next-generation flavor technology. Hand-finished devices, ceramic-coil pods and bespoke accessories crafted for a refined lifestyle. 21+ only."
     );
 
     let canon = document.querySelector('link[rel="canonical"]');
@@ -35,16 +37,18 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden pb-12">
       <AgeGate />
       <Navbar />
       <main>
         <Hero />
         <Collection />
+        <PodsAndLiquid />
+        <Accessories />
         <Manifesto />
       </main>
       <Footer />
-      <WeChatIcon />
+      <HealthWarning />
     </div>
   );
 };
