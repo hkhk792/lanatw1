@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { Menu, ShoppingBag } from "lucide-react";
 
-const links = ["產品系列", "科技工藝", "口味系列", "品牌日誌", "聯絡我們"];
+const links = [
+  { label: "Disposables", href: "#disposables" },
+  { label: "Pods & Liquid", href: "#pods" },
+  { label: "Accessories", href: "#accessories" },
+  { label: "Manifesto", href: "#manifesto" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -21,20 +27,22 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 group">
-          <span className="grid h-8 w-8 place-items-center rounded-full border border-gold/40 text-gold font-serif text-sm transition-all duration-500 group-hover:bg-gold group-hover:text-primary-foreground">
-            N
+          <span className="grid h-8 w-8 place-items-center rounded-full border border-electric/50 text-electric font-serif text-sm transition-all duration-500 group-hover:bg-electric group-hover:text-accent-foreground">
+            A
           </span>
-          <span className="font-serif text-xl tracking-wider-2">NOIRE<span className="text-gold">.</span></span>
+          <span className="font-serif text-xl tracking-wider-2">
+            AETHER<span className="text-electric">.</span>
+          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
             <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
-              className="text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold transition-colors duration-500"
+              key={l.label}
+              href={l.href}
+              className="text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-electric transition-colors duration-500"
             >
-              {l}
+              {l.label}
             </a>
           ))}
         </nav>
@@ -42,10 +50,10 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <button
             aria-label="Cart"
-            className="relative grid h-10 w-10 place-items-center rounded-full hairline border hover:border-gold/60 transition-colors duration-500"
+            className="relative grid h-10 w-10 place-items-center rounded-full hairline border hover:border-electric/60 transition-colors duration-500"
           >
             <ShoppingBag className="h-4 w-4" />
-            <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-gold" />
+            <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-electric" />
           </button>
           <button
             aria-label="Menu"
@@ -62,12 +70,12 @@ const Navbar = () => {
           <div className="container py-6 flex flex-col gap-5">
             {links.map((l) => (
               <a
-                key={l}
-                href={`#${l.toLowerCase()}`}
+                key={l.label}
+                href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-xs uppercase tracking-luxury text-foreground/70 hover:text-gold"
+                className="text-xs uppercase tracking-luxury text-foreground/70 hover:text-electric"
               >
-                {l}
+                {l.label}
               </a>
             ))}
           </div>
