@@ -4,12 +4,12 @@ const AgeGate = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const ok = sessionStorage.getItem("aether-age-verified");
+    const ok = sessionStorage.getItem("sp2s-age-verified");
     if (!ok) setOpen(true);
   }, []);
 
   const accept = () => {
-    sessionStorage.setItem("aether-age-verified", "yes");
+    sessionStorage.setItem("sp2s-age-verified", "yes");
     setOpen(false);
   };
 
@@ -21,29 +21,29 @@ const AgeGate = () => {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center bg-obsidian/95 backdrop-blur-xl animate-fade-in p-6">
-      <div className="absolute inset-0 bg-gradient-radial opacity-50 pointer-events-none" />
-      <div className="relative max-w-lg w-full glass-strong p-10 md:p-14 text-center animate-fade-in-up">
-        <div className="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full border border-electric/50 text-electric font-serif text-lg">
+      <div className="absolute inset-0 spotlight opacity-40 pointer-events-none" />
+      <div className="relative max-w-lg w-full glass-strong p-10 md:p-14 text-center animate-fade-in-up shadow-luxury">
+        <div className="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full border border-gold/50 text-gradient-gold font-serif text-lg">
           21
         </div>
-        <p className="text-[10px] uppercase tracking-luxury text-electric mb-6">Age Verification</p>
-        <h2 className="font-serif text-3xl md:text-4xl mb-5 leading-tight">
+        <p className="text-[10px] uppercase tracking-luxury text-gold mb-6">Age Verification</p>
+        <h2 className="font-serif text-3xl md:text-4xl mb-5 leading-tight text-gradient-gold">
           You must be of legal smoking age
         </h2>
-        <p className="text-sm text-muted-foreground mb-10 leading-relaxed max-w-md mx-auto">
+        <p className="text-sm text-muted-foreground mb-10 leading-relaxed max-w-md mx-auto tracking-vogue">
           Products on this site contain nicotine, an addictive chemical.
-          Please confirm you are at least <span className="text-foreground">21 years</span> of age to enter.
+          Please confirm you are at least <span className="text-gold">21 years</span> of age to enter.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <button
             onClick={accept}
-            className="flex-1 bg-electric text-accent-foreground py-4 text-[11px] uppercase tracking-luxury font-medium hover:opacity-90 transition-all duration-500"
+            className="flex-1 bg-gradient-gold text-primary-foreground py-4 text-[11px] uppercase tracking-luxury font-medium hover:shadow-gold transition-all duration-500"
           >
             I am 21 or older
           </button>
           <button
             onClick={decline}
-            className="flex-1 hairline border py-4 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-foreground hover:border-foreground/30 transition-all duration-500"
+            className="flex-1 hairline border py-4 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold hover:border-gold/40 transition-all duration-500"
           >
             Exit
           </button>
