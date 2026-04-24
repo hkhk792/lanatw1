@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Menu, ShoppingBag, X } from "lucide-react";
 
 const links = [
-  { label: "Disposables", href: "#disposables" },
-  { label: "Pods & Liquid", href: "#pods" },
-  { label: "Accessories", href: "#accessories" },
-  { label: "Manifesto", href: "#manifesto" },
-  { label: "Contact", href: "#contact" },
+  { label: "產品系列", href: "#disposables" },
+  { label: "科技工藝", href: "#pods" },
+  { label: "口味系列", href: "#accessories" },
+  { label: "品牌日誌", href: "#manifesto" },
+  { label: "聯絡我們", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -30,8 +30,8 @@ const Navbar = () => {
           <span className="grid h-9 w-9 place-items-center rounded-full border border-gold-soft text-gradient-gold font-serif text-sm transition-all duration-500 group-hover:border-gold">
             S
           </span>
-          <span className="font-serif text-2xl tracking-vogue text-gradient-gold">
-            SP2S
+          <span className="font-serif text-2xl tracking-vogue text-gradient-gold flex">
+            <span>S</span><span>P</span><span>2</span><span>S</span>
           </span>
         </a>
 

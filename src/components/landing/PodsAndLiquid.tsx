@@ -61,17 +61,17 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
 const features: Feature[] = [
   {
     image: p7,
-    eyebrow: "Pods System",
-    title: "Universal Pods",
-    desc: "Cross-platform pod cartridges engineered for unwavering vapor consistency. Compatible with all SP2S ceramic-coil hardware.",
-    specs: ["3% Nicotine Salt", "Ceramic Coil Compatible", "2.5ml Capacity"],
+    eyebrow: "彈匣系統",
+    title: "全適配芯",
+    desc: "為穩定蒸氣一致性而設計的彈匣。與所有 SP2S 陶瓷芯硬體相容。",
+    specs: ["3% 尼古丁鹽", "陶瓷芯相容", "2.5ml 容量"],
   },
   {
     image: p8,
-    eyebrow: "E-Liquid",
-    title: "Premium E-Liquids",
-    desc: "Master-blended liquids drawn from rare botanical sources. Layered profiles refined through hundreds of tasting iterations.",
-    specs: ["Nine Signature Flavors", "Pharmaceutical Grade", "Salt Nicotine Base"],
+    eyebrow: "電子煙油",
+    title: "頂級電子煙油",
+    desc: "從稀有植物來源精心調配的液體。透過數百次品嘗迭代精煉的多層次風味。",
+    specs: ["九種經典口味", "藥用等級", "尼古丁鹽基底"],
   },
 ];
 
@@ -84,11 +84,11 @@ const PodsAndLiquid = () => {
         <div ref={headRef} className="reveal max-w-3xl mb-24 md:mb-36">
           <p className="text-[10px] uppercase tracking-luxury text-gold mb-6 flex items-center gap-3">
             <span className="h-px w-10 bg-gold/60" />
-            Pods & E-Liquid
+            彈匣與電子煙油
           </p>
           <h2 className="font-serif text-5xl md:text-7xl leading-[1.02]">
-            <span className="text-gradient-gold">Engineered consumables.</span><br />
-            <span className="italic text-foreground/70">Tasted to perfection.</span>
+            <span className="text-gradient-gold">精工消耗品。</span><br />
+            <span className="italic text-foreground/70">品嘗至完美。</span>
           </h2>
         </div>
 

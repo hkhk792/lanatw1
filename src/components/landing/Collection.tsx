@@ -4,16 +4,16 @@ import p1 from "@/assets/product-1.png";
 import p2 from "@/assets/product-2.png";
 import p3 from "@/assets/product-3.png";
 import p4 from "@/assets/product-4.png";
-import p5 from "@/assets/product-5.png";
+import p5 from "@/assets/atomizing-rod.jpg";
 import p6 from "@/assets/product-6.png";
 
 const products = [
-  { image: p1, name: "Ninja Limited", flavor: "Signature Craft Series", price: "$148" },
-  { image: p2, name: "Lanna Premier", flavor: "Ten-Color Edition", price: "$129" },
-  { image: p3, name: "SP2S Bullet", flavor: "Thirteen-Color Atelier", price: "$112" },
-  { image: p4, name: "SP2S Pro", flavor: "Begonia · Chrome · Stellar", price: "$184" },
-  { image: p5, name: "Aether Stick", flavor: "380mAh · Type-C Fast Charge", price: "$89" },
-  { image: p6, name: "DIYA Ceramic", flavor: "2.5ml · 8W Output", price: "$136" },
+  { image: p1, name: "卡通限量版", flavor: "經典工藝系列", price: "$148", id: "cartoon" },
+  { image: p2, name: "蘭納精裝版", flavor: "十色限定版", price: "$128", id: "lanna" },
+  { image: p3, name: "SP2S 子彈版", flavor: "十三色工坊系列", price: "$118", id: "bullet" },
+  { image: p4, name: "SP2S Pro", flavor: "海棠 · 鉻金 · 星辰", price: "$188", id: "pro" },
+  { image: p5, name: "電子煙主機", flavor: "380mAh · Type-C 快充", price: "$88", id: "atomizer" },
+  { image: p6, name: "DIYA 陶瓷", flavor: "2.5ml · 8W 輸出", price: "$136", id: "diya" },
 ];
 
 const Collection = () => {
@@ -26,22 +26,22 @@ const Collection = () => {
           <div className="max-w-2xl">
             <p className="text-[10px] uppercase tracking-luxury text-gold mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-gold/60" />
-              Disposable Collection
+              一次性產品系列
             </p>
             <h2 className="font-serif text-5xl md:text-7xl leading-[1.02]">
-              <span className="text-gradient-gold">Six devices.</span><br />
-              <span className="italic text-foreground/70">One obsession with detail.</span>
+              <span className="text-gradient-gold">六款設備。</span><br />
+              <span className="italic text-foreground/70">對細節的一種執著。</span>
             </h2>
           </div>
           <p className="md:max-w-sm text-sm text-muted-foreground leading-relaxed tracking-vogue">
-            From flagship hardware to ceramic-core disposables, every piece in
-            the SP2S catalog is selected for one quality — uncompromising craft.
+            從旗艦硬體到陶瓷芯一次性產品，SP2S 目錄中的每一項都
+            因同一品質而被選中——毫不妥協的工藝。
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {products.map((p, i) => (
-            <ProductCard key={p.name} {...p} index={i} />
+            <ProductCard key={p.id} {...p} index={i} />
           ))}
         </div>
 
@@ -51,7 +51,7 @@ const Collection = () => {
             className="group inline-flex items-center gap-4 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold transition-colors duration-500"
           >
             <span className="h-px w-12 bg-gold/30 group-hover:bg-gold transition-colors duration-500" />
-            View Full Catalog
+            查看完整目錄
             <span className="h-px w-12 bg-gold/30 group-hover:bg-gold transition-colors duration-500" />
           </a>
         </div>

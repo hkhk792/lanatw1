@@ -11,7 +11,7 @@ import HealthWarning from "@/components/landing/HealthWarning";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "SP2S — Master the Essence | Luxury Vapor Atelier";
+    document.title = "SP2S — 品味精髓 | 奢華蒸氣工坊";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`);
@@ -24,7 +24,7 @@ const Index = () => {
     };
     setMeta(
       "description",
-      "SP2S — next-generation flavor technology. Hand-finished devices, ceramic-coil pods and bespoke accessories crafted for a refined lifestyle. 21+ only."
+      "SP2S — 新一代風味科技。手工精製設備、陶瓷芯彈匣和訂製配飾，為精緻生活打造。僅限18歲以上。"
     );
 
     let canon = document.querySelector('link[rel="canonical"]');

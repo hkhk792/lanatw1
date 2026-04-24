@@ -1,10 +1,10 @@
 import { useReveal } from "@/hooks/useReveal";
 
 const stats = [
-  { v: "2.5", u: "ml capacity" },
-  { v: "380", u: "mAh battery" },
-  { v: "8W", u: "power output" },
-  { v: "25", u: "signature finishes" },
+  { v: "2.5", u: "ml 容量" },
+  { v: "380", u: "mAh 電池" },
+  { v: "8W", u: "功率輸出" },
+  { v: "25", u: "經典外觀" },
 ];
 
 const Manifesto = () => {
@@ -14,14 +14,14 @@ const Manifesto = () => {
       <div className="absolute inset-0 spotlight opacity-30 pointer-events-none" />
       <div className="container relative">
         <div ref={ref} className="reveal max-w-4xl mx-auto text-center">
-          <p className="text-[10px] uppercase tracking-luxury text-gold mb-8">— Manifesto —</p>
+          <p className="text-[10px] uppercase tracking-luxury text-gold mb-8">— 品牌宣言 —</p>
           <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.15]">
-            <span className="text-gradient-gold">"We do not make accessories.</span><br />
-            We craft <span className="italic text-foreground/70">moments</span> — composed, considered,
-            <span className="text-gradient-gold"> unforgettable."</span>
+            <span className="text-gradient-gold">"我們不生產配飾。</span><br />
+            我們打造 <span className="italic text-foreground/70">時刻</span> — 精心構思，縝密考量，
+            <span className="text-gradient-gold"> 難以忘懷。"</span>
           </h2>
           <p className="mt-12 text-sm uppercase tracking-luxury text-muted-foreground">
-            — SP2S Atelier
+            — SP2S 工坊
           </p>
         </div>
 

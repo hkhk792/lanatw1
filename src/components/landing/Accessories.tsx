@@ -1,14 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
-import p9 from "@/assets/product-9.png";
+import p9 from "@/assets/silicone-sleeves.png";
 
 const swatches = [
-  { name: "Obsidian", hsl: "0 0% 4%" },
-  { name: "Champagne", hsl: "43 55% 52%" },
-  { name: "Ivory", hsl: "40 30% 90%" },
-  { name: "Rosé", hsl: "350 60% 75%" },
-  { name: "Sage", hsl: "150 20% 55%" },
-  { name: "Brass", hsl: "38 45% 45%" },
+  { name: "曜石黑", hsl: "0 0% 4%" },
+  { name: "香檳金", hsl: "43 55% 52%" },
+  { name: "象牙白", hsl: "40 30% 90%" },
+  { name: "玫瑰粉", hsl: "350 60% 75%" },
+  { name: "鼠尾草", hsl: "150 20% 55%" },
+  { name: "古銅金", hsl: "38 45% 45%" },
 ];
 
 const Accessories = () => {
@@ -21,12 +21,12 @@ const Accessories = () => {
         <div ref={ref} className="reveal max-w-3xl mx-auto text-center mb-20 md:mb-32">
           <p className="text-[10px] uppercase tracking-luxury text-gold mb-6 flex items-center justify-center gap-3">
             <span className="h-px w-10 bg-gold/60" />
-            Bespoke Accessories
+            訂製配飾
             <span className="h-px w-10 bg-gold/60" />
           </p>
           <h2 className="font-serif text-5xl md:text-7xl leading-[1.02]">
-            <span className="text-gradient-gold">Silicone sleeves,</span><br />
-            <span className="italic text-foreground/70">tailored in colour & touch.</span>
+            <span className="text-gradient-gold">矽膠保護套，</span><br />
+            <span className="italic text-foreground/70">色彩與觸感的量身訂製。</span>
           </h2>
         </div>
 
@@ -46,11 +46,10 @@ const Accessories = () => {
           <div className="absolute inset-x-6 bottom-6 md:inset-x-14 md:bottom-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div className="max-w-md">
               <h3 className="font-serif text-4xl md:text-6xl leading-tight mb-4 text-gradient-gold">
-                Twenty-five hues.
+                二十五種色調。
               </h3>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed tracking-vogue">
-                Soft-touch silicone sleeves, individually moulded and colour-matched
-                to your daily ritual.
+                親膚觸感矽膠保護套，個別塑形並配色，與您的日常儀式完美契合。
               </p>
             </div>
 
@@ -58,7 +57,7 @@ const Accessories = () => {
               href="#"
               className="group inline-flex items-center gap-3 self-start md:self-auto bg-gradient-gold text-primary-foreground px-8 py-4 text-[11px] uppercase tracking-luxury font-medium hover:shadow-gold transition-all duration-500"
             >
-              Configure Yours
+              立即配置
               <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
             </a>
           </div>

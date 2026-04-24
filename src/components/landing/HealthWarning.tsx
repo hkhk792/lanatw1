@@ -6,7 +6,7 @@ const HealthWarning = () => {
       <div className="container py-3 flex items-center justify-center gap-3 text-center">
         <AlertTriangle className="h-4 w-4 shrink-0" />
         <p className="text-[10px] sm:text-xs uppercase tracking-wider-2 font-medium">
-          Warning: This product contains nicotine. Nicotine is an addictive chemical. Sale prohibited under 21.
+          警告：本產品含有尼古丁。尼古丁是一種成癮性化學物質。未滿18歲禁止銷售。
         </p>
       </div>
     </div>

@@ -2,9 +2,9 @@ import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
 
 const Footer = () => {
   const cols = [
-    { title: "Shop", items: ["Disposables", "Pods", "E-Liquids", "Accessories"] },
-    { title: "Atelier", items: ["Story", "Craft", "Sustainability", "Press"] },
-    { title: "Support", items: ["Contact", "Shipping", "Warranty", "FAQ"] },
+    { title: "購物", items: ["一次性產品", "彈匣", "電子煙油", "配飾"] },
+    { title: "工坊", items: ["品牌故事", "工藝", "可持續發展", "媒體報導"] },
+    { title: "客服", items: ["聯絡我們", "配送", "保固", "常見問題"] },
   ];
 
   return (
@@ -17,13 +17,13 @@ const Footer = () => {
               <span className="grid h-10 w-10 place-items-center rounded-full border border-gold-soft text-gradient-gold font-serif">
                 S
               </span>
-              <span className="font-serif text-3xl tracking-vogue text-gradient-gold">
-                SP2S
+              <span className="font-serif text-3xl tracking-vogue text-gradient-gold flex">
+                <span>S</span><span>P</span><span>2</span><span>S</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-sm leading-relaxed tracking-vogue">
-              The pinnacle of vapor, refined through obsessive craft and quiet
-              luxury. Designed in Tokyo. Shipped worldwide.
+              蒸氣藝術巔峰，透過極致工藝和低調奢華精煉而成。
+              東京設計，全球配送。
             </p>
 
             <div className="mt-10 flex items-center gap-3">
@@ -61,32 +61,32 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div className="md:col-span-3">
-            <p className="text-[10px] uppercase tracking-luxury text-gold mb-6">Private List</p>
+            <p className="text-[10px] uppercase tracking-luxury text-gold mb-6">私人會員名單</p>
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed tracking-vogue">
-              Early access to limited releases and atelier stories.
+              優先獲取限量版發布和工坊故事。
             </p>
             <form className="flex border-b hairline border-b-gold/20 focus-within:border-b-gold transition-colors duration-500">
               <input
                 type="email"
-                placeholder="Your email"
+                placeholder="您的電子郵件"
                 className="flex-1 bg-transparent py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none"
               />
               <button
                 type="submit"
                 className="text-[10px] uppercase tracking-luxury text-gold/80 hover:text-gold transition-colors"
               >
-                Join
+                加入
               </button>
             </form>
           </div>
         </div>
 
         <div className="mt-24 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-luxury text-muted-foreground">
-          <p>© 2026 SP2S Atelier. All rights reserved.</p>
+          <p>© 2026 SP2S 工坊。版權所有。</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-gold transition-colors">Privacy</a>
-            <a href="#" className="hover:text-gold transition-colors">Terms</a>
-            <a href="#" className="hover:text-gold transition-colors">Compliance</a>
+            <a href="#" className="hover:text-gold transition-colors">隱私政策</a>
+            <a href="#" className="hover:text-gold transition-colors">服務條款</a>
+            <a href="#" className="hover:text-gold transition-colors">合規說明</a>
           </div>
         </div>
       </div>
