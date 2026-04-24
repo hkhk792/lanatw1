@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ShoppingCart, User, ChevronLeft, Plus, Minus } from "lucide-react";
+import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import productMain from "@/assets/product-3.png";
@@ -147,7 +147,14 @@ const BulletDetail = () => {
           </div>
 
           <div>
-            <User className="w-5 h-5 text-gray-600 cursor-pointer md:hidden" />
+            <button type="button" onClick={openCart} aria-label="購物車" className="relative md:hidden">
+              <ShoppingCart className="w-5 h-5 text-gray-600" />
+              {itemCount > 0 && (
+                <span className="absolute -top-2 -right-2 min-w-4 h-4 px-0.5 bg-red-500 text-white text-[10px] rounded-full flex items-center justify-center">
+                  {itemCount > 99 ? "99+" : itemCount}
+                </span>
+              )}
+            </button>
           </div>
         </div>
       </nav>

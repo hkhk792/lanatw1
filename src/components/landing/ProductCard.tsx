@@ -1,9 +1,7 @@
 import { Plus } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import { useCart } from "@/contexts/CartContext";
 
 interface Props {
   image: string;
@@ -53,7 +51,6 @@ const QUICK_ADD_PRODUCTS: Record<
 const ProductCard = ({ image, name, flavor, price, index, id }: Props) => {
   const ref = useReveal<HTMLDivElement>();
   const navigate = useNavigate();
-  const { addToCart } = useCart();
 
   const quickAdd = QUICK_ADD_PRODUCTS[id];
 
@@ -61,17 +58,9 @@ const ProductCard = ({ image, name, flavor, price, index, id }: Props) => {
     if (quickAdd) navigate(quickAdd.route);
   };
 
-  const handleAddToCart: React.MouseEventHandler = (e) => {
+  const handlePlusClick: React.MouseEventHandler = (e) => {
     e.stopPropagation();
-    if (!quickAdd) return;
-    addToCart({
-      productId: id,
-      title: quickAdd.title,
-      variant: quickAdd.variant,
-      priceTwd: quickAdd.priceTwd,
-      quantity: 1,
-    });
-    toast.success("已加入購物車", { description: `${quickAdd.variant} x1` });
+    if (quickAdd) navigate(quickAdd.route);
   };
 
   return (
@@ -115,17 +104,17 @@ const ProductCard = ({ image, name, flavor, price, index, id }: Props) => {
         {quickAdd ? (
           <button
             type="button"
-            onClick={handleAddToCart}
+            onClick={handlePlusClick}
             className="w-full text-left mt-4 pt-4 border-t hairline border-gold/20 flex items-center justify-between transition-opacity duration-500 delay-100 opacity-90 group-hover:opacity-100 cursor-pointer"
           >
-            <span className="text-[10px] uppercase tracking-luxury text-foreground/70">加入購物車</span>
+            <span className="text-[10px] uppercase tracking-luxury text-foreground/70">查看詳情</span>
             <span className="grid h-7 w-7 place-items-center rounded-full bg-gradient-gold text-primary-foreground group-hover:scale-105 transition-transform">
               <Plus className="h-3.5 w-3.5" />
             </span>
           </button>
         ) : (
           <div className="mt-4 pt-4 border-t hairline flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-            <span className="text-[10px] uppercase tracking-luxury text-foreground/70">加入購物車</span>
+            <span className="text-[10px] uppercase tracking-luxury text-foreground/70">查看詳情</span>
             <span className="grid h-7 w-7 place-items-center rounded-full bg-gradient-gold text-primary-foreground">
               <Plus className="h-3.5 w-3.5" />
             </span>
