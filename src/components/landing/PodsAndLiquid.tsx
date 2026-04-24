@@ -1,5 +1,7 @@
+import type { ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
+import { BrandSp2s } from "@/components/BrandSp2s";
 import p7 from "@/assets/product-7.jpg";
 import p8 from "@/assets/product-8.png";
 
@@ -7,7 +9,7 @@ interface Feature {
   image: string;
   eyebrow: string;
   title: string;
-  desc: string;
+  desc: ReactNode;
   specs: string[];
 }
 
@@ -63,7 +65,12 @@ const features: Feature[] = [
     image: p7,
     eyebrow: "彈匣系統",
     title: "全適配芯",
-    desc: "為穩定蒸氣一致性而設計的彈匣。與所有 SP2S 陶瓷芯硬體相容。",
+    desc: (
+      <>
+        為穩定蒸氣一致性而設計的彈匣。與所有 <BrandSp2s className="font-serif text-sm md:text-base text-muted-foreground" />{" "}
+        陶瓷芯硬體相容。
+      </>
+    ),
     specs: ["3% 尼古丁鹽", "陶瓷芯相容", "2.5ml 容量"],
   },
   {

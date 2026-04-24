@@ -1,133 +1,76 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ShoppingCart, User, ChevronLeft, Plus, Minus } from "lucide-react";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
-import productMain from "@/assets/product-12.png";
-import productThumb1 from "@/assets/product-13.png";
-import productThumb2 from "@/assets/product-11.png";
+import productMain from "@/assets/lana-leather-main.png";
+import productThumb1 from "@/assets/product-4.png";
+import productThumb2 from "@/assets/product-8.png";
 import logoImage from "@/assets/product-14.jpg";
-import doraemonMain from "@/assets/wps1.png";
-import doraemonThumb1 from "@/assets/wps3.png";
-import doraemonThumb2 from "@/assets/wps2.png";
-import luffyMain from "@/assets/16.png";
-import luffyThumb1 from "@/assets/18.png";
-import luffyThumb2 from "@/assets/17.png";
-import kakashiMain from "@/assets/kakashi-main.png";
-import kakashiThumb1 from "@/assets/kakashi-thumb-1.png";
-import kakashiThumb2 from "@/assets/kakashi-thumb-2.png";
-import ktMain from "@/assets/kt-main.png";
-import ktThumb1 from "@/assets/kt-thumb-1.png";
-import ktThumb2 from "@/assets/kt-thumb-2.png";
-import kuromiMain from "@/assets/kuromi-main.png";
-import kuromiThumb1 from "@/assets/kuromi-thumb-1.png";
-import kuromiThumb2 from "@/assets/kuromi-thumb-2.png";
 
-const CARTOON_PRODUCT_ID = "cartoon";
-const CARTOON_PRICE_TWD = 550;
+const LANNA_PRODUCT_ID = "lanna";
+const LANNA_PRICE_TWD = 500;
 
-const ProductDetail = () => {
+const variantOptions = [
+  "烈焰黑",
+  "幻彩象",
+  "香檳金",
+  "軍綠色",
+  "炫彩粉",
+  "炫正紅",
+  "粉白色",
+  "粉藍色",
+  "粉灰色",
+  "粉杏色",
+  "粉綠色",
+  "台灣橙",
+  "玫瑰紫",
+];
+
+const LannaDetail = () => {
   const { addToCart, itemCount, openCart } = useCart();
   const [quantity, setQuantity] = useState(1);
-  const [selectedOption, setSelectedOption] = useState("蠟筆小新");
+  const [selectedOption, setSelectedOption] = useState("炫正紅");
   const [isScrolled, setIsScrolled] = useState(false);
   const [mainImage, setMainImage] = useState(productMain);
-  const [thumb1, setThumb1] = useState(productThumb1);
-  const [thumb2, setThumb2] = useState(productThumb2);
+
+  const buildCartPayload = () => ({
+    productId: LANNA_PRODUCT_ID,
+    title: getProductTitle().replace("｜", " ").trim(),
+    variant: selectedOption,
+    priceTwd: LANNA_PRICE_TWD,
+    quantity,
+    imageUrl: mainImage,
+  });
+
+  const handleAddToCart = () => {
+    addToCart(buildCartPayload());
+    toast.success("已加入購物車", { description: `【${selectedOption}】x${quantity}` });
+  };
+
+  const handleBuyNow = () => {
+    addToCart(buildCartPayload());
+    openCart();
+  };
 
   const handleOptionChange = (option: string) => {
     if (option !== selectedOption) {
       setQuantity(1);
     }
     setSelectedOption(option);
-    if (option === "多拉 A 夢") {
-      setMainImage(doraemonMain);
-      setThumb1(doraemonThumb1);
-      setThumb2(doraemonThumb2);
-    } else if (option === "火影忍者卡卡西") {
-      setMainImage(kakashiMain);
-      setThumb1(kakashiThumb1);
-      setThumb2(kakashiThumb2);
-    } else if (option === "KT 貓") {
-      setMainImage(ktMain);
-      setThumb1(ktThumb1);
-      setThumb2(ktThumb2);
-    } else if (option === "庫洛米") {
-      setMainImage(kuromiMain);
-      setThumb1(kuromiThumb1);
-      setThumb2(kuromiThumb2);
-    } else if (option === "航海王魯夫 - 藍") {
-      setMainImage(luffyMain);
-      setThumb1(luffyThumb1);
-      setThumb2(luffyThumb2);
-    } else {
-      setMainImage(productMain);
-      setThumb1(productThumb1);
-      setThumb2(productThumb2);
-    }
   };
 
-  const getProductTitle = () => {
-    if (selectedOption === "多拉 A 夢") {
-      return "NINGA 多拉 A 夢卡通一代通用主機｜多種配色可選";
-    } else if (selectedOption === "航海王魯夫 - 藍") {
-      return "NINGA 航海王魯夫卡通一代通用主機｜多種配色可選";
-    }
-    return `NINGA ${selectedOption}卡通一代通用主機｜多種配色可選`;
-  };
-
-  const getProductDescription = () => {
-    if (selectedOption === "多拉 A 夢") {
-      return "NINGA 多拉 A 夢卡通一代通用主機 多種配色可選";
-    } else if (selectedOption === "航海王魯夫 - 藍") {
-      return "NINGA 航海王魯夫卡通一代通用主機 多種配色可選";
-    }
-    return `NINGA ${selectedOption}卡通一代通用主機 多種配色可選`;
-  };
-
-  const getCategory = () => {
-    if (selectedOption === "多拉 A 夢") {
-      return "NINGA 多拉 A 夢主機";
-    } else if (selectedOption === "航海王魯夫 - 藍") {
-      return "NINGA 航海王魯夫主機";
-    }
-    return `NINGA ${selectedOption}主機`;
-  };
-
-  const getTags = () => {
-    if (selectedOption === "多拉 A 夢") {
-      return "NINGA 多拉 A 夢，NINGA 多拉 A 夢卡通一代通用主機";
-    } else if (selectedOption === "航海王魯夫 - 藍") {
-      return "NINGA 航海王魯夫，NINGA 航海王魯夫卡通一代通用主機";
-    }
-    return `NINGA ${selectedOption}，NINGA ${selectedOption}卡通一代通用主機`;
-  };
-
-  const getBadgeText = () => {
-    if (selectedOption === "多拉 A 夢") {
-      return "通用主機｜多拉 A 夢";
-    } else if (selectedOption === "航海王魯夫 - 藍") {
-      return "通用主機｜航海王魯夫";
-    }
-    return `通用主機｜${selectedOption}`;
-  };
+  const getProductTitle = () => `SP2S Legend S ${selectedOption} 一代升級煙桿｜多種配色可選`;
+  const getProductDescription = () =>
+    `SP2S Legend S ${selectedOption} 一代升級煙桿 多種配色可選`;
+  const getCategory = () => "SP2S Legend S 主機";
+  const getTags = () => `SP2S Legend S，SP2S Legend S ${selectedOption}`;
+  const getBadgeText = () => `升級煙桿｜${selectedOption}`;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const flavorOptions = [
-    "多拉 A 夢",
-    "航海王魯夫 - 藍",
-    "火影忍者卡卡西",
-    "航海王索隆 - 綠",
-    "庫洛米",
-    "KT 貓",
-    "蠟筆小新",
-  ];
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -138,7 +81,7 @@ const ProductDetail = () => {
       >
         <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src={logoImage} alt="Sp27 Logo" className="w-20 h-20 rounded-lg object-contain" />
+            <img src={logoImage} alt="SP2S Logo" className="w-20 h-20 rounded-lg object-contain" />
           </div>
 
           <div className="hidden md:flex items-center gap-6">
@@ -186,7 +129,7 @@ const ProductDetail = () => {
 
             <div className="relative bg-gray-50 rounded-lg overflow-hidden">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-3">
-                {["一代通用", "多款主題", "精緻小巧", "易於操作"].map((t) => (
+                {["升級煙桿", "雙檔輸出", "Type-C 快充", "合金機身"].map((t) => (
                   <div key={t} className="bg-white shadow-md rounded-lg px-4 py-3 flex items-center gap-2">
                     <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center text-gray-700">✓</div>
                     <span className="font-medium text-sm">{t}</span>
@@ -194,7 +137,7 @@ const ProductDetail = () => {
                 ))}
               </div>
 
-              <img src={mainImage} alt="NINGA 蠟筆小新" className="w-full h-[500px] object-contain" />
+              <img src={mainImage} alt="SP2S Legend S" className="w-full h-[500px] object-contain" />
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="bg-red-600 text-white px-6 py-2 font-bold rounded-md shadow-lg">{getBadgeText()}</div>
@@ -207,16 +150,22 @@ const ProductDetail = () => {
 
             <div className="mt-6 flex justify-center gap-4">
               <img
-                src={thumb1}
+                src={productThumb1}
                 alt="thumbnail 1"
                 className="w-24 h-24 object-cover rounded-lg border-2 border-gray-200 hover:border-gray-400 cursor-pointer transition-colors"
-                onClick={() => setMainImage(thumb1)}
+                onClick={() => setMainImage(productThumb1)}
               />
               <img
-                src={thumb2}
+                src={productThumb2}
                 alt="thumbnail 2"
                 className="w-24 h-24 object-cover rounded-lg border-2 border-gray-200 hover:border-gray-400 cursor-pointer transition-colors"
-                onClick={() => setMainImage(thumb2)}
+                onClick={() => setMainImage(productThumb2)}
+              />
+              <img
+                src={productMain}
+                alt="thumbnail main"
+                className="w-24 h-24 object-cover rounded-lg border-2 border-gray-200 hover:border-gray-400 cursor-pointer transition-colors"
+                onClick={() => setMainImage(productMain)}
               />
             </div>
           </div>
@@ -228,20 +177,20 @@ const ProductDetail = () => {
               </a>
               <span>/</span>
               <a href="#" className="hover:text-gray-700">
-                卡通系列
+                SP2S 傳奇系列
               </a>
               <span>/</span>
-              <span className="text-gray-700 tracking-tight">NINGA 主機</span>
+              <span className="text-gray-700 tracking-tight">Legend S 煙桿</span>
             </div>
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
 
-            <div className="text-4xl font-bold text-gray-900">NT$550.00</div>
+            <div className="text-4xl font-bold text-gray-900">NT${LANNA_PRICE_TWD}.00</div>
 
             <div className="space-y-4">
-              <label className="text-lg font-medium text-gray-800">顏色口味：</label>
+              <label className="text-lg font-medium text-gray-800">顏色款式：</label>
               <div className="flex flex-wrap gap-3">
-                {flavorOptions.map((option) => (
+                {variantOptions.map((option) => (
                   <button
                     key={option}
                     type="button"
@@ -260,10 +209,10 @@ const ProductDetail = () => {
 
             <div className="space-y-2 text-gray-700">
               <p>購買前請添加客服 LINE: abs791012</p>
-              <p>多款卡通角色可選</p>
-              <p>一代通用主机设计</p>
-              <p>多種配色可選</p>
-              <p>卡通主題收藏首選</p>
+              <p>雙檔位輸出 · 9W / 18W</p>
+              <p>Type-C 快充 · 約 30 分鐘充滿</p>
+              <p>鋁合金一體機身 · 髮絲紋處理</p>
+              <p>通配 SP2S Legend 系列煙彈</p>
             </div>
 
             <div className="flex flex-col gap-4">
@@ -287,17 +236,7 @@ const ProductDetail = () => {
                 </div>
                 <button
                   type="button"
-                  onClick={() => {
-                    addToCart({
-                      productId: CARTOON_PRODUCT_ID,
-                      title: getProductTitle().replace("｜", " ").trim(),
-                      variant: selectedOption,
-                      priceTwd: CARTOON_PRICE_TWD,
-                      quantity,
-                      imageUrl: mainImage,
-                    });
-                    toast.success("已加入購物車", { description: `【${selectedOption}】x${quantity}` });
-                  }}
+                  onClick={handleAddToCart}
                   className="flex-1 min-w-[10rem] border-2 border-orange-500 text-orange-600 font-medium py-3 px-6 rounded-lg hover:bg-orange-50 transition-colors flex items-center justify-center gap-2"
                 >
                   <ShoppingCart className="w-5 h-5" />
@@ -305,24 +244,14 @@ const ProductDetail = () => {
                 </button>
                 <button
                   type="button"
-                  onClick={() => {
-                    addToCart({
-                      productId: CARTOON_PRODUCT_ID,
-                      title: getProductTitle().replace("｜", " ").trim(),
-                      variant: selectedOption,
-                      priceTwd: CARTOON_PRICE_TWD,
-                      quantity,
-                      imageUrl: mainImage,
-                    });
-                    openCart();
-                  }}
+                  onClick={handleBuyNow}
                   className="flex-1 min-w-[10rem] bg-blue-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
                 >
                   立即購買
                 </button>
               </div>
               <p className="text-sm text-gray-500">
-                切換口味時數量會重設為 1。可先加入一種口味，再選其他口味分別加入，購物車內可同時保留多種口味。
+                切換款式時數量會重設為 1。可先加入一種款式，再選其他款式分別加入，購物車內可同時保留多種款式。
               </p>
             </div>
 
@@ -336,10 +265,77 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-      </main>
 
+        <section className="mt-16 space-y-10">
+          <div className="rounded-2xl border border-gray-100 bg-white p-6 md:p-10 shadow-sm">
+            <h2 className="text-2xl font-bold text-gray-900">商品介紹</h2>
+            <div className="mt-4 h-px w-14 bg-gray-900" />
+            <p className="mt-6 leading-8 text-gray-700">
+              LANA 皮革主機將高品質與先進技術完美結合，擁有經典而優雅的皮革外觀，彰顯您的獨特品味與氣質。
+            </p>
+            <h3 className="mt-8 text-lg font-semibold text-gray-900">設計理念</h3>
+            <p className="mt-3 leading-8 text-gray-700">
+              LANA 皮革主機的設計靈感源自奢華生活方式，將高科技產品與高級皮革的溫暖質感完美融合。選用頂級皮革，不僅柔軟舒適，還具有耐用性和獨特紋理，提升產品質感和品味。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900">主要特點</h3>
+              <div className="mt-3 h-px w-12 bg-gray-900" />
+              <ul className="mt-5 space-y-3 text-gray-700">
+                {[
+                  { k: "頂級真皮包裹", v: "手工打磨皮革，溫潤觸感、耐磨耐用" },
+                  { k: "雙檔位輸出", v: "9W / 18W 兩檔可切，滿足不同口感需求" },
+                  { k: "Type-C 快充", v: "約 30 分鐘充滿，續航持久" },
+                  { k: "鋁合金骨架", v: "一體成型髮絲紋機身，輕盈堅固" },
+                  { k: "多重安全保護", v: "過熱 / 短路 / 過充三重保護機制" },
+                ].map((item) => (
+                  <li key={item.k} className="flex gap-3">
+                    <span className="mt-1 h-1.5 w-1.5 flex-none rounded-full bg-blue-600" />
+                    <div>
+                      <span className="font-semibold text-gray-900">{item.k}：</span>
+                      <span>{item.v}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900">產品參數</h3>
+              <div className="mt-3 h-px w-12 bg-gray-900" />
+              <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-700">
+                {[
+                  ["品牌型號", "SP2S Legend S"],
+                  ["顏色款式", `${variantOptions.length} 色可選`],
+                  ["輸出功率", "9W / 18W 雙檔"],
+                  ["充電時間", "約 30 分鐘"],
+                  ["電池容量", "3.7V / 400mAh"],
+                  ["充電介面", "Type-C 快充"],
+                  ["機身材質", "鋁合金 + 皮革"],
+                  ["適配煙彈", "通配 SP2S Legend 系列"],
+                ].map(([k, v]) => (
+                  <div key={k} className="flex items-center justify-between border-b border-dashed border-gray-200 py-1.5">
+                    <dt className="text-gray-500">{k}</dt>
+                    <dd className="font-medium text-gray-900">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-gray-100 bg-gradient-to-br from-blue-50 to-white p-6 md:p-10 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900">市場影響力</h3>
+            <div className="mt-3 h-px w-12 bg-gray-900" />
+            <p className="mt-5 leading-8 text-gray-700">
+              自上市以來，LANA 皮革主機以其獨特設計和優質性能迅速獲得市場認可。不僅成為電子煙愛好者的熱門選擇，更成為時尚潮流的代表，彰顯使用者的獨特品味和個性。
+            </p>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
 
-export default ProductDetail;
+export default LannaDetail;

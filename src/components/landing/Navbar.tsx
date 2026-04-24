@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, ShoppingBag, X } from "lucide-react";
+import { BrandSp2s } from "@/components/BrandSp2s";
+import { useCart } from "@/contexts/CartContext";
 
 const links = [
   { label: "產品系列", href: "#disposables" },
@@ -10,6 +12,7 @@ const links = [
 ];
 
 const Navbar = () => {
+  const { itemCount, openCart } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -30,9 +33,7 @@ const Navbar = () => {
           <span className="grid h-9 w-9 place-items-center rounded-full border border-gold-soft text-gradient-gold font-serif text-sm transition-all duration-500 group-hover:border-gold">
             S
           </span>
-          <span className="font-serif text-2xl tracking-vogue text-gradient-gold flex">
-            <span>S</span><span>P</span><span>2</span><span>S</span>
-          </span>
+          <BrandSp2s className="font-serif text-2xl tracking-vogue text-gradient-gold" />
         </a>
 
         <nav className="hidden md:flex items-center gap-10">
@@ -49,11 +50,17 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4">
           <button
-            aria-label="Cart"
+            type="button"
+            aria-label="購物車"
+            onClick={openCart}
             className="relative grid h-10 w-10 place-items-center rounded-full hairline border hover:border-gold transition-colors duration-500"
           >
             <ShoppingBag className="h-4 w-4 text-gold" />
-            <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-gold" />
+            {itemCount > 0 ? (
+              <span className="absolute -top-0.5 -right-0.5 min-w-[1.15rem] h-[1.15rem] px-0.5 rounded-full bg-gold text-[10px] font-medium leading-none text-primary-foreground flex items-center justify-center">
+                {itemCount > 99 ? "99+" : itemCount}
+              </span>
+            ) : null}
           </button>
           <button
             aria-label="Menu"

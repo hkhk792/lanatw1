@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { BrandSp2s } from "@/components/BrandSp2s";
 import heroImage from "@/assets/product-9.png";
 
 const Hero = () => {
@@ -21,7 +21,10 @@ const Hero = () => {
         <div className="lg:col-span-6 lg:pr-8">
           <p className="inline-flex items-center gap-3 text-[10px] uppercase tracking-luxury text-gold mb-10 animate-fade-in-up">
             <span className="h-px w-10 bg-gold/60" />
-            SP2S PRO 系列 · 2026
+            <span className="inline-flex items-center gap-0 font-serif">
+              <BrandSp2s className="text-[10px] tracking-luxury text-gold" />
+              <span> PRO 系列 · 2026</span>
+            </span>
           </p>
 
           <h1
@@ -66,13 +69,13 @@ const Hero = () => {
               <span className="h-px w-8 bg-gold/40 group-hover:bg-gold transition-colors duration-500" />
               探索科技
             </a>
-            <Link
-              to="/product/cartoon"
+            <a
+              href="#pods"
               className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold transition-colors duration-500"
             >
               <span className="h-px w-8 bg-gold/40 group-hover:bg-gold transition-colors duration-500" />
               36 口味
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -83,13 +86,13 @@ const Hero = () => {
           <div className="absolute inset-0 -z-10 bg-gold/5 blur-[140px] rounded-full" />
 
           <div className="relative aspect-square max-w-xl mx-auto">
-            <Link to="/product/cartoon" className="block group" title="查看商品詳情">
+            <div className="block">
               <img
                 src={heroImage}
                 alt="SP2S PRO lineup on stands featuring ceramic coil technology"
-                className="h-full w-full object-contain drop-shadow-[0_50px_80px_rgba(0,0,0,0.7)] transition-transform duration-500 group-hover:scale-[1.02]"
+                className="h-full w-full object-contain drop-shadow-[0_50px_80px_rgba(0,0,0,0.7)]"
               />
-            </Link>
+            </div>
             {/* Floating spec chips */}
             <div className="absolute top-10 -left-2 md:left-0 glass px-4 py-2 text-[10px] uppercase tracking-luxury text-gold animate-float-slow">
               陶瓷芯

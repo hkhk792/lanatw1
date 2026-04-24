@@ -1,4 +1,5 @@
 import { useReveal } from "@/hooks/useReveal";
+import { BrandSp2s } from "@/components/BrandSp2s";
 
 const stats = [
   { v: "2.5", u: "ml 容量" },
@@ -20,8 +21,8 @@ const Manifesto = () => {
             我們打造 <span className="italic text-foreground/70">時刻</span> — 精心構思，縝密考量，
             <span className="text-gradient-gold"> 難以忘懷。"</span>
           </h2>
-          <p className="mt-12 text-sm uppercase tracking-luxury text-muted-foreground">
-            — SP2S 工坊
+          <p className="mt-12 text-sm uppercase tracking-luxury text-muted-foreground inline-flex flex-wrap items-center justify-center gap-x-1">
+            — <BrandSp2s className="font-serif text-sm tracking-luxury text-muted-foreground" /> 工坊
           </p>
         </div>
 

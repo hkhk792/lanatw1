@@ -1,4 +1,5 @@
 import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
+import { BrandSp2s } from "@/components/BrandSp2s";
 
 const Footer = () => {
   const cols = [
@@ -17,9 +18,7 @@ const Footer = () => {
               <span className="grid h-10 w-10 place-items-center rounded-full border border-gold-soft text-gradient-gold font-serif">
                 S
               </span>
-              <span className="font-serif text-3xl tracking-vogue text-gradient-gold flex">
-                <span>S</span><span>P</span><span>2</span><span>S</span>
-              </span>
+              <BrandSp2s className="font-serif text-3xl tracking-vogue text-gradient-gold" />
             </div>
             <p className="text-sm text-muted-foreground max-w-sm leading-relaxed tracking-vogue">
               蒸氣藝術巔峰，透過極致工藝和低調奢華精煉而成。
@@ -82,7 +81,9 @@ const Footer = () => {
         </div>
 
         <div className="mt-24 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-luxury text-muted-foreground">
-          <p>© 2026 SP2S 工坊。版權所有。</p>
+          <p className="inline-flex flex-wrap items-center gap-x-1">
+            © 2026 <BrandSp2s className="font-serif tracking-vogue text-gradient-gold" /> 工坊。版權所有。
+          </p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-gold transition-colors">隱私政策</a>
             <a href="#" className="hover:text-gold transition-colors">服務條款</a>

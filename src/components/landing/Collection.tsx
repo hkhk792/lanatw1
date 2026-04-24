@@ -1,5 +1,6 @@
 import ProductCard from "./ProductCard";
 import { useReveal } from "@/hooks/useReveal";
+import { BrandSp2s } from "@/components/BrandSp2s";
 import p1 from "@/assets/product-1.png";
 import p2 from "@/assets/product-2.png";
 import p3 from "@/assets/product-3.png";
@@ -34,7 +35,8 @@ const Collection = () => {
             </h2>
           </div>
           <p className="md:max-w-sm text-sm text-muted-foreground leading-relaxed tracking-vogue">
-            從旗艦硬體到陶瓷芯一次性產品，SP2S 目錄中的每一項都
+            從旗艦硬體到陶瓷芯一次性產品，<BrandSp2s className="font-serif text-sm text-muted-foreground" />{" "}
+            目錄中的每一項都
             因同一品質而被選中——毫不妥協的工藝。
           </p>
         </div>
