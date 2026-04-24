@@ -10,6 +10,15 @@ import doraemonThumb2 from "@/assets/wps2.png";
 import luffyMain from "@/assets/16.png";
 import luffyThumb1 from "@/assets/18.png";
 import luffyThumb2 from "@/assets/17.png";
+import kakashiMain from "@/assets/kakashi-main.png";
+import kakashiThumb1 from "@/assets/kakashi-thumb-1.png";
+import kakashiThumb2 from "@/assets/kakashi-thumb-2.png";
+import ktMain from "@/assets/kt-main.png";
+import ktThumb1 from "@/assets/kt-thumb-1.png";
+import ktThumb2 from "@/assets/kt-thumb-2.png";
+import kuromiMain from "@/assets/kuromi-main.png";
+import kuromiThumb1 from "@/assets/kuromi-thumb-1.png";
+import kuromiThumb2 from "@/assets/kuromi-thumb-2.png";
 
 const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
@@ -25,6 +34,18 @@ const ProductDetail = () => {
       setMainImage(doraemonMain);
       setThumb1(doraemonThumb1);
       setThumb2(doraemonThumb2);
+    } else if (option === "火影忍者卡卡西") {
+      setMainImage(kakashiMain);
+      setThumb1(kakashiThumb1);
+      setThumb2(kakashiThumb2);
+    } else if (option === "KT 貓") {
+      setMainImage(ktMain);
+      setThumb1(ktThumb1);
+      setThumb2(ktThumb2);
+    } else if (option === "庫洛米") {
+      setMainImage(kuromiMain);
+      setThumb1(kuromiThumb1);
+      setThumb2(kuromiThumb2);
     } else if (option === "航海王魯夫 - 藍") {
       setMainImage(luffyMain);
       setThumb1(luffyThumb1);
@@ -209,7 +230,7 @@ const ProductDetail = () => {
               <span>/</span>
               <a href="#" className="hover:text-gray-700">卡通系列</a>
               <span>/</span>
-              <span className="text-gray-700">NIN GA 主機</span>
+              <span className="text-gray-700 tracking-tight">NINGA 主機</span>
             </div>
 
             {/* 標題 */}
