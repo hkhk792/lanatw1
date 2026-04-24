@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/product-9.png";
 
 const Hero = () => {
@@ -65,6 +66,13 @@ const Hero = () => {
               <span className="h-px w-8 bg-gold/40 group-hover:bg-gold transition-colors duration-500" />
               探索科技
             </a>
+            <Link
+              to="/product/cartoon"
+              className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold transition-colors duration-500"
+            >
+              <span className="h-px w-8 bg-gold/40 group-hover:bg-gold transition-colors duration-500" />
+              36 口味
+            </Link>
           </div>
         </div>
 
@@ -75,11 +83,13 @@ const Hero = () => {
           <div className="absolute inset-0 -z-10 bg-gold/5 blur-[140px] rounded-full" />
 
           <div className="relative aspect-square max-w-xl mx-auto">
-            <img
-              src={heroImage}
-              alt="SP2S PRO lineup on stands featuring ceramic coil technology"
-              className="h-full w-full object-contain drop-shadow-[0_50px_80px_rgba(0,0,0,0.7)]"
-            />
+            <Link to="/product/cartoon" className="block group" title="查看商品詳情">
+              <img
+                src={heroImage}
+                alt="SP2S PRO lineup on stands featuring ceramic coil technology"
+                className="h-full w-full object-contain drop-shadow-[0_50px_80px_rgba(0,0,0,0.7)] transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+            </Link>
             {/* Floating spec chips */}
             <div className="absolute top-10 -left-2 md:left-0 glass px-4 py-2 text-[10px] uppercase tracking-luxury text-gold animate-float-slow">
               陶瓷芯
