@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
+import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
-import productMain from "@/assets/lana-leather-main.png";
-import productThumb1 from "@/assets/product-4.png";
-import productThumb2 from "@/assets/product-8.png";
+import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import productMain from "@/assets/lana-premium-device.png";
 import logoImage from "@/assets/product-14.jpg";
 
 const LANNA_PRODUCT_ID = "lanna";
@@ -27,28 +28,43 @@ const variantOptions = [
 ];
 
 const LannaDetail = () => {
+  const navigate = useNavigate();
   const { addToCart, itemCount, openCart } = useCart();
   const [quantity, setQuantity] = useState(1);
-  const [selectedOption, setSelectedOption] = useState("炫正紅");
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [variantPromptOpen, setVariantPromptOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mainImage, setMainImage] = useState(productMain);
-
-  const buildCartPayload = () => ({
-    productId: LANNA_PRODUCT_ID,
-    title: getProductTitle().replace("｜", " ").trim(),
-    variant: selectedOption,
-    priceTwd: LANNA_PRICE_TWD,
-    quantity,
-    imageUrl: mainImage,
-  });
+  const buildCartPayload = () => {
+    if (!selectedOption) return null;
+    return {
+      productId: LANNA_PRODUCT_ID,
+      title: getProductTitle().replace("｜", " ").trim(),
+      variant: selectedOption,
+      priceTwd: LANNA_PRICE_TWD,
+      quantity,
+      imageUrl: productMain,
+    };
+  };
 
   const handleAddToCart = () => {
-    addToCart(buildCartPayload());
+    if (!selectedOption) {
+      setVariantPromptOpen(true);
+      return;
+    }
+    const payload = buildCartPayload();
+    if (!payload) return;
+    addToCart(payload);
     toast.success("已加入購物車", { description: `【${selectedOption}】x${quantity}` });
   };
 
   const handleBuyNow = () => {
-    addToCart(buildCartPayload());
+    if (!selectedOption) {
+      setVariantPromptOpen(true);
+      return;
+    }
+    const payload = buildCartPayload();
+    if (!payload) return;
+    addToCart(payload);
     openCart();
   };
 
@@ -59,12 +75,19 @@ const LannaDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () => `SP2S Legend S ${selectedOption} 一代升級煙桿｜多種配色可選`;
+  const getProductTitle = () =>
+    selectedOption
+      ? `SP2S Legend S ${selectedOption} 一代升級煙桿｜多種配色可選`
+      : "SP2S Legend S 一代升級煙桿｜多種配色可選";
   const getProductDescription = () =>
-    `SP2S Legend S ${selectedOption} 一代升級煙桿 多種配色可選`;
+    selectedOption
+      ? `SP2S Legend S ${selectedOption} 一代升級煙桿 多種配色可選`
+      : "SP2S Legend S 一代升級煙桿 多種配色可選";
   const getCategory = () => "SP2S Legend S 主機";
-  const getTags = () => `SP2S Legend S，SP2S Legend S ${selectedOption}`;
-  const getBadgeText = () => `升級煙桿｜${selectedOption}`;
+  const getTags = () =>
+    selectedOption ? `SP2S Legend S，SP2S Legend S ${selectedOption}` : "SP2S Legend S，一代升級煙桿";
+  const getBadgeText = () =>
+    selectedOption ? `升級煙桿｜${selectedOption}` : "升級煙桿｜請先選擇顏色";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -74,6 +97,11 @@ const LannaDetail = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      <SelectVariantDialog
+        open={variantPromptOpen}
+        onOpenChange={setVariantPromptOpen}
+        message="請先從上方選擇一種顏色款式，再加入購物車或立即購買。"
+      />
       <nav
         className={`sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm transition-transform duration-300 ${
           isScrolled ? "-translate-y-full" : ""
@@ -127,7 +155,10 @@ const LannaDetail = () => {
           <div className="relative">
             <button
               type="button"
-              onClick={() => (window.location.href = "/")}
+              onClick={() => {
+                requestHomeScrollRestore();
+                navigate("/");
+              }}
               className="mb-4 flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -144,7 +175,7 @@ const LannaDetail = () => {
                 ))}
               </div>
 
-              <img src={mainImage} alt="SP2S Legend S" className="w-full h-[500px] object-contain" />
+              <img src={productMain} alt="SP2S Legend S" className="w-full h-[500px] object-contain" />
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="bg-red-600 text-white px-6 py-2 font-bold rounded-md shadow-lg">{getBadgeText()}</div>
@@ -155,26 +186,6 @@ const LannaDetail = () => {
               <h2 className="text-2xl font-bold text-gray-900">{getProductDescription()}</h2>
             </div>
 
-            <div className="mt-6 flex justify-center gap-4">
-              <img
-                src={productThumb1}
-                alt="thumbnail 1"
-                className="w-24 h-24 object-cover rounded-lg border-2 border-gray-200 hover:border-gray-400 cursor-pointer transition-colors"
-                onClick={() => setMainImage(productThumb1)}
-              />
-              <img
-                src={productThumb2}
-                alt="thumbnail 2"
-                className="w-24 h-24 object-cover rounded-lg border-2 border-gray-200 hover:border-gray-400 cursor-pointer transition-colors"
-                onClick={() => setMainImage(productThumb2)}
-              />
-              <img
-                src={productMain}
-                alt="thumbnail main"
-                className="w-24 h-24 object-cover rounded-lg border-2 border-gray-200 hover:border-gray-400 cursor-pointer transition-colors"
-                onClick={() => setMainImage(productMain)}
-              />
-            </div>
           </div>
 
           <div className="flex flex-col gap-6">
@@ -192,7 +203,7 @@ const LannaDetail = () => {
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
 
-            <div className="text-4xl font-bold text-gray-900">NT${LANNA_PRICE_TWD}.00</div>
+            <div className="text-4xl font-bold text-gray-900">{`NT$${LANNA_PRICE_TWD}.00`}</div>
 
             <div className="space-y-4">
               <label className="text-lg font-medium text-gray-800">顏色款式：</label>

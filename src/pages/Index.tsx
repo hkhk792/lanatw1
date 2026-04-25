@@ -1,4 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
+import {
+  consumeHomeScrollRestore,
+  getPersistedHomeScrollY,
+  persistCurrentHomeScroll,
+} from "@/lib/homeScrollRestore";
 import AgeGate from "@/components/landing/AgeGate";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
@@ -10,6 +15,20 @@ import Footer from "@/components/landing/Footer";
 import HealthWarning from "@/components/landing/HealthWarning";
 
 const Index = () => {
+  useLayoutEffect(() => {
+    if (consumeHomeScrollRestore()) {
+      const y = getPersistedHomeScrollY();
+      window.scrollTo({ top: y, left: 0, behavior: "auto" });
+    }
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => persistCurrentHomeScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   useEffect(() => {
     document.title = "SP2S — 品味精髓 | 奢華蒸氣工坊";
 

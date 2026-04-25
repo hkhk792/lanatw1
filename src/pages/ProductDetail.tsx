@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
+import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
+import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import productMain from "@/assets/product-12.png";
 import productThumb1 from "@/assets/product-13.png";
 import productThumb2 from "@/assets/product-11.png";
@@ -26,9 +29,11 @@ const CARTOON_PRODUCT_ID = "cartoon";
 const CARTOON_PRICE_TWD = 550;
 
 const ProductDetail = () => {
+  const navigate = useNavigate();
   const { addToCart, itemCount, openCart } = useCart();
   const [quantity, setQuantity] = useState(1);
-  const [selectedOption, setSelectedOption] = useState("蠟筆小新");
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [variantPromptOpen, setVariantPromptOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mainImage, setMainImage] = useState(productMain);
   const [thumb1, setThumb1] = useState(productThumb1);
@@ -67,6 +72,7 @@ const ProductDetail = () => {
   };
 
   const getProductTitle = () => {
+    if (!selectedOption) return "NINGA 卡通一代通用主機｜多種配色可選";
     if (selectedOption === "多拉 A 夢") {
       return "NINGA 多拉 A 夢卡通一代通用主機｜多種配色可選";
     } else if (selectedOption === "航海王魯夫 - 藍") {
@@ -76,6 +82,7 @@ const ProductDetail = () => {
   };
 
   const getProductDescription = () => {
+    if (!selectedOption) return "NINGA 卡通一代通用主機 多種配色可選";
     if (selectedOption === "多拉 A 夢") {
       return "NINGA 多拉 A 夢卡通一代通用主機 多種配色可選";
     } else if (selectedOption === "航海王魯夫 - 藍") {
@@ -85,6 +92,7 @@ const ProductDetail = () => {
   };
 
   const getCategory = () => {
+    if (!selectedOption) return "NINGA 卡通主機";
     if (selectedOption === "多拉 A 夢") {
       return "NINGA 多拉 A 夢主機";
     } else if (selectedOption === "航海王魯夫 - 藍") {
@@ -94,6 +102,7 @@ const ProductDetail = () => {
   };
 
   const getTags = () => {
+    if (!selectedOption) return "NINGA，卡通一代通用主機";
     if (selectedOption === "多拉 A 夢") {
       return "NINGA 多拉 A 夢，NINGA 多拉 A 夢卡通一代通用主機";
     } else if (selectedOption === "航海王魯夫 - 藍") {
@@ -103,6 +112,7 @@ const ProductDetail = () => {
   };
 
   const getBadgeText = () => {
+    if (!selectedOption) return "通用主機｜請先選擇款式";
     if (selectedOption === "多拉 A 夢") {
       return "通用主機｜多拉 A 夢";
     } else if (selectedOption === "航海王魯夫 - 藍") {
@@ -131,6 +141,11 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      <SelectVariantDialog
+        open={variantPromptOpen}
+        onOpenChange={setVariantPromptOpen}
+        message="請先從上方選擇一種卡通款式（主題），再加入購物車或立即購買。"
+      />
       <nav
         className={`sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm transition-transform duration-300 ${
           isScrolled ? "-translate-y-full" : ""
@@ -184,7 +199,10 @@ const ProductDetail = () => {
           <div className="relative">
             <button
               type="button"
-              onClick={() => (window.location.href = "/")}
+              onClick={() => {
+                requestHomeScrollRestore();
+                navigate("/");
+              }}
               className="mb-4 flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -295,6 +313,10 @@ const ProductDetail = () => {
                 <button
                   type="button"
                   onClick={() => {
+                    if (!selectedOption) {
+                      setVariantPromptOpen(true);
+                      return;
+                    }
                     addToCart({
                       productId: CARTOON_PRODUCT_ID,
                       title: getProductTitle().replace("｜", " ").trim(),
@@ -313,6 +335,10 @@ const ProductDetail = () => {
                 <button
                   type="button"
                   onClick={() => {
+                    if (!selectedOption) {
+                      setVariantPromptOpen(true);
+                      return;
+                    }
                     addToCart({
                       productId: CARTOON_PRODUCT_ID,
                       title: getProductTitle().replace("｜", " ").trim(),

@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ScrollToTopOnNavigate } from "@/components/ScrollToTopOnNavigate";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +12,11 @@ import NotFound from "./pages/NotFound.tsx";
 import ProductDetail from "./pages/ProductDetail.tsx";
 import LannaDetail from "./pages/LannaDetail.tsx";
 import BulletDetail from "./pages/BulletDetail.tsx";
+import Sp2sProDetail from "./pages/Sp2sProDetail.tsx";
+import AtomizerDetail from "./pages/AtomizerDetail.tsx";
+import DiyaDetail from "./pages/DiyaDetail.tsx";
+import Checkout from "./pages/Checkout.tsx";
+import OrderComplete from "./pages/OrderComplete.tsx";
 
 const queryClient = new QueryClient();
 
@@ -21,10 +27,16 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTopOnNavigate />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order-complete" element={<OrderComplete />} />
             <Route path="/product/lanna" element={<LannaDetail />} />
             <Route path="/product/bullet" element={<BulletDetail />} />
+            <Route path="/product/pro" element={<Sp2sProDetail />} />
+            <Route path="/product/atomizer" element={<AtomizerDetail />} />
+            <Route path="/product/diya" element={<DiyaDetail />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/product" element={<ProductDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

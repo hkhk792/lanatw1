@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import p1 from "@/assets/product-1.png";
-import p2 from "@/assets/product-2.png";
+import lanaPremiumHero from "@/assets/lana-premium-device.png";
 import p3 from "@/assets/product-3.png";
 import p4 from "@/assets/product-4.png";
 import p5 from "@/assets/atomizing-rod.jpg";
@@ -10,11 +10,11 @@ import p6 from "@/assets/product-6.png";
 
 const products = [
   { image: p1, name: "卡通限量版", flavor: "經典工藝系列", price: "$148", id: "cartoon" },
-  { image: p2, name: "蘭納精裝版", flavor: "十色限定版", price: "$128", id: "lanna" },
+  { image: lanaPremiumHero, name: "蘭納精裝版", flavor: "十色限定版", price: "$128", id: "lanna" },
   { image: p3, name: "SP2S 子彈版", flavor: "十三色工坊系列", price: "$118", id: "bullet" },
-  { image: p4, name: "SP2S Pro", flavor: "海棠 · 鉻金 · 星辰", price: "$188", id: "pro" },
-  { image: p5, name: "電子煙主機", flavor: "380mAh · Type-C 快充", price: "$88", id: "atomizer" },
-  { image: p6, name: "DIYA 陶瓷", flavor: "2.5ml · 8W 輸出", price: "$136", id: "diya" },
+  { image: p4, name: "SP2S Pro", flavor: "八色旗艦 · 智慧感應", price: "NT$880", id: "pro" },
+  { image: p5, name: "電子煙主機", flavor: "綠 · 霧藍 · 黑 · 曲線輸出", price: "NT$680", id: "atomizer" },
+  { image: p6, name: "DIYA 陶瓷", flavor: "五色主機 · 2.5ML · 一代通用", price: "NT$320", id: "diya" },
 ];
 
 const Collection = () => {

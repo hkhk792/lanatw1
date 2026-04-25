@@ -1,6 +1,7 @@
 import { Plus } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import { useNavigate } from "react-router-dom";
+import { flushHomeScrollPosition } from "@/lib/homeScrollRestore";
 import { BrandSp2s } from "@/components/BrandSp2s";
 
 interface Props {
@@ -46,6 +47,24 @@ const QUICK_ADD_PRODUCTS: Record<
     priceTwd: 450,
     route: "/product/bullet",
   },
+  pro: {
+    title: "SP2S Pro 二代旗艦霧化主機",
+    variant: "海棠粉",
+    priceTwd: 880,
+    route: "/product/pro",
+  },
+  atomizer: {
+    title: "原子棒電子煙主機",
+    variant: "綠色",
+    priceTwd: 680,
+    route: "/product/atomizer",
+  },
+  diya: {
+    title: "DIYA 叮啞電子煙主機霧化桿（2.5ML 大容量，一代煙彈通用）",
+    variant: "光影藍綠",
+    priceTwd: 320,
+    route: "/product/diya",
+  },
 };
 
 const ProductCard = ({ image, name, flavor, price, index, id }: Props) => {
@@ -55,12 +74,18 @@ const ProductCard = ({ image, name, flavor, price, index, id }: Props) => {
   const quickAdd = QUICK_ADD_PRODUCTS[id];
 
   const handleClick = () => {
-    if (quickAdd) navigate(quickAdd.route);
+    if (quickAdd) {
+      flushHomeScrollPosition();
+      navigate(quickAdd.route);
+    }
   };
 
   const handlePlusClick: React.MouseEventHandler = (e) => {
     e.stopPropagation();
-    if (quickAdd) navigate(quickAdd.route);
+    if (quickAdd) {
+      flushHomeScrollPosition();
+      navigate(quickAdd.route);
+    }
   };
 
   return (

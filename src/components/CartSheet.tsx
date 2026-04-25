@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
-import { toast } from "sonner";
 import {
   Sheet,
   SheetContent,
@@ -8,6 +7,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { useCart } from "@/contexts/CartContext";
+import { flushHomeScrollPosition } from "@/lib/homeScrollRestore";
 
 const formatTwd = (n: number) => `NT$${n.toLocaleString("zh-TW")}`;
 
@@ -24,20 +24,21 @@ const CartSheet = () => {
   } = useCart();
   const navigate = useNavigate();
 
-  const handleCheckout = () => {
+  const handleGoCheckout = () => {
     if (lines.length === 0) return;
-    toast.success("訂單已提交", {
-      description: `共 ${itemCount} 件 · 合計 ${formatTwd(subtotalTwd)}`,
-    });
-    clearCart();
     closeCart();
+    navigate("/checkout");
   };
 
   const goToProduct = (productId: string) => {
     closeCart();
+    flushHomeScrollPosition();
     if (productId === "cartoon") navigate("/product/cartoon");
     else if (productId === "lanna") navigate("/product/lanna");
     else if (productId === "bullet") navigate("/product/bullet");
+    else if (productId === "pro") navigate("/product/pro");
+    else if (productId === "atomizer") navigate("/product/atomizer");
+    else if (productId === "diya") navigate("/product/diya");
   };
 
   return (
@@ -61,7 +62,7 @@ const CartSheet = () => {
             <button
               type="button"
               onClick={closeCart}
-              className="mt-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+              className="mt-2 border border-neutral-900 bg-neutral-950 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
             >
               繼續選購
             </button>
@@ -97,7 +98,7 @@ const CartSheet = () => {
                         <button
                           type="button"
                           onClick={() => goToProduct(line.productId)}
-                          className="line-clamp-2 text-left text-sm font-medium text-gray-900 hover:text-blue-600"
+                          className="line-clamp-2 text-left text-sm font-medium text-gray-900 hover:text-neutral-600"
                         >
                           {line.title}
                         </button>
@@ -164,8 +165,8 @@ const CartSheet = () => {
                 </button>
                 <button
                   type="button"
-                  onClick={handleCheckout}
-                  className="flex-1 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+                  onClick={handleGoCheckout}
+                  className="flex-1 rounded-lg bg-neutral-950 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-neutral-800"
                 >
                   前往結帳
                 </button>
