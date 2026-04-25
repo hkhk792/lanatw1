@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import type { ReactNode, Ref } from "react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
@@ -11,17 +12,17 @@ interface Feature {
   title: string;
   desc: ReactNode;
   specs: string[];
+  /** 內部路由，例如 /product/lana-pods；未設定則為 # */
+  to?: string;
 }
+
+const cardClassName =
+  "reveal group relative block aspect-[4/5] md:aspect-[5/6] overflow-hidden glass transition-shadow duration-700 hover:shadow-gold";
 
 const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
   const cardRef = useReveal<HTMLAnchorElement>();
-  return (
-    <a
-      ref={cardRef}
-      href="#"
-      className="reveal group relative block aspect-[4/5] md:aspect-[5/6] overflow-hidden glass transition-shadow duration-700 hover:shadow-gold"
-      style={{ transitionDelay: `${i * 120}ms` }}
-    >
+  const inner = (
+    <>
       <div className="absolute inset-0 spotlight opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
       <img
         src={f.image}
@@ -56,6 +57,30 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
           ))}
         </ul>
       </div>
+    </>
+  );
+
+  if (f.to) {
+    return (
+      <Link
+        ref={cardRef as Ref<HTMLAnchorElement>}
+        to={f.to}
+        className={cardClassName}
+        style={{ transitionDelay: `${i * 120}ms` }}
+      >
+        {inner}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      ref={cardRef}
+      href="#"
+      className={cardClassName}
+      style={{ transitionDelay: `${i * 120}ms` }}
+    >
+      {inner}
     </a>
   );
 };
@@ -71,14 +96,16 @@ const features: Feature[] = [
         陶瓷芯硬體相容。
       </>
     ),
-    specs: ["3% 尼古丁鹽", "陶瓷芯相容", "2.5ml 容量"],
+    specs: ["LANA 3 顆裝", "一代通用", "NT$220"],
+    to: "/product/lana-pods",
   },
   {
     image: p8,
-    eyebrow: "電子煙油",
-    title: "頂級電子煙油",
-    desc: "從稀有植物來源精心調配的液體。透過數百次品嘗迭代精煉的多層次風味。",
-    specs: ["九種經典口味", "藥用等級", "尼古丁鹽基底"],
+    eyebrow: "叮啞系列",
+    title: "DIYA 叮啞煙彈",
+    desc: "一代通用、一盒三入；每顆 2.5ml，相容 RELX 一代、SP2S、LANA 等多款主機，口味陣容完整。",
+    specs: ["一盒三入", "NT$199", "2.5ml／顆", "一代通用"],
+    to: "/product/diya-pods",
   },
 ];
 

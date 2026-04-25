@@ -1,79 +1,236 @@
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
-import p9 from "@/assets/silicone-sleeves.png";
+import { BrandSp2s } from "@/components/BrandSp2s";
+import ProductCard from "@/components/landing/ProductCard";
+import sp2sPodsCatalog from "@/assets/sp2s-gen1-pods-catalog.png";
+import disposableVapengin from "@/assets/disposable-vapengin-venus.png";
+import disposableMohoo from "@/assets/disposable-mohoo-tokyo.png";
+import disposableHebat from "@/assets/disposable-hebat-hb10000.png";
+import disposableDiya from "@/assets/disposable-diya-7500.png";
+import disposableFlare from "@/assets/disposable-flare-nimmbox-go.png";
+import disposableVaporStorm from "@/assets/disposable-vapor-storm-cf5000.png";
+import showcaseGen5Pods from "@/assets/showcase-gen5-pods.png";
+import showcaseELiquid from "@/assets/showcase-e-liquid.png";
+import showcaseVapeGear from "@/assets/showcase-vape-gear.png";
 
-const swatches = [
-  { name: "曜石黑", hsl: "0 0% 4%" },
-  { name: "香檳金", hsl: "43 55% 52%" },
-  { name: "象牙白", hsl: "40 30% 90%" },
-  { name: "玫瑰粉", hsl: "350 60% 75%" },
-  { name: "鼠尾草", hsl: "150 20% 55%" },
-  { name: "古銅金", hsl: "38 45% 45%" },
+const highlights = [
+  { label: "水果系列", sub: "18 款" },
+  { label: "飲品冰爽", sub: "9 款" },
+  { label: "茶飲原味", sub: "5 款" },
+  { label: "甜品趣味", sub: "4 款" },
+];
+
+const showcaseCategories = [
+  {
+    image: showcaseGen5Pods,
+    title: "五代煙彈",
+    caption: "換彈系統 · 多口味霧化",
+    alt: "五代通用煙彈與包裝展示",
+  },
+  {
+    image: showcaseELiquid,
+    title: "電子煙煙油",
+    caption: "鹽尼古丁配方 · 風味層次",
+    alt: "電子煙煙油產品展示",
+  },
+  {
+    image: showcaseVapeGear,
+    title: "配件",
+    caption: "保護與收納 · 日常搭配",
+    alt: "電子煙矽膠保護套等配件展示",
+  },
+] as const;
+
+const disposableProducts = [
+  {
+    image: disposableVapengin,
+    name: "VENUS金星主機",
+    flavor: "可充電霧化電子煙主機 · 台灣現貨 · VAPENGIN 2ml Mesh",
+    price: "現貨",
+    id: "disp-vapengin",
+  },
+  {
+    image: disposableMohoo,
+    name: "TOKYO MOHOO BOX東京魔盒",
+    flavor: "煙彈多種口味 · 12ml · 約 10000 口",
+    price: "洽門市",
+    id: "disp-mohoo-box",
+  },
+  {
+    image: disposableHebat,
+    name: "HEBAT喜貝六代",
+    flavor: "10000口拋棄式一次性電子煙 · 15ml",
+    price: "洽門市",
+    id: "disp-hebat",
+  },
+  {
+    image: disposableDiya,
+    name: "DIYA叮啞拋棄式7500口",
+    flavor: "大容量可充電一次性拋棄式電子煙 · 13ml",
+    price: "洽門市",
+    id: "disp-diya-7500",
+  },
+  {
+    image: disposableFlare,
+    name: "JUPITER木星套裝6500口",
+    flavor: "木星套裝煙彈換彈拋棄式電子煙",
+    price: "洽門市",
+    id: "disp-jupiter",
+  },
+  {
+    image: disposableVaporStorm,
+    name: "VAPOR STORM風暴5000口",
+    flavor: "拋棄式飛霧發光一次性電子煙桿 · 10ml Mesh",
+    price: "洽門市",
+    id: "disp-vapor-storm",
+  },
 ];
 
 const Accessories = () => {
   const ref = useReveal<HTMLDivElement>();
-  const imgRef = useReveal<HTMLDivElement>();
+  const cardRef = useReveal<HTMLAnchorElement>();
+  const disposableHeadRef = useReveal<HTMLDivElement>();
+  const showcaseHeadRef = useReveal<HTMLDivElement>();
+  const showcaseCard0Ref = useReveal<HTMLDivElement>();
+  const showcaseCard1Ref = useReveal<HTMLDivElement>();
+  const showcaseCard2Ref = useReveal<HTMLDivElement>();
+  const showcaseCardRefs = [showcaseCard0Ref, showcaseCard1Ref, showcaseCard2Ref];
 
   return (
-    <section id="accessories" className="relative py-44 md:py-60 overflow-hidden">
+    <section id="accessories" className="relative overflow-hidden py-44 md:py-60">
       <div className="container max-w-5xl">
-        <div ref={ref} className="reveal max-w-3xl mx-auto text-center mb-20 md:mb-32">
-          <p className="text-[10px] uppercase tracking-luxury text-gold mb-6 flex items-center justify-center gap-3">
+        <div ref={ref} className="reveal mx-auto mb-20 max-w-3xl text-center md:mb-32">
+          <p className="mb-6 flex items-center justify-center gap-3 text-[10px] uppercase tracking-luxury text-gold">
             <span className="h-px w-10 bg-gold/60" />
-            訂製配飾
+            彈匣系統
             <span className="h-px w-10 bg-gold/60" />
           </p>
-          <h2 className="font-serif text-5xl md:text-7xl leading-[1.02]">
-            <span className="text-gradient-gold">矽膠保護套，</span><br />
-            <span className="italic text-foreground/70">色彩與觸感的量身訂製。</span>
+          <h2 className="font-serif text-5xl leading-[1.02] md:text-7xl">
+            <span className="text-gradient-gold">
+              <BrandSp2s className="font-serif text-inherit" /> 煙彈通用一代，
+            </span>
+            <br />
+            <span className="italic text-foreground/70">陶瓷白芯 · 口味全陣容。</span>
           </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed tracking-vogue text-muted-foreground md:text-base">
+            思博瑞一代通用煙彈：白色陶瓷芯霧化細緻，相容多款一代主機；從水果、汽水冰感到茶飲與甜品系，一次瀏覽全口味總覽。
+          </p>
         </div>
 
-        <div
-          ref={imgRef}
-          className="reveal relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden glass shadow-luxury"
+        <Link
+          ref={cardRef}
+          to="/product/sp2s-gen1-pods"
+          className="reveal group relative block aspect-[16/10] w-full overflow-hidden glass shadow-luxury md:aspect-[16/9]"
         >
           <div className="absolute inset-0 spotlight opacity-70" />
           <img
-            src={p9}
-            alt="SP2S bespoke silicone case collection across colour palette"
+            src={sp2sPodsCatalog}
+            alt="SP2S 思博瑞一代通用煙彈口味總覽"
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[2000ms] ease-luxury hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[2000ms] ease-luxury group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/30 to-transparent" />
 
-          <div className="absolute inset-x-6 bottom-6 md:inset-x-14 md:bottom-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div className="absolute inset-x-6 bottom-6 flex flex-col gap-8 md:inset-x-14 md:bottom-14 md:flex-row md:items-end md:justify-between">
             <div className="max-w-md">
-              <h3 className="font-serif text-4xl md:text-6xl leading-tight mb-4 text-gradient-gold">
-                二十五種色調。
+              <h3 className="mb-4 font-serif text-4xl leading-tight text-gradient-gold md:text-6xl">
+                三十六種風味矩陣。
               </h3>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed tracking-vogue">
-                親膚觸感矽膠保護套，個別塑形並配色，與您的日常儀式完美契合。
+              <p className="text-sm leading-relaxed tracking-vogue text-muted-foreground md:text-base">
+                水果、飲品與冰爽、茶飲與原味、甜品與趣味四大系列；常見 3%
+                尼古丁鹽（以包裝為準）。點擊進入規格、分區口味與購買說明。
               </p>
             </div>
 
-            <a
-              href="#"
-              className="group inline-flex items-center gap-3 self-start md:self-auto bg-gradient-gold text-primary-foreground px-8 py-4 text-[11px] uppercase tracking-luxury font-medium hover:shadow-gold transition-all duration-500"
-            >
-              立即配置
+            <span className="inline-flex items-center gap-3 self-start bg-gradient-gold px-8 py-4 text-[11px] font-medium uppercase tracking-luxury text-primary-foreground transition-all duration-500 group-hover:shadow-gold md:self-auto">
+              查看口味詳情
               <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
-            </a>
+            </span>
           </div>
+        </Link>
+
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-10">
+          {highlights.map((h) => (
+            <div key={h.label} className="flex min-w-[7rem] flex-col items-center gap-1 text-center">
+              <span className="text-[10px] uppercase tracking-luxury text-gold">{h.label}</span>
+              <span className="font-serif text-2xl text-foreground/90">{h.sub}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div id="one-time-disposables" className="container mt-32 md:mt-44 scroll-mt-32">
+        <div
+          ref={disposableHeadRef}
+          className="reveal mb-24 flex flex-col justify-between gap-8 md:mb-36 md:flex-row md:items-end"
+        >
+          <div className="max-w-2xl">
+            <p className="mb-6 flex items-center gap-3 text-[10px] uppercase tracking-luxury text-gold">
+              <span className="h-px w-10 bg-gold/60" />
+              拋棄式系列
+            </p>
+            <h2 className="font-serif text-5xl leading-[1.02] md:text-7xl">
+              <span className="text-gradient-gold">一次性拋棄式。</span>
+              <br />
+              <span className="italic text-foreground/70">對細節的一種執著。</span>
+            </h2>
+          </div>
+          <p className="text-sm leading-relaxed tracking-vogue text-muted-foreground md:max-w-sm">
+            即拋即走同樣講究霧化曲線與外觀完成度；規格以包裝與實際到貨為準，價格請洽門市或客服。
+          </p>
         </div>
 
-        {/* Swatches */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-12">
-          {swatches.map((s) => (
-            <div key={s.name} className="flex items-center gap-3 group cursor-pointer">
-              <span
-                className="h-8 w-8 rounded-full border border-gold-soft transition-all duration-500 group-hover:scale-110 group-hover:border-gold group-hover:shadow-gold-soft"
-                style={{ backgroundColor: `hsl(${s.hsl})` }}
-              />
-              <span className="text-[10px] uppercase tracking-luxury text-foreground/60 group-hover:text-gold transition-colors duration-500">
-                {s.name}
-              </span>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
+          {disposableProducts.map((p, i) => (
+            <ProductCard key={p.id} {...p} index={i} />
+          ))}
+        </div>
+      </div>
+
+      <div id="pods-liquid-gear" className="container mt-32 md:mt-44 scroll-mt-32">
+        <div
+          ref={showcaseHeadRef}
+          className="reveal mx-auto mb-16 max-w-2xl text-center md:mb-24"
+        >
+          <p className="mb-6 flex items-center justify-center gap-3 text-[10px] uppercase tracking-luxury text-gold">
+            <span className="h-px w-10 bg-gold/60" />
+            全品類一覽
+            <span className="h-px w-10 bg-gold/60" />
+          </p>
+          <h2 className="font-serif text-4xl leading-[1.05] md:text-6xl">
+            <span className="text-gradient-gold">煙彈、煙油與周邊。</span>
+            <br />
+            <span className="italic text-foreground/70">同一套品質語言。</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed tracking-vogue text-muted-foreground md:text-base">
+            從五代換彈到鹽尼古丁煙油，再到保護與收納；門市與線上可一併諮詢現貨與規格。
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+          {showcaseCategories.map((item, i) => (
+            <div
+              key={item.title}
+              ref={showcaseCardRefs[i]}
+              className="reveal group overflow-hidden glass shadow-luxury"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="absolute inset-0 spotlight opacity-50" />
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-[1800ms] ease-luxury group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-80" />
+              </div>
+              <div className="border-t border-gold/10 px-6 py-8 text-center">
+                <h3 className="font-serif text-2xl text-gradient-gold md:text-3xl">{item.title}</h3>
+                <p className="mt-2 text-xs uppercase tracking-luxury text-muted-foreground md:text-[11px]">
+                  {item.caption}
+                </p>
+              </div>
             </div>
           ))}
         </div>

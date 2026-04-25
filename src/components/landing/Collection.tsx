@@ -27,11 +27,11 @@ const Collection = () => {
           <div className="max-w-2xl">
             <p className="text-[10px] uppercase tracking-luxury text-gold mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-gold/60" />
-              一次性產品系列
+              主機與硬體系列
             </p>
             <h2 className="font-serif text-5xl md:text-7xl leading-[1.02]">
               <span className="text-gradient-gold">六款設備。</span><br />
-              <span className="italic text-foreground/70">對細節的一種執著。</span>
+              <span className="italic text-foreground/70">旗艦手感，一手掌握。</span>
             </h2>
           </div>
           <p className="md:max-w-sm text-sm text-muted-foreground leading-relaxed tracking-vogue">

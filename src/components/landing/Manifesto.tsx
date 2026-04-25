@@ -17,7 +17,7 @@ const Manifesto = () => {
         <div ref={ref} className="reveal max-w-4xl mx-auto text-center">
           <p className="text-[10px] uppercase tracking-luxury text-gold mb-8">— 品牌宣言 —</p>
           <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.15]">
-            <span className="text-gradient-gold">"我們不生產配飾。</span><br />
+            <span className="text-gradient-gold">"我們不以單品堆砌標籤。</span><br />
             我們打造 <span className="italic text-foreground/70">時刻</span> — 精心構思，縝密考量，
             <span className="text-gradient-gold"> 難以忘懷。"</span>
           </h2>

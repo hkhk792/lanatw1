@@ -15,6 +15,9 @@ import BulletDetail from "./pages/BulletDetail.tsx";
 import Sp2sProDetail from "./pages/Sp2sProDetail.tsx";
 import AtomizerDetail from "./pages/AtomizerDetail.tsx";
 import DiyaDetail from "./pages/DiyaDetail.tsx";
+import LanaPodsDetail from "./pages/LanaPodsDetail.tsx";
+import DiyaPodsDetail from "./pages/DiyaPodsDetail.tsx";
+import Sp2sGen1PodsDetail from "./pages/Sp2sGen1PodsDetail.tsx";
 import Checkout from "./pages/Checkout.tsx";
 import OrderComplete from "./pages/OrderComplete.tsx";
 
@@ -37,6 +40,9 @@ const App = () => (
             <Route path="/product/pro" element={<Sp2sProDetail />} />
             <Route path="/product/atomizer" element={<AtomizerDetail />} />
             <Route path="/product/diya" element={<DiyaDetail />} />
+            <Route path="/product/lana-pods" element={<LanaPodsDetail />} />
+            <Route path="/product/diya-pods" element={<DiyaPodsDetail />} />
+            <Route path="/product/sp2s-gen1-pods" element={<Sp2sGen1PodsDetail />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/product" element={<ProductDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

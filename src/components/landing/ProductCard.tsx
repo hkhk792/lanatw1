@@ -116,10 +116,10 @@ const ProductCard = ({ image, name, flavor, price, index, id }: Props) => {
       <div className="absolute inset-x-4 bottom-4 z-10 glass-strong p-5 translate-y-4 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-luxury">
         <div className="flex items-end justify-between gap-4">
           <div className="min-w-0">
-            <h3 className="font-serif text-2xl text-foreground truncate group-hover:text-gradient-gold group-hover:[text-shadow:0_0_24px_hsl(var(--gold)/0.5)] transition-all duration-500">
+            <h3 className="font-serif text-2xl text-foreground line-clamp-2 break-words group-hover:text-gradient-gold group-hover:[text-shadow:0_0_24px_hsl(var(--gold)/0.5)] transition-all duration-500">
               {renderTitle(name)}
             </h3>
-            <p className="mt-1 text-[10px] uppercase tracking-luxury text-foreground/60 truncate">{flavor}</p>
+            <p className="mt-1 text-[10px] uppercase tracking-luxury text-foreground/60 line-clamp-2 break-words">{flavor}</p>
           </div>
           <div className="text-right shrink-0">
             <p className="font-sans text-sm font-light text-gold">{price}</p>
