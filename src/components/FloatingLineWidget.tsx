@@ -47,6 +47,8 @@ const FloatingLineWidget = ({ lineHref = "https://line.me/ti/p/~abs791012", noti
   const [pos, setPos] = useState<Position>(DEFAULT_POS);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  /** 本次拖曳後瀏覽器仍會觸發 click，用此略過開啟 LINE */
+  const suppressNextClickRef = useRef(false);
   const dragStateRef = useRef<{
     startX: number;
     startY: number;
@@ -89,6 +91,7 @@ const FloatingLineWidget = ({ lineHref = "https://line.me/ti/p/~abs791012", noti
     if (e.button !== 0 && e.pointerType === "mouse") return;
     const el = containerRef.current;
     if (!el) return;
+    suppressNextClickRef.current = false;
     dragStateRef.current = {
       startX: e.clientX,
       startY: e.clientY,
@@ -125,15 +128,18 @@ const FloatingLineWidget = ({ lineHref = "https://line.me/ti/p/~abs791012", noti
     if (!state || state.pointerId !== e.pointerId) return;
     const el = containerRef.current;
     if (el && el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
-    if (state.moved) {
+    const hadMoved = state.moved;
+    if (hadMoved) {
       persist(pos);
+      suppressNextClickRef.current = true;
     }
     setIsDragging(false);
     dragStateRef.current = null;
   };
 
   const handleClick = (e: React.MouseEvent) => {
-    if (isDragging) {
+    if (suppressNextClickRef.current) {
+      suppressNextClickRef.current = false;
       e.preventDefault();
       return;
     }
@@ -155,20 +161,14 @@ const FloatingLineWidget = ({ lineHref = "https://line.me/ti/p/~abs791012", noti
         bottom: `${pos.bottom}px`,
         touchAction: "none",
       }}
-      className={`fixed z-50 flex select-none items-center gap-2 ${
+      className={`fixed z-50 flex select-none items-center ${
         isDragging ? "cursor-grabbing" : "cursor-grab"
       }`}
     >
-      <span className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 shadow-sm">
-        Line
-      </span>
-
       <button
         type="button"
         aria-label="透過 LINE 聯絡我們"
-        onClick={(e) => e.stopPropagation()}
-        onPointerDown={(e) => e.stopPropagation()}
-        className="relative grid h-12 w-12 place-items-center rounded-full bg-[#06C755] text-white shadow-lg transition-transform hover:scale-105"
+        className="relative grid h-12 w-12 cursor-grab place-items-center rounded-full bg-[#06C755] text-white shadow-lg transition-transform hover:scale-105 active:cursor-grabbing"
       >
         <span className="text-[11px] font-extrabold tracking-wider">LINE</span>
         {notificationCount > 0 ? (

@@ -1,32 +1,62 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
-import productMain from "@/assets/product-12.png";
-import productThumb1 from "@/assets/product-13.png";
-import productThumb2 from "@/assets/product-11.png";
+import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
+import productMain from "@/assets/product-12.webp";
+import productThumb1 from "@/assets/product-13.webp";
+import productThumb2 from "@/assets/product-11.webp";
 import logoImage from "@/assets/product-14.jpg";
-import doraemonMain from "@/assets/wps1.png";
-import doraemonThumb1 from "@/assets/wps3.png";
-import doraemonThumb2 from "@/assets/wps2.png";
-import luffyMain from "@/assets/16.png";
-import luffyThumb1 from "@/assets/18.png";
-import luffyThumb2 from "@/assets/17.png";
-import kakashiMain from "@/assets/kakashi-main.png";
-import kakashiThumb1 from "@/assets/kakashi-thumb-1.png";
-import kakashiThumb2 from "@/assets/kakashi-thumb-2.png";
-import ktMain from "@/assets/kt-main.png";
-import ktThumb1 from "@/assets/kt-thumb-1.png";
-import ktThumb2 from "@/assets/kt-thumb-2.png";
-import kuromiMain from "@/assets/kuromi-main.png";
-import kuromiThumb1 from "@/assets/kuromi-thumb-1.png";
-import kuromiThumb2 from "@/assets/kuromi-thumb-2.png";
+import doraemonMain from "@/assets/wps1.webp";
+import doraemonThumb1 from "@/assets/wps3.webp";
+import doraemonThumb2 from "@/assets/wps2.webp";
+import luffyMain from "@/assets/16.webp";
+import luffyThumb1 from "@/assets/18.webp";
+import luffyThumb2 from "@/assets/17.webp";
+import kakashiMain from "@/assets/kakashi-main.webp";
+import kakashiThumb1 from "@/assets/kakashi-thumb-1.webp";
+import kakashiThumb2 from "@/assets/kakashi-thumb-2.webp";
+import ktMain from "@/assets/kt-main.webp";
+import ktThumb1 from "@/assets/kt-thumb-1.webp";
+import ktThumb2 from "@/assets/kt-thumb-2.webp";
+import kuromiMain from "@/assets/kuromi-main.webp";
+import kuromiThumb1 from "@/assets/kuromi-thumb-1.webp";
+import kuromiThumb2 from "@/assets/kuromi-thumb-2.webp";
+import zoroGreenMain from "@/assets/zoro-green-main.webp";
+import zoroGreenThumb1 from "@/assets/zoro-green-thumb-1.webp";
+import zoroGreenThumb2 from "@/assets/zoro-green-thumb-2.webp";
+import { usePreloadImages } from "@/hooks/usePreloadImages";
 
 const CARTOON_PRODUCT_ID = "cartoon";
 const CARTOON_PRICE_TWD = 550;
+
+/** 所有卡通款式主圖 + 縮圖（切換時一次預載，避免手機 / 微信內首次解碼卡頓） */
+const CARTOON_GALLERY_URLS: readonly string[] = [
+  productMain,
+  productThumb1,
+  productThumb2,
+  doraemonMain,
+  doraemonThumb1,
+  doraemonThumb2,
+  luffyMain,
+  luffyThumb1,
+  luffyThumb2,
+  kakashiMain,
+  kakashiThumb1,
+  kakashiThumb2,
+  ktMain,
+  ktThumb1,
+  ktThumb2,
+  kuromiMain,
+  kuromiThumb1,
+  kuromiThumb2,
+  zoroGreenMain,
+  zoroGreenThumb1,
+  zoroGreenThumb2,
+];
 
 const ProductDetail = () => {
   const navigate = useNavigate();
@@ -38,12 +68,30 @@ const ProductDetail = () => {
   const [mainImage, setMainImage] = useState(productMain);
   const [thumb1, setThumb1] = useState(productThumb1);
   const [thumb2, setThumb2] = useState(productThumb2);
+  const [mainImageLoading, setMainImageLoading] = useState(false);
+  const mainImgRef = useRef<HTMLImageElement>(null);
+  const mainImageSyncRef = useRef(mainImage);
+  mainImageSyncRef.current = mainImage;
+
+  usePreloadImages(CARTOON_GALLERY_URLS, "product-detail-cartoon", {
+    concurrency: 4,
+    /** 盡快開始預載（含不支援 idle 時的 timeout 後備） */
+    idleTimeoutMs: 1,
+  });
+
+  /** 快取命中時部分瀏覽器不重複觸發 onLoad，用 complete 同步關閉遮罩 */
+  useEffect(() => {
+    const el = mainImgRef.current;
+    if (el?.complete && el.naturalWidth > 0) {
+      setMainImageLoading(false);
+    }
+  }, [mainImage]);
 
   const handleOptionChange = (option: string) => {
-    if (option !== selectedOption) {
-      setQuantity(1);
-    }
+    if (option === selectedOption) return;
+    setQuantity(1);
     setSelectedOption(option);
+    setMainImageLoading(true);
     if (option === "多拉 A 夢") {
       setMainImage(doraemonMain);
       setThumb1(doraemonThumb1);
@@ -64,6 +112,10 @@ const ProductDetail = () => {
       setMainImage(luffyMain);
       setThumb1(luffyThumb1);
       setThumb2(luffyThumb2);
+    } else if (option === "航海王索隆 - 綠") {
+      setMainImage(zoroGreenMain);
+      setThumb1(zoroGreenThumb1);
+      setThumb2(zoroGreenThumb2);
     } else {
       setMainImage(productMain);
       setThumb1(productThumb1);
@@ -71,12 +123,22 @@ const ProductDetail = () => {
     }
   };
 
+  const selectMainFromThumb = useCallback((src: string) => {
+    if (mainImageSyncRef.current === src) return;
+    setMainImageLoading(true);
+    setMainImage(src);
+  }, []);
+
   const getProductTitle = () => {
     if (!selectedOption) return "NINGA 卡通一代通用主機｜多種配色可選";
     if (selectedOption === "多拉 A 夢") {
       return "NINGA 多拉 A 夢卡通一代通用主機｜多種配色可選";
-    } else if (selectedOption === "航海王魯夫 - 藍") {
+    }
+    if (selectedOption === "航海王魯夫 - 藍") {
       return "NINGA 航海王魯夫卡通一代通用主機｜多種配色可選";
+    }
+    if (selectedOption === "航海王索隆 - 綠") {
+      return "NINGA 航海王索隆卡通一代通用主機｜多種配色可選";
     }
     return `NINGA ${selectedOption}卡通一代通用主機｜多種配色可選`;
   };
@@ -87,6 +149,8 @@ const ProductDetail = () => {
       return "NINGA 多拉 A 夢卡通一代通用主機 多種配色可選";
     } else if (selectedOption === "航海王魯夫 - 藍") {
       return "NINGA 航海王魯夫卡通一代通用主機 多種配色可選";
+    } else if (selectedOption === "航海王索隆 - 綠") {
+      return "NINGA 航海王索隆卡通一代通用主機 多種配色可選";
     }
     return `NINGA ${selectedOption}卡通一代通用主機 多種配色可選`;
   };
@@ -97,6 +161,8 @@ const ProductDetail = () => {
       return "NINGA 多拉 A 夢主機";
     } else if (selectedOption === "航海王魯夫 - 藍") {
       return "NINGA 航海王魯夫主機";
+    } else if (selectedOption === "航海王索隆 - 綠") {
+      return "NINGA 航海王索隆主機";
     }
     return `NINGA ${selectedOption}主機`;
   };
@@ -107,6 +173,8 @@ const ProductDetail = () => {
       return "NINGA 多拉 A 夢，NINGA 多拉 A 夢卡通一代通用主機";
     } else if (selectedOption === "航海王魯夫 - 藍") {
       return "NINGA 航海王魯夫，NINGA 航海王魯夫卡通一代通用主機";
+    } else if (selectedOption === "航海王索隆 - 綠") {
+      return "NINGA 航海王索隆，NINGA 航海王索隆卡通一代通用主機";
     }
     return `NINGA ${selectedOption}，NINGA ${selectedOption}卡通一代通用主機`;
   };
@@ -117,6 +185,8 @@ const ProductDetail = () => {
       return "通用主機｜多拉 A 夢";
     } else if (selectedOption === "航海王魯夫 - 藍") {
       return "通用主機｜航海王魯夫";
+    } else if (selectedOption === "航海王索隆 - 綠") {
+      return "通用主機｜航海王索隆";
     }
     return `通用主機｜${selectedOption}`;
   };
@@ -210,21 +280,34 @@ const ProductDetail = () => {
             </button>
 
             <div className="relative bg-gray-50 rounded-lg overflow-hidden">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-3">
-                {["一代通用", "多款主題", "精緻小巧", "易於操作"].map((t) => (
-                  <div key={t} className="bg-white shadow-md rounded-lg px-4 py-3 flex items-center gap-2">
-                    <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center text-gray-700">✓</div>
-                    <span className="font-medium text-sm">{t}</span>
-                  </div>
-                ))}
-              </div>
-
-              <img src={mainImage} alt="NINGA 蠟筆小新" className="w-full h-[500px] object-contain" />
+              {mainImageLoading ? (
+                <div
+                  className="absolute inset-0 z-[5] flex items-center justify-center bg-gray-50/85 backdrop-blur-[2px]"
+                  aria-busy="true"
+                  aria-live="polite"
+                >
+                  <span className="text-sm font-medium text-gray-600">圖片載入中…</span>
+                </div>
+              ) : null}
+              <img
+                ref={mainImgRef}
+                src={mainImage}
+                alt="NINGA 蠟筆小新"
+                width={800}
+                height={800}
+                decoding="async"
+                fetchPriority="high"
+                className="h-[500px] w-full object-contain"
+                onLoad={() => setMainImageLoading(false)}
+                onError={() => setMainImageLoading(false)}
+              />
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="bg-red-600 text-white px-6 py-2 font-bold rounded-md shadow-lg">{getBadgeText()}</div>
               </div>
             </div>
+
+            <ProductHeroFeatureTags tags={["一代通用", "多款主題", "精緻小巧", "易於操作"]} />
 
             <div className="mt-6 text-center">
               <h2 className="text-2xl font-bold text-gray-900">{getProductDescription()}</h2>
@@ -234,14 +317,22 @@ const ProductDetail = () => {
               <img
                 src={thumb1}
                 alt="thumbnail 1"
-                className="w-24 h-24 object-cover rounded-lg border-2 border-gray-200 hover:border-gray-400 cursor-pointer transition-colors"
-                onClick={() => setMainImage(thumb1)}
+                width={96}
+                height={96}
+                decoding="async"
+                loading="eager"
+                className="h-24 w-24 cursor-pointer rounded-lg border-2 border-gray-200 object-cover transition-colors hover:border-gray-400"
+                onClick={() => selectMainFromThumb(thumb1)}
               />
               <img
                 src={thumb2}
                 alt="thumbnail 2"
-                className="w-24 h-24 object-cover rounded-lg border-2 border-gray-200 hover:border-gray-400 cursor-pointer transition-colors"
-                onClick={() => setMainImage(thumb2)}
+                width={96}
+                height={96}
+                decoding="async"
+                loading="eager"
+                className="h-24 w-24 cursor-pointer rounded-lg border-2 border-gray-200 object-cover transition-colors hover:border-gray-400"
+                onClick={() => selectMainFromThumb(thumb2)}
               />
             </div>
           </div>

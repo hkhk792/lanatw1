@@ -1,12 +1,12 @@
 import ProductCard from "./ProductCard";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import p1 from "@/assets/product-1.png";
-import lanaPremiumHero from "@/assets/lana-premium-device.png";
-import p3 from "@/assets/product-3.png";
-import p4 from "@/assets/product-4.png";
-import p5 from "@/assets/atomizing-rod.jpg";
-import p6 from "@/assets/product-6.png";
+import p1 from "@/assets/product-1.webp";
+import lanaPremiumHero from "@/assets/lana-premium-device.webp";
+import p3 from "@/assets/product-3.webp";
+import p4 from "@/assets/product-4.webp";
+import p5 from "@/assets/atomizing-rod.webp";
+import p6 from "@/assets/product-6.webp";
 
 const products = [
   { image: p1, name: "卡通限量版", flavor: "經典工藝系列", price: "$148", id: "cartoon" },

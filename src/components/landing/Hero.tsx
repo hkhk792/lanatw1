@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import sp2sPodsCatalog from "@/assets/sp2s-gen1-pods-catalog.png";
+import sp2sPodsCatalog from "@/assets/sp2s-gen1-pods-catalog.webp";
 
 const GEN1_PODS_ROUTE = "/product/sp2s-gen1-pods";
 

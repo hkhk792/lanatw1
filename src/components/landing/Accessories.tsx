@@ -3,16 +3,16 @@ import { ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import ProductCard from "@/components/landing/ProductCard";
-import sp2sPodsCatalog from "@/assets/sp2s-gen1-pods-catalog.png";
-import disposableVapengin from "@/assets/disposable-vapengin-venus.png";
-import disposableMohoo from "@/assets/disposable-mohoo-tokyo.png";
-import disposableHebat from "@/assets/disposable-hebat-hb10000.png";
-import disposableDiya from "@/assets/disposable-diya-7500.png";
-import disposableFlare from "@/assets/disposable-flare-nimmbox-go.png";
-import disposableVaporStorm from "@/assets/disposable-vapor-storm-cf5000.png";
-import showcaseGen5Pods from "@/assets/showcase-gen5-pods.png";
-import showcaseELiquid from "@/assets/showcase-e-liquid.png";
-import showcaseVapeGear from "@/assets/showcase-vape-gear.png";
+import sp2sPodsCatalog from "@/assets/sp2s-gen1-pods-catalog.webp";
+import disposableVapengin from "@/assets/disposable-vapengin-venus.webp";
+import disposableMohoo from "@/assets/disposable-mohoo-tokyo.webp";
+import disposableHebat from "@/assets/disposable-hebat-hb10000.webp";
+import disposableDiya from "@/assets/disposable-diya-7500.webp";
+import disposableFlare from "@/assets/disposable-flare-nimmbox-go.webp";
+import disposableVaporStorm from "@/assets/disposable-vapor-storm-cf5000.webp";
+import showcaseGen5Pods from "@/assets/showcase-gen5-pods.webp";
+import showcaseELiquid from "@/assets/showcase-e-liquid.webp";
+import showcaseVapeGear from "@/assets/showcase-vape-gear.webp";
 
 const highlights = [
   { label: "水果系列", sub: "18 款" },

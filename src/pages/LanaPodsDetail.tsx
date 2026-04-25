@@ -5,7 +5,8 @@ import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
-import productMain from "@/assets/product-7.jpg";
+import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
+import productMain from "@/assets/product-7.webp";
 import logoImage from "@/assets/product-14.jpg";
 
 const LANA_PODS_PRODUCT_ID = "lana-pods";
@@ -245,21 +246,14 @@ const LanaPodsDetail = () => {
             </button>
 
             <div className="relative bg-gray-50 rounded-lg overflow-hidden">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-3">
-                {["陶瓷蜂巢", "一代通用", "3 顆裝", "台灣現貨"].map((t) => (
-                  <div key={t} className="bg-white shadow-md rounded-lg px-4 py-3 flex items-center gap-2">
-                    <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center text-gray-700">✓</div>
-                    <span className="font-medium text-sm">{t}</span>
-                  </div>
-                ))}
-              </div>
-
               <img src={productMain} alt="LANA 煙彈 全適配芯" className="w-full h-[500px] object-cover" />
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="bg-red-600 text-white px-6 py-2 font-bold rounded-md shadow-lg">{getBadgeText()}</div>
               </div>
             </div>
+
+            <ProductHeroFeatureTags tags={["陶瓷蜂巢", "一代通用", "3 顆裝", "台灣現貨"]} />
 
             <div className="mt-6 text-center">
               <h2 className="text-2xl font-bold text-gray-900">{getProductDescription()}</h2>

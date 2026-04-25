@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import p7 from "@/assets/product-7.jpg";
-import p8 from "@/assets/product-8.png";
+import p7 from "@/assets/product-7.webp";
+import p8 from "@/assets/product-8.webp";
 
 interface Feature {
   image: string;

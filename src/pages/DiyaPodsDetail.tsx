@@ -5,7 +5,8 @@ import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
-import productMain from "@/assets/product-8.png";
+import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
+import productMain from "@/assets/product-8.webp";
 import logoImage from "@/assets/product-14.jpg";
 
 const DIYA_PODS_PRODUCT_ID = "diya-pods";
@@ -233,21 +234,14 @@ const DiyaPodsDetail = () => {
             </button>
 
             <div className="relative overflow-hidden rounded-lg bg-gray-50">
-              <div className="absolute left-4 top-1/2 z-10 flex -translate-y-1/2 flex-col gap-3">
-                {["2.5ml／顆", "一盒三入", "一代通用", "多口味"].map((t) => (
-                  <div key={t} className="flex items-center gap-2 rounded-lg bg-white px-4 py-3 shadow-md">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 text-gray-700">✓</div>
-                    <span className="text-sm font-medium">{t}</span>
-                  </div>
-                ))}
-              </div>
-
               <img src={productMain} alt="DIYA 叮啞煙彈" className="h-[500px] w-full object-contain" />
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="rounded-md bg-red-600 px-6 py-2 font-bold text-white shadow-lg">{getBadgeText()}</div>
               </div>
             </div>
+
+            <ProductHeroFeatureTags tags={["2.5ml／顆", "一盒三入", "一代通用", "多口味"]} />
 
             <div className="mt-6 text-center">
               <h2 className="text-2xl font-bold text-gray-900">{getProductDescription()}</h2>

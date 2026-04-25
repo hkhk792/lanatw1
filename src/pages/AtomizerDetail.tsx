@@ -5,7 +5,8 @@ import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
-import productMain from "@/assets/atomizing-rod.jpg";
+import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
+import productMain from "@/assets/atomizing-rod.webp";
 import logoImage from "@/assets/product-14.jpg";
 
 const ATOMIZER_PRODUCT_ID = "atomizer";
@@ -160,21 +161,14 @@ const AtomizerDetail = () => {
             </button>
 
             <div className="relative overflow-hidden rounded-lg bg-gray-50">
-              <div className="absolute left-4 top-1/2 z-10 flex -translate-y-1/2 flex-col gap-3">
-                {["預熱功率", "輸出曲線", "旁路模式", "安全辨識"].map((t) => (
-                  <div key={t} className="flex items-center gap-2 rounded-lg bg-white px-4 py-3 shadow-md">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 text-gray-700">✓</div>
-                    <span className="text-sm font-medium">{t}</span>
-                  </div>
-                ))}
-              </div>
-
               <img src={productMain} alt="原子棒電子煙主機" className="h-[500px] w-full object-contain" />
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="rounded-md bg-red-600 px-6 py-2 font-bold text-white shadow-lg">{getBadgeText()}</div>
               </div>
             </div>
+
+            <ProductHeroFeatureTags tags={["預熱功率", "輸出曲線", "旁路模式", "安全辨識"]} />
 
             <div className="mt-6 text-center">
               <h2 className="text-2xl font-bold text-gray-900">{getProductDescription()}</h2>
