@@ -21,33 +21,37 @@ const Collection = () => {
   const headRef = useReveal<HTMLDivElement>();
 
   return (
-    <section id="disposables" className="relative py-44 md:py-60">
-      <div className="container">
-        <div ref={headRef} className="reveal flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24 md:mb-36">
+    <section id="disposables" className="relative py-16 sm:py-24 md:py-44 lg:py-60">
+      <div className="container max-sm:px-3">
+        <div
+          ref={headRef}
+          className="reveal flex flex-col md:flex-row md:items-end justify-between gap-4 max-sm:gap-3 mb-10 sm:mb-16 md:mb-24 lg:mb-36"
+        >
           <div className="max-w-2xl">
-            <p className="text-[10px] uppercase tracking-luxury text-gold mb-6 flex items-center gap-3">
-              <span className="h-px w-10 bg-gold/60" />
+            <p className="text-[9px] sm:text-[10px] uppercase tracking-luxury text-gold mb-3 sm:mb-6 flex items-center gap-2 sm:gap-3">
+              <span className="h-px w-6 sm:w-10 bg-gold/60" />
               主機與硬體系列
             </p>
-            <h2 className="font-serif text-5xl md:text-7xl leading-[1.02]">
-              <span className="text-gradient-gold">六款設備。</span><br />
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08] sm:leading-[1.02]">
+              <span className="text-gradient-gold">六款設備。</span>
+              <br />
               <span className="italic text-foreground/70">旗艦手感，一手掌握。</span>
             </h2>
           </div>
-          <p className="md:max-w-sm text-sm text-muted-foreground leading-relaxed tracking-vogue">
-            從旗艦硬體到陶瓷芯一次性產品，<BrandSp2s className="font-serif text-sm text-muted-foreground" />{" "}
+          <p className="md:max-w-sm text-xs sm:text-sm text-muted-foreground leading-relaxed tracking-vogue max-sm:line-clamp-3">
+            從旗艦硬體到陶瓷芯一次性產品，<BrandSp2s className="font-serif text-xs sm:text-sm text-muted-foreground" />{" "}
             目錄中的每一項都
             因同一品質而被選中——毫不妥協的工藝。
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-8 lg:grid-cols-3 lg:gap-12">
           {products.map((p, i) => (
-            <ProductCard key={p.id} {...p} index={i} />
+            <ProductCard key={p.id} variant="dense" {...p} index={i} />
           ))}
         </div>
 
-        <div className="mt-28 flex justify-center">
+        <div className="mt-12 sm:mt-20 md:mt-28 flex justify-center">
           <a
             href="#"
             className="group inline-flex items-center gap-4 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold transition-colors duration-500"

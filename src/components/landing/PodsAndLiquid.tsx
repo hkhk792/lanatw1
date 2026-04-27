@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
+import { cn } from "@/lib/utils";
 import p7 from "@/assets/product-7.webp";
-import p8 from "@/assets/product-8.webp";
+import diyaPodsShowcase from "@/assets/diya-pods-showcase.png";
 
 interface Feature {
   image: string;
@@ -16,47 +17,101 @@ interface Feature {
   to?: string;
 }
 
-const cardClassName =
-  "reveal group relative block aspect-[4/5] md:aspect-[5/6] overflow-hidden glass transition-shadow duration-700 hover:shadow-gold";
+const cardShell = cn(
+  "reveal group relative block cursor-pointer overflow-hidden glass transition-shadow duration-700 hover:shadow-gold",
+  "max-lg:flex max-lg:h-auto max-lg:min-h-0 max-lg:flex-col max-lg:aspect-auto",
+  "lg:aspect-[5/6]"
+);
 
 const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
   const cardRef = useReveal<HTMLAnchorElement>();
-  const inner = (
-    <>
-      <div className="absolute inset-0 spotlight opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+
+  const imageBlock = (
+    <div
+      className={cn(
+        "relative w-full max-lg:aspect-[3/4] max-lg:shrink-0 overflow-hidden",
+        "lg:absolute lg:inset-0"
+      )}
+    >
+      <div className="absolute inset-0 opacity-50 transition-opacity duration-700 spotlight group-hover:opacity-100" />
       <img
         src={f.image}
         alt={`${f.title} — ${f.eyebrow}`}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1600ms] ease-luxury group-hover:scale-105"
+        className="h-full w-full object-cover transition-transform duration-[1600ms] ease-luxury group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
+      <div
+        className={cn(
+          "absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent transition-opacity",
+          "max-lg:opacity-0",
+          "lg:opacity-100"
+        )}
+      />
 
-      <div className="absolute top-6 left-6 right-6 flex items-start justify-between">
-        <span className="text-[10px] uppercase tracking-luxury text-gold">
+      <div className="absolute right-3 top-3 z-10 flex w-[calc(100%-1.5rem)] max-lg:items-start max-lg:justify-end lg:top-6 lg:right-6 lg:left-6 lg:justify-between">
+        <span
+          className={cn(
+            "max-lg:hidden",
+            "text-[10px] font-normal uppercase tracking-luxury text-gold"
+          )}
+        >
           0{i + 1} · {f.eyebrow}
         </span>
-        <span className="grid h-10 w-10 place-items-center rounded-full glass-strong text-gold/80 group-hover:text-gold group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500">
-          <ArrowUpRight className="h-4 w-4" />
+        <span className="grid h-8 w-8 place-items-center rounded-full text-gold/80 shadow-sm transition-all duration-500 max-lg:glass-strong max-lg:h-8 max-lg:w-8 lg:glass-strong lg:h-10 lg:w-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold">
+          <ArrowUpRight className="h-3.5 w-3.5 max-lg:h-3 max-lg:w-3 lg:h-4 lg:w-4" />
         </span>
       </div>
+    </div>
+  );
 
-      <div className="absolute inset-x-6 bottom-6 md:inset-x-10 md:bottom-10">
-        <h3 className="font-serif text-4xl md:text-6xl leading-tight mb-4 text-gradient-gold">{f.title}</h3>
-        <p className="text-sm md:text-base text-muted-foreground max-w-md leading-relaxed mb-6 tracking-vogue">
-          {f.desc}
-        </p>
-        <ul className="flex flex-wrap gap-2">
-          {f.specs.map((s) => (
-            <li
-              key={s}
-              className="text-[10px] uppercase tracking-luxury px-3 py-2 hairline border text-foreground/80"
-            >
-              {s}
-            </li>
-          ))}
-        </ul>
-      </div>
+  const textBlockLg = (
+    <div className="max-lg:hidden absolute inset-x-6 bottom-6 md:inset-x-10 md:bottom-10 z-[1]">
+      <h3 className="mb-3 font-serif text-4xl leading-tight text-gradient-gold md:mb-4 md:text-6xl">{f.title}</h3>
+      <p className="mb-4 max-w-md text-sm leading-relaxed tracking-vogue text-muted-foreground md:mb-6 md:text-base">
+        {f.desc}
+      </p>
+      <ul className="flex flex-wrap gap-2">
+        {f.specs.map((s) => (
+          <li
+            key={s}
+            className="hairline border px-3 py-2 text-[10px] font-normal uppercase tracking-luxury text-foreground/80"
+          >
+            {s}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  const textBlockSm = (
+    <div className="z-[2] border-t border-gold/10 bg-card/50 p-2.5 max-lg:block lg:hidden">
+      <p className="mb-1.5 text-[8px] font-normal uppercase tracking-luxury text-gold/90">
+        0{i + 1} · {f.eyebrow}
+      </p>
+      <h3 className="mb-1.5 line-clamp-2 font-serif text-sm leading-tight text-gradient-gold min-[400px]:text-base">
+        {f.title}
+      </h3>
+      <p className="mb-2 line-clamp-3 text-[10px] leading-snug text-muted-foreground min-[400px]:text-[11px] min-[400px]:leading-relaxed sm:line-clamp-4 sm:text-xs">
+        {f.desc}
+      </p>
+      <ul className="flex flex-wrap gap-1">
+        {f.specs.map((s) => (
+          <li
+            key={s}
+            className="border border-gold/15 hairline bg-background/20 px-1.5 py-0.5 text-[7px] font-normal uppercase tracking-luxury text-foreground/85 min-[400px]:px-2 min-[400px]:py-1 min-[400px]:text-[8px]"
+          >
+            {s}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  const children = (
+    <>
+      {imageBlock}
+      {textBlockLg}
+      {textBlockSm}
     </>
   );
 
@@ -65,10 +120,10 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
       <Link
         ref={cardRef as Ref<HTMLAnchorElement>}
         to={f.to}
-        className={cardClassName}
+        className={cardShell}
         style={{ transitionDelay: `${i * 120}ms` }}
       >
-        {inner}
+        {children}
       </Link>
     );
   }
@@ -77,10 +132,10 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
     <a
       ref={cardRef}
       href="#"
-      className={cardClassName}
+      className={cardShell}
       style={{ transitionDelay: `${i * 120}ms` }}
     >
-      {inner}
+      {children}
     </a>
   );
 };
@@ -92,15 +147,14 @@ const features: Feature[] = [
     title: "全適配芯",
     desc: (
       <>
-        為穩定蒸氣一致性而設計的彈匣。與所有 <BrandSp2s className="font-serif text-sm md:text-base text-muted-foreground" />{" "}
-        陶瓷芯硬體相容。
+        為穩定蒸氣一致性而設計的彈匣。與所有 <BrandSp2s className="inline font-serif text-inherit" /> 陶瓷芯硬體相容。
       </>
     ),
     specs: ["LANA 3 顆裝", "一代通用", "NT$220"],
     to: "/product/lana-pods",
   },
   {
-    image: p8,
+    image: diyaPodsShowcase,
     eyebrow: "叮啞系列",
     title: "DIYA 叮啞煙彈",
     desc: "一代通用、一盒三入；每顆 2.5ml，相容 RELX 一代、SP2S、LANA 等多款主機，口味陣容完整。",
@@ -113,22 +167,28 @@ const PodsAndLiquid = () => {
   const headRef = useReveal<HTMLDivElement>();
 
   return (
-    <section id="pods" className="relative py-44 md:py-60 border-y hairline">
-      <div className="container">
-        <div ref={headRef} className="reveal max-w-3xl mb-24 md:mb-36">
-          <p className="text-[10px] uppercase tracking-luxury text-gold mb-6 flex items-center gap-3">
-            <span className="h-px w-10 bg-gold/60" />
+    <section
+      id="pods"
+      className="relative border-y hairline py-16 sm:py-24 md:py-36 lg:py-44 xl:py-60"
+    >
+      <div className="container max-sm:px-3">
+        <div ref={headRef} className="reveal mb-10 max-w-3xl sm:mb-16 md:mb-20 lg:mb-32 xl:mb-36">
+          <p className="mb-3 flex items-center gap-2 text-[9px] font-normal uppercase tracking-luxury text-gold sm:mb-6 sm:gap-3 sm:text-[10px]">
+            <span className="h-px w-6 bg-gold/60 sm:w-10" />
             彈匣與電子煙油
           </p>
-          <h2 className="font-serif text-5xl md:text-7xl leading-[1.02]">
-            <span className="text-gradient-gold">精工消耗品。</span><br />
+          <h2 className="font-serif text-3xl leading-[1.1] sm:text-5xl sm:leading-[1.02] md:text-6xl lg:text-7xl">
+            <span className="text-gradient-gold">精工消耗品。</span>
+            <br />
             <span className="italic text-foreground/70">品嘗至完美。</span>
           </h2>
         </div>
 
-        {/* Split-screen with vertical gold divider */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px gold-divider -translate-x-1/2" />
+        <div className="relative grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:grid-cols-2 lg:gap-10 xl:gap-16">
+          <div
+            className="pointer-events-none absolute top-0 bottom-0 left-1/2 hidden w-px -translate-x-1/2 gold-divider lg:block"
+            aria-hidden
+          />
           {features.map((f, i) => (
             <FeatureCard key={f.title} f={f} i={i} />
           ))}

@@ -75,6 +75,9 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
@@ -94,6 +97,14 @@
 }
 
 @layer utilities {
+  /** 瀏海／動態島：與 fixed header 疊用 */
+  .safe-area-pt {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
   .font-serif { font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; }
   .font-sans { font-family: 'Inter', system-ui, sans-serif; }
 

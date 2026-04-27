@@ -21,24 +21,28 @@ const highlights = [
   { label: "甜品趣味", sub: "4 款" },
 ];
 
-const showcaseCategories = [
+/** 全品類一覽：與拋棄式區同用 ProductCard（＋、價格、glass） */
+const showcaseProducts = [
   {
+    id: "showcase-gen5",
     image: showcaseGen5Pods,
-    title: "五代煙彈",
-    caption: "換彈系統 · 多口味霧化",
-    alt: "五代通用煙彈與包裝展示",
+    name: "五代煙彈",
+    flavor: "換彈系統 · 多口味霧化",
+    price: "NT$129",
   },
   {
+    id: "showcase-e-liquid",
     image: showcaseELiquid,
-    title: "電子煙煙油",
-    caption: "鹽尼古丁配方 · 風味層次",
-    alt: "電子煙煙油產品展示",
+    name: "電子煙煙油",
+    flavor: "鹽尼古丁配方 · 風味層次",
+    price: "NT$350",
   },
   {
+    id: "showcase-gear",
     image: showcaseVapeGear,
-    title: "配件",
-    caption: "保護與收納 · 日常搭配",
-    alt: "電子煙矽膠保護套等配件展示",
+    name: "配件",
+    flavor: "保護與收納 · 日常搭配",
+    price: "NT$120",
   },
 ] as const;
 
@@ -75,14 +79,14 @@ const disposableProducts = [
     image: disposableFlare,
     name: "JUPITER木星套裝6500口",
     flavor: "木星套裝煙彈換彈拋棄式電子煙",
-    price: "洽門市",
+    price: "NT$480",
     id: "disp-jupiter",
   },
   {
     image: disposableVaporStorm,
     name: "VAPOR STORM風暴5000口",
     flavor: "拋棄式飛霧發光一次性電子煙桿 · 10ml Mesh",
-    price: "洽門市",
+    price: "NT$290",
     id: "disp-vapor-storm",
   },
 ];
@@ -92,13 +96,12 @@ const Accessories = () => {
   const cardRef = useReveal<HTMLAnchorElement>();
   const disposableHeadRef = useReveal<HTMLDivElement>();
   const showcaseHeadRef = useReveal<HTMLDivElement>();
-  const showcaseCard0Ref = useReveal<HTMLDivElement>();
-  const showcaseCard1Ref = useReveal<HTMLDivElement>();
-  const showcaseCard2Ref = useReveal<HTMLDivElement>();
-  const showcaseCardRefs = [showcaseCard0Ref, showcaseCard1Ref, showcaseCard2Ref];
 
   return (
-    <section id="accessories" className="relative overflow-hidden py-44 md:py-60">
+    <section
+      id="accessories"
+      className="relative overflow-hidden py-16 sm:py-20 md:py-28 lg:py-36"
+    >
       <div className="container max-w-5xl">
         <div ref={ref} className="reveal mx-auto mb-20 max-w-3xl text-center md:mb-32">
           <p className="mb-6 flex items-center justify-center gap-3 text-[10px] uppercase tracking-luxury text-gold">
@@ -160,78 +163,57 @@ const Accessories = () => {
         </div>
       </div>
 
-      <div id="one-time-disposables" className="container mt-32 md:mt-44 scroll-mt-32">
+      <div id="one-time-disposables" className="container mt-32 max-sm:px-3 md:mt-44 scroll-mt-32">
         <div
           ref={disposableHeadRef}
-          className="reveal mb-24 flex flex-col justify-between gap-8 md:mb-36 md:flex-row md:items-end"
+          className="reveal mb-10 flex flex-col justify-between gap-4 sm:mb-16 sm:gap-8 md:mb-24 md:flex-row md:items-end lg:mb-36"
         >
           <div className="max-w-2xl">
-            <p className="mb-6 flex items-center gap-3 text-[10px] uppercase tracking-luxury text-gold">
-              <span className="h-px w-10 bg-gold/60" />
+            <p className="mb-3 flex items-center gap-2 text-[9px] uppercase tracking-luxury text-gold sm:mb-6 sm:gap-3 sm:text-[10px]">
+              <span className="h-px w-6 bg-gold/60 sm:w-10" />
               拋棄式系列
             </p>
-            <h2 className="font-serif text-5xl leading-[1.02] md:text-7xl">
+            <h2 className="font-serif text-3xl leading-[1.08] sm:text-5xl sm:leading-[1.02] md:text-6xl lg:text-7xl">
               <span className="text-gradient-gold">一次性拋棄式。</span>
               <br />
               <span className="italic text-foreground/70">對細節的一種執著。</span>
             </h2>
           </div>
-          <p className="text-sm leading-relaxed tracking-vogue text-muted-foreground md:max-w-sm">
+          <p className="text-xs leading-relaxed tracking-vogue text-muted-foreground sm:text-sm md:max-w-sm">
             即拋即走同樣講究霧化曲線與外觀完成度；規格以包裝與實際到貨為準，價格請洽門市或客服。
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-8 lg:grid-cols-3 lg:gap-12">
           {disposableProducts.map((p, i) => (
-            <ProductCard key={p.id} {...p} index={i} />
+            <ProductCard key={p.id} variant="dense" {...p} index={i} />
           ))}
         </div>
       </div>
 
-      <div id="pods-liquid-gear" className="container mt-32 md:mt-44 scroll-mt-32">
+      <div id="pods-liquid-gear" className="container mt-32 max-sm:px-3 md:mt-44 scroll-mt-32">
         <div
           ref={showcaseHeadRef}
-          className="reveal mx-auto mb-16 max-w-2xl text-center md:mb-24"
+          className="reveal mx-auto mb-10 max-w-2xl text-center sm:mb-16 md:mb-24"
         >
-          <p className="mb-6 flex items-center justify-center gap-3 text-[10px] uppercase tracking-luxury text-gold">
-            <span className="h-px w-10 bg-gold/60" />
+          <p className="mb-4 flex items-center justify-center gap-2 text-[9px] uppercase tracking-luxury text-gold sm:mb-6 sm:gap-3 sm:text-[10px]">
+            <span className="h-px w-6 bg-gold/60 sm:w-10" />
             全品類一覽
-            <span className="h-px w-10 bg-gold/60" />
+            <span className="h-px w-6 bg-gold/60 sm:w-10" />
           </p>
-          <h2 className="font-serif text-4xl leading-[1.05] md:text-6xl">
+          <h2 className="font-serif text-3xl leading-[1.1] sm:text-4xl sm:leading-[1.05] md:text-5xl lg:text-6xl">
             <span className="text-gradient-gold">煙彈、煙油與周邊。</span>
             <br />
             <span className="italic text-foreground/70">同一套品質語言。</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed tracking-vogue text-muted-foreground md:text-base">
+          <p className="mx-auto mt-4 max-w-xl text-xs leading-relaxed tracking-vogue text-muted-foreground sm:mt-6 sm:text-sm md:text-base">
             從五代換彈到鹽尼古丁煙油，再到保護與收納；門市與線上可一併諮詢現貨與規格。
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
-          {showcaseCategories.map((item, i) => (
-            <div
-              key={item.title}
-              ref={showcaseCardRefs[i]}
-              className="reveal group overflow-hidden glass shadow-luxury"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <div className="absolute inset-0 spotlight opacity-50" />
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[1800ms] ease-luxury group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-80" />
-              </div>
-              <div className="border-t border-gold/10 px-6 py-8 text-center">
-                <h3 className="font-serif text-2xl text-gradient-gold md:text-3xl">{item.title}</h3>
-                <p className="mt-2 text-xs uppercase tracking-luxury text-muted-foreground md:text-[11px]">
-                  {item.caption}
-                </p>
-              </div>
-            </div>
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-8 lg:grid-cols-3 lg:gap-12">
+          {showcaseProducts.map((p, i) => (
+            <ProductCard key={p.id} variant="dense" {...p} index={i + 6} />
           ))}
         </div>
       </div>

@@ -7,7 +7,7 @@ const GEN1_PODS_ROUTE = "/product/sp2s-gen1-pods";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex items-center pt-32 pb-32">
+    <section className="relative flex min-h-[100dvh] min-h-[100svh] w-full items-center overflow-hidden pt-[calc(6.5rem+env(safe-area-inset-top,0px))] pb-16 sm:pb-24 md:min-h-screen md:pb-28 lg:pb-32">
       {/* Cinematic background */}
       <div className="absolute inset-0">
         <img
@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="absolute inset-0 spotlight opacity-70" />
       </div>
 
-      <div className="relative z-10 container grid lg:grid-cols-12 gap-16 items-center">
+      <div className="relative z-10 container grid gap-10 sm:gap-14 lg:grid-cols-12 lg:gap-16 lg:items-center">
         {/* Copy */}
         <div className="lg:col-span-6 lg:pr-8">
           <p className="inline-flex items-center gap-3 text-[10px] uppercase tracking-luxury text-gold mb-10 animate-fade-in-up">
@@ -33,7 +33,7 @@ const Hero = () => {
           </p>
 
           <h1
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight animate-fade-in-up"
+            className="animate-fade-in-up font-serif text-4xl leading-[1.07] tracking-tight sm:text-5xl sm:leading-[1.05] md:text-6xl lg:text-7xl xl:text-8xl"
             style={{ animationDelay: "0.1s" }}
           >
             <div className="mb-2">
@@ -45,36 +45,29 @@ const Hero = () => {
           </h1>
 
           <p
-            className="mt-8 max-w-md text-base md:text-lg text-muted-foreground leading-relaxed font-light tracking-vogue animate-fade-in-up"
+            className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground animate-fade-in-up sm:mt-8 sm:text-base md:text-lg md:tracking-vogue font-light"
             style={{ animationDelay: "0.25s" }}
           >
             白色陶瓷芯霧化細緻，相容多款一代主機；水果、汽水冰感、茶飲與甜品系，三十六種風味一次瀏覽。
           </p>
 
           <div
-            className="mt-14 flex flex-wrap items-center gap-6 animate-fade-in-up"
+            className="mt-10 flex w-full flex-col gap-4 animate-fade-in-up sm:mt-14 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6"
             style={{ animationDelay: "0.4s" }}
           >
             <Link
               to={GEN1_PODS_ROUTE}
-              className="group inline-flex items-center gap-3 bg-gradient-gold text-primary-foreground px-10 py-4 text-[11px] uppercase tracking-luxury font-medium hover:shadow-gold transition-all duration-500 ease-luxury"
+              className="group inline-flex min-h-[48px] w-full items-center justify-center gap-3 bg-gradient-gold px-8 py-3.5 text-[11px] font-medium uppercase tracking-luxury text-primary-foreground transition-all duration-500 ease-luxury hover:shadow-gold sm:w-auto sm:justify-start sm:px-10 sm:py-4"
             >
               立即選購
               <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
             </Link>
             <Link
               to={GEN1_PODS_ROUTE}
-              className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold transition-colors duration-500"
+              className="group inline-flex min-h-[44px] w-full items-center justify-center gap-3 py-2 text-[11px] uppercase tracking-luxury text-foreground/70 transition-colors duration-500 hover:text-gold sm:w-auto sm:justify-start sm:py-0"
             >
-              <span className="h-px w-8 bg-gold/40 group-hover:bg-gold transition-colors duration-500" />
-              查看口味詳情
-            </Link>
-            <Link
-              to={GEN1_PODS_ROUTE}
-              className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-luxury text-foreground/70 hover:text-gold transition-colors duration-500"
-            >
-              <span className="h-px w-8 bg-gold/40 group-hover:bg-gold transition-colors duration-500" />
-              36 口味
+              <span className="hidden h-px w-8 bg-gold/40 transition-colors duration-500 group-hover:bg-gold sm:inline-block" />
+              36 口味 · 查看詳情
             </Link>
           </div>
         </div>
@@ -111,7 +104,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-foreground/50">
+      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-foreground/50 safe-area-pb sm:bottom-10 sm:gap-3">
         <span className="text-[9px] uppercase tracking-luxury text-gold/60">向下滾動</span>
         <span className="h-10 w-px bg-gradient-to-b from-gold/50 to-transparent animate-float-slow" />
       </div>

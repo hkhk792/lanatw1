@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "flatten:banner": "node scripts/flatten-promo-banner.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

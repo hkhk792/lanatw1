@@ -9,8 +9,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="contact" className="relative pt-36 pb-36 border-t hairline">
-      <div className="container">
+    <footer id="contact" className="relative border-t hairline pt-20 pb-24 sm:pt-28 sm:pb-28 md:pt-36 md:pb-36">
+      <div className="container max-sm:px-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           {/* Brand */}
           <div className="md:col-span-5">

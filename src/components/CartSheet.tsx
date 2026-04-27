@@ -39,6 +39,20 @@ const CartSheet = () => {
     else if (productId === "pro") navigate("/product/pro");
     else if (productId === "atomizer") navigate("/product/atomizer");
     else if (productId === "diya") navigate("/product/diya");
+    else if (productId === "diya-7500") navigate("/product/diya-7500");
+    else if (productId === "jupiter-6500-set") navigate("/product/jupiter-6500");
+    else if (productId === "vapor-storm-5000") navigate("/product/vapor-storm-5000");
+    else if (productId === "venus-host") navigate("/product/venus-host");
+    else if (productId === "mohoo-tokyo-box") navigate("/product/mohoo-tokyo-box");
+    else if (productId === "hebat-gen6") navigate("/product/hebat-gen6");
+    else if (productId === "lana-pods") navigate("/product/lana-pods");
+    else if (productId === "showcase-gear" || productId === "sp2s-silicone-sleeve")
+      navigate("/product/sp2s-silicone-sleeve");
+    else if (productId === "showcase-gen5" || productId === "vstorm-gen5-pods")
+      navigate("/product/vapor-storm-gen5-pods");
+    else if (productId === "diya-pods") navigate("/product/diya-pods");
+    else if (productId === "showcase-e-liquid" || productId === "lana-e-liquid-30ml")
+      navigate("/product/lana-e-liquid-30ml");
   };
 
   return (

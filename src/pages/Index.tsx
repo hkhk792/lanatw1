@@ -11,6 +11,7 @@ import Collection from "@/components/landing/Collection";
 import PodsAndLiquid from "@/components/landing/PodsAndLiquid";
 import Accessories from "@/components/landing/Accessories";
 import Manifesto from "@/components/landing/Manifesto";
+import HuanVapeStoreSection from "@/components/landing/HuanVapeStoreSection";
 import Footer from "@/components/landing/Footer";
 import HealthWarning from "@/components/landing/HealthWarning";
 
@@ -56,7 +57,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden pb-12">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden pb-[calc(3rem+env(safe-area-inset-bottom,0px))]">
       <AgeGate />
       <Navbar />
       <main>
@@ -64,6 +65,7 @@ const Index = () => {
         <Collection />
         <PodsAndLiquid />
         <Accessories />
+        <HuanVapeStoreSection />
         <Manifesto />
       </main>
       <Footer />
