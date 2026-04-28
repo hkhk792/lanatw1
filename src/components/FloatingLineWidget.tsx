@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { LINE_OFFICIAL_CUSTOMER_URL } from "@/constants/lineOfficial";
 
 const STORAGE_KEY = "obsidian-vapor-zen-line-widget-pos";
 const EDGE_GAP = 24;
@@ -37,13 +38,16 @@ function loadPosition(): Position {
 }
 
 type Props = {
-  /** Optional URL or link to open when clicked (no drag). Defaults to a local protocol. */
+  /** 點擊（非拖曳）時開啟的 LINE 加好友／聊天連結 */
   lineHref?: string;
   /** Optional notification count. Falsy hides the red dot. */
   notificationCount?: number;
 };
 
-const FloatingLineWidget = ({ lineHref = "https://line.me/ti/p/~abs791012", notificationCount = 1 }: Props) => {
+const FloatingLineWidget = ({
+  lineHref = LINE_OFFICIAL_CUSTOMER_URL,
+  notificationCount = 1,
+}: Props) => {
   const [pos, setPos] = useState<Position>(DEFAULT_POS);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);

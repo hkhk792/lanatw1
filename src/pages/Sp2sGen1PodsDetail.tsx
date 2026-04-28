@@ -11,7 +11,7 @@ import productMain from "@/assets/sp2s-gen1-pods-catalog.webp";
 import logoImage from "@/assets/product-14.jpg";
 
 const SP2S_GEN1_PODS_PRODUCT_ID = "sp2s-gen1-pods";
-const SP2S_GEN1_PODS_PRICE_TWD = 220;
+const SP2S_GEN1_PODS_PRICE_TWD = 290;
 
 const DEFAULT_MOOD = "思博瑞一代通用煙彈，陶瓷霧化細緻順喉，相容多款一代主機。";
 

@@ -10,7 +10,7 @@ import productMain from "@/assets/product-4.webp";
 import logoImage from "@/assets/product-14.jpg";
 
 const PRO_PRODUCT_ID = "pro";
-const PRO_PRICE_TWD = 880;
+const PRO_PRICE_TWD = 450;
 
 type ColorOption = { name: string; mood: string };
 

@@ -12,7 +12,7 @@ import logoImage from "@/assets/product-14.jpg";
 const DIYA_PRODUCT_ID = "diya";
 const DIYA_PRICE_TWD = 320;
 
-const PRODUCT_FULL_NAME = "DIYA 叮啞電子煙主機霧化桿（2.5ML 大容量，一代煙彈通用）";
+const PRODUCT_FULL_NAME = "DIYA 叮啞霧化桿：2.5ML 大容量兼容／一代通用";
 
 type ColorOption = { name: string; mood: string };
 

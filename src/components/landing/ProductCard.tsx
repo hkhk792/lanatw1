@@ -45,7 +45,7 @@ const QUICK_ADD_PRODUCTS: Record<
     route: "/product/lanna",
   },
   bullet: {
-    title: "SP2S 思博瑞 一代通用主機",
+    title: "SP2S 思博瑞 一代 一代通用主機",
     variant: "丁香紫",
     priceTwd: 450,
     route: "/product/bullet",
@@ -53,17 +53,17 @@ const QUICK_ADD_PRODUCTS: Record<
   pro: {
     title: "SP2S Pro 二代旗艦霧化主機",
     variant: "海棠粉",
-    priceTwd: 880,
+    priceTwd: 450,
     route: "/product/pro",
   },
   atomizer: {
     title: "原子棒電子煙主機",
     variant: "綠色",
-    priceTwd: 680,
+    priceTwd: 290,
     route: "/product/atomizer",
   },
   diya: {
-    title: "DIYA 叮啞電子煙主機霧化桿（2.5ML 大容量，一代煙彈通用）",
+    title: "DIYA 叮啞霧化桿：2.5ML 大容量兼容／一代通用",
     variant: "光影藍綠",
     priceTwd: 320,
     route: "/product/diya",

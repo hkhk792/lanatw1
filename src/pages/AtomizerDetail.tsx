@@ -6,11 +6,11 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/atomizing-rod.webp";
+import productMain from "@/assets/atomizer-host-gemini.png";
 import logoImage from "@/assets/product-14.jpg";
 
 const ATOMIZER_PRODUCT_ID = "atomizer";
-const ATOMIZER_PRICE_TWD = 680;
+const ATOMIZER_PRICE_TWD = 290;
 
 type ColorOption = { name: string; mood: string };
 

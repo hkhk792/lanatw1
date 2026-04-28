@@ -1,7 +1,7 @@
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { useReveal } from "@/hooks/useReveal";
-import promoBanner from "@/assets/huan-promo-banner.png";
+import promoBanner from "@/assets/huan-taiwan-vape-banner.jpg";
 import iconTruck from "@/assets/huan-icon-truck.png";
 import icon711 from "@/assets/huan-icon-711.png";
 import iconStore from "@/assets/huan-icon-store.png";
@@ -10,7 +10,7 @@ import iconSupport from "@/assets/huan-icon-support.png";
 const LINE_SUPPORT_ID = "abs791012";
 
 /** 公開路徑備援（預覽／子路徑部署）；主線用 `import` 由 Vite 產出穩定網址 */
-const PROMO_BANNER_PUBLIC = `${import.meta.env.BASE_URL}huan-promo-banner.png`;
+const PROMO_BANNER_PUBLIC = `${import.meta.env.BASE_URL}huan-taiwan-vape-banner.jpg`;
 
 const highlights = [
   {
@@ -132,11 +132,14 @@ const HuanVapeStoreSection = () => {
 
         <div
           ref={bannerRef}
-          className="reveal mx-auto mt-10 max-w-5xl overflow-hidden bg-[hsl(0_0%_2%)] sm:mt-14 md:mt-16"
+          className={cn(
+            "reveal mx-auto mt-10 max-w-5xl overflow-hidden rounded-sm bg-[hsl(0_0%_2%)]",
+            "flex min-h-[12rem] justify-center px-3 py-8 sm:mt-14 sm:min-h-[14rem] sm:px-6 sm:py-10 md:mt-16 md:min-h-[16rem] md:py-12"
+          )}
         >
           <img
             src={promoBanner}
-            alt="放鬆一下，盡享每一口醇香 — 頂啞風格形象橫幅"
+            alt="Taiwan-VAPE 電子煙專賣店形象橫幅"
             loading="eager"
             decoding="async"
             fetchPriority="high"
@@ -144,7 +147,7 @@ const HuanVapeStoreSection = () => {
               const el = e.currentTarget;
               if (el.src !== PROMO_BANNER_PUBLIC) el.src = PROMO_BANNER_PUBLIC;
             }}
-            className="block h-auto w-full object-cover object-center"
+            className="mx-auto block h-auto max-h-[min(52vw,22rem)] w-auto max-w-full object-contain object-center sm:max-h-[min(48vw,26rem)] md:max-h-[min(40vw,28rem)] lg:max-h-[30rem]"
           />
         </div>
 

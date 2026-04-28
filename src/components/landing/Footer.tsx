@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="container max-sm:px-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           {/* Brand */}
-          <div className="md:col-span-5">
+          <div className="md:col-span-6">
             <div className="flex items-center gap-3 mb-6">
               <span className="grid h-10 w-10 place-items-center rounded-full border border-gold-soft text-gradient-gold font-serif">
                 S
@@ -57,27 +57,6 @@ const Footer = () => {
               </ul>
             </div>
           ))}
-
-          {/* Newsletter */}
-          <div className="md:col-span-3">
-            <p className="text-[10px] uppercase tracking-luxury text-gold mb-6">私人會員名單</p>
-            <p className="text-sm text-muted-foreground mb-5 leading-relaxed tracking-vogue">
-              優先獲取限量版發布和工坊故事。
-            </p>
-            <form className="flex border-b hairline border-b-gold/20 focus-within:border-b-gold transition-colors duration-500">
-              <input
-                type="email"
-                placeholder="您的電子郵件"
-                className="flex-1 bg-transparent py-3 text-sm placeholder:text-muted-foreground/60 focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="text-[10px] uppercase tracking-luxury text-gold/80 hover:text-gold transition-colors"
-              >
-                加入
-              </button>
-            </form>
-          </div>
         </div>
 
         <div className="mt-24 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-luxury text-muted-foreground">

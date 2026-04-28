@@ -9,10 +9,8 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const targets = [
-  path.join(root, "src/assets/huan-promo-banner.png"),
-  path.join(root, "public/huan-promo-banner.png"),
-];
+/** 橫幅已改為 JPG（無透明底），無需壓平時可留空陣列 */
+const targets = [];
 
 const BG = { r: 5, g: 5, b: 5 };
 

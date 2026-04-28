@@ -12,6 +12,8 @@ interface Feature {
   eyebrow: string;
   title: string;
   desc: ReactNode;
+  /** 首頁卡片上醒目顯示的售價 */
+  price: string;
   specs: string[];
   /** 內部路由，例如 /product/lana-pods；未設定則為 # */
   to?: string;
@@ -65,8 +67,10 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
   );
 
   const textBlockLg = (
-    <div className="max-lg:hidden absolute inset-x-6 bottom-6 md:inset-x-10 md:bottom-10 z-[1]">
-      <h3 className="mb-3 font-serif text-4xl leading-tight text-gradient-gold md:mb-4 md:text-6xl">{f.title}</h3>
+    <div className="max-lg:hidden absolute inset-x-6 bottom-6 md:inset-x-10 md:bottom-10 z-[1] pr-24 md:pr-28">
+      <h3 className="mb-3 whitespace-nowrap font-serif text-3xl leading-tight tracking-tight text-gradient-gold md:mb-4 md:text-4xl lg:text-5xl">
+        {f.title}
+      </h3>
       <p className="mb-4 max-w-md text-sm leading-relaxed tracking-vogue text-muted-foreground md:mb-6 md:text-base">
         {f.desc}
       </p>
@@ -88,7 +92,7 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
       <p className="mb-1.5 text-[8px] font-normal uppercase tracking-luxury text-gold/90">
         0{i + 1} · {f.eyebrow}
       </p>
-      <h3 className="mb-1.5 line-clamp-2 font-serif text-sm leading-tight text-gradient-gold min-[400px]:text-base">
+      <h3 className="mb-1.5 whitespace-nowrap font-serif text-xs leading-tight tracking-tight text-gradient-gold min-[400px]:text-sm sm:text-base">
         {f.title}
       </h3>
       <p className="mb-2 line-clamp-3 text-[10px] leading-snug text-muted-foreground min-[400px]:text-[11px] min-[400px]:leading-relaxed sm:line-clamp-4 sm:text-xs">
@@ -107,11 +111,26 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
     </div>
   );
 
+  /** 金色價格：卡片右下角，大圖與文字區皆可見 */
+  const priceCorner = (
+    <span
+      className={cn(
+        "pointer-events-none absolute z-[12] rounded-sm border border-gold/30",
+        "bg-obsidian/80 px-2 py-1 font-sans text-sm font-medium tabular-nums text-gold shadow-sm backdrop-blur-sm",
+        "bottom-2 right-2 sm:bottom-2.5 sm:right-2.5 sm:px-2.5 sm:py-1 sm:text-base",
+        "lg:bottom-6 lg:right-6 lg:px-3 lg:py-1.5 lg:text-lg"
+      )}
+    >
+      {f.price}
+    </span>
+  );
+
   const children = (
     <>
       {imageBlock}
       {textBlockLg}
       {textBlockSm}
+      {priceCorner}
     </>
   );
 
@@ -150,7 +169,8 @@ const features: Feature[] = [
         為穩定蒸氣一致性而設計的彈匣。與所有 <BrandSp2s className="inline font-serif text-inherit" /> 陶瓷芯硬體相容。
       </>
     ),
-    specs: ["LANA 3 顆裝", "一代通用", "NT$220"],
+    price: "NT$220",
+    specs: ["LANA 3 顆裝", "一代通用"],
     to: "/product/lana-pods",
   },
   {
@@ -158,7 +178,8 @@ const features: Feature[] = [
     eyebrow: "叮啞系列",
     title: "DIYA 叮啞煙彈",
     desc: "一代通用、一盒三入；每顆 2.5ml，相容 RELX 一代、SP2S、LANA 等多款主機，口味陣容完整。",
-    specs: ["一盒三入", "NT$199", "2.5ml／顆", "一代通用"],
+    price: "NT$199",
+    specs: ["一盒三入", "2.5ml／顆", "一代通用"],
     to: "/product/diya-pods",
   },
 ];
