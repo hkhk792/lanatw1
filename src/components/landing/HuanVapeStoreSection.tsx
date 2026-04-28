@@ -1,7 +1,8 @@
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { useReveal } from "@/hooks/useReveal";
-import promoBanner from "@/assets/huan-taiwan-vape-banner.webp";
+import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
+import { HuanTaiwanVapeBanner } from "@/lib/responsiveImageVariants.generated";
 import iconTruck from "@/assets/huan-icon-truck.webp";
 import icon711 from "@/assets/huan-icon-711.webp";
 import iconStore from "@/assets/huan-icon-store.webp";
@@ -137,15 +138,20 @@ const HuanVapeStoreSection = () => {
             "flex min-h-[12rem] justify-center px-3 py-8 sm:mt-14 sm:min-h-[14rem] sm:px-6 sm:py-10 md:mt-16 md:min-h-[16rem] md:py-12"
           )}
         >
-          <img
-            src={promoBanner}
+          <ResponsiveAssetImg
+            set={HuanTaiwanVapeBanner}
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) min(92vw, 64rem), min(64rem, 85vw)"
             alt="Taiwan-VAPE 電子煙專賣店形象橫幅"
             loading="eager"
             decoding="async"
             fetchPriority="high"
             onError={(e) => {
               const el = e.currentTarget;
-              if (el.src !== PROMO_BANNER_PUBLIC) el.src = PROMO_BANNER_PUBLIC;
+              if (el.dataset.fallback === "1") return;
+              el.dataset.fallback = "1";
+              el.removeAttribute("srcset");
+              el.removeAttribute("sizes");
+              el.src = PROMO_BANNER_PUBLIC;
             }}
             className="mx-auto block h-auto max-h-[min(52vw,22rem)] w-auto max-w-full object-contain object-center sm:max-h-[min(48vw,26rem)] md:max-h-[min(40vw,28rem)] lg:max-h-[30rem]"
           />

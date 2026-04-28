@@ -3,7 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import ProductCard from "@/components/landing/ProductCard";
-import sp2sPodsCatalog from "@/assets/sp2s-gen1-pods-catalog.webp";
+import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
+import { Sp2sGen1PodsCatalog } from "@/lib/responsiveImageVariants.generated";
 import disposableVapengin from "@/assets/disposable-vapengin-venus.webp";
 import disposableMohoo from "@/assets/disposable-mohoo-tokyo.webp";
 import disposableHebat from "@/assets/disposable-hebat-hb10000.webp";
@@ -129,8 +130,9 @@ const Accessories = () => {
           className="reveal group relative block aspect-[10/11] w-full min-h-[16rem] overflow-hidden rounded-sm glass shadow-luxury sm:aspect-[16/10] sm:min-h-0 md:aspect-[16/9]"
         >
           <div className="absolute inset-0 spotlight opacity-70" />
-          <img
-            src={sp2sPodsCatalog}
+          <ResponsiveAssetImg
+            set={Sp2sGen1PodsCatalog}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 92vw, min(80rem, 90vw)"
             alt="SP2S 思博瑞一代通用煙彈口味總覽"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover object-[center_30%] transition-transform duration-[2000ms] ease-luxury group-hover:scale-105 sm:object-center"

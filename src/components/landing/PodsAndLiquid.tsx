@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
+import type { ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
+import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
 import { cn } from "@/lib/utils";
 import p7 from "@/assets/product-7.webp";
-import diyaPodsShowcase from "@/assets/diya-pods-showcase.webp";
+import { DiyaPodsShowcase } from "@/lib/responsiveImageVariants.generated";
 
 interface Feature {
   image: string;
@@ -17,6 +19,8 @@ interface Feature {
   specs: string[];
   /** 內部路由，例如 /product/lana-pods；未設定則為 # */
   to?: string;
+  responsive?: ResponsiveImageSet;
+  responsiveSizes?: string;
 }
 
 const cardShell = cn(
@@ -36,12 +40,24 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
       )}
     >
       <div className="absolute inset-0 opacity-50 transition-opacity duration-700 spotlight group-hover:opacity-100" />
-      <img
-        src={f.image}
-        alt={`${f.title} — ${f.eyebrow}`}
-        loading="lazy"
-        className="h-full w-full object-cover transition-transform duration-[1600ms] ease-luxury group-hover:scale-105"
-      />
+      {f.responsive ? (
+        <ResponsiveAssetImg
+          set={f.responsive}
+          sizes={f.responsiveSizes ?? "(max-width: 640px) 50vw, (max-width: 1024px) 45vw, 50vw"}
+          alt={`${f.title} — ${f.eyebrow}`}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-[1600ms] ease-luxury group-hover:scale-105"
+        />
+      ) : (
+        <img
+          src={f.image}
+          alt={`${f.title} — ${f.eyebrow}`}
+          loading="lazy"
+          width={600}
+          height={600}
+          className="h-full w-full object-cover transition-transform duration-[1600ms] ease-luxury group-hover:scale-105"
+        />
+      )}
       <div
         className={cn(
           "absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent transition-opacity",
@@ -174,13 +190,15 @@ const features: Feature[] = [
     to: "/product/lana-pods",
   },
   {
-    image: diyaPodsShowcase,
+    image: DiyaPodsShowcase.src,
     eyebrow: "叮啞系列",
     title: "DIYA 叮啞煙彈",
     desc: "一代通用、一盒三入；每顆 2.5ml，相容 RELX 一代、SP2S、LANA 等多款主機，口味陣容完整。",
     price: "NT$199",
     specs: ["一盒三入", "2.5ml／顆", "一代通用"],
     to: "/product/diya-pods",
+    responsive: DiyaPodsShowcase,
+    responsiveSizes: "(max-width: 640px) 50vw, (max-width: 1024px) 45vw, 50vw",
   },
 ];
 

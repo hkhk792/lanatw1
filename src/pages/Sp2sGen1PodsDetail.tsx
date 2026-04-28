@@ -7,7 +7,10 @@ import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import productMain from "@/assets/sp2s-gen1-pods-catalog.webp";
+import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
+import { Sp2sGen1PodsCatalog } from "@/lib/responsiveImageVariants.generated";
+
+const productMain = Sp2sGen1PodsCatalog.src;
 import logoImage from "@/assets/product-14.jpg";
 
 const SP2S_GEN1_PODS_PRODUCT_ID = "sp2s-gen1-pods";
@@ -256,8 +259,15 @@ const Sp2sGen1PodsDetail = () => {
               <span className="text-sm font-medium">返回首頁</span>
             </button>
 
-            <div className="relative overflow-hidden rounded-lg bg-gray-50">
-              <img src={productMain} alt="SP2S 一代通用煙彈口味總覽" className="h-[500px] w-full object-contain" />
+            <div className="relative aspect-square w-full max-h-[min(100vw,32rem)] overflow-hidden rounded-lg bg-gray-50 sm:max-h-[500px]">
+              <ResponsiveAssetImg
+                set={Sp2sGen1PodsCatalog}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                alt="SP2S 一代通用煙彈口味總覽"
+                className="h-full w-full object-contain"
+                loading="eager"
+                decoding="async"
+              />
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="rounded-md bg-red-600 px-6 py-2 font-bold text-white shadow-lg">{getBadgeText()}</div>

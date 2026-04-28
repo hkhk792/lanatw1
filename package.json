@@ -12,6 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "optimize:images": "node scripts/optimize-images.mjs",
+    "gen:responsive": "node scripts/generate-responsive-variants.mjs",
     "flatten:banner": "node scripts/flatten-promo-banner.mjs"
   },
   "dependencies": {

@@ -3,6 +3,7 @@ import { useReveal } from "@/hooks/useReveal";
 import { useNavigate } from "react-router-dom";
 import { flushHomeScrollPosition } from "@/lib/homeScrollRestore";
 import { BrandSp2s } from "@/components/BrandSp2s";
+import { ResponsiveAssetImg, type ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -14,6 +15,10 @@ interface Props {
   id: string;
   /** 兩欄手機格：上圖下文；md+ 仍為底欄疊圖 */
   variant?: "default" | "dense";
+  /** 與 image 同圖時傳入，啟用 srcSet（首頁大圖） */
+  responsive?: ResponsiveImageSet;
+  /** 搭配 responsive；預設適合三欄商品格 */
+  responsiveSizes?: string;
 }
 
 const renderTitle = (name: string) => {
@@ -124,7 +129,20 @@ const QUICK_ADD_PRODUCTS: Record<
   },
 };
 
-const ProductCard = ({ image, name, flavor, price, index, id, variant = "default" }: Props) => {
+const DENSE_CARD_SIZES =
+  "(max-width: 480px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 28vw, 380px";
+
+const ProductCard = ({
+  image,
+  name,
+  flavor,
+  price,
+  index,
+  id,
+  variant = "default",
+  responsive,
+  responsiveSizes,
+}: Props) => {
   const ref = useReveal<HTMLDivElement>();
   const navigate = useNavigate();
   const dense = variant === "dense";
@@ -170,12 +188,22 @@ const ProductCard = ({ image, name, flavor, price, index, id, variant = "default
         <div className="absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 spotlight" />
 
         <div className={cn("h-full w-full", dense && "relative md:absolute md:inset-0", !dense && "absolute inset-0")}>
-          <img
-            src={image}
-            alt={`${name} — ${flavor}`}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-[1400ms] ease-luxury group-hover:scale-110"
-          />
+          {responsive ? (
+            <ResponsiveAssetImg
+              set={responsive}
+              sizes={responsiveSizes ?? DENSE_CARD_SIZES}
+              alt={`${name} — ${flavor}`}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-[1400ms] ease-luxury group-hover:scale-110"
+            />
+          ) : (
+            <img
+              src={image}
+              alt={`${name} — ${flavor}`}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-[1400ms] ease-luxury group-hover:scale-110"
+            />
+          )}
           <div
             className={cn(
               "absolute inset-0 transition-opacity duration-700 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent",

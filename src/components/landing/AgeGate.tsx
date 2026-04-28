@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
 import { LINE_OFFICIAL_CUSTOMER_URL } from "@/constants/lineOfficial";
-import lineWelcomeImage from "@/assets/line-welcome-gate.webp";
+import { LineWelcomeGate } from "@/lib/responsiveImageVariants.generated";
 
 const STORAGE_DISMISSED = "sp2s-line-welcome-dismissed";
 /** 舊版年齡門檻鍵：已通過者不再顯示本頁 */
@@ -42,13 +43,16 @@ const AgeGate = () => {
           rel="noopener noreferrer"
           className="mb-6 block overflow-hidden rounded-sm ring-1 ring-gold/20 transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50"
         >
-          <img
-            src={lineWelcomeImage}
-            alt="加入官方 LINE 客服"
-            className="mx-auto block h-auto max-h-[min(48vh,20rem)] w-full object-contain object-center sm:max-h-[22rem]"
-            loading="eager"
-            decoding="async"
-          />
+          <span className="mx-auto block aspect-square w-full max-w-[min(100%,20rem)] sm:max-w-[22rem]">
+            <ResponsiveAssetImg
+              set={LineWelcomeGate}
+              sizes="(max-width: 640px) 85vw, 20rem"
+              alt="加入官方 LINE 客服"
+              className="mx-auto block h-full max-h-[min(48vh,20rem)] w-full object-contain object-center sm:max-h-[22rem]"
+              loading="eager"
+              decoding="async"
+            />
+          </span>
         </a>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">

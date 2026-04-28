@@ -6,7 +6,10 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/atomizer-host-gemini.webp";
+import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
+import { AtomizerHostGemini } from "@/lib/responsiveImageVariants.generated";
+
+const productMain = AtomizerHostGemini.src;
 import logoImage from "@/assets/product-14.jpg";
 
 const ATOMIZER_PRODUCT_ID = "atomizer";
@@ -161,7 +164,16 @@ const AtomizerDetail = () => {
             </button>
 
             <div className="relative overflow-hidden rounded-lg bg-gray-50">
-              <img src={productMain} alt="原子棒電子煙主機" className="h-[500px] w-full object-contain" />
+              <div className="h-[min(100vw,28rem)] w-full sm:h-[500px]">
+                <ResponsiveAssetImg
+                  set={AtomizerHostGemini}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  alt="原子棒電子煙主機"
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="rounded-md bg-red-600 px-6 py-2 font-bold text-white shadow-lg">{getBadgeText()}</div>

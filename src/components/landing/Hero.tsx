@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import sp2sPodsCatalog from "@/assets/sp2s-gen1-pods-catalog.webp";
+import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
+import { Sp2sGen1PodsCatalog } from "@/lib/responsiveImageVariants.generated";
 
 const GEN1_PODS_ROUTE = "/product/sp2s-gen1-pods";
 
@@ -10,8 +11,9 @@ const Hero = () => {
     <section className="relative flex min-h-[100dvh] min-h-[100svh] w-full items-center overflow-hidden pt-[calc(6.5rem+env(safe-area-inset-top,0px))] pb-16 sm:pb-24 md:min-h-screen md:pb-28 lg:pb-32">
       {/* Cinematic background */}
       <div className="absolute inset-0">
-        <img
-          src={sp2sPodsCatalog}
+        <ResponsiveAssetImg
+          set={Sp2sGen1PodsCatalog}
+          sizes="100vw"
           alt=""
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover object-center scale-150 blur-3xl opacity-20"
@@ -85,8 +87,9 @@ const Hero = () => {
               to={GEN1_PODS_ROUTE}
               className="block h-full cursor-pointer outline-none ring-offset-background transition-opacity hover:opacity-95 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2"
             >
-              <img
-                src={sp2sPodsCatalog}
+              <ResponsiveAssetImg
+                set={Sp2sGen1PodsCatalog}
+                sizes="(max-width: 1024px) min(92vw, 22rem), min(36rem, 45vw)"
                 alt="SP2S 思博瑞一代通用煙彈口味總覽"
                 className="h-full w-full object-contain object-center drop-shadow-[0_50px_80px_rgba(0,0,0,0.7)]"
               />
