@@ -1,4 +1,4 @@
-import airportVapeHero from "@/assets/airport-vape-article-hero.png";
+import airportVapeHero from "@/assets/airport-vape-article-hero.webp";
 
 export const AIRPORT_VAPE_ARTICLE_ROUTE = "/info/airport-vaping-guide" as const;
 

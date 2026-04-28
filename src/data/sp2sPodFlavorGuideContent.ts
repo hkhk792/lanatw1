@@ -1,4 +1,4 @@
-import sp2sHimalayaJasmine from "@/assets/sp2s-info-himalaya-jasmine.png";
+import sp2sHimalayaJasmine from "@/assets/sp2s-info-himalaya-jasmine.webp";
 
 /** 首頁與內頁共用的內文資料 */
 export const SP2S_POD_FLAVOR_GUIDE_ROUTE = "/info/sp2s-pod-flavor-guide" as const;

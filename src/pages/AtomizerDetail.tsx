@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/atomizer-host-gemini.png";
+import productMain from "@/assets/atomizer-host-gemini.webp";
 import logoImage from "@/assets/product-14.jpg";
 
 const ATOMIZER_PRODUCT_ID = "atomizer";

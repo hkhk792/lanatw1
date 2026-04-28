@@ -5,7 +5,7 @@ import p1 from "@/assets/product-1.webp";
 import lanaPremiumHero from "@/assets/lana-premium-device.webp";
 import p3 from "@/assets/product-3.webp";
 import p4 from "@/assets/product-4.webp";
-import atomizerHostGemini from "@/assets/atomizer-host-gemini.png";
+import atomizerHostGemini from "@/assets/atomizer-host-gemini.webp";
 import p6 from "@/assets/product-6.webp";
 
 const products = [

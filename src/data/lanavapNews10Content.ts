@@ -1,4 +1,4 @@
-import diyLiquidMixingWorkbenchHero from "@/assets/diy-liquid-mixing-workbench-hero.png";
+import diyLiquidMixingWorkbenchHero from "@/assets/diy-liquid-mixing-workbench-hero.webp";
 
 /** 內嵌讀物：自製煙油入門（舊路徑 /info/lanavap-news-10 會導向此頁） */
 export const DIY_E_LIQUID_GUIDE_ROUTE = "/info/diy-e-liquid-guide" as const;

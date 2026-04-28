@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { LINE_OFFICIAL_CUSTOMER_URL } from "@/constants/lineOfficial";
-import lineWelcomeImage from "@/assets/line-welcome-gate.jpg";
+import lineWelcomeImage from "@/assets/line-welcome-gate.webp";
 
 const STORAGE_DISMISSED = "sp2s-line-welcome-dismissed";
 /** 舊版年齡門檻鍵：已通過者不再顯示本頁 */

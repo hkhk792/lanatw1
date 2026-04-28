@@ -5,7 +5,7 @@ import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import { cn } from "@/lib/utils";
 import p7 from "@/assets/product-7.webp";
-import diyaPodsShowcase from "@/assets/diya-pods-showcase.png";
+import diyaPodsShowcase from "@/assets/diya-pods-showcase.webp";
 
 interface Feature {
   image: string;

@@ -1,16 +1,16 @@
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { useReveal } from "@/hooks/useReveal";
-import promoBanner from "@/assets/huan-taiwan-vape-banner.jpg";
-import iconTruck from "@/assets/huan-icon-truck.png";
-import icon711 from "@/assets/huan-icon-711.png";
-import iconStore from "@/assets/huan-icon-store.png";
-import iconSupport from "@/assets/huan-icon-support.png";
+import promoBanner from "@/assets/huan-taiwan-vape-banner.webp";
+import iconTruck from "@/assets/huan-icon-truck.webp";
+import icon711 from "@/assets/huan-icon-711.webp";
+import iconStore from "@/assets/huan-icon-store.webp";
+import iconSupport from "@/assets/huan-icon-support.webp";
 
 const LINE_SUPPORT_ID = "abs791012";
 
 /** 公開路徑備援（預覽／子路徑部署）；主線用 `import` 由 Vite 產出穩定網址 */
-const PROMO_BANNER_PUBLIC = `${import.meta.env.BASE_URL}huan-taiwan-vape-banner.jpg`;
+const PROMO_BANNER_PUBLIC = `${import.meta.env.BASE_URL}huan-taiwan-vape-banner.webp`;
 
 const highlights = [
   {
