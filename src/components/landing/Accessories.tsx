@@ -102,21 +102,23 @@ const Accessories = () => {
       id="accessories"
       className="relative overflow-hidden py-16 sm:py-20 md:py-28 lg:py-36"
     >
-      <div className="container max-w-5xl">
-        <div ref={ref} className="reveal mx-auto mb-20 max-w-3xl text-center md:mb-32">
-          <p className="mb-6 flex items-center justify-center gap-3 text-[10px] uppercase tracking-luxury text-gold">
-            <span className="h-px w-10 bg-gold/60" />
-            彈匣系統
-            <span className="h-px w-10 bg-gold/60" />
+      <div className="container max-w-5xl max-sm:px-3">
+        <div ref={ref} className="reveal mx-auto mb-12 max-w-3xl text-center sm:mb-20 md:mb-32">
+          <p className="mb-4 flex flex-wrap items-center justify-center gap-2 text-[10px] uppercase tracking-luxury text-gold sm:mb-6 sm:gap-3">
+            <span className="h-px w-6 shrink-0 bg-gold/60 sm:w-10" />
+            <span className="px-1">彈匣系統</span>
+            <span className="h-px w-6 shrink-0 bg-gold/60 sm:w-10" />
           </p>
-          <h2 className="font-serif text-5xl leading-[1.02] md:text-7xl">
+          <h2 className="text-balance px-1 font-serif text-3xl leading-[1.12] tracking-tight sm:text-4xl sm:leading-[1.08] md:text-6xl md:leading-[1.04] lg:text-7xl">
             <span className="text-gradient-gold">
               <BrandSp2s className="font-serif text-inherit" /> 煙彈通用一代，
             </span>
-            <br />
-            <span className="italic text-foreground/70">陶瓷白芯 · 口味全陣容。</span>
+            <br className="max-sm:hidden" />
+            <span className="mt-1 block italic text-foreground/70 sm:mt-0 sm:inline">
+              陶瓷白芯 · 口味全陣容。
+            </span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed tracking-vogue text-muted-foreground md:text-base">
+          <p className="mx-auto mt-4 max-w-2xl px-1 text-[13px] leading-relaxed tracking-vogue text-muted-foreground sm:mt-6 sm:text-sm md:text-base">
             思博瑞一代通用煙彈：白色陶瓷芯霧化細緻，相容多款一代主機；從水果、汽水冰感到茶飲與甜品系，一次瀏覽全口味總覽。
           </p>
         </div>
@@ -124,40 +126,40 @@ const Accessories = () => {
         <Link
           ref={cardRef}
           to="/product/sp2s-gen1-pods"
-          className="reveal group relative block aspect-[16/10] w-full overflow-hidden glass shadow-luxury md:aspect-[16/9]"
+          className="reveal group relative block aspect-[10/11] w-full min-h-[16rem] overflow-hidden rounded-sm glass shadow-luxury sm:aspect-[16/10] sm:min-h-0 md:aspect-[16/9]"
         >
           <div className="absolute inset-0 spotlight opacity-70" />
           <img
             src={sp2sPodsCatalog}
             alt="SP2S 思博瑞一代通用煙彈口味總覽"
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[2000ms] ease-luxury group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover object-[center_30%] transition-transform duration-[2000ms] ease-luxury group-hover:scale-105 sm:object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/40 to-transparent sm:via-obsidian/30" />
 
-          <div className="absolute inset-x-6 bottom-6 flex flex-col gap-8 md:inset-x-14 md:bottom-14 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-md">
-              <h3 className="mb-4 font-serif text-4xl leading-tight text-gradient-gold md:text-6xl">
+          <div className="absolute inset-x-4 bottom-4 flex flex-col gap-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:inset-x-6 sm:bottom-6 sm:gap-8 md:inset-x-14 md:bottom-14 md:flex-row md:items-end md:justify-between">
+            <div className="min-w-0 max-w-full sm:max-w-md">
+              <h3 className="mb-2 font-serif text-2xl leading-tight text-gradient-gold sm:mb-4 sm:text-4xl md:text-6xl">
                 三十六種風味矩陣。
               </h3>
-              <p className="text-sm leading-relaxed tracking-vogue text-muted-foreground md:text-base">
+              <p className="text-xs leading-relaxed tracking-vogue text-muted-foreground sm:text-sm md:text-base">
                 水果、飲品與冰爽、茶飲與原味、甜品與趣味四大系列；常見 3%
                 尼古丁鹽（以包裝為準）。點擊進入規格、分區口味與購買說明。
               </p>
             </div>
 
-            <span className="inline-flex items-center gap-3 self-start bg-gradient-gold px-8 py-4 text-[11px] font-medium uppercase tracking-luxury text-primary-foreground transition-all duration-500 group-hover:shadow-gold md:self-auto">
+            <span className="inline-flex min-h-[48px] w-full items-center justify-center gap-3 self-stretch bg-gradient-gold px-6 py-3.5 text-[11px] font-medium uppercase tracking-luxury text-primary-foreground transition-all duration-500 group-hover:shadow-gold sm:w-auto sm:self-start sm:px-8 sm:py-4 md:self-auto">
               查看口味詳情
-              <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-500 group-hover:translate-x-1" />
             </span>
           </div>
         </Link>
 
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-10">
+        <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-6 sm:mt-16 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-6 md:gap-10">
           {highlights.map((h) => (
-            <div key={h.label} className="flex min-w-[7rem] flex-col items-center gap-1 text-center">
-              <span className="text-[10px] uppercase tracking-luxury text-gold">{h.label}</span>
-              <span className="font-serif text-2xl text-foreground/90">{h.sub}</span>
+            <div key={h.label} className="flex min-w-0 flex-col items-center gap-1 text-center sm:min-w-[7rem]">
+              <span className="text-[9px] uppercase leading-tight tracking-luxury text-gold sm:text-[10px]">{h.label}</span>
+              <span className="font-serif text-xl text-foreground/90 sm:text-2xl">{h.sub}</span>
             </div>
           ))}
         </div>
