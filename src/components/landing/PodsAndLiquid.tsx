@@ -32,6 +32,20 @@ const cardShell = cn(
 const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
   const cardRef = useReveal<HTMLAnchorElement>();
 
+  /** 金色價格：錨定在圖片容器內，避免手機版整卡 absolute 右下角壓到下方規格標籤 */
+  const priceCorner = (
+    <span
+      className={cn(
+        "pointer-events-none absolute z-[12] rounded-sm border border-gold/30",
+        "bg-obsidian/80 px-2 py-1 font-sans text-sm font-medium tabular-nums text-gold shadow-sm backdrop-blur-sm",
+        "bottom-2 right-2 sm:bottom-2.5 sm:right-2.5 sm:px-2.5 sm:py-1 sm:text-base",
+        "lg:bottom-6 lg:right-6 lg:px-3 lg:py-1.5 lg:text-lg"
+      )}
+    >
+      {f.price}
+    </span>
+  );
+
   const imageBlock = (
     <div
       className={cn(
@@ -79,6 +93,9 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
           <ArrowUpRight className="h-3.5 w-3.5 max-lg:h-3 max-lg:w-3 lg:h-4 lg:w-4" />
         </span>
       </div>
+
+      {/** 價格錨定在圖片區內：避免手機版下圖文區與 absolute 右下角重疊 */}
+      {priceCorner}
     </div>
   );
 
@@ -127,26 +144,11 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
     </div>
   );
 
-  /** 金色價格：卡片右下角，大圖與文字區皆可見 */
-  const priceCorner = (
-    <span
-      className={cn(
-        "pointer-events-none absolute z-[12] rounded-sm border border-gold/30",
-        "bg-obsidian/80 px-2 py-1 font-sans text-sm font-medium tabular-nums text-gold shadow-sm backdrop-blur-sm",
-        "bottom-2 right-2 sm:bottom-2.5 sm:right-2.5 sm:px-2.5 sm:py-1 sm:text-base",
-        "lg:bottom-6 lg:right-6 lg:px-3 lg:py-1.5 lg:text-lg"
-      )}
-    >
-      {f.price}
-    </span>
-  );
-
   const children = (
     <>
       {imageBlock}
       {textBlockLg}
       {textBlockSm}
-      {priceCorner}
     </>
   );
 
