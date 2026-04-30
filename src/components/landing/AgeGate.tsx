@@ -28,7 +28,7 @@ const AgeGate = () => {
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center bg-obsidian/95 backdrop-blur-xl animate-fade-in p-4 sm:p-6">
       <div className="absolute inset-0 spotlight opacity-40 pointer-events-none" />
-      <div className="relative max-h-[min(92dvh,40rem)] w-full max-w-lg overflow-y-auto overscroll-contain glass-strong p-6 text-center shadow-luxury animate-fade-in-up sm:p-10 md:max-w-xl md:p-12">
+      <div className="relative max-h-[min(92dvh,40rem)] w-full max-w-lg overflow-y-auto overscroll-contain glass-strong p-6 text-center shadow-luxury animate-fade-in-up sm:p-10 md:max-w-lg md:p-10">
         <p className="mb-3 text-[10px] uppercase tracking-luxury text-gold">官方客服</p>
         <h2 className="mb-3 font-serif text-2xl leading-tight text-gradient-gold sm:text-3xl md:text-4xl">
           歡迎來訪，請加入 LINE 客服

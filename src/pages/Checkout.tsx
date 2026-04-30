@@ -25,18 +25,10 @@ const Checkout = () => {
   const [phone, setPhone] = useState("");
   const [shippingAddress, setShippingAddress] = useState("");
   const [lineId, setLineId] = useState("");
-  const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
   const [payment, setPayment] = useState<"cod">("cod");
-
-  const [shipToDifferent, setShipToDifferent] = useState(false);
-  const [shipFirstName, setShipFirstName] = useState("");
-  const [shipLastName, setShipLastName] = useState("");
-  const [shipCountry, setShipCountry] = useState("台灣");
-  const [shipStreet, setShipStreet] = useState("");
-  const [shipTown, setShipTown] = useState("");
-  const [shipCounty, setShipCounty] = useState("");
-  const [shipPostcode, setShipPostcode] = useState("");
+  /** 7-11 等超商門市店號，與「收貨地址」分開填寫 */
+  const [pickupStoreCode, setPickupStoreCode] = useState("");
 
   const shippingTwd = useMemo(
     () => (subtotalTwd >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE),
@@ -54,16 +46,12 @@ const Checkout = () => {
 
   const handlePlaceOrder = (e: React.FormEvent) => {
     e.preventDefault();
-    const emailTrim = email.trim();
-    const emailOk = /^\S+@\S+\.\S+$/.test(emailTrim);
-    const addressOk = shipToDifferent
-      ? Boolean(shipFirstName.trim() && shipStreet.trim())
-      : Boolean(shippingAddress.trim());
-    if (!name.trim() || !phone.trim() || !addressOk || !lineId.trim() || !emailTrim || !emailOk) {
+    const addressOk = Boolean(shippingAddress.trim());
+    const storeOk = Boolean(pickupStoreCode.trim());
+    if (!name.trim() || !phone.trim() || !addressOk || !storeOk || !lineId.trim()) {
       toast.error("請填寫必填欄位", {
-        description: shipToDifferent
-          ? "姓名、手機號碼、運送地址（名字、街道地址）、LINE ID 與電子郵件皆為必填；電子郵件請填寫有效格式。"
-          : "姓名、手機號碼、收貨地址、LINE ID 與電子郵件皆為必填；電子郵件請填寫有效格式。",
+        description:
+          "姓名、手機號碼、收貨地址、收貨門市號與 LINE ID 皆為必填。",
       });
       return;
     }
@@ -145,164 +133,52 @@ const Checkout = () => {
                 />
               </div>
 
-              {!shipToDifferent ? (
-                <div className="space-y-2">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <Label htmlFor="shippingAddress" className="text-neutral-800">
-                      收貨地址 <span className="text-red-600">*</span>
-                    </Label>
-                    <a
-                      href="https://www.7-11.com.tw/service/store"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-neutral-600 underline underline-offset-2 hover:text-neutral-900"
-                    >
-                      查詢店號地圖
-                    </a>
-                  </div>
-                  <Input
-                    id="shippingAddress"
-                    value={shippingAddress}
-                    onChange={(e) => setShippingAddress(e.target.value)}
-                    className={fieldClass}
-                    placeholder="7-11 超商取貨填超商編號或地址。"
-                    autoComplete="street-address"
-                    required
-                  />
-                  <p className="text-xs leading-relaxed text-neutral-500">
-                    超商取貨請填寫店號（如 195946）或完整店名；宅配或面交請填寫詳細地址。
-                  </p>
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <Label htmlFor="shippingAddress" className="text-neutral-800">
+                    收貨地址 <span className="text-red-600">*</span>
+                  </Label>
+                  <a
+                    href="https://www.7-11.com.tw/service/store"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-neutral-600 underline underline-offset-2 hover:text-neutral-900"
+                  >
+                    查詢店號地圖
+                  </a>
                 </div>
-              ) : null}
-
-              <div className="flex items-start gap-3 pt-1">
-                <input
-                  id="shipToDifferent"
-                  type="checkbox"
-                  checked={shipToDifferent}
-                  onChange={(e) => setShipToDifferent(e.target.checked)}
-                  className="mt-1 h-4 w-4 shrink-0 rounded border border-neutral-900 text-neutral-900 accent-neutral-900"
+                <Input
+                  id="shippingAddress"
+                  value={shippingAddress}
+                  onChange={(e) => setShippingAddress(e.target.value)}
+                  className={fieldClass}
+                  placeholder="超商取貨可填店名與路段；宅配或面交請填詳細地址。"
+                  autoComplete="street-address"
+                  required
                 />
-                <Label htmlFor="shipToDifferent" className="cursor-pointer font-normal text-neutral-800">
-                  運送到不同的地址？
-                </Label>
+                <p className="text-xs leading-relaxed text-neutral-500">
+                  超商取貨可填店名與路段以利辨識；店號（如 195946）請改填於下方「收貨門市號」。宅配或面交請於本欄寫明詳細地址（原「運送到不同地址」已取消，改以本欄與門市號搭配填寫即可）。
+                </p>
               </div>
 
-              {shipToDifferent ? (
-                <div className="space-y-6 border border-neutral-200 bg-neutral-50/80 p-5 sm:p-6">
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="shipFirstName" className="text-neutral-800">
-                        名字 <span className="text-red-600">*</span>
-                      </Label>
-                      <Input
-                        id="shipFirstName"
-                        value={shipFirstName}
-                        onChange={(e) => setShipFirstName(e.target.value)}
-                        className={fieldClass}
-                        placeholder="名字"
-                        autoComplete="given-name"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="shipLastName" className="text-neutral-800">
-                        姓氏（選填）
-                      </Label>
-                      <Input
-                        id="shipLastName"
-                        value={shipLastName}
-                        onChange={(e) => setShipLastName(e.target.value)}
-                        className={fieldClass}
-                        placeholder="姓氏"
-                        autoComplete="family-name"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="shipCountry" className="text-neutral-800">
-                      國家／地區或區域 <span className="text-red-600">*</span>
-                    </Label>
-                    <select
-                      id="shipCountry"
-                      value={shipCountry}
-                      onChange={(e) => setShipCountry(e.target.value)}
-                      className={`h-10 w-full px-3 text-sm ${fieldClass}`}
-                    >
-                      <option value="台灣">台灣</option>
-                    </select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="shipStreet" className="text-neutral-800">
-                      街道地址 <span className="text-red-600">*</span>
-                    </Label>
-                    <Input
-                      id="shipStreet"
-                      value={shipStreet}
-                      onChange={(e) => setShipStreet(e.target.value)}
-                      className={fieldClass}
-                      placeholder="門牌號碼與街道名稱"
-                      autoComplete="address-line1"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="shipTown" className="text-neutral-800">
-                      鄉鎮市（選填）
-                    </Label>
-                    <Input
-                      id="shipTown"
-                      value={shipTown}
-                      onChange={(e) => setShipTown(e.target.value)}
-                      className={fieldClass}
-                      placeholder="鄉鎮市"
-                      autoComplete="address-line2"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="shipCounty" className="text-neutral-800">
-                      縣／市（選填）
-                    </Label>
-                    <Input
-                      id="shipCounty"
-                      value={shipCounty}
-                      onChange={(e) => setShipCounty(e.target.value)}
-                      className={fieldClass}
-                      placeholder="縣／市"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="shipPostcode" className="text-neutral-800">
-                      郵遞區號（選填）
-                    </Label>
-                    <Input
-                      id="shipPostcode"
-                      value={shipPostcode}
-                      onChange={(e) => setShipPostcode(e.target.value)}
-                      className={fieldClass}
-                      placeholder="例：114"
-                      inputMode="numeric"
-                      autoComplete="postal-code"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="notes" className="text-neutral-800">
-                      訂單備註（選填）
-                    </Label>
-                    <Textarea
-                      id="notes"
-                      value={notes}
-                      onChange={(e) => setNotes(e.target.value)}
-                      className={`min-h-[100px] ${fieldClass}`}
-                      placeholder="您的訂單的備註，例如：運送時的特別註記。"
-                    />
-                  </div>
-                </div>
-              ) : null}
+              <div className="space-y-2">
+                <Label htmlFor="pickupStoreCode" className="text-neutral-800">
+                  收貨門市號 <span className="text-red-600">*</span>
+                </Label>
+                <Input
+                  id="pickupStoreCode"
+                  value={pickupStoreCode}
+                  onChange={(e) => setPickupStoreCode(e.target.value)}
+                  className={fieldClass}
+                  placeholder="例：195946（7-11 店號 7 碼）"
+                  inputMode="numeric"
+                  autoComplete="off"
+                  required
+                />
+                <p className="text-xs leading-relaxed text-neutral-500">
+                  僅限超商取貨必填；若為宅配或面交，請填「無」或於收貨地址與備註說明。
+                </p>
+              </div>
 
               <div className="space-y-2">
                 <Label htmlFor="lineId" className="text-neutral-800">
@@ -320,35 +196,20 @@ const Checkout = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-neutral-800">
-                  電子郵件 <span className="text-red-600">*</span>
+                <Label htmlFor="notesDefault" className="text-neutral-800">
+                  額外資訊 · 訂單備註
                 </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className={fieldClass}
-                  placeholder="訂單通知用"
-                  autoComplete="email"
-                  required
+                <p className="text-[11px] leading-relaxed text-neutral-500">
+                  宅配／面交請於「收貨地址」寫完整地址，並於「收貨門市號」填「無」或依上方說明填寫。
+                </p>
+                <Textarea
+                  id="notesDefault"
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  className={`min-h-[120px] ${fieldClass}`}
+                  placeholder="如有特殊取貨時間或其他需求請在此說明"
                 />
               </div>
-
-              {!shipToDifferent ? (
-                <div className="space-y-2">
-                  <Label htmlFor="notesDefault" className="text-neutral-800">
-                    額外資訊 · 訂單備註
-                  </Label>
-                  <Textarea
-                    id="notesDefault"
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
-                    className={`min-h-[120px] ${fieldClass}`}
-                    placeholder="如有特殊取貨時間或其他需求請在此說明"
-                  />
-                </div>
-              ) : null}
             </div>
           </section>
 
