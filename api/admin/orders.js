@@ -42,12 +42,20 @@ export default async function handler(req, res) {
     const supabase = createSupabaseAdmin();
 
     if (req.method === "GET") {
-      const { data, error } = await supabase
+      const siteCode =
+        typeof req.query?.siteCode === "string"
+          ? req.query.siteCode.trim()
+          : Array.isArray(req.query?.siteCode)
+            ? String(req.query.siteCode[0] ?? "").trim()
+            : "";
+
+      let query = supabase
         .from("orders")
         .select(
           `
           id,
           order_number,
+          site_code,
           status,
           batch_date,
           customer_name,
@@ -72,6 +80,12 @@ export default async function handler(req, res) {
         )
         .order("batch_date", { ascending: false })
         .order("created_at", { ascending: false });
+
+      if (siteCode) {
+        query = query.eq("site_code", siteCode);
+      }
+
+      const { data, error } = await query;
 
       if (error) {
         return res.status(500).json({ error: error.message });
@@ -100,6 +114,7 @@ export default async function handler(req, res) {
           `
           id,
           order_number,
+          site_code,
           status,
           batch_date,
           customer_name,

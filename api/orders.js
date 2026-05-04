@@ -111,9 +111,24 @@ function mapSupabaseOrderError(message) {
   return { status: 500, error: m || "建立訂單失敗" };
 }
 
+/** 站群：每個 Vercel 部署設 SITE_CODE；優先於請求體中的 siteCode（防止偽造）。未設時沿用 body 或 default。 */
+function mergeSiteCodeIntoPayload(payload) {
+  const fromEnv = getEnv("SITE_CODE");
+  const fromBody =
+    typeof payload?.siteCode === "string"
+      ? payload.siteCode.trim()
+      : typeof payload?.site_code === "string"
+        ? payload.site_code.trim()
+        : "";
+  const siteCode = fromEnv || fromBody || "default";
+  return { ...payload, siteCode };
+}
+
 async function placeOrderSupabase(payload) {
   const supabase = createSupabaseAdmin();
-  const { data, error } = await supabase.rpc("place_order", { payload });
+  const { data, error } = await supabase.rpc("place_order", {
+    payload: mergeSiteCodeIntoPayload(payload),
+  });
 
   if (error) {
     const mapped = mapSupabaseOrderError(error.message);
@@ -279,7 +294,7 @@ export default async function handler(req, res) {
       if (!hasSupabase) {
         return res.status(503).json({ error: "Supabase is not configured (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)." });
       }
-      result = await placeOrderSupabase(payload);
+      result = await placeOrderSupabase({ ...payload });
     } else if (backend === "airtable" || (!backend && hasAirtable)) {
       if (!hasAirtable) {
         return res.status(503).json({ error: "Airtable is not configured." });

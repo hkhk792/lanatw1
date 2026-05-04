@@ -17,6 +17,7 @@
 | `subtotal_twd` / `shipping_twd` / `total_twd` | 金額（TWD 整數） |
 | `country` | 國家／地區 |
 | `payment_method` | 付款方式代碼（如 `cod`） |
+| `site_code` | 站點標識；與各部署的 `SITE_CODE` 一致，未設時 `default` |
 | `created_at` | 伺服器寫入時間（`timestamptz`） |
 
 ## `public.order_items`（明細）
@@ -25,7 +26,7 @@
 
 ## `public.orders_shippable_lines`（檢視 VIEW，唯讀）
 
-由 `orders` ⋈ `order_items` 展開：**一行 = 一筆訂單裡的一件商品**，並帶上該單表頭（姓名、地址、單號等），方便在 **Table Editor** 裡用 `order_number` / `batch_date` 篩選發貨。  
+由 `orders` ⋈ `order_items` 展開：**一行 = 一筆訂單裡的一件商品**，並帶上該單表頭（含 `site_code`、姓名、地址、單號等），方便在 **Table Editor** 裡用 `order_number` / `batch_date` / `site_code` 篩選發貨。  
 **不要**在 VIEW 上直接改資料；變更狀態仍改 `orders.status`，庫存與明細仍走 `order_items`。
 
 ## 截單邏輯

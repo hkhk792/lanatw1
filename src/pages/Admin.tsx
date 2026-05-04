@@ -14,6 +14,7 @@ type OrderItemRow = {
 export type AdminOrder = {
   id: string;
   order_number: string;
+  site_code?: string;
   status: string;
   batch_date: string;
   customer_name: string;
@@ -74,6 +75,9 @@ const Admin = () => {
   const [authorized, setAuthorized] = useState(false);
   const [openBatches, setOpenBatches] = useState<Record<string, boolean>>({});
   const [exportingBatch, setExportingBatch] = useState<string | null>(null);
+  /** 空字串 = 全部站點 */
+  const [siteFilter, setSiteFilter] = useState("");
+  const [knownSites, setKnownSites] = useState<string[]>([]);
 
   useEffect(() => {
     const meta = document.createElement("meta");
@@ -105,10 +109,13 @@ const Admin = () => {
     return [...map.entries()].sort((a, b) => (a[0] < b[0] ? 1 : a[0] > b[0] ? -1 : 0));
   }, [orders]);
 
-  const fetchOrders = useCallback(async (token: string) => {
+  const fetchOrders = useCallback(async (token: string, siteCodeFilter = "") => {
     setLoading(true);
     try {
-      const res = await fetch("/api/admin/orders", {
+      const qs = siteCodeFilter
+        ? `?siteCode=${encodeURIComponent(siteCodeFilter)}`
+        : "";
+      const res = await fetch(`/api/admin/orders${qs}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.status === 401) {
@@ -130,6 +137,14 @@ const Admin = () => {
       const data = (await res.json()) as { orders?: AdminOrder[]; error?: string };
       if (!res.ok) throw new Error(data.error || "載入失敗");
       setOrders(data.orders ?? []);
+      setKnownSites((prev) => {
+        const merged = new Set(prev);
+        for (const o of data.orders ?? []) {
+          const sc = (o as AdminOrder).site_code?.trim();
+          if (sc) merged.add(sc);
+        }
+        return Array.from(merged).sort();
+      });
       setAuthorized(true);
       sessionStorage.setItem(STORAGE_KEY, token);
       const keys = [...new Set((data.orders ?? []).map((o) => o.batch_date))];
@@ -149,7 +164,7 @@ const Admin = () => {
     const saved = sessionStorage.getItem(STORAGE_KEY);
     if (saved) {
       setSecret(saved);
-      void fetchOrders(saved);
+      void fetchOrders(saved, "");
     }
   }, [fetchOrders]);
 
@@ -159,7 +174,7 @@ const Admin = () => {
       toast.message("請輸入管理密鑰");
       return;
     }
-    void fetchOrders(secret.trim());
+    void fetchOrders(secret.trim(), siteFilter);
   };
 
   const updateStatus = async (orderId: string, status: string) => {
@@ -203,7 +218,11 @@ const Admin = () => {
     }
     setExportingBatch(batchDate);
     try {
-      const res = await fetch(`/api/admin/export?batchDate=${encodeURIComponent(batchDate)}`, {
+      const params = new URLSearchParams({ batchDate });
+      if (siteFilter.trim()) {
+        params.set("siteCode", siteFilter.trim());
+      }
+      const res = await fetch(`/api/admin/export?${params.toString()}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.status === 401) {
@@ -247,9 +266,31 @@ const Admin = () => {
             <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neutral-500">後台</p>
             <h1 className="text-lg font-semibold text-neutral-900">訂單管理</h1>
           </div>
-          <Link to="/" className="text-sm text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline">
-            返回商城
-          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <label className="flex items-center gap-2 text-sm text-neutral-700">
+              <span className="whitespace-nowrap text-neutral-500">站點</span>
+              <select
+                value={siteFilter}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setSiteFilter(v);
+                  const tok = sessionStorage.getItem(STORAGE_KEY) || secret.trim();
+                  if (tok) void fetchOrders(tok, v);
+                }}
+                className="min-w-[8rem] rounded-sm border border-neutral-300 bg-white px-2 py-1.5 text-sm text-neutral-900"
+              >
+                <option value="">全部</option>
+                {knownSites.map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <Link to="/" className="text-sm text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline">
+              返回商城
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -361,6 +402,11 @@ const Admin = () => {
                                       <tr className={cn("border-b border-neutral-100", rowMuted)}>
                                         <td className={cn("px-3 py-3 align-top font-mono text-xs", strike)}>
                                           {o.order_number}
+                                          {(o.site_code ?? "").trim() ? (
+                                            <span className="ml-1.5 inline-block rounded bg-neutral-200 px-1.5 py-0.5 font-sans text-[10px] font-medium text-neutral-800">
+                                              {(o.site_code ?? "").trim()}
+                                            </span>
+                                          ) : null}
                                           <span
                                             className={cn(
                                               "ml-2 inline-block rounded px-1.5 py-0.5 text-[10px] font-normal [text-decoration:none]",
@@ -415,6 +461,10 @@ const Admin = () => {
                                         <td colSpan={5} className="px-3 py-3 text-xs leading-relaxed text-neutral-700">
                                           <p className="mb-2 font-medium text-neutral-900">客戶填寫資料</p>
                                           <dl className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-3">
+                                            <div className="min-w-0 sm:col-span-1">
+                                              <dt className="text-[11px] uppercase tracking-wide text-neutral-500">站點標識</dt>
+                                              <dd className="font-mono text-neutral-900">{(o.site_code ?? "").trim() || "—"}</dd>
+                                            </div>
                                             <div className="min-w-0 sm:col-span-1">
                                               <dt className="text-[11px] uppercase tracking-wide text-neutral-500">國家／地區</dt>
                                               <dd className="text-neutral-900">{(o.country ?? "").trim() || "—"}</dd>

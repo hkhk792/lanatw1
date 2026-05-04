@@ -66,14 +66,22 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "batchDate 格式須為 YYYY-MM-DD" });
   }
 
+  const siteCode =
+    typeof req.query?.siteCode === "string"
+      ? req.query.siteCode.trim()
+      : Array.isArray(req.query?.siteCode)
+        ? String(req.query.siteCode[0] ?? "").trim()
+        : "";
+
   try {
     const supabase = createSupabaseAdmin();
 
-    const { data, error } = await supabase
+    let q = supabase
       .from("orders")
       .select(
         `
         order_number,
+        site_code,
         customer_name,
         phone,
         country,
@@ -97,12 +105,19 @@ export default async function handler(req, res) {
       .in("status", EXPORT_STATUSES)
       .order("created_at", { ascending: true });
 
+    if (siteCode) {
+      q = q.eq("site_code", siteCode);
+    }
+
+    const { data, error } = await q;
+
     if (error) {
       return res.status(500).json({ error: error.message });
     }
 
     const header = [
       "订单号",
+      "站点",
       "买家姓名",
       "电话",
       "国家或地区",
@@ -125,6 +140,7 @@ export default async function handler(req, res) {
       lines.push(
         [
           o.order_number,
+          o.site_code,
           o.customer_name,
           o.phone,
           o.country,

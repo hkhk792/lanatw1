@@ -19,9 +19,12 @@ export default function handler(req, res) {
   );
   const backend = getEnv("ORDER_BACKEND", "").toLowerCase();
 
+  const siteCode = getEnv("SITE_CODE");
+
   return res.status(200).json({
     ok: true,
     message: "Vercel API route is active",
+    siteCode: siteCode || null,
     orderBackendHint:
       backend === "supabase" || (!backend && hasSupabase)
         ? "supabase"
