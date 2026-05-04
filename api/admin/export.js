@@ -45,6 +45,33 @@ function formatItems(items) {
     .join("；");
 }
 
+/** 揀貨表：同批次內按商品型號 + 口味加總件數 */
+function buildPickingCsv(rows, batchDate, siteCodeLabel) {
+  const siteLine = siteCodeLabel
+    ? `站點篩選,${csvEscape(siteCodeLabel)},`
+    : `站點,全部,`;
+  const meta = [
+    `批次日期,${csvEscape(batchDate)},`,
+    siteLine,
+    `说明,僅統計狀態為「待確認」「已發出」的訂單明細,,`,
+    ",,",
+  ];
+
+  const header = ["品牌（商品型號）", "名稱（規格／口味）", "數量（件）"];
+  const lines = [...meta, header.map(csvEscape).join(",")];
+
+  let totalPieces = 0;
+  for (const row of rows) {
+    totalPieces += row.qty;
+    lines.push([row.brand, row.name, String(row.qty)].map(csvEscape).join(","));
+  }
+
+  lines.push("");
+  lines.push(["本批次總件數（所有口味合計）", "", String(totalPieces)].map(csvEscape).join(","));
+
+  return `\ufeff${lines.join("\n")}\n`;
+}
+
 export default async function handler(req, res) {
   if (req.method !== "GET") {
     res.setHeader("Allow", "GET");
@@ -72,6 +99,13 @@ export default async function handler(req, res) {
       : Array.isArray(req.query?.siteCode)
         ? String(req.query.siteCode[0] ?? "").trim()
         : "";
+
+  const format =
+    typeof req.query?.format === "string"
+      ? req.query.format.trim().toLowerCase()
+      : typeof req.query?.format === "object" && req.query?.format?.[0]
+        ? String(req.query.format[0]).trim().toLowerCase()
+        : "detail";
 
   try {
     const supabase = createSupabaseAdmin();
@@ -113,6 +147,37 @@ export default async function handler(req, res) {
 
     if (error) {
       return res.status(500).json({ error: error.message });
+    }
+
+    if (format === "picking") {
+      const agg = new Map();
+      for (const o of data ?? []) {
+        for (const it of o.order_items ?? []) {
+          const brand = String(it.product_model ?? "").trim() || "（未命名商品）";
+          const name = String(it.variant ?? "").trim() || "（無規格／口味）";
+          const n = Number(it.quantity) || 0;
+          const key = JSON.stringify([brand, name]);
+          agg.set(key, (agg.get(key) ?? 0) + n);
+        }
+      }
+
+      const rows = [...agg.entries()]
+        .map(([key, qty]) => {
+          const [brand, name] = JSON.parse(key);
+          return { brand, name, qty };
+        })
+        .sort((a, b) => {
+          const c = a.brand.localeCompare(b.brand, "zh-Hans-CN");
+          if (c !== 0) return c;
+          return a.name.localeCompare(b.name, "zh-Hans-CN");
+        });
+
+      const csv = buildPickingCsv(rows, batchDate, siteCode);
+      const filename = `揀貨匯總_${batchDate}.csv`;
+
+      res.setHeader("Content-Type", "text/csv; charset=utf-8");
+      res.setHeader("Content-Disposition", `attachment; filename*=UTF-8''${encodeURIComponent(filename)}`);
+      return res.status(200).send(csv);
     }
 
     const header = [

@@ -74,7 +74,7 @@ const Admin = () => {
   const [loading, setLoading] = useState(false);
   const [authorized, setAuthorized] = useState(false);
   const [openBatches, setOpenBatches] = useState<Record<string, boolean>>({});
-  const [exportingBatch, setExportingBatch] = useState<string | null>(null);
+  const [exportJob, setExportJob] = useState<{ batchDate: string; kind: "detail" | "picking" } | null>(null);
   /** 空字串 = 全部站點 */
   const [siteFilter, setSiteFilter] = useState("");
   const [knownSites, setKnownSites] = useState<string[]>([]);
@@ -210,17 +210,20 @@ const Admin = () => {
     setOpenBatches((prev) => ({ ...prev, [batchDate]: !prev[batchDate] }));
   };
 
-  const exportBatchCsv = async (batchDate: string) => {
+  const exportBatchCsv = async (batchDate: string, kind: "detail" | "picking" = "detail") => {
     const token = sessionStorage.getItem(STORAGE_KEY) || secret.trim();
     if (!token) {
       toast.error("請先登入後台");
       return;
     }
-    setExportingBatch(batchDate);
+    setExportJob({ batchDate, kind });
     try {
       const params = new URLSearchParams({ batchDate });
       if (siteFilter.trim()) {
         params.set("siteCode", siteFilter.trim());
+      }
+      if (kind === "picking") {
+        params.set("format", "picking");
       }
       const res = await fetch(`/api/admin/export?${params.toString()}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -235,7 +238,7 @@ const Admin = () => {
       }
       const blob = await res.blob();
       const dispo = res.headers.get("Content-Disposition");
-      let filename = `出貨單_${batchDate}.csv`;
+      let filename = kind === "picking" ? `揀貨匯總_${batchDate}.csv` : `出貨單_${batchDate}.csv`;
       const m = /filename\*=UTF-8''([^;]+)/i.exec(dispo || "");
       if (m?.[1]) {
         try {
@@ -250,11 +253,15 @@ const Admin = () => {
       a.download = filename;
       a.click();
       URL.revokeObjectURL(url);
-      toast.success("已下載出貨單 CSV（僅含待確認／已發出）");
+      toast.success(
+        kind === "picking"
+          ? "已下載揀貨匯總（依品牌／口味加總件數）"
+          : "已下載出貨單 CSV（僅含待確認／已發出）"
+      );
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "匯出失敗");
     } finally {
-      setExportingBatch(null);
+      setExportJob(null);
     }
   };
 
@@ -370,14 +377,28 @@ const Admin = () => {
                               )}
                             />
                           </button>
-                          <button
-                            type="button"
-                            disabled={exportingBatch === batchDate}
-                            onClick={() => void exportBatchCsv(batchDate)}
-                            className="shrink-0 rounded-sm border border-neutral-900 bg-neutral-950 px-3 py-2 text-xs font-medium text-white hover:bg-neutral-800 disabled:opacity-60"
-                          >
-                            {exportingBatch === batchDate ? "匯出中…" : "匯出本批次出貨單"}
-                          </button>
+                          <div className="flex shrink-0 flex-wrap gap-2">
+                            <button
+                              type="button"
+                              disabled={exportJob?.batchDate === batchDate}
+                              onClick={() => void exportBatchCsv(batchDate, "detail")}
+                              className="rounded-sm border border-neutral-900 bg-neutral-950 px-3 py-2 text-xs font-medium text-white hover:bg-neutral-800 disabled:opacity-60"
+                            >
+                              {exportJob?.batchDate === batchDate && exportJob.kind === "detail"
+                                ? "匯出中…"
+                                : "匯出出貨單（明細）"}
+                            </button>
+                            <button
+                              type="button"
+                              disabled={exportJob?.batchDate === batchDate}
+                              onClick={() => void exportBatchCsv(batchDate, "picking")}
+                              className="rounded-sm border border-neutral-800 bg-white px-3 py-2 text-xs font-medium text-neutral-900 hover:bg-neutral-50 disabled:opacity-60"
+                            >
+                              {exportJob?.batchDate === batchDate && exportJob.kind === "picking"
+                                ? "匯出中…"
+                                : "匯出揀貨表（口味匯總）"}
+                            </button>
+                          </div>
                         </div>
                         {open ? (
                           <div className="overflow-x-auto">
