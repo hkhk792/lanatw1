@@ -29,6 +29,7 @@ import LanaEliquid30mlDetail from "./pages/LanaEliquid30mlDetail.tsx";
 import Sp2sSiliconeSleeveDetail from "./pages/Sp2sSiliconeSleeveDetail.tsx";
 import Checkout from "./pages/Checkout.tsx";
 import OrderComplete from "./pages/OrderComplete.tsx";
+import Admin from "./pages/Admin.tsx";
 import Sp2sPodFlavorGuidePage from "./pages/Sp2sPodFlavorGuidePage.tsx";
 import LanavapNews10Page from "./pages/LanavapNews10Page.tsx";
 import AirportVapeArticlePage from "./pages/AirportVapeArticlePage.tsx";
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/info/airport-vaping-guide" element={<AirportVapeArticlePage />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-complete" element={<OrderComplete />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/product/lanna" element={<LannaDetail />} />
             <Route path="/product/bullet" element={<BulletDetail />} />
             <Route path="/product/pro" element={<Sp2sProDetail />} />

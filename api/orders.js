@@ -2,6 +2,38 @@ import { createClient } from "@supabase/supabase-js";
 
 const AIRTABLE_API_BASE = "https://api.airtable.com/v0";
 
+/** 台北時間 UTC+8：當日 16:30 前 → 當天批次；16:30（含）後 → 次日批次。回傳 YYYY-MM-DD */
+function computeBatchDateTaipei(now = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Taipei",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(now);
+
+  const part = (type) => parts.find((p) => p.type === type)?.value;
+  const y = Number(part("year"));
+  const m = Number(part("month"));
+  const d = Number(part("day"));
+  const hour = Number(part("hour"));
+  const minute = Number(part("minute"));
+
+  const pad = (n) => String(n).padStart(2, "0");
+  const isoDay = (yy, mm, dd) => `${yy}-${pad(mm)}-${pad(dd)}`;
+
+  const beforeCutoff = hour < 16 || (hour === 16 && minute < 30);
+  if (beforeCutoff) {
+    return isoDay(y, m, d);
+  }
+
+  const utcMidnight = Date.UTC(y, m - 1, d);
+  const next = new Date(utcMidnight + 24 * 60 * 60 * 1000);
+  return isoDay(next.getUTCFullYear(), next.getUTCMonth() + 1, next.getUTCDate());
+}
+
 function getEnv(name, fallback = "") {
   const value = process.env[name];
   return typeof value === "string" && value.trim() ? value.trim() : fallback;
@@ -97,6 +129,7 @@ async function placeOrderSupabase(payload) {
   return {
     orderRecordId: data.orderId,
     orderNumber: data.orderNumber,
+    batchDate: data.batchDate ?? null,
   };
 }
 
@@ -139,7 +172,10 @@ async function placeOrderAirtable(payload) {
   const fItemProductId = getEnv("AIRTABLE_ITEM_PRODUCT_ID_FIELD", "productId");
   const fItemImageUrl = getEnv("AIRTABLE_ITEM_IMAGE_URL_FIELD", "圖片 URL");
   const fItemOrderLink = getEnv("AIRTABLE_ITEM_ORDER_LINK_FIELD", "所屬訂單");
-  const defaultStatus = getEnv("AIRTABLE_ORDER_DEFAULT_STATUS", "待出貨");
+  const fBatchDate = getEnv("AIRTABLE_BATCH_DATE_FIELD", "");
+  const defaultStatus = getEnv("AIRTABLE_ORDER_DEFAULT_STATUS", "待确认");
+
+  const batchDateIso = computeBatchDateTaipei();
 
   const orderFields = {
     [fOrderStatus]: defaultStatus,
@@ -153,6 +189,10 @@ async function placeOrderAirtable(payload) {
     [fShipping]: Number(shippingTwd) || 0,
     [fTotal]: Number(totalTwd) || 0,
   };
+
+  if (fBatchDate) {
+    orderFields[fBatchDate] = batchDateIso;
+  }
 
   const createdOrder = await airtableRequest({
     method: "POST",
@@ -189,6 +229,7 @@ async function placeOrderAirtable(payload) {
   return {
     orderRecordId,
     orderNumber: createdOrder?.fields?.[fOrderNumber] || orderRecordId,
+    batchDate: batchDateIso,
   };
 }
 
@@ -255,6 +296,7 @@ export default async function handler(req, res) {
       ok: true,
       orderRecordId: result.orderRecordId,
       orderNumber: result.orderNumber,
+      ...(result.batchDate != null ? { batchDate: result.batchDate } : {}),
     });
   } catch (error) {
     const status = error && typeof error.status === "number" ? error.status : 500;

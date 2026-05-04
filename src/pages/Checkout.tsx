@@ -89,7 +89,7 @@ const Checkout = () => {
       });
 
       const data = (await response.json().catch(() => null)) as
-        | { error?: string; orderNumber?: string }
+        | { error?: string; orderNumber?: string; batchDate?: string }
         | null;
 
       if (!response.ok) {
@@ -98,8 +98,9 @@ const Checkout = () => {
 
       clearCart();
       const orderHint = data?.orderNumber ? `訂單編號 ${data.orderNumber} · ` : "";
+      const batchHint = data?.batchDate ? `截單批次 ${data.batchDate} · ` : "";
       toast.success("訂單已送出", {
-        description: `${orderHint}合計 ${formatTwd(totalTwd)} · 貨到付款`,
+        description: `${orderHint}${batchHint}合計 ${formatTwd(totalTwd)} · 貨到付款`,
       });
       navigate("/order-complete", { replace: true });
     } catch (error) {
