@@ -105,6 +105,16 @@ const Admin = () => {
         toast.error("密鑰錯誤或未設定後台環境變數");
         return;
       }
+      const ct = res.headers.get("content-type") || "";
+      if (!ct.includes("application/json")) {
+        const raw = await res.text();
+        const looksLikeHtml = /<!doctype\s+html/i.test(raw) || raw.trimStart().startsWith("<html");
+        throw new Error(
+          looksLikeHtml
+            ? "後台 API 未啟用（回傳了網頁）。請確認網域已連到本專案的 Vercel，先開啟 /api/health 應顯示 JSON。"
+            : "回應格式異常，請稍後再試。"
+        );
+      }
       const data = (await res.json()) as { orders?: AdminOrder[]; error?: string };
       if (!res.ok) throw new Error(data.error || "載入失敗");
       setOrders(data.orders ?? []);

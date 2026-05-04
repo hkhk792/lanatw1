@@ -88,6 +88,17 @@ const Checkout = () => {
         body: JSON.stringify(payload),
       });
 
+      const ct = response.headers.get("content-type") || "";
+      if (!ct.includes("application/json")) {
+        const raw = await response.text();
+        const looksLikeHtml = /<!doctype\s+html/i.test(raw) || raw.trimStart().startsWith("<html");
+        throw new Error(
+          looksLikeHtml
+            ? "訂單 API 未啟用（伺服器回傳了網頁而非 API）。請確認網域已連到本專案的 Vercel，並可開啟 /api/health 檢查是否為 JSON。"
+            : "訂單回應格式異常，請稍後再試。"
+        );
+      }
+
       const data = (await response.json().catch(() => null)) as
         | { error?: string; orderNumber?: string; batchDate?: string }
         | null;
