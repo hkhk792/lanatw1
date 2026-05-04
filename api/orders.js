@@ -126,8 +126,12 @@ function mergeSiteCodeIntoPayload(payload) {
 
 async function placeOrderSupabase(payload) {
   const supabase = createSupabaseAdmin();
+  const merged = mergeSiteCodeIntoPayload(payload);
+  const envSite = getEnv("SITE_CODE");
   const { data, error } = await supabase.rpc("place_order", {
-    payload: mergeSiteCodeIntoPayload(payload),
+    payload: merged,
+    /** 第二參數：避免部分環境下 jsonb 內 siteCode 未傳到 Postgres，與 Vercel SITE_CODE 對齊 */
+    p_site_code: envSite || null,
   });
 
   if (error) {

@@ -37,3 +37,7 @@
 - **16:30（含）之後** → `batch_date` = 次日日期  
 
 與 `api/orders.js` 中 `computeBatchDateTaipei()`（Airtable 後備）一致。
+
+## `place_order` RPC（站點寫入）
+
+`api/orders.js` 呼叫 `place_order` 時除 `payload` 外會傳 **`p_site_code`**（值為 Vercel 的 `SITE_CODE`），資料庫優先使用該參數寫入 `orders.site_code`，避免僅依賴 jsonb 內欄位在部分環境遺失。請套用遷移 **`20250508100000_place_order_p_site_code.sql`**。
