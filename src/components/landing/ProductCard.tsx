@@ -5,6 +5,7 @@ import { flushHomeScrollPosition } from "@/lib/homeScrollRestore";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import { ResponsiveAssetImg, type ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
 import { cn } from "@/lib/utils";
+import { LANNA_ORDER_PRODUCT_MODEL } from "@/lib/lannaProduct";
 
 interface Props {
   image: string;
@@ -44,7 +45,7 @@ const QUICK_ADD_PRODUCTS: Record<
     route: "/product/cartoon",
   },
   lanna: {
-    title: "SP2S Legend S 思博瑞一代升級煙桿 傳奇版",
+    title: LANNA_ORDER_PRODUCT_MODEL,
     variant: "炫正紅",
     priceTwd: 500,
     route: "/product/lanna",

@@ -7,10 +7,11 @@ import p3 from "@/assets/product-3.webp";
 import p4 from "@/assets/product-4.webp";
 import p6 from "@/assets/product-6.webp";
 import { AtomizerHostGemini } from "@/lib/responsiveImageVariants.generated";
+import { LANNA_HOMEPAGE_FLAVOR, LANNA_HOMEPAGE_NAME } from "@/lib/lannaProduct";
 
 const products = [
   { image: p1, name: "卡通限量版", flavor: "經典工藝系列", price: "NT$550", id: "cartoon" },
-  { image: lanaPremiumHero, name: "蘭納精裝版", flavor: "十色限定版", price: "NT$500", id: "lanna" },
+  { image: lanaPremiumHero, name: LANNA_HOMEPAGE_NAME, flavor: LANNA_HOMEPAGE_FLAVOR, price: "NT$500", id: "lanna" },
   { image: p3, name: "SP2S 思博瑞 一代", flavor: "十三色工坊系列", price: "NT$450", id: "bullet" },
   { image: p4, name: "SP2S Pro", flavor: "八色旗艦 · 智慧感應", price: "NT$450", id: "pro" },
   {

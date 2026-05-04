@@ -8,9 +8,16 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/lana-premium-device.webp";
 import logoImage from "@/assets/product-14.jpg";
+import {
+  LANNA_ORDER_PRODUCT_MODEL,
+  LANNA_PAGE_SUBTITLE,
+  LANNA_PAGE_TITLE_MAIN,
+} from "@/lib/lannaProduct";
 
 const LANNA_PRODUCT_ID = "lanna";
 const LANNA_PRICE_TWD = 500;
+const DOC_TITLE = `${LANNA_PAGE_TITLE_MAIN} | SP2S 商城`;
+const DEFAULT_SITE_TITLE = "SP2S — 品味精髓 | 奢華蒸氣工坊";
 
 const variantOptions = [
   "烈焰黑",
@@ -39,7 +46,8 @@ const LannaDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: LANNA_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      /** 與匯出「品牌」欄一致，不含顏色，避免切換顏色時變成多筆不同型號 */
+      title: LANNA_ORDER_PRODUCT_MODEL,
       variant: selectedOption,
       priceTwd: LANNA_PRICE_TWD,
       quantity,
@@ -76,17 +84,10 @@ const LannaDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption
-      ? `SP2S Legend S ${selectedOption} 一代升級煙桿｜多種配色可選`
-      : "SP2S Legend S 一代升級煙桿｜多種配色可選";
-  const getProductDescription = () =>
-    selectedOption
-      ? `SP2S Legend S ${selectedOption} 一代升級煙桿 多種配色可選`
-      : "SP2S Legend S 一代升級煙桿 多種配色可選";
+  const getProductTitle = () => LANNA_PAGE_TITLE_MAIN;
+  const getProductDescription = () => LANNA_PAGE_SUBTITLE;
   const getCategory = () => "SP2S Legend S 主機";
-  const getTags = () =>
-    selectedOption ? `SP2S Legend S，SP2S Legend S ${selectedOption}` : "SP2S Legend S，一代升級煙桿";
+  const getTags = () => "SP2S Legend S，一代升級煙桿，多色可選";
   const getBadgeText = () =>
     selectedOption ? `升級煙桿｜${selectedOption}` : "升級煙桿｜請先選擇顏色";
 
@@ -94,6 +95,13 @@ const LannaDetail = () => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    document.title = DOC_TITLE;
+    return () => {
+      document.title = DEFAULT_SITE_TITLE;
+    };
   }, []);
 
   return (
@@ -283,11 +291,11 @@ const LannaDetail = () => {
             <h2 className="text-2xl font-bold text-gray-900">商品介紹</h2>
             <div className="mt-4 h-px w-14 bg-gray-900" />
             <p className="mt-6 leading-8 text-gray-700">
-              LANA 皮革主機將高品質與先進技術完美結合，擁有經典而優雅的皮革外觀，彰顯您的獨特品味與氣質。
+              SP2S Legend S 將高品質與先進技術結合，鋁合金機身搭配細緻工藝，兼顧手感與耐用，適合日常長時間使用。
             </p>
             <h3 className="mt-8 text-lg font-semibold text-gray-900">設計理念</h3>
             <p className="mt-3 leading-8 text-gray-700">
-              LANA 皮革主機的設計靈感源自奢華生活方式，將高科技產品與高級皮革的溫暖質感完美融合。選用頂級皮革，不僅柔軟舒適，還具有耐用性和獨特紋理，提升產品質感和品味。
+              Legend S 延續 SP2S 旗艦系列的設計語言：簡潔線條、穩定輸出與快充體驗並重，讓裝置在視覺與實用之間取得平衡；多色外觀可依個人風格自由選擇。
             </p>
           </div>
 
@@ -341,7 +349,7 @@ const LannaDetail = () => {
             <h3 className="text-xl font-bold text-gray-900">市場影響力</h3>
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
-              自上市以來，LANA 皮革主機以其獨特設計和優質性能迅速獲得市場認可。不僅成為電子煙愛好者的熱門選擇，更成為時尚潮流的代表，彰顯使用者的獨特品味和個性。
+              自上市以來，Legend S 系列憑藉穩定輸出與扎實做工獲得使用者肯定；多色選擇與通配煙彈設計，亦讓日常搭配更彈性。
             </p>
           </div>
         </section>

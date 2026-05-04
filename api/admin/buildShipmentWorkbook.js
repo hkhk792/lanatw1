@@ -1,5 +1,42 @@
 import ExcelJS from "exceljs";
 
+/** 與前端下單 `LANNA_ORDER_PRODUCT_MODEL` 一致，用於合併「品牌」欄與還原舊訂單字串 */
+const LANNA_BASE_PRODUCT_MODEL = "SP2S Legend S 一代升級煙桿 多種配色可選";
+
+/**
+ * 舊版購物車把顏色寫進 product_model，匯出時併回固定型號字串。
+ * @param {string} productModel
+ * @param {string} variant
+ */
+function normalizeLannaProductModel(productModel, variant) {
+  const raw = String(productModel ?? "").trim();
+  const v = String(variant ?? "").trim();
+  if (!raw.includes("SP2S Legend S") || !raw.includes("一代升級煙桿")) {
+    return raw;
+  }
+  const prefix = "SP2S Legend S ";
+  if (!raw.startsWith(prefix)) {
+    return raw;
+  }
+  const after = raw.slice(prefix.length);
+  const idx = after.indexOf("一代升級煙桿");
+  if (idx < 0) return raw;
+  const colorInString = idx === 0 ? "" : after.slice(0, idx).trim();
+  if (colorInString === "") {
+    return LANNA_BASE_PRODUCT_MODEL;
+  }
+  if (v && colorInString === v) {
+    return LANNA_BASE_PRODUCT_MODEL;
+  }
+  return raw;
+}
+
+function normalizeOrderItemForShipment(item) {
+  const variant = String(item.variant ?? "").trim();
+  const merged = normalizeLannaProductModel(String(item.product_model ?? ""), variant);
+  return { ...item, product_model: merged || item.product_model };
+}
+
 const HEADERS = [
   "收件人姓名",
   "收件人手機",
@@ -55,13 +92,15 @@ export async function buildShipmentWorkbookBuffer(orders) {
   let rowPtr = 2;
 
   for (const order of orders) {
-    let items = [...(order.order_items ?? [])].sort((a, b) => {
-      const ma = String(a.product_model ?? "");
-      const mb = String(b.product_model ?? "");
-      const c = ma.localeCompare(mb, "zh-Hans-CN");
-      if (c !== 0) return c;
-      return String(a.variant ?? "").localeCompare(String(b.variant ?? ""), "zh-Hans-CN");
-    });
+    let items = [...(order.order_items ?? [])]
+      .map((it) => normalizeOrderItemForShipment(it))
+      .sort((a, b) => {
+        const ma = String(a.product_model ?? "");
+        const mb = String(b.product_model ?? "");
+        const c = ma.localeCompare(mb, "zh-Hans-CN");
+        if (c !== 0) return c;
+        return String(a.variant ?? "").localeCompare(String(b.variant ?? ""), "zh-Hans-CN");
+      });
 
     if (items.length === 0) {
       items = [{ product_model: "（無明細）", variant: "", quantity: 0 }];
