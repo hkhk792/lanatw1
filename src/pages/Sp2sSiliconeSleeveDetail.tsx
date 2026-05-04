@@ -9,6 +9,7 @@ import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import productMain from "@/assets/showcase-vape-gear.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_SP2S_SILICONE_SLEEVE } from "@/lib/orderProductModels";
 
 const SP2S_SLEEVE_PRODUCT_ID = "sp2s-silicone-sleeve";
 const SP2S_SLEEVE_PRICE_TWD = 120;
@@ -36,7 +37,7 @@ const Sp2sSiliconeSleeveDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: SP2S_SLEEVE_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_SP2S_SILICONE_SLEEVE,
       variant: selectedOption,
       priceTwd: SP2S_SLEEVE_PRICE_TWD,
       quantity,
@@ -74,16 +75,10 @@ const Sp2sSiliconeSleeveDetail = () => {
   };
 
   const getProductTitle = () =>
-    selectedOption
-      ? `思博瑞 SP2S 矽膠保護套／掛繩（${selectedOption}）`
-      : "電子煙配件 思博瑞 SP2S 主機矽膠保護套（多色可選）";
-  const getProductDescription = () =>
-    selectedOption
-      ? `已選規格：${selectedOption}`
-      : "專用於 SP2S 一代主機 · 多色可選";
+    "電子煙配件 思博瑞 SP2S 主機矽膠保護套｜多色／掛繩可選";
+  const getProductDescription = () => "專用於 SP2S 一代主機 · 矽膠套與掛繩系列";
   const getCategory = () => "SP2S 主機矽膠保護套／掛繩";
-  const getTags = () =>
-    selectedOption ? `SP2S，矽膠套，${selectedOption}` : "SP2S，保護套，掛繩，配件";
+  const getTags = () => "SP2S，保護套，掛繩，配件，多規格可選";
   const getBadgeText = () => (selectedOption ? `多色可選｜${selectedOption}` : "先選顏色／掛繩款");
 
   useEffect(() => {

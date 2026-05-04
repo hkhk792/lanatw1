@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/disposable-mohoo-tokyo.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_MOHOO_BOX } from "@/lib/orderProductModels";
 
 const MOHOO_PRODUCT_ID = "mohoo-tokyo-box";
 const MOHOO_PRICE_TWD = 450;
@@ -88,7 +89,7 @@ const MohooTokyoBoxDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: MOHOO_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_MOHOO_BOX,
       variant: selectedOption,
       priceTwd: MOHOO_PRICE_TWD,
       quantity,
@@ -125,17 +126,10 @@ const MohooTokyoBoxDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption
-      ? `TOKYO MOHOO BOX（${selectedOption}）東京魔盒煙彈｜12ml 大容量`
-      : "TOKYO MOHOO BOX 東京魔盒煙彈（多種口味台灣現貨）";
-  const getProductDescription = () =>
-    selectedOption
-      ? `已選口味：${selectedOption} — 東京魔盒 12ml 煙彈`
-      : "TOKYO MOHOO BOX · 12ml · 多口味台灣現貨";
+  const getProductTitle = () => "TOKYO MOHOO BOX 東京魔盒煙彈｜12ml · 台灣現貨";
+  const getProductDescription = () => "TOKYO MOHOO BOX · 12ml 煙彈 · 多口味台灣現貨";
   const getCategory = () => "TOKYO MOHOO BOX 煙彈";
-  const getTags = () =>
-    selectedOption ? `MOHOO，東京魔盒，${selectedOption}` : "MOHOO，東京魔盒，12ml";
+  const getTags = () => "MOHOO，東京魔盒，12ml，多口味可選";
   const getBadgeText = () =>
     selectedOption ? `台灣現貨｜${selectedOption}` : "12ml 大容量｜請先選擇口味";
 

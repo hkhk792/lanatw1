@@ -8,11 +8,8 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/lana-premium-device.webp";
 import logoImage from "@/assets/product-14.jpg";
-import {
-  LANNA_ORDER_PRODUCT_MODEL,
-  LANNA_PAGE_SUBTITLE,
-  LANNA_PAGE_TITLE_MAIN,
-} from "@/lib/lannaProduct";
+import { LANNA_PAGE_SUBTITLE, LANNA_PAGE_TITLE_MAIN } from "@/lib/lannaProduct";
+import { LANNA_ORDER_PRODUCT_MODEL } from "@/lib/orderProductModels";
 
 const LANNA_PRODUCT_ID = "lanna";
 const LANNA_PRICE_TWD = 500;

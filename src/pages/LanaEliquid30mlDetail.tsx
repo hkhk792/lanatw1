@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/showcase-e-liquid.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_LANA_ELiquid_30ML } from "@/lib/orderProductModels";
 
 const LANA_ELiquid_PRODUCT_ID = "lana-e-liquid-30ml";
 const LANA_ELiquid_PRICE_TWD = 350;
@@ -44,7 +45,7 @@ const LanaEliquid30mlDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: LANA_ELiquid_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_LANA_ELiquid_30ML,
       variant: selectedOption,
       priceTwd: LANA_ELiquid_PRICE_TWD,
       quantity,
@@ -81,17 +82,10 @@ const LanaEliquid30mlDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption
-      ? `拉娜 LANA 煙油 30ml（${selectedOption}）｜鹽尼小瓶裝`
-      : "拉娜 LANA 煙油小瓶裝（30ml）";
-  const getProductDescription = () =>
-    selectedOption
-      ? `已選口味：${selectedOption} — 30ml 鹽尼古丁煙油`
-      : "LANA 30ml 煙油 · 台灣正品發貨";
+  const getProductTitle = () => "拉娜 LANA 煙油小瓶裝（30ml）｜鹽尼古丁";
+  const getProductDescription = () => "LANA 30ml 煙油 · 鹽尼 · 台灣正品發貨";
   const getCategory = () => "LANA 電子煙煙油";
-  const getTags = () =>
-    selectedOption ? `LANA，30ml 煙油，${selectedOption}` : "LANA，煙油，30ml，鹽尼";
+  const getTags = () => "LANA，煙油，30ml，鹽尼，多口味可選";
   const getBadgeText = () =>
     selectedOption ? `30ml｜${selectedOption}` : "台灣正品｜請先選口味";
 

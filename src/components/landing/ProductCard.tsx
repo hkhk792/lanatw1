@@ -5,7 +5,23 @@ import { flushHomeScrollPosition } from "@/lib/homeScrollRestore";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import { ResponsiveAssetImg, type ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
 import { cn } from "@/lib/utils";
-import { LANNA_ORDER_PRODUCT_MODEL } from "@/lib/lannaProduct";
+import {
+  LANNA_ORDER_PRODUCT_MODEL,
+  ORDER_MODEL_ATOMIZER_HOST,
+  ORDER_MODEL_DIYA_7500,
+  ORDER_MODEL_DIYA_DEVICE,
+  ORDER_MODEL_HEBAT_GEN6,
+  ORDER_MODEL_JUPITER_SET,
+  ORDER_MODEL_LANA_ELiquid_30ML,
+  ORDER_MODEL_MOHOO_BOX,
+  ORDER_MODEL_NINGA_CARTOON,
+  ORDER_MODEL_SP2S_GEN1_DEVICE,
+  ORDER_MODEL_SP2S_PRO,
+  ORDER_MODEL_SP2S_SILICONE_SLEEVE,
+  ORDER_MODEL_VAPOR_STORM_5000,
+  ORDER_MODEL_VENUS_HOST,
+  ORDER_MODEL_VSTORM_GEN5_PODS,
+} from "@/lib/orderProductModels";
 
 interface Props {
   image: string;
@@ -39,7 +55,7 @@ const QUICK_ADD_PRODUCTS: Record<
   { title: string; variant: string; priceTwd: number; route: string }
 > = {
   cartoon: {
-    title: "NINGA 蠟筆小新卡通一代通用主機",
+    title: ORDER_MODEL_NINGA_CARTOON,
     variant: "蠟筆小新",
     priceTwd: 550,
     route: "/product/cartoon",
@@ -51,79 +67,79 @@ const QUICK_ADD_PRODUCTS: Record<
     route: "/product/lanna",
   },
   bullet: {
-    title: "SP2S 思博瑞 一代 一代通用主機",
+    title: ORDER_MODEL_SP2S_GEN1_DEVICE,
     variant: "丁香紫",
     priceTwd: 450,
     route: "/product/bullet",
   },
   pro: {
-    title: "SP2S Pro 二代旗艦霧化主機",
+    title: ORDER_MODEL_SP2S_PRO,
     variant: "海棠粉",
     priceTwd: 450,
     route: "/product/pro",
   },
   atomizer: {
-    title: "原子棒電子煙主機",
+    title: ORDER_MODEL_ATOMIZER_HOST,
     variant: "綠色",
     priceTwd: 290,
     route: "/product/atomizer",
   },
   diya: {
-    title: "DIYA 叮啞霧化桿：2.5ML 大容量兼容／一代通用",
+    title: ORDER_MODEL_DIYA_DEVICE,
     variant: "光影藍綠",
     priceTwd: 320,
     route: "/product/diya",
   },
   "disp-vapengin": {
-    title: "VENUS金星主機可充電霧化電子煙主機（台灣現貨）",
+    title: ORDER_MODEL_VENUS_HOST,
     variant: "口味待選",
     priceTwd: 240,
     route: "/product/venus-host",
   },
   "disp-mohoo-box": {
-    title: "TOKYO MOHOO BOX 東京魔盒煙彈（多種口味台灣現貨）",
+    title: ORDER_MODEL_MOHOO_BOX,
     variant: "口味待選",
     priceTwd: 450,
     route: "/product/mohoo-tokyo-box",
   },
   "disp-hebat": {
-    title: "HEBAT 喜貝六代 10000 口拋棄式一次性電子煙（15ml 台灣現貨）",
+    title: ORDER_MODEL_HEBAT_GEN6,
     variant: "口味待選",
     priceTwd: 340,
     route: "/product/hebat-gen6",
   },
   "disp-diya-7500": {
-    title: "DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙",
+    title: ORDER_MODEL_DIYA_7500,
     variant: "口味待選",
     priceTwd: 249,
     route: "/product/diya-7500",
   },
   "disp-jupiter": {
-    title: "JUPITER 木星套裝 6500 口（換彈拋棄式電子煙，台灣現貨）",
+    title: ORDER_MODEL_JUPITER_SET,
     variant: "套裝待選",
     priceTwd: 480,
     route: "/product/jupiter-6500",
   },
   "disp-vapor-storm": {
-    title: "VAPOR STORM 風暴 5000 口拋棄式飛霧發光一次性電子煙桿",
+    title: ORDER_MODEL_VAPOR_STORM_5000,
     variant: "口味待選",
     priceTwd: 290,
     route: "/product/vapor-storm-5000",
   },
   "showcase-gen5": {
-    title: "Vapor Storm 風暴五代煙彈（五代主機通用）",
+    title: ORDER_MODEL_VSTORM_GEN5_PODS,
     variant: "口味待選",
     priceTwd: 129,
     route: "/product/vapor-storm-gen5-pods",
   },
   "showcase-e-liquid": {
-    title: "拉娜 LANA 煙油小瓶裝（30ml）",
+    title: ORDER_MODEL_LANA_ELiquid_30ML,
     variant: "口味待選",
     priceTwd: 350,
     route: "/product/lana-e-liquid-30ml",
   },
   "showcase-gear": {
-    title: "電子煙配件 思博瑞 SP2S 主機矽膠保護套（多色可選）",
+    title: ORDER_MODEL_SP2S_SILICONE_SLEEVE,
     variant: "規格待選",
     priceTwd: 120,
     route: "/product/sp2s-silicone-sleeve",

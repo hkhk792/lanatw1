@@ -9,6 +9,7 @@ import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
 import { Sp2sGen1PodsCatalog } from "@/lib/responsiveImageVariants.generated";
+import { ORDER_MODEL_SP2S_GEN1_PODS } from "@/lib/orderProductModels";
 
 const productMain = Sp2sGen1PodsCatalog.src;
 import logoImage from "@/assets/product-14.jpg";
@@ -141,15 +142,10 @@ const Sp2sGen1PodsDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption ? `SP2S 一代通用煙彈｜${selectedOption}｜思博瑞` : PRODUCT_BASE_NAME;
-  const getProductDescription = () =>
-    selectedOption ? `SP2S【${selectedOption}】一代通用煙彈` : "SP2S 一代通用煙彈 · 思博瑞";
+  const getProductTitle = () => `${PRODUCT_BASE_NAME}｜多口味可選`;
+  const getProductDescription = () => "SP2S 一代通用煙彈 · 思博瑞 · 陶瓷白芯";
   const getCategory = () => "SP2S 煙彈 / 一代通用";
-  const getTags = () =>
-    selectedOption
-      ? `SP2S，思博瑞，煙彈，${selectedOption}，一代通用`
-      : "SP2S，思博瑞，煙彈，一代通用";
+  const getTags = () => "SP2S，思博瑞，一代通用煙彈，多口味可選";
   const getBadgeText = () =>
     selectedOption ? `陶瓷白芯｜${selectedOption}` : "陶瓷白芯｜請先選擇口味";
 
@@ -165,7 +161,7 @@ const Sp2sGen1PodsDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: SP2S_GEN1_PODS_PRODUCT_ID,
-      title: `SP2S 一代通用煙彈 ${selectedOption}`.trim(),
+      title: ORDER_MODEL_SP2S_GEN1_PODS,
       variant: selectedOption,
       priceTwd: SP2S_GEN1_PODS_PRICE_TWD,
       quantity,

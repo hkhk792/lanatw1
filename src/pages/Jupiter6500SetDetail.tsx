@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/disposable-flare-nimmbox-go.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_JUPITER_SET } from "@/lib/orderProductModels";
 
 const JUPITER_PRODUCT_ID = "jupiter-6500-set";
 const JUPITER_PRICE_TWD = 480;
@@ -28,7 +29,7 @@ const Jupiter6500SetDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: JUPITER_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_JUPITER_SET,
       variant: selectedOption,
       priceTwd: JUPITER_PRICE_TWD,
       quantity,
@@ -66,16 +67,11 @@ const Jupiter6500SetDetail = () => {
   };
 
   const getProductTitle = () =>
-    selectedOption
-      ? `JUPITER 木星套裝 6500 口（${selectedOption}）換彈拋棄式｜台灣現貨`
-      : "JUPITER 木星套裝 6500 口（換彈拋棄式電子煙，台灣現貨）";
+    "JUPITER 木星套裝 6500 口｜換彈拋棄式 · 台灣現貨";
   const getProductDescription = () =>
-    selectedOption
-      ? `已選：${selectedOption} — 木星二代 · 單彈參攷 6500 口`
-      : "JUPITER 木星套裝 · 換彈拋棄式 · 台灣現貨";
+    "JUPITER 木星套裝 · 換彈拋棄式 · 參攷 6500 口 · 台灣現貨";
   const getCategory = () => "JUPITER 木星套裝";
-  const getTags = () =>
-    selectedOption ? `JUPITER，木星，${selectedOption}` : "JUPITER，木星，6500口";
+  const getTags = () => "JUPITER，木星，6500 口，五款套裝可選";
   const getBadgeText = () =>
     selectedOption ? `台灣現貨｜${selectedOption}` : "木星套裝｜請先選擇套裝口味";
 

@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/disposable-vapor-storm-cf5000.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_VAPOR_STORM_5000 } from "@/lib/orderProductModels";
 
 const VAPOR_STORM_PRODUCT_ID = "vapor-storm-5000";
 const VAPOR_STORM_PRICE_TWD = 290;
@@ -45,7 +46,7 @@ const VaporStorm5000Detail = () => {
     if (!selectedOption) return null;
     return {
       productId: VAPOR_STORM_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_VAPOR_STORM_5000,
       variant: selectedOption,
       priceTwd: VAPOR_STORM_PRICE_TWD,
       quantity,
@@ -83,16 +84,11 @@ const VaporStorm5000Detail = () => {
   };
 
   const getProductTitle = () =>
-    selectedOption
-      ? `VAPOR STORM 風暴 5000 口（${selectedOption}）飛霧發光拋桿`
-      : "VAPOR STORM 風暴 5000 口拋棄式飛霧發光一次性電子煙桿";
+    "VAPOR STORM 風暴 5000 口拋棄式｜飛霧發光 · CF5000";
   const getProductDescription = () =>
-    selectedOption
-      ? `已選口味：${selectedOption} — CF5000 飛霧款`
-      : "VAPOR STORM · 10ml · Mesh · 參攷 5000 口";
+    "VAPOR STORM · 10ml · Mesh · 參攷 5000 口 · 台灣現貨";
   const getCategory = () => "VAPOR STORM CF5000";
-  const getTags = () =>
-    selectedOption ? `VAPOR STORM，CF5000，${selectedOption}` : "VAPOR STORM，風暴，5000口";
+  const getTags = () => "VAPOR STORM，風暴，5000口，多口味可選";
   const getBadgeText = () =>
     selectedOption ? `飛霧發光｜${selectedOption}` : "10ml Mesh｜請先選擇口味";
 

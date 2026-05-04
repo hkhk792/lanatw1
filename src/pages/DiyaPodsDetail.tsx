@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/product-8.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_DIYA_PODS } from "@/lib/orderProductModels";
 
 const DIYA_PODS_PRODUCT_ID = "diya-pods";
 const DIYA_PODS_PRICE_TWD = 199;
@@ -115,15 +116,10 @@ const DiyaPodsDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption ? `DIYA 叮啞煙彈 3 顆裝｜${selectedOption}｜一代通用主機` : PRODUCT_BASE_NAME;
-  const getProductDescription = () =>
-    selectedOption ? `DIYA 叮啞【${selectedOption}】一盒三入 · 一代通用` : "DIYA 叮啞煙彈 · 一盒三入 · 一代通用";
+  const getProductTitle = () => `${PRODUCT_BASE_NAME}｜多口味可選`;
+  const getProductDescription = () => "DIYA 叮啞煙彈 · 一盒三入 · 一代通用 · 2.5ml";
   const getCategory = () => "DIYA 叮啞煙彈 / 一代通用";
-  const getTags = () =>
-    selectedOption
-      ? `DIYA，叮啞，煙彈，${selectedOption}，3顆裝，一代通用`
-      : "DIYA，叮啞，煙彈，3顆裝，一代通用";
+  const getTags = () => "DIYA，叮啞，煙彈，3 顆裝，一代通用，多口味可選";
   const getBadgeText = () =>
     selectedOption ? `叮啞煙彈｜${selectedOption}` : "叮啞煙彈｜請先選擇口味";
 
@@ -139,7 +135,7 @@ const DiyaPodsDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: DIYA_PODS_PRODUCT_ID,
-      title: `DIYA 叮啞煙彈 3 顆裝 ${selectedOption}`.trim(),
+      title: ORDER_MODEL_DIYA_PODS,
       variant: selectedOption,
       priceTwd: DIYA_PODS_PRICE_TWD,
       quantity,

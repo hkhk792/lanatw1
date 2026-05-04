@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/product-3.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_SP2S_GEN1_DEVICE } from "@/lib/orderProductModels";
 
 const BULLET_PRODUCT_ID = "bullet";
 const BULLET_PRICE_TWD = 450;
@@ -79,17 +80,10 @@ const BulletDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption
-      ? `SP2S ${selectedOption} 一代通用主機｜sp2s 電子煙主機`
-      : "SP2S 一代通用主機｜sp2s 電子煙主機";
-  const getProductDescription = () =>
-    selectedOption
-      ? `SP2S ${selectedOption} 一代通用主機 sp2s 電子煙主機`
-      : "SP2S 一代通用主機 sp2s 電子煙主機";
+  const getProductTitle = () => "SP2S 一代通用主機｜sp2s 電子煙主機";
+  const getProductDescription = () => "SP2S 一代通用主機 sp2s 電子煙主機";
   const getCategory = () => "SP2S 煙桿主機";
-  const getTags = () =>
-    selectedOption ? `SP2S，SP2S ${selectedOption} 一代通用主機` : "SP2S，一代通用主機";
+  const getTags = () => "SP2S，一代通用主機，多色可選";
   const getBadgeText = () =>
     selectedOption ? `一代通用主機｜${selectedOption}` : "一代通用主機｜請先選擇顏色";
 
@@ -105,7 +99,7 @@ const BulletDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: BULLET_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_SP2S_GEN1_DEVICE,
       variant: selectedOption,
       priceTwd: BULLET_PRICE_TWD,
       quantity,

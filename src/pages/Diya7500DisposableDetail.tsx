@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/disposable-diya-7500.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_DIYA_7500 } from "@/lib/orderProductModels";
 
 const DIYA_7500_PRODUCT_ID = "diya-7500";
 const DIYA_7500_PRICE_TWD = 249;
@@ -50,7 +51,7 @@ const Diya7500DisposableDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: DIYA_7500_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_DIYA_7500,
       variant: selectedOption,
       priceTwd: DIYA_7500_PRICE_TWD,
       quantity,
@@ -88,15 +89,11 @@ const Diya7500DisposableDetail = () => {
   };
 
   const getProductTitle = () =>
-    selectedOption
-      ? `DIYA 叮啞 7500 口（${selectedOption}）大容量可充電一次性`
-      : "DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙";
+    "DIYA 叮啞拋棄式 7500 口｜大容量可充電 · 13ml";
   const getProductDescription = () =>
-    selectedOption
-      ? `已選口味：${selectedOption} — DIYA 7500 口 13ml`
-      : "DIYA 叮啞 · 7500 口 · 13ml · 可充電";
+    "DIYA 叮啞 · 7500 口 · 13ml · 可充電一次性";
   const getCategory = () => "DIYA 7500 口拋棄式";
-  const getTags = () => (selectedOption ? `DIYA，7500口，${selectedOption}` : "DIYA，叮啞，拋棄式");
+  const getTags = () => "DIYA，叮啞，7500口，多口味可選";
   const getBadgeText = () =>
     selectedOption ? `可充電 7500 口｜${selectedOption}` : "13ml 大油倉｜請先選擇口味";
 

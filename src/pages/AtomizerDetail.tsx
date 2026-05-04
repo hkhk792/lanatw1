@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
 import { AtomizerHostGemini } from "@/lib/responsiveImageVariants.generated";
+import { ORDER_MODEL_ATOMIZER_HOST } from "@/lib/orderProductModels";
 
 const productMain = AtomizerHostGemini.src;
 import logoImage from "@/assets/product-14.jpg";
@@ -46,15 +47,10 @@ const AtomizerDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption
-      ? `原子棒電子煙主機 ${selectedOption}｜可調功率 · 曲線輸出`
-      : "原子棒電子煙主機｜可調功率 · 曲線輸出";
-  const getProductDescription = () =>
-    selectedOption ? `原子棒電子煙主機 ${selectedOption}` : "原子棒電子煙主機";
+  const getProductTitle = () => "原子棒電子煙主機｜可調功率 · 曲線輸出";
+  const getProductDescription = () => "原子棒電子煙主機";
   const getCategory = () => "電子煙主機 / 調壓設備";
-  const getTags = () =>
-    selectedOption ? `原子棒，電子煙主機，${selectedOption}` : "原子棒，電子煙主機";
+  const getTags = () => "原子棒，電子煙主機，多色可選";
   const getBadgeText = () => (selectedOption ? `主機｜${selectedOption}` : "主機｜請先選擇配色");
 
   const selectedMood = COLOR_OPTIONS.find((o) => o.name === selectedOption)?.mood;
@@ -69,7 +65,7 @@ const AtomizerDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: ATOMIZER_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_ATOMIZER_HOST,
       variant: selectedOption,
       priceTwd: ATOMIZER_PRICE_TWD,
       quantity,

@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/product-7.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_LANA_PODS } from "@/lib/orderProductModels";
 
 const LANA_PODS_PRODUCT_ID = "lana-pods";
 const LANA_PODS_PRICE_TWD = 220;
@@ -131,13 +132,10 @@ const LanaPodsDetail = () => {
   };
 
   const baseTitle = "LANA 煙彈 3 顆裝（通用一代主機）";
-  const getProductTitle = () =>
-    selectedOption ? `LANA 煙彈 3 顆裝｜${selectedOption}｜通用一代主機` : baseTitle;
-  const getProductDescription = () =>
-    selectedOption ? `LANA 煙彈【${selectedOption}】3 顆裝 · 一代通用` : "LANA 煙彈 3 顆裝 · 一代通用主機";
+  const getProductTitle = () => `${baseTitle}｜多口味可選`;
+  const getProductDescription = () => "LANA 煙彈 3 顆裝 · 一代通用主機 · 陶瓷蜂巢芯";
   const getCategory = () => "LANA 煙彈 / 一代通用";
-  const getTags = () =>
-    selectedOption ? `LANA，煙彈，${selectedOption}，3顆裝，一代通用` : "LANA，煙彈，3顆裝，一代通用";
+  const getTags = () => "LANA，煙彈，3 顆裝，一代通用，多口味可選";
   const getBadgeText = () =>
     selectedOption ? `全適配芯｜${selectedOption}` : "全適配芯｜請先選擇口味";
 
@@ -153,7 +151,7 @@ const LanaPodsDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: LANA_PODS_PRODUCT_ID,
-      title: `LANA 煙彈 3 顆裝 ${selectedOption}`.trim(),
+      title: ORDER_MODEL_LANA_PODS,
       variant: selectedOption,
       priceTwd: LANA_PODS_PRICE_TWD,
       quantity,

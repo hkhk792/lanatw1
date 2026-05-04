@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/disposable-hebat-hb10000.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_HEBAT_GEN6 } from "@/lib/orderProductModels";
 
 const HEBAT_PRODUCT_ID = "hebat-gen6";
 const HEBAT_PRICE_TWD = 340;
@@ -46,7 +47,7 @@ const HebatGen6Detail = () => {
     if (!selectedOption) return null;
     return {
       productId: HEBAT_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_HEBAT_GEN6,
       variant: selectedOption,
       priceTwd: HEBAT_PRICE_TWD,
       quantity,
@@ -84,15 +85,11 @@ const HebatGen6Detail = () => {
   };
 
   const getProductTitle = () =>
-    selectedOption
-      ? `HEBAT 喜貝六代（${selectedOption}）10000 口拋棄式｜15ml 台灣現貨`
-      : "HEBAT 喜貝六代 10000 口拋棄式一次性電子煙（15ml 台灣現貨）";
+    "HEBAT 喜貝六代 10000 口拋棄式｜15ml · 台灣現貨";
   const getProductDescription = () =>
-    selectedOption
-      ? `已選口味：${selectedOption} — 喜貝六代 HB10000`
-      : "HEBAT 喜貝六代 · 10000 口 · 15ml · 台灣現貨";
+    "HEBAT 喜貝六代 · 10000 口 · 15ml · HB10000 · 台灣現貨";
   const getCategory = () => "HEBAT 喜貝六代拋棄式";
-  const getTags = () => (selectedOption ? `HEBAT，HB10000，${selectedOption}` : "HEBAT，喜貝六代，10000口");
+  const getTags = () => "HEBAT，喜貝六代，HB10000，多口味可選";
   const getBadgeText = () =>
     selectedOption ? `台灣現貨｜${selectedOption}` : "10000 口｜請先選擇口味";
 

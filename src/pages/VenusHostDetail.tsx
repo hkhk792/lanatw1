@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/disposable-vapengin-venus.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_VENUS_HOST } from "@/lib/orderProductModels";
 
 const VENUS_PRODUCT_ID = "venus-host";
 const VENUS_PRICE_TWD = 240;
@@ -30,15 +31,10 @@ const VenusHostDetail = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const getProductTitle = () =>
-    selectedOption
-      ? `VENUS 金星主機（${selectedOption}）可充電霧化主機｜VAPENGIN 2ml Mesh`
-      : "VENUS金星主機可充電霧化電子煙主機（台灣現貨）";
-  const getProductDescription = () =>
-    selectedOption
-      ? `已選口味：${selectedOption} — VENUS 金星可充電霧化主機`
-      : "VENUS 金星主機 · 可充電霧化 · 台灣現貨";
+    "VENUS 金星主機可充電霧化主機｜VAPENGIN 2ml Mesh · 台灣現貨";
+  const getProductDescription = () => "VENUS 金星主機 · 可充電霧化 · Mesh · 台灣現貨";
   const getCategory = () => "VENUS 金星主機";
-  const getTags = () => (selectedOption ? `VENUS，${selectedOption}，VAPENGIN` : "VENUS，VAPENGIN，金星主機");
+  const getTags = () => "VENUS，VAPENGIN，金星主機，多口味可選";
   const getBadgeText = () =>
     selectedOption ? `台灣現貨｜${selectedOption}` : "可充電主機｜請先選擇口味";
 
@@ -46,7 +42,7 @@ const VenusHostDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: VENUS_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_VENUS_HOST,
       variant: selectedOption,
       priceTwd: VENUS_PRICE_TWD,
       quantity,

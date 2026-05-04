@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/showcase-gen5-pods.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_VSTORM_GEN5_PODS } from "@/lib/orderProductModels";
 
 const VSTORM_GEN5_PRODUCT_ID = "vstorm-gen5-pods";
 const VSTORM_GEN5_PRICE_TWD = 129;
@@ -36,7 +37,7 @@ const VaporStormGen5PodsDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: VSTORM_GEN5_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_VSTORM_GEN5_PODS,
       variant: selectedOption,
       priceTwd: VSTORM_GEN5_PRICE_TWD,
       quantity,
@@ -73,17 +74,11 @@ const VaporStormGen5PodsDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption
-      ? `Vapor Storm 風暴五代煙彈（${selectedOption}）｜五代主機通用`
-      : "Vapor Storm 風暴五代煙彈（五代主機通用）";
+  const getProductTitle = () => "Vapor Storm 風暴五代煙彈｜五代主機通用";
   const getProductDescription = () =>
-    selectedOption
-      ? `已選口味：${selectedOption} — Ice Soul 系列`
-      : "風暴五代煙彈 · 多主機通用 · 單顆參攷定價";
+    "風暴五代煙彈 · Ice Soul · 多主機通用 · 單顆參攷定價";
   const getCategory = () => "Vapor Storm 風暴五代煙彈";
-  const getTags = () =>
-    selectedOption ? `Vapor Storm，風暴五代，${selectedOption}` : "Vapor Storm，五代通配，煙彈";
+  const getTags = () => "Vapor Storm，五代通配，煙彈，多口味可選";
   const getBadgeText = () => (selectedOption ? `通配｜${selectedOption}` : "通用五代主機｜請先選口味");
 
   useEffect(() => {

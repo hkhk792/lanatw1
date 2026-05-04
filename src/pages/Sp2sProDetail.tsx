@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/product-4.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_SP2S_PRO } from "@/lib/orderProductModels";
 
 const PRO_PRODUCT_ID = "pro";
 const PRO_PRICE_TWD = 450;
@@ -103,15 +104,10 @@ const Sp2sProDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption
-      ? `SP2S Pro ${selectedOption} 二代旗艦霧化主機｜智慧感應 · LED 炫彩`
-      : "SP2S Pro 二代旗艦霧化主機｜智慧感應 · LED 炫彩";
-  const getProductDescription = () =>
-    selectedOption ? `SP2S Pro ${selectedOption} 二代旗艦霧化主機` : "SP2S Pro 二代旗艦霧化主機";
+  const getProductTitle = () => "SP2S Pro 二代旗艦霧化主機｜智慧感應 · LED 炫彩";
+  const getProductDescription = () => "SP2S Pro 二代旗艦霧化主機";
   const getCategory = () => "SP2S Pro 系列";
-  const getTags = () =>
-    selectedOption ? `SP2S Pro，${selectedOption}，二代主機` : "SP2S Pro，二代主機";
+  const getTags = () => "SP2S Pro，二代主機，多色可選";
   const getBadgeText = () => (selectedOption ? `SP2 PRO｜${selectedOption}` : "SP2 PRO｜請先選擇顏色");
 
   const selectedMood = COLOR_OPTIONS.find((o) => o.name === selectedOption)?.mood;
@@ -126,7 +122,7 @@ const Sp2sProDetail = () => {
     if (!selectedOption) return null;
     return {
       productId: PRO_PRODUCT_ID,
-      title: getProductTitle().replace("｜", " ").trim(),
+      title: ORDER_MODEL_SP2S_PRO,
       variant: selectedOption,
       priceTwd: PRO_PRICE_TWD,
       quantity,

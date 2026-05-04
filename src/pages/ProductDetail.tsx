@@ -29,6 +29,7 @@ import zoroGreenMain from "@/assets/zoro-green-main.webp";
 import zoroGreenThumb1 from "@/assets/zoro-green-thumb-1.webp";
 import zoroGreenThumb2 from "@/assets/zoro-green-thumb-2.webp";
 import { usePreloadImages } from "@/hooks/usePreloadImages";
+import { ORDER_MODEL_NINGA_CARTOON } from "@/lib/orderProductModels";
 
 const CARTOON_PRODUCT_ID = "cartoon";
 const CARTOON_PRICE_TWD = 550;
@@ -129,31 +130,9 @@ const ProductDetail = () => {
     setMainImage(src);
   }, []);
 
-  const getProductTitle = () => {
-    if (!selectedOption) return "NINGA 卡通一代通用主機｜多種配色可選";
-    if (selectedOption === "多拉 A 夢") {
-      return "NINGA 多拉 A 夢卡通一代通用主機｜多種配色可選";
-    }
-    if (selectedOption === "航海王魯夫 - 藍") {
-      return "NINGA 航海王魯夫卡通一代通用主機｜多種配色可選";
-    }
-    if (selectedOption === "航海王索隆 - 綠") {
-      return "NINGA 航海王索隆卡通一代通用主機｜多種配色可選";
-    }
-    return `NINGA ${selectedOption}卡通一代通用主機｜多種配色可選`;
-  };
+  const getProductTitle = () => "NINGA 卡通一代通用主機｜多種配色可選";
 
-  const getProductDescription = () => {
-    if (!selectedOption) return "NINGA 卡通一代通用主機 多種配色可選";
-    if (selectedOption === "多拉 A 夢") {
-      return "NINGA 多拉 A 夢卡通一代通用主機 多種配色可選";
-    } else if (selectedOption === "航海王魯夫 - 藍") {
-      return "NINGA 航海王魯夫卡通一代通用主機 多種配色可選";
-    } else if (selectedOption === "航海王索隆 - 綠") {
-      return "NINGA 航海王索隆卡通一代通用主機 多種配色可選";
-    }
-    return `NINGA ${selectedOption}卡通一代通用主機 多種配色可選`;
-  };
+  const getProductDescription = () => "NINGA 卡通一代通用主機 多種配色可選";
 
   const getCategory = () => {
     if (!selectedOption) return "NINGA 卡通主機";
@@ -167,17 +146,7 @@ const ProductDetail = () => {
     return `NINGA ${selectedOption}主機`;
   };
 
-  const getTags = () => {
-    if (!selectedOption) return "NINGA，卡通一代通用主機";
-    if (selectedOption === "多拉 A 夢") {
-      return "NINGA 多拉 A 夢，NINGA 多拉 A 夢卡通一代通用主機";
-    } else if (selectedOption === "航海王魯夫 - 藍") {
-      return "NINGA 航海王魯夫，NINGA 航海王魯夫卡通一代通用主機";
-    } else if (selectedOption === "航海王索隆 - 綠") {
-      return "NINGA 航海王索隆，NINGA 航海王索隆卡通一代通用主機";
-    }
-    return `NINGA ${selectedOption}，NINGA ${selectedOption}卡通一代通用主機`;
-  };
+  const getTags = () => "NINGA，卡通一代通用主機，多款式可選";
 
   const getBadgeText = () => {
     if (!selectedOption) return "通用主機｜請先選擇款式";
@@ -410,7 +379,7 @@ const ProductDetail = () => {
                     }
                     addToCart({
                       productId: CARTOON_PRODUCT_ID,
-                      title: getProductTitle().replace("｜", " ").trim(),
+                      title: ORDER_MODEL_NINGA_CARTOON,
                       variant: selectedOption,
                       priceTwd: CARTOON_PRICE_TWD,
                       quantity,
@@ -432,7 +401,7 @@ const ProductDetail = () => {
                     }
                     addToCart({
                       productId: CARTOON_PRODUCT_ID,
-                      title: getProductTitle().replace("｜", " ").trim(),
+                      title: ORDER_MODEL_NINGA_CARTOON,
                       variant: selectedOption,
                       priceTwd: CARTOON_PRICE_TWD,
                       quantity,

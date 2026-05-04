@@ -8,11 +8,12 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import productMain from "@/assets/product-6.webp";
 import logoImage from "@/assets/product-14.jpg";
+import { ORDER_MODEL_DIYA_DEVICE } from "@/lib/orderProductModels";
 
 const DIYA_PRODUCT_ID = "diya";
 const DIYA_PRICE_TWD = 320;
 
-const PRODUCT_FULL_NAME = "DIYA 叮啞霧化桿：2.5ML 大容量兼容／一代通用";
+const PRODUCT_FULL_NAME = ORDER_MODEL_DIYA_DEVICE;
 
 type ColorOption = { name: string; mood: string };
 
@@ -46,15 +47,10 @@ const DiyaDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () =>
-    selectedOption
-      ? `DIYA 叮啞 ${selectedOption} 霧化桿｜2.5ML · 8W · 一代通用`
-      : "DIYA 叮啞霧化桿｜2.5ML · 8W · 一代通用";
-  const getProductDescription = () =>
-    selectedOption ? `DIYA 叮啞 ${selectedOption} 霧化桿` : "DIYA 叮啞霧化桿";
+  const getProductTitle = () => "DIYA 叮啞霧化桿｜2.5ML · 8W · 一代通用";
+  const getProductDescription = () => "DIYA 叮啞霧化桿 · 2.5ML 大容量 · 陶瓷芯";
   const getCategory = () => "DIYA 陶瓷霧化系列";
-  const getTags = () =>
-    selectedOption ? `DIYA，叮啞，${selectedOption}，一代通用` : "DIYA，叮啞，一代通用";
+  const getTags = () => "DIYA，叮啞，一代通用，多色可選";
   const getBadgeText = () =>
     selectedOption ? `叮啞主機｜${selectedOption}` : "叮啞主機｜請先選擇配色";
 

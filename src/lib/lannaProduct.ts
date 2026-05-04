@@ -1,6 +1,3 @@
-/** 訂單／匯出「品牌」欄：固定字串，不含顏色（顏色僅在 variant） */
-export const LANNA_ORDER_PRODUCT_MODEL = "SP2S Legend S 一代升級煙桿 多種配色可選";
-
 /** 商品頁主標題（較長，可含全形縱線） */
 export const LANNA_PAGE_TITLE_MAIN = "SP2S Legend S 一代升級煙桿｜多種配色可選";
 
