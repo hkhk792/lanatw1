@@ -60,6 +60,8 @@ const Checkout = () => {
     }
 
     const payload = {
+      country: country.trim() || "台灣",
+      paymentMethod: payment,
       customerName: name.trim(),
       phone: phone.trim(),
       shippingAddress: shippingAddress.trim(),

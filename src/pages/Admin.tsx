@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { ChevronDown } from "lucide-react";
@@ -20,7 +20,13 @@ export type AdminOrder = {
   phone: string;
   shipping_address?: string;
   pickup_store_code?: string;
+  line_id?: string;
+  notes?: string;
+  subtotal_twd?: number;
+  shipping_twd?: number;
   total_twd: number;
+  country?: string;
+  payment_method?: string;
   created_at: string;
   order_items: OrderItemRow[] | null;
 };
@@ -53,6 +59,12 @@ function formatItems(items: OrderItemRow[] | null) {
       return `${i.product_model}${v ? `（${v}）` : ""} ×${i.quantity}`;
     })
     .join("；");
+}
+
+function formatPaymentMethod(code?: string | null) {
+  const c = String(code ?? "").trim();
+  if (!c || c === "cod") return "貨到付款";
+  return c;
 }
 
 const Admin = () => {
@@ -343,60 +355,101 @@ const Admin = () => {
                                   const cancelled = o.status === "已取消";
                                   const rowMuted = cancelled ? "bg-neutral-100/90 text-neutral-500" : "";
                                   const strike = cancelled ? "line-through decoration-neutral-400" : "";
+                                  const notesText = (o.notes ?? "").trim();
                                   return (
-                                    <tr key={o.id} className={cn("border-b border-neutral-100 last:border-0", rowMuted)}>
-                                      <td className={cn("px-3 py-3 align-top font-mono text-xs", strike)}>
-                                        {o.order_number}
-                                        <span
-                                          className={cn(
-                                            "ml-2 inline-block rounded px-1.5 py-0.5 text-[10px] font-normal [text-decoration:none]",
-                                            o.status === "已取消" && "bg-red-100 text-red-800",
-                                            o.status === "已发出" && "bg-emerald-100 text-emerald-800",
-                                            o.status === "待确认" && "bg-amber-100 text-amber-900",
-                                            o.status === "异常" && "bg-violet-100 text-violet-900"
-                                          )}
-                                        >
-                                          {o.status}
-                                        </span>
-                                      </td>
-                                      <td className={cn("max-w-[240px] px-3 py-3 align-top text-xs leading-snug", strike)}>
-                                        {formatItems(o.order_items)}
-                                      </td>
-                                      <td className={cn("whitespace-nowrap px-3 py-3 align-top tabular-nums", strike)}>
-                                        {formatTwd(o.total_twd)}
-                                      </td>
-                                      <td className={cn("px-3 py-3 align-top text-xs", strike)}>
-                                        <div className={cn("font-medium", cancelled ? "text-neutral-600" : "text-neutral-900")}>
-                                          {o.customer_name}
-                                        </div>
-                                        <div className="mt-0.5 text-neutral-600">{o.phone}</div>
-                                      </td>
-                                      <td className="bg-white px-3 py-3 align-top text-right">
-                                        <div className="flex flex-wrap justify-end gap-1.5 [text-decoration:none]">
-                                          <button
-                                            type="button"
-                                            onClick={() => void updateStatus(o.id, "待确认")}
-                                            className="rounded-sm border border-neutral-300 bg-white px-2 py-1 text-[11px] text-neutral-800 hover:bg-neutral-50"
+                                    <Fragment key={o.id}>
+                                      <tr className={cn("border-b border-neutral-100", rowMuted)}>
+                                        <td className={cn("px-3 py-3 align-top font-mono text-xs", strike)}>
+                                          {o.order_number}
+                                          <span
+                                            className={cn(
+                                              "ml-2 inline-block rounded px-1.5 py-0.5 text-[10px] font-normal [text-decoration:none]",
+                                              o.status === "已取消" && "bg-red-100 text-red-800",
+                                              o.status === "已发出" && "bg-emerald-100 text-emerald-800",
+                                              o.status === "待确认" && "bg-amber-100 text-amber-900",
+                                              o.status === "异常" && "bg-violet-100 text-violet-900"
+                                            )}
                                           >
-                                            待確認
-                                          </button>
-                                          <button
-                                            type="button"
-                                            onClick={() => void updateStatus(o.id, "已发出")}
-                                            className="rounded-sm border border-neutral-800 bg-neutral-900 px-2 py-1 text-[11px] text-white hover:bg-neutral-800"
-                                          >
-                                            已發出
-                                          </button>
-                                          <button
-                                            type="button"
-                                            onClick={() => void updateStatus(o.id, "已取消")}
-                                            className="rounded-sm border border-red-400 bg-red-50 px-2 py-1 text-[11px] font-medium text-red-700 hover:bg-red-100"
-                                          >
-                                            已取消
-                                          </button>
-                                        </div>
-                                      </td>
-                                    </tr>
+                                            {o.status}
+                                          </span>
+                                        </td>
+                                        <td className={cn("max-w-[240px] px-3 py-3 align-top text-xs leading-snug", strike)}>
+                                          {formatItems(o.order_items)}
+                                        </td>
+                                        <td className={cn("whitespace-nowrap px-3 py-3 align-top tabular-nums", strike)}>
+                                          {formatTwd(o.total_twd)}
+                                        </td>
+                                        <td className={cn("px-3 py-3 align-top text-xs", strike)}>
+                                          <div className={cn("font-medium", cancelled ? "text-neutral-600" : "text-neutral-900")}>
+                                            {o.customer_name}
+                                          </div>
+                                          <div className="mt-0.5 text-neutral-600">{o.phone}</div>
+                                        </td>
+                                        <td className="bg-white px-3 py-3 align-top text-right">
+                                          <div className="flex flex-wrap justify-end gap-1.5 [text-decoration:none]">
+                                            <button
+                                              type="button"
+                                              onClick={() => void updateStatus(o.id, "待确认")}
+                                              className="rounded-sm border border-neutral-300 bg-white px-2 py-1 text-[11px] text-neutral-800 hover:bg-neutral-50"
+                                            >
+                                              待確認
+                                            </button>
+                                            <button
+                                              type="button"
+                                              onClick={() => void updateStatus(o.id, "已发出")}
+                                              className="rounded-sm border border-neutral-800 bg-neutral-900 px-2 py-1 text-[11px] text-white hover:bg-neutral-800"
+                                            >
+                                              已發出
+                                            </button>
+                                            <button
+                                              type="button"
+                                              onClick={() => void updateStatus(o.id, "已取消")}
+                                              className="rounded-sm border border-red-400 bg-red-50 px-2 py-1 text-[11px] font-medium text-red-700 hover:bg-red-100"
+                                            >
+                                              已取消
+                                            </button>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                      <tr className={cn("border-b border-neutral-200 bg-neutral-50/90", rowMuted)}>
+                                        <td colSpan={5} className="px-3 py-3 text-xs leading-relaxed text-neutral-700">
+                                          <p className="mb-2 font-medium text-neutral-900">客戶填寫資料</p>
+                                          <dl className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-3">
+                                            <div className="min-w-0 sm:col-span-1">
+                                              <dt className="text-[11px] uppercase tracking-wide text-neutral-500">國家／地區</dt>
+                                              <dd className="text-neutral-900">{(o.country ?? "").trim() || "—"}</dd>
+                                            </div>
+                                            <div className="min-w-0 sm:col-span-1">
+                                              <dt className="text-[11px] uppercase tracking-wide text-neutral-500">付款方式</dt>
+                                              <dd className="text-neutral-900">{formatPaymentMethod(o.payment_method)}</dd>
+                                            </div>
+                                            <div className="min-w-0 sm:col-span-1">
+                                              <dt className="text-[11px] uppercase tracking-wide text-neutral-500">LINE ID</dt>
+                                              <dd className="break-all font-mono text-neutral-900">{(o.line_id ?? "").trim() || "—"}</dd>
+                                            </div>
+                                            <div className="min-w-0 sm:col-span-2 lg:col-span-3">
+                                              <dt className="text-[11px] uppercase tracking-wide text-neutral-500">收貨地址</dt>
+                                              <dd className="text-neutral-900">{(o.shipping_address ?? "").trim() || "—"}</dd>
+                                            </div>
+                                            <div className="min-w-0">
+                                              <dt className="text-[11px] uppercase tracking-wide text-neutral-500">收貨門市號</dt>
+                                              <dd className="font-mono text-neutral-900">{(o.pickup_store_code ?? "").trim() || "—"}</dd>
+                                            </div>
+                                            <div className="min-w-0 sm:col-span-2">
+                                              <dt className="text-[11px] uppercase tracking-wide text-neutral-500">金額</dt>
+                                              <dd className="tabular-nums text-neutral-900">
+                                                小計 {formatTwd(o.subtotal_twd ?? 0)} · 運費 {formatTwd(o.shipping_twd ?? 0)} · 合計{" "}
+                                                {formatTwd(o.total_twd)}
+                                              </dd>
+                                            </div>
+                                            <div className="min-w-0 sm:col-span-2 lg:col-span-3">
+                                              <dt className="text-[11px] uppercase tracking-wide text-neutral-500">訂單備註</dt>
+                                              <dd className="whitespace-pre-wrap text-neutral-900">{notesText || "—"}</dd>
+                                            </div>
+                                          </dl>
+                                        </td>
+                                      </tr>
+                                    </Fragment>
                                   );
                                 })}
                               </tbody>

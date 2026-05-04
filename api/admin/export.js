@@ -76,9 +76,15 @@ export default async function handler(req, res) {
         order_number,
         customer_name,
         phone,
+        country,
+        line_id,
         shipping_address,
         pickup_store_code,
+        notes,
+        subtotal_twd,
+        shipping_twd,
         total_twd,
+        payment_method,
         status,
         order_items (
           product_model,
@@ -95,20 +101,42 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: error.message });
     }
 
-    const header = ["订单号", "买家姓名", "电话", "地址", "商品规格", "总金额", "状态"];
+    const header = [
+      "订单号",
+      "买家姓名",
+      "电话",
+      "国家或地区",
+      "LINE ID",
+      "收货地址",
+      "收货门市号",
+      "订单备注",
+      "小计TWD",
+      "运费TWD",
+      "合计TWD",
+      "付款方式",
+      "商品规格",
+      "状态",
+    ];
     const lines = [header.map(csvEscape).join(",")];
 
     for (const o of data ?? []) {
-      const addr = `${String(o.shipping_address ?? "").trim()}；門市號：${String(o.pickup_store_code ?? "").trim()}`;
       const spec = formatItems(o.order_items);
+      const pay = String(o.payment_method ?? "").trim() === "cod" ? "貨到付款" : String(o.payment_method ?? "");
       lines.push(
         [
           o.order_number,
           o.customer_name,
           o.phone,
-          addr,
-          spec,
+          o.country,
+          o.line_id,
+          o.shipping_address,
+          o.pickup_store_code,
+          o.notes,
+          String(o.subtotal_twd ?? ""),
+          String(o.shipping_twd ?? ""),
           String(o.total_twd ?? ""),
+          pay,
+          spec,
           o.status,
         ]
           .map(csvEscape)
