@@ -29,6 +29,7 @@ const Checkout = () => {
   const [payment, setPayment] = useState<"cod">("cod");
   /** 7-11 等超商門市店號，與「收貨地址」分開填寫 */
   const [pickupStoreCode, setPickupStoreCode] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const shippingTwd = useMemo(
     () => (subtotalTwd >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE),
@@ -44,8 +45,10 @@ const Checkout = () => {
     }
   }, [lines.length, navigate]);
 
-  const handlePlaceOrder = (e: React.FormEvent) => {
+  const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
     const addressOk = Boolean(shippingAddress.trim());
     const storeOk = Boolean(pickupStoreCode.trim());
     if (!name.trim() || !phone.trim() || !addressOk || !storeOk || !lineId.trim()) {
@@ -55,9 +58,57 @@ const Checkout = () => {
       });
       return;
     }
-    clearCart();
-    toast.success("訂單已送出", { description: `合計 ${formatTwd(totalTwd)} · 貨到付款` });
-    navigate("/order-complete", { replace: true });
+
+    const payload = {
+      customerName: name.trim(),
+      phone: phone.trim(),
+      shippingAddress: shippingAddress.trim(),
+      pickupStoreCode: pickupStoreCode.trim(),
+      lineId: lineId.trim(),
+      notes: notes.trim(),
+      subtotalTwd,
+      shippingTwd,
+      totalTwd,
+      items: lines.map((line) => ({
+        productModel: line.title,
+        variant: line.variant,
+        quantity: line.quantity,
+        unitPriceTwd: line.priceTwd,
+        lineTotalTwd: line.priceTwd * line.quantity,
+        productId: line.productId,
+        imageUrl: line.imageUrl ?? "",
+      })),
+    };
+
+    try {
+      setIsSubmitting(true);
+      const response = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = (await response.json().catch(() => null)) as
+        | { error?: string; orderNumber?: string }
+        | null;
+
+      if (!response.ok) {
+        throw new Error(data?.error || "下單失敗，請稍後再試。");
+      }
+
+      clearCart();
+      const orderHint = data?.orderNumber ? `訂單編號 ${data.orderNumber} · ` : "";
+      toast.success("訂單已送出", {
+        description: `${orderHint}合計 ${formatTwd(totalTwd)} · 貨到付款`,
+      });
+      navigate("/order-complete", { replace: true });
+    } catch (error) {
+      toast.error("訂單送出失敗", {
+        description: error instanceof Error ? error.message : "請稍後再試，或聯繫客服協助下單。",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (lines.length === 0) {
@@ -278,9 +329,10 @@ const Checkout = () => {
 
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="mt-8 w-full bg-neutral-950 py-3.5 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-neutral-800"
               >
-                下單購買
+                {isSubmitting ? "送出中..." : "下單購買"}
               </button>
             </div>
           </aside>
