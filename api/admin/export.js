@@ -149,6 +149,19 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: error.message });
     }
 
+    if (format === "xlsx") {
+      const { buildShipmentWorkbookBuffer } = await import("./buildShipmentWorkbook.js");
+      const buf = await buildShipmentWorkbookBuffer(data ?? []);
+      const filename = `出貨單_${batchDate}.xlsx`;
+
+      res.setHeader(
+        "Content-Type",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      );
+      res.setHeader("Content-Disposition", `attachment; filename*=UTF-8''${encodeURIComponent(filename)}`);
+      return res.status(200).send(buf);
+    }
+
     if (format === "picking") {
       const agg = new Map();
       for (const o of data ?? []) {

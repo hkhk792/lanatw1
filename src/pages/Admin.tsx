@@ -74,7 +74,10 @@ const Admin = () => {
   const [loading, setLoading] = useState(false);
   const [authorized, setAuthorized] = useState(false);
   const [openBatches, setOpenBatches] = useState<Record<string, boolean>>({});
-  const [exportJob, setExportJob] = useState<{ batchDate: string; kind: "detail" | "picking" } | null>(null);
+  const [exportJob, setExportJob] = useState<{
+    batchDate: string;
+    kind: "detail" | "picking" | "xlsx";
+  } | null>(null);
   /** 空字串 = 全部站點 */
   const [siteFilter, setSiteFilter] = useState("");
   const [knownSites, setKnownSites] = useState<string[]>([]);
@@ -210,7 +213,7 @@ const Admin = () => {
     setOpenBatches((prev) => ({ ...prev, [batchDate]: !prev[batchDate] }));
   };
 
-  const exportBatchCsv = async (batchDate: string, kind: "detail" | "picking" = "detail") => {
+  const exportBatchCsv = async (batchDate: string, kind: "detail" | "picking" | "xlsx" = "detail") => {
     const token = sessionStorage.getItem(STORAGE_KEY) || secret.trim();
     if (!token) {
       toast.error("請先登入後台");
@@ -224,6 +227,8 @@ const Admin = () => {
       }
       if (kind === "picking") {
         params.set("format", "picking");
+      } else if (kind === "xlsx") {
+        params.set("format", "xlsx");
       }
       const res = await fetch(`/api/admin/export?${params.toString()}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -238,7 +243,12 @@ const Admin = () => {
       }
       const blob = await res.blob();
       const dispo = res.headers.get("Content-Disposition");
-      let filename = kind === "picking" ? `揀貨匯總_${batchDate}.csv` : `出貨單_${batchDate}.csv`;
+      let filename =
+        kind === "picking"
+          ? `揀貨匯總_${batchDate}.csv`
+          : kind === "xlsx"
+            ? `出貨單_${batchDate}.xlsx`
+            : `出貨單_${batchDate}.csv`;
       const m = /filename\*=UTF-8''([^;]+)/i.exec(dispo || "");
       if (m?.[1]) {
         try {
@@ -256,7 +266,9 @@ const Admin = () => {
       toast.success(
         kind === "picking"
           ? "已下載揀貨匯總（依品牌／口味加總件數）"
-          : "已下載出貨單 CSV（僅含待確認／已發出）"
+          : kind === "xlsx"
+            ? "已下載出貨單 Excel（合併儲存格格式）"
+            : "已下載出貨單 CSV（僅含待確認／已發出）"
       );
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "匯出失敗");
@@ -397,6 +409,16 @@ const Admin = () => {
                               {exportJob?.batchDate === batchDate && exportJob.kind === "picking"
                                 ? "匯出中…"
                                 : "匯出揀貨表（口味匯總）"}
+                            </button>
+                            <button
+                              type="button"
+                              disabled={exportJob?.batchDate === batchDate}
+                              onClick={() => void exportBatchCsv(batchDate, "xlsx")}
+                              className="rounded-sm border border-emerald-800 bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-950 hover:bg-emerald-100 disabled:opacity-60"
+                            >
+                              {exportJob?.batchDate === batchDate && exportJob.kind === "xlsx"
+                                ? "匯出中…"
+                                : "匯出 Excel（合併格式）"}
                             </button>
                           </div>
                         </div>
