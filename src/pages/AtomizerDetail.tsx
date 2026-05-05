@@ -25,7 +25,7 @@ const COLOR_OPTIONS: ColorOption[] = [
 ];
 
 const SPECS: Array<[string, string]> = [
-  ["產品定位", "原子棒可調功率主機"],
+  ["產品定位", "原子棒一代通配主機"],
   ["配色", "綠色 / 霧藍 / 黑色"],
   ["輸出模式", "預熱功率、輸出曲線、旁路機械、溫控記憶（依機型支援為準）"],
   ["操作介面", "實體加減鍵 + 主機端曲線編輯"],
@@ -47,10 +47,10 @@ const AtomizerDetail = () => {
     setSelectedOption(option);
   };
 
-  const getProductTitle = () => "原子棒電子煙主機｜可調功率 · 曲線輸出";
-  const getProductDescription = () => "原子棒電子煙主機";
-  const getCategory = () => "電子煙主機 / 調壓設備";
-  const getTags = () => "原子棒，電子煙主機，多色可選";
+  const getProductTitle = () => "原子棒一代通配主機｜可調功率 · 曲線輸出";
+  const getProductDescription = () => "原子棒一代通配主機";
+  const getCategory = () => "原子棒一代通配主機 / 調壓設備";
+  const getTags = () => "原子棒，一代通配主機，多色可選";
   const getBadgeText = () => (selectedOption ? `主機｜${selectedOption}` : "主機｜請先選擇配色");
 
   const selectedMood = COLOR_OPTIONS.find((o) => o.name === selectedOption)?.mood;
@@ -164,7 +164,7 @@ const AtomizerDetail = () => {
                 <ResponsiveAssetImg
                   set={AtomizerHostGemini}
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  alt="原子棒電子煙主機"
+                  alt="原子棒一代通配主機"
                   className="h-full w-full object-contain"
                   loading="eager"
                   decoding="async"
@@ -189,7 +189,7 @@ const AtomizerDetail = () => {
                 首頁
               </a>
               <span>/</span>
-              <span className="tracking-tight text-gray-700">電子煙主機</span>
+              <span className="tracking-tight text-gray-700">原子棒一代通配主機</span>
               <span>/</span>
               <span className="text-gray-700">原子棒系列</span>
             </div>
@@ -282,7 +282,7 @@ const AtomizerDetail = () => {
             <h2 className="text-2xl font-bold text-gray-900">產品介紹</h2>
             <div className="mt-4 h-px w-14 bg-gray-900" />
             <p className="mt-6 leading-8 text-gray-700">
-              原子棒電子煙主機面向進階與玩味兼具的使用者，將「可調功率、曲線輸出、旁路機械」與「安全辨識」整合在同一手持設備中，讓同一款煙油也能透過不同輸出策略，呈現更立體的味覺層次。
+              原子棒一代通配主機面向進階與玩味兼具的使用者，將「可調功率、曲線輸出、旁路機械」與「安全辨識」整合在同一手持設備中，讓同一款煙油也能透過不同輸出策略，呈現更立體的味覺層次。
             </p>
 
             <h3 className="mt-10 text-lg font-semibold text-gray-900">功能多樣</h3>

@@ -1,9 +1,9 @@
-/** LANA 煙彈 3 顆裝 — 口味名稱與介紹（文案來自館方／商品說明整理） */
+/** lana煙彈 3 顆裝 — 口味名稱與介紹（文案來自館方／商品說明整理） */
 export type LanaPodFlavor = { name: string; mood: string };
 
 const fallback = "經典調香、層次細膩；實際風味以現貨為準。";
 
-export const LANA_POD_PRODUCT_NAME = "LANA 煙彈 3 顆裝（通用一代主機）";
+export const LANA_POD_PRODUCT_NAME = "lana煙彈 3 顆裝（一代通配主機）";
 export const LANA_POD_PRICE_TWD = 220;
 export const LANA_POD_PRODUCT_ID = "lana-pods";
 

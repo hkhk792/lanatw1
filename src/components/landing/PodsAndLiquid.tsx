@@ -181,14 +181,14 @@ const features: Feature[] = [
   {
     image: p7,
     eyebrow: "彈匣系統",
-    title: "全適配芯",
+    title: "lana煙彈",
     desc: (
       <>
         為穩定蒸氣一致性而設計的彈匣。與所有 <BrandSp2s className="inline font-serif text-inherit" /> 陶瓷芯硬體相容。
       </>
     ),
     price: "NT$220",
-    specs: ["LANA 3 顆裝", "一代通用"],
+    specs: ["lana 3 顆裝", "一代通配"],
     to: "/product/lana-pods",
   },
   {

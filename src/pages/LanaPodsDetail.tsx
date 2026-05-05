@@ -94,8 +94,8 @@ const FLAVOR_OPTIONS: FlavorOption[] = FLAVOR_NAMES.map((name) => ({
 }));
 
 const SPECS: Array<[string, string]> = [
-  ["商品名稱", "LANA 煙彈 3 顆裝（通用一代主機）"],
-  ["適配主機", "通用一代主機"],
+  ["商品名稱", "lana煙彈 3 顆裝（一代通配主機）"],
+  ["適配主機", "一代通配主機"],
   ["霧化結構", "陶瓷蜂巢式霧化晶片"],
   ["包裝規格", "3 顆裝／盒"],
   ["現貨", "台灣現貨"],
@@ -105,14 +105,14 @@ const SPECS: Array<[string, string]> = [
 const KEY_FEATURES: Array<{ k: string; v: string }> = [
   { k: "陶瓷蜂巢芯", v: "陶瓷蜂巢式霧化晶片設計，霧化細緻、口感純粹。" },
   { k: "極致體驗", v: "獨特品味與高品質工藝，每一口都豐富而順喉。" },
-  { k: "一代通用", v: "相容市面常見一代主機，替換直覺、選擇多元。" },
+  { k: "一代通配", v: "相容市面常見一代主機，替換直覺、選擇多元。" },
   { k: "台灣現貨", v: "台灣現貨發出，購買前請依頁面提示聯繫客服確認。" },
 ];
 
 const PRODUCT_HIGHLIGHTS: Array<{ k: string; v: string }> = [
   { k: "多口味陣容", v: "從冰飲、水果到茶系與奶系，滿足不同情境的味覺偏好。" },
   { k: "3 顆裝設計", v: "每盒三顆，方便與同好分享或備貨替換。" },
-  { k: "VAPE 體驗", v: "無論日常舒適感或嘗鮮刺激感，LANA 煙彈都能對應你的需求。" },
+  { k: "VAPE 體驗", v: "無論日常舒適感或嘗鮮刺激感，lana煙彈都能對應你的需求。" },
   { k: "購買提醒", v: "下單前請添加客服 LINE：abs791012，以完成訂購與售後聯繫。" },
 ];
 
@@ -131,13 +131,13 @@ const LanaPodsDetail = () => {
     setSelectedOption(option);
   };
 
-  const baseTitle = "LANA 煙彈 3 顆裝（通用一代主機）";
+  const baseTitle = "lana煙彈 3 顆裝（一代通配主機）";
   const getProductTitle = () => `${baseTitle}｜多口味可選`;
-  const getProductDescription = () => "LANA 煙彈 3 顆裝 · 一代通用主機 · 陶瓷蜂巢芯";
-  const getCategory = () => "LANA 煙彈 / 一代通用";
-  const getTags = () => "LANA，煙彈，3 顆裝，一代通用，多口味可選";
+  const getProductDescription = () => "lana煙彈 3 顆裝 · 一代通配主機 · 陶瓷蜂巢芯";
+  const getCategory = () => "lana煙彈 / 一代通配";
+  const getTags = () => "lana，煙彈，3 顆裝，一代通配，多口味可選";
   const getBadgeText = () =>
-    selectedOption ? `全適配芯｜${selectedOption}` : "全適配芯｜請先選擇口味";
+    selectedOption ? `lana煙彈｜${selectedOption}` : "lana煙彈｜請先選擇口味";
 
   const selectedMood = FLAVOR_OPTIONS.find((o) => o.name === selectedOption)?.mood;
 
@@ -244,7 +244,7 @@ const LanaPodsDetail = () => {
             </button>
 
             <div className="relative bg-gray-50 rounded-lg overflow-hidden">
-              <img src={productMain} alt="LANA 煙彈 全適配芯" className="w-full h-[500px] object-cover" />
+              <img src={productMain} alt="lana煙彈" className="w-full h-[500px] object-cover" />
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="bg-red-600 text-white px-6 py-2 font-bold rounded-md shadow-lg">{getBadgeText()}</div>
@@ -268,7 +268,7 @@ const LanaPodsDetail = () => {
                 彈匣與煙油
               </a>
               <span>/</span>
-              <span className="text-gray-700 tracking-tight">LANA 煙彈</span>
+              <span className="text-gray-700 tracking-tight">lana煙彈</span>
             </div>
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
@@ -297,9 +297,9 @@ const LanaPodsDetail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p className="font-medium text-gray-900">LANA 煙彈－極致，體驗非凡！</p>
+              <p className="font-medium text-gray-900">lana煙彈－極致，體驗非凡！</p>
               <p>購買前請添加客服 LINE: abs791012</p>
-              <p>台灣現貨 · 每盒 3 顆裝 · 通用一代主機</p>
+              <p>台灣現貨 · 每盒 3 顆裝 · 一代通配主機</p>
               <p>陶瓷蜂巢式霧化晶片，純粹而豐富的 VAPE 體驗</p>
             </div>
 
@@ -359,16 +359,16 @@ const LanaPodsDetail = () => {
             <h2 className="text-2xl font-bold text-gray-900">商品介紹</h2>
             <div className="mt-4 h-px w-14 bg-gray-900" />
             <p className="mt-6 leading-8 text-gray-700">
-              LANA 電子煙彈以獨特品味與高品質著稱，採用陶瓷蜂巢式霧化晶片設計，結合先進技術工藝，確保每一口都為你帶來純粹而豐富的
-              VAPE 電子煙體驗。不論你追求日常的舒適感，還是想嘗試新鮮刺激的體驗，LANA 煙彈都能滿足你的需求。
+              lana煙彈以獨特品味與高品質著稱，採用陶瓷蜂巢式霧化晶片設計，結合先進技術工藝，確保每一口都為你帶來純粹而豐富的
+              VAPE 體驗。不論你追求日常的舒適感，還是想嘗試新鮮刺激的體驗，lana煙彈都能滿足你的需求。
             </p>
             <p className="mt-4 leading-8 text-gray-700">
-              本商品為 LANA 煙彈 3 顆裝，通用一代主機；台灣現貨。下單前請依網頁提示添加客服 LINE：abs791012，以便完成訂購與售後聯繫。
+              本商品為 lana煙彈 3 顆裝，一代通配主機；台灣現貨。下單前請依網頁提示添加客服 LINE：abs791012，以便完成訂購與售後聯繫。
             </p>
           </div>
 
           <div className="rounded-2xl border border-gray-100 bg-white p-6 md:p-10 shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900">LANA 煙彈口味一覽</h3>
+            <h3 className="text-xl font-bold text-gray-900">lana煙彈口味一覽</h3>
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-4 text-sm text-gray-600">
               點選口味可於上方查看簡述；以下為完整風味說明（與官網文案一致者優先收錄）。

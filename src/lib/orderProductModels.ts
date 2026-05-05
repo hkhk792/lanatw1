@@ -3,16 +3,16 @@
  * 規格一律放在 variant，方便 Excel 合併「品牌」欄。
  */
 /** Lanna /product/lanna（與 lanna 商品頁下單欄位一致） */
-export const LANNA_ORDER_PRODUCT_MODEL = "SP2S Legend S 一代升級煙桿 多種配色可選";
+export const LANNA_ORDER_PRODUCT_MODEL = "lana皮革主機一代通配 多種配色可選";
 
-/** NINGA 卡通主機 /product/cartoon */
-export const ORDER_MODEL_NINGA_CARTOON = "NINGA 卡通一代通用主機 多種配色可選";
+/** 卡通限量版主機 /product/cartoon */
+export const ORDER_MODEL_NINGA_CARTOON = "卡通限量版一代通配主機 多種配色可選";
 
 /** SP2S 一代 /product/bullet */
 export const ORDER_MODEL_SP2S_GEN1_DEVICE = "SP2S 一代通用主機 sp2s 電子煙主機";
 
 /** 原子棒 /product/atomizer */
-export const ORDER_MODEL_ATOMIZER_HOST = "原子棒電子煙主機 可調功率 · 曲線輸出";
+export const ORDER_MODEL_ATOMIZER_HOST = "原子棒一代通配主機 可調功率 · 曲線輸出";
 
 /** SP2S Pro /product/pro */
 export const ORDER_MODEL_SP2S_PRO = "SP2S Pro 二代旗艦霧化主機 智慧感應 · LED 炫彩";
@@ -21,7 +21,7 @@ export const ORDER_MODEL_SP2S_PRO = "SP2S Pro 二代旗艦霧化主機 智慧感
 export const ORDER_MODEL_SP2S_GEN1_PODS = "SP2S 一代通用煙彈";
 
 /** LANA 煙彈 /product/lana-pods */
-export const ORDER_MODEL_LANA_PODS = "LANA 煙彈 3 顆裝（通用一代主機）";
+export const ORDER_MODEL_LANA_PODS = "lana煙彈 3 顆裝（一代通配主機）";
 
 /** DIYA 煙彈 /product/diya-pods */
 export const ORDER_MODEL_DIYA_PODS = "DIYA 叮啞電子煙彈一盒三入 / 通用一代主機";

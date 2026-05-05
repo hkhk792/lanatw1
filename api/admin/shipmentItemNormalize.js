@@ -3,13 +3,13 @@
  * 舊訂單若把規格寫進 product_model，在此依 variant 併回同一欄位以利 Excel 合併。
  */
 const B = {
-  LANNA: "SP2S Legend S 一代升級煙桿 多種配色可選",
-  NINGA: "NINGA 卡通一代通用主機 多種配色可選",
+  LANNA: "lana皮革主機一代通配 多種配色可選",
+  NINGA: "卡通限量版一代通配主機 多種配色可選",
   BULLET: "SP2S 一代通用主機 sp2s 電子煙主機",
-  ATOMIZER: "原子棒電子煙主機 可調功率 · 曲線輸出",
+  ATOMIZER: "原子棒一代通配主機 可調功率 · 曲線輸出",
   PRO: "SP2S Pro 二代旗艦霧化主機 智慧感應 · LED 炫彩",
   SP2S_PODS: "SP2S 一代通用煙彈",
-  LANA_PODS: "LANA 煙彈 3 顆裝（通用一代主機）",
+  LANA_PODS: "lana煙彈 3 顆裝（一代通配主機）",
   DIYA_PODS: "DIYA 叮啞電子煙彈一盒三入 / 通用一代主機",
   DIYA_DEV: "DIYA 叮啞霧化桿：2.5ML 大容量兼容／一代通用",
   VENUS: "VENUS金星主機可充電霧化電子煙主機（台灣現貨）",
@@ -25,12 +25,23 @@ const B = {
 
 function normalizeLanna(pm, v) {
   const raw = String(pm ?? "").trim();
+  const suffix = " 多種配色可選";
+  // 新：lana皮革主機一代通配 〔顏色〕 多種配色可選
+  if (raw.includes("lana皮革主機一代通配") && raw.includes("多種配色可選")) {
+    const prefix = "lana皮革主機一代通配 ";
+    if (raw.startsWith(prefix) && raw.endsWith(suffix)) {
+      const middle = raw.slice(prefix.length, raw.length - suffix.length).trim();
+      if (middle === "" || (v && middle === String(v).trim())) return B.LANNA;
+    }
+    if (raw === B.LANNA) return B.LANNA;
+  }
+  // 舊：SP2S Legend S 〔顏色〕一代升級煙桿 多種配色可選
   if (!raw.includes("SP2S Legend S") || !raw.includes("一代升級煙桿")) {
     return raw;
   }
-  const prefix = "SP2S Legend S ";
-  if (!raw.startsWith(prefix)) return raw;
-  const after = raw.slice(prefix.length);
+  const prefixLegacy = "SP2S Legend S ";
+  if (!raw.startsWith(prefixLegacy)) return raw;
+  const after = raw.slice(prefixLegacy.length);
   const idx = after.indexOf("一代升級煙桿");
   if (idx < 0) return raw;
   const colorInString = idx === 0 ? "" : after.slice(0, idx).trim();
@@ -59,6 +70,9 @@ export function normalizeShipmentProductModel(productModel, variant) {
 
   pm = normalizeLanna(pm, v);
 
+  const m1b = pm.match(/^卡通限量版一代通配主機\s+多種配色可選$/);
+  if (m1b) pm = B.NINGA;
+
   if (v) {
     const m1 = pm.match(/^NINGA\s+(.+?)卡通一代通用主機\s+多種配色可選$/);
     if (m1 && m1[1] === v) pm = B.NINGA;
@@ -66,8 +80,10 @@ export function normalizeShipmentProductModel(productModel, variant) {
     const m2 = pm.match(/^SP2S\s+(.+?)\s+一代通用主機\s+sp2s\s+電子煙主機$/);
     if (m2 && m2[1] === v) pm = B.BULLET;
 
-    const m3 = pm.match(/^原子棒電子煙主機\s+(.+?)\s+可調功率 · 曲線輸出$/);
+    const m3 = pm.match(/^原子棒一代通配主機\s+(.+?)\s+可調功率 · 曲線輸出$/);
     if (m3 && m3[1] === v) pm = B.ATOMIZER;
+    const m3legacy = pm.match(/^原子棒電子煙主機\s+(.+?)\s+可調功率 · 曲線輸出$/);
+    if (m3legacy && m3legacy[1] === v) pm = B.ATOMIZER;
 
     const m4 = pm.match(/^SP2S Pro\s+(.+?)\s+二代旗艦霧化主機 智慧感應 · LED 炫彩$/);
     if (m4 && m4[1] === v) pm = B.PRO;
@@ -75,8 +91,12 @@ export function normalizeShipmentProductModel(productModel, variant) {
     const m5a = pm.match(/^SP2S 一代通用煙[彈弹]\s+(.+)$/);
     if (m5a && m5a[1] === v) pm = B.SP2S_PODS;
 
-    const m6 = pm.match(/^LANA 煙彈 3 顆裝\s+(.+)$/);
+    const m6 = pm.match(/^lana煙彈 3 顆裝（一代通配主機）\s+(.+)$/i);
     if (m6 && m6[1] === v) pm = B.LANA_PODS;
+    const m6legacy = pm.match(/^LANA 煙彈 3 顆裝（通用一代主機）\s+(.+)$/i);
+    if (m6legacy && m6legacy[1] === v) pm = B.LANA_PODS;
+    const m6legacy2 = pm.match(/^LANA 煙彈 3 顆裝\s+(.+)$/);
+    if (m6legacy2 && m6legacy2[1] === v) pm = B.LANA_PODS;
 
     const m7 = pm.match(/^DIYA 叮啞煙彈 3 顆裝\s+(.+)$/);
     if (m7 && m7[1] === v) pm = B.DIYA_PODS;
@@ -121,6 +141,7 @@ export function normalizeShipmentProductModel(productModel, variant) {
   pm = collapseTrailing(pm, v, B.DIYA_PODS);
   pm = collapseTrailing(pm, v, B.DIYA_DEV);
   pm = collapseTrailing(pm, v, B.LANNA);
+  pm = collapseTrailing(pm, v, B.NINGA);
 
   return pm;
 }

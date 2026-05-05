@@ -130,34 +130,34 @@ const ProductDetail = () => {
     setMainImage(src);
   }, []);
 
-  const getProductTitle = () => "NINGA 卡通一代通用主機｜多種配色可選";
+  const getProductTitle = () => "卡通限量版一代通配主機｜多種配色可選";
 
-  const getProductDescription = () => "NINGA 卡通一代通用主機 多種配色可選";
+  const getProductDescription = () => "卡通限量版一代通配主機 多種配色可選";
 
   const getCategory = () => {
-    if (!selectedOption) return "NINGA 卡通主機";
+    if (!selectedOption) return "卡通限量版一代通配主機";
     if (selectedOption === "多拉 A 夢") {
-      return "NINGA 多拉 A 夢主機";
+      return `卡通限量版一代通配主機｜多拉 A 夢`;
     } else if (selectedOption === "航海王魯夫 - 藍") {
-      return "NINGA 航海王魯夫主機";
+      return "卡通限量版一代通配主機｜航海王魯夫";
     } else if (selectedOption === "航海王索隆 - 綠") {
-      return "NINGA 航海王索隆主機";
+      return "卡通限量版一代通配主機｜航海王索隆";
     }
-    return `NINGA ${selectedOption}主機`;
+    return `卡通限量版一代通配主機｜${selectedOption}`;
   };
 
-  const getTags = () => "NINGA，卡通一代通用主機，多款式可選";
+  const getTags = () => "卡通限量版，一代通配主機，多款式可選";
 
   const getBadgeText = () => {
-    if (!selectedOption) return "通用主機｜請先選擇款式";
+    if (!selectedOption) return "通配主機｜請先選擇款式";
     if (selectedOption === "多拉 A 夢") {
-      return "通用主機｜多拉 A 夢";
+      return "通配主機｜多拉 A 夢";
     } else if (selectedOption === "航海王魯夫 - 藍") {
-      return "通用主機｜航海王魯夫";
+      return "通配主機｜航海王魯夫";
     } else if (selectedOption === "航海王索隆 - 綠") {
-      return "通用主機｜航海王索隆";
+      return "通配主機｜航海王索隆";
     }
-    return `通用主機｜${selectedOption}`;
+    return `通配主機｜${selectedOption}`;
   };
 
   useEffect(() => {
@@ -261,7 +261,7 @@ const ProductDetail = () => {
               <img
                 ref={mainImgRef}
                 src={mainImage}
-                alt="NINGA 蠟筆小新"
+                alt="卡通限量版一代通配主機 蠟筆小新"
                 width={800}
                 height={800}
                 decoding="async"
@@ -316,7 +316,7 @@ const ProductDetail = () => {
                 卡通系列
               </a>
               <span>/</span>
-              <span className="text-gray-700 tracking-tight">NINGA 主機</span>
+              <span className="text-gray-700 tracking-tight">卡通限量版一代通配主機</span>
             </div>
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
@@ -346,7 +346,7 @@ const ProductDetail = () => {
             <div className="space-y-2 text-gray-700">
               <p>購買前請添加客服 LINE: abs791012</p>
               <p>多款卡通角色可選</p>
-              <p>一代通用主机设计</p>
+              <p>一代通配主機設計</p>
               <p>多種配色可選</p>
               <p>卡通主題收藏首選</p>
             </div>

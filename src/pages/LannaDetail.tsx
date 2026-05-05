@@ -83,10 +83,10 @@ const LannaDetail = () => {
 
   const getProductTitle = () => LANNA_PAGE_TITLE_MAIN;
   const getProductDescription = () => LANNA_PAGE_SUBTITLE;
-  const getCategory = () => "SP2S Legend S 主機";
-  const getTags = () => "SP2S Legend S，一代升級煙桿，多色可選";
+  const getCategory = () => "lana皮革主機一代通配";
+  const getTags = () => "lana，皮革主機，一代通配，多色可選";
   const getBadgeText = () =>
-    selectedOption ? `升級煙桿｜${selectedOption}` : "升級煙桿｜請先選擇顏色";
+    selectedOption ? `皮革主機｜${selectedOption}` : "皮革主機｜請先選擇顏色";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -172,7 +172,7 @@ const LannaDetail = () => {
             </button>
 
             <div className="relative bg-gray-50 rounded-lg overflow-hidden">
-              <img src={productMain} alt="SP2S Legend S" className="w-full h-[500px] object-contain" />
+              <img src={productMain} alt="lana皮革主機一代通配" className="w-full h-[500px] object-contain" />
 
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="bg-red-600 text-white px-6 py-2 font-bold rounded-md shadow-lg">{getBadgeText()}</div>
@@ -194,10 +194,10 @@ const LannaDetail = () => {
               </a>
               <span>/</span>
               <a href="#" className="hover:text-gray-700">
-                SP2S 傳奇系列
+                皮革主機系列
               </a>
               <span>/</span>
-              <span className="text-gray-700 tracking-tight">Legend S 煙桿</span>
+              <span className="text-gray-700 tracking-tight">lana皮革主機一代通配</span>
             </div>
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
@@ -229,7 +229,7 @@ const LannaDetail = () => {
               <p>雙檔位輸出 · 9W / 18W</p>
               <p>Type-C 快充 · 約 30 分鐘充滿</p>
               <p>鋁合金一體機身 · 髮絲紋處理</p>
-              <p>通配 SP2S Legend 系列煙彈</p>
+              <p>通配一代規格煙彈</p>
             </div>
 
             <div className="flex flex-col gap-4">
@@ -288,11 +288,11 @@ const LannaDetail = () => {
             <h2 className="text-2xl font-bold text-gray-900">商品介紹</h2>
             <div className="mt-4 h-px w-14 bg-gray-900" />
             <p className="mt-6 leading-8 text-gray-700">
-              SP2S Legend S 將高品質與先進技術結合，鋁合金機身搭配細緻工藝，兼顧手感與耐用，適合日常長時間使用。
+              lana皮革主機一代通配將高品質與先進技術結合，鋁合金機身搭配真皮包覆與細緻工藝，兼顧手感與耐用，適合日常長時間使用。
             </p>
             <h3 className="mt-8 text-lg font-semibold text-gray-900">設計理念</h3>
             <p className="mt-3 leading-8 text-gray-700">
-              Legend S 延續 SP2S 旗艦系列的設計語言：簡潔線條、穩定輸出與快充體驗並重，讓裝置在視覺與實用之間取得平衡；多色外觀可依個人風格自由選擇。
+              皮革外觀與金屬骨架並重：簡潔線條、穩定輸出與快充體驗並重，讓裝置在視覺與實用之間取得平衡；多色外觀可依個人風格自由選擇。
             </p>
           </div>
 
@@ -324,14 +324,14 @@ const LannaDetail = () => {
               <div className="mt-3 h-px w-12 bg-gray-900" />
               <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-700">
                 {[
-                  ["品牌型號", "SP2S Legend S"],
+                  ["品牌型號", "lana皮革主機一代通配"],
                   ["顏色款式", `${variantOptions.length} 色可選`],
                   ["輸出功率", "9W / 18W 雙檔"],
                   ["充電時間", "約 30 分鐘"],
                   ["電池容量", "3.7V / 400mAh"],
                   ["充電介面", "Type-C 快充"],
                   ["機身材質", "鋁合金 + 皮革"],
-                  ["適配煙彈", "通配 SP2S Legend 系列"],
+                  ["適配煙彈", "通配一代規格煙彈"],
                 ].map(([k, v]) => (
                   <div key={k} className="flex items-center justify-between border-b border-dashed border-gray-200 py-1.5">
                     <dt className="text-gray-500">{k}</dt>
@@ -346,7 +346,7 @@ const LannaDetail = () => {
             <h3 className="text-xl font-bold text-gray-900">市場影響力</h3>
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
-              自上市以來，Legend S 系列憑藉穩定輸出與扎實做工獲得使用者肯定；多色選擇與通配煙彈設計，亦讓日常搭配更彈性。
+              自上市以來，此系列憑藉穩定輸出與扎實做工獲得使用者肯定；多色選擇與通配煙彈設計，亦讓日常搭配更彈性。
             </p>
           </div>
         </section>

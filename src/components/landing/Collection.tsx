@@ -10,13 +10,13 @@ import { AtomizerHostGemini } from "@/lib/responsiveImageVariants.generated";
 import { LANNA_HOMEPAGE_FLAVOR, LANNA_HOMEPAGE_NAME } from "@/lib/lannaProduct";
 
 const products = [
-  { image: p1, name: "卡通限量版", flavor: "經典工藝系列", price: "NT$550", id: "cartoon" },
+  { image: p1, name: "卡通限量版一代通配主機", flavor: "經典工藝系列", price: "NT$550", id: "cartoon" },
   { image: lanaPremiumHero, name: LANNA_HOMEPAGE_NAME, flavor: LANNA_HOMEPAGE_FLAVOR, price: "NT$500", id: "lanna" },
   { image: p3, name: "SP2S 思博瑞 一代", flavor: "十三色工坊系列", price: "NT$450", id: "bullet" },
   { image: p4, name: "SP2S Pro", flavor: "八色旗艦 · 智慧感應", price: "NT$450", id: "pro" },
   {
     image: AtomizerHostGemini.src,
-    name: "電子煙主機",
+    name: "原子棒一代通配主機",
     flavor: "綠 · 霧藍 · 黑 · 曲線輸出",
     price: "NT$290",
     id: "atomizer",
