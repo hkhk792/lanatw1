@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Analytics } from "@vercel/analytics/react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ScrollToTopOnNavigate } from "@/components/ScrollToTopOnNavigate";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -81,6 +82,7 @@ const App = () => (
           <CartSheet />
           <FloatingLineWidget />
         </BrowserRouter>
+        <Analytics />
       </CartProvider>
     </TooltipProvider>
   </QueryClientProvider>
