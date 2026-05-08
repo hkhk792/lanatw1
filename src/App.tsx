@@ -56,7 +56,7 @@ const App = () => (
             <Route path="/info/airport-vaping-guide" element={<AirportVapeArticlePage />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-complete" element={<OrderComplete />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin2589" element={<Admin />} />
             <Route path="/product/lanna" element={<LannaDetail />} />
             <Route path="/product/bullet" element={<BulletDetail />} />
             <Route path="/product/pro" element={<Sp2sProDetail />} />
