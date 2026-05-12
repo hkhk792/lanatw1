@@ -51,6 +51,8 @@ const CartSheet = () => {
     else if (productId === "showcase-gen5" || productId === "vstorm-gen5-pods")
       navigate("/product/vapor-storm-gen5-pods");
     else if (productId === "diya-pods") navigate("/product/diya-pods");
+    else if (productId === "sp2s-gen1-pods") navigate("/product/sp2s-gen1-pods");
+    else if (productId === "sp2s-universal-pods") navigate("/product/sp2s-universal-pods");
     else if (productId === "showcase-e-liquid" || productId === "lana-e-liquid-30ml")
       navigate("/product/lana-e-liquid-30ml");
   };

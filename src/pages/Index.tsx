@@ -1,10 +1,11 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import {
   consumeHomeScrollRestore,
   getPersistedHomeScrollY,
   persistCurrentHomeScroll,
 } from "@/lib/homeScrollRestore";
 import AgeGate from "@/components/landing/AgeGate";
+import EntryActivityPromoGate from "@/components/landing/EntryActivityPromoGate";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import PinkyImportedSection from "@/components/landing/PinkyImportedSection";
@@ -14,6 +15,7 @@ import Footer from "@/components/landing/Footer";
 import HealthWarning from "@/components/landing/HealthWarning";
 
 const Index = () => {
+  const [promoGateEpoch, setPromoGateEpoch] = useState(0);
   useLayoutEffect(() => {
     if (consumeHomeScrollRestore()) {
       const y = getPersistedHomeScrollY();
@@ -56,7 +58,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden pb-[calc(3rem+env(safe-area-inset-bottom,0px))]">
-      <AgeGate />
+      <AgeGate onAfterDismiss={() => setPromoGateEpoch((n) => n + 1)} />
+      <EntryActivityPromoGate gateEpoch={promoGateEpoch} />
       <Navbar />
       <main>
         <Hero />

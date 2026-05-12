@@ -19,6 +19,8 @@ export const ORDER_MODEL_SP2S_PRO = "SP2S Pro 二代旗艦霧化主機 智慧感
 
 /** SP2S 一代煙彈 /product/sp2s-gen1-pods */
 export const ORDER_MODEL_SP2S_GEN1_PODS = "SP2S 一代通用煙彈";
+/** 首頁「SP2S 煙彈」匯出系列（32 口味圖） */
+export const ORDER_MODEL_SP2S_UNIVERSAL_PODS = "SP2S 煙彈（一代通用）";
 
 /** LANA 煙彈 /product/lana-pods */
 export const ORDER_MODEL_LANA_PODS = "lana煙彈 3 顆裝（一代通配主機）";

@@ -16,6 +16,7 @@ import {
   ORDER_MODEL_MOHOO_BOX,
   ORDER_MODEL_NINGA_CARTOON,
   ORDER_MODEL_SP2S_GEN1_DEVICE,
+  ORDER_MODEL_SP2S_UNIVERSAL_PODS,
   ORDER_MODEL_SP2S_PRO,
   ORDER_MODEL_SP2S_SILICONE_SLEEVE,
   ORDER_MODEL_VAPOR_STORM_5000,
@@ -91,6 +92,12 @@ const QUICK_ADD_PRODUCTS: Record<
     variant: "光影藍綠",
     priceTwd: 320,
     route: "/product/diya",
+  },
+  "sp2s-universal-pods": {
+    title: ORDER_MODEL_SP2S_UNIVERSAL_PODS,
+    variant: "芭樂星冰",
+    priceTwd: 325,
+    route: "/product/sp2s-universal-pods",
   },
   "disp-vapengin": {
     title: ORDER_MODEL_VENUS_HOST,

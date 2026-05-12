@@ -22,6 +22,7 @@ import showcaseVapeGear from "@/assets/showcase-vape-gear.webp";
 import { AtomizerHostGemini, DiyaPodsShowcase } from "@/lib/responsiveImageVariants.generated";
 import { LANNA_HOMEPAGE_FLAVOR, LANNA_HOMEPAGE_NAME } from "@/lib/lannaProduct";
 import type { ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
+import { sp2sUniversalPodHeroImage } from "@/data/sp2sUniversalPods";
 
 const IMPORTED_LIST_PRICE = "NT$299";
 
@@ -156,6 +157,13 @@ const LEGACY_DISPOSABLE_CARDS: DisplayCard[] = [
 ];
 
 const LEGACY_POD_CARDS: DisplayCard[] = [
+  {
+    id: "sp2s-universal-pods",
+    name: "SP2S 煙彈",
+    flavor: "一代通用 · 32 口味可選",
+    price: "NT$325",
+    image: sp2sUniversalPodHeroImage(),
+  },
   {
     id: "lana-pods",
     name: "lana煙彈",

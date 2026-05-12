@@ -7,7 +7,12 @@ const STORAGE_DISMISSED = "sp2s-line-welcome-dismissed";
 /** 舊版年齡門檻鍵：已通過者不再顯示本頁 */
 const STORAGE_LEGACY_AGE = "sp2s-age-verified";
 
-const AgeGate = () => {
+type AgeGateProps = {
+  /** 通過門檻後觸發（例如顯示首頁活動跳轉層） */
+  onAfterDismiss?: () => void;
+};
+
+const AgeGate = ({ onAfterDismiss }: AgeGateProps) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -21,6 +26,7 @@ const AgeGate = () => {
     sessionStorage.setItem(STORAGE_DISMISSED, "yes");
     sessionStorage.setItem(STORAGE_LEGACY_AGE, "yes");
     setOpen(false);
+    onAfterDismiss?.();
   };
 
   if (!open) return null;
