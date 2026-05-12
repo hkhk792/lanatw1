@@ -8,7 +8,7 @@ const GEN1_PODS_ROUTE = "/product/sp2s-gen1-pods";
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-[100dvh] min-h-[100svh] w-full items-center overflow-hidden pt-[calc(6.5rem+env(safe-area-inset-top,0px))] pb-16 sm:pb-24 md:min-h-screen md:pb-28 lg:pb-32">
+    <section className="relative flex w-full max-md:min-h-0 max-md:items-start md:min-h-screen md:items-center overflow-hidden pt-[calc(6.5rem+env(safe-area-inset-top,0px))] pb-12 sm:pb-24 md:pb-28 lg:pb-32">
       {/* Cinematic background */}
       <div className="absolute inset-0">
         <ResponsiveAssetImg
@@ -22,9 +22,9 @@ const Hero = () => {
         <div className="absolute inset-0 spotlight opacity-70" />
       </div>
 
-      <div className="relative z-10 container grid gap-8 sm:gap-14 lg:grid-cols-12 lg:gap-16 lg:items-center">
+      <div className="relative z-10 container grid gap-8 sm:gap-14">
         {/* Copy */}
-        <div className="min-w-0 lg:col-span-6 lg:pr-8">
+        <div className="min-w-0 max-w-3xl">
           <p className="mb-6 inline-flex max-w-full flex-wrap items-center gap-2 text-[10px] uppercase tracking-luxury text-gold animate-fade-in-up sm:mb-10 sm:gap-3">
             <span className="h-px w-6 shrink-0 bg-gold/60 sm:w-10" />
             <span className="inline-flex min-w-0 flex-wrap items-center gap-x-2 gap-y-0.5 font-serif">
@@ -76,42 +76,12 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Centerstage product */}
-        <div className="relative min-w-0 lg:col-span-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          {/* Gold spotlight backdrop */}
-          <div className="absolute inset-0 -z-10 spotlight blur-2xl opacity-90" />
-          <div className="absolute inset-0 -z-10 bg-gold/5 blur-[140px] rounded-full" />
-
-          <div className="relative mx-auto w-full max-w-[min(100%,22rem)] aspect-[5/4] sm:max-w-xl sm:aspect-square">
-            <Link
-              to={GEN1_PODS_ROUTE}
-              className="block h-full cursor-pointer outline-none ring-offset-background transition-opacity hover:opacity-95 focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2"
-            >
-              <ResponsiveAssetImg
-                set={Sp2sGen1PodsCatalog}
-                sizes="(max-width: 1024px) min(92vw, 22rem), min(36rem, 45vw)"
-                alt="SP2S 思博瑞一代通用煙彈口味總覽"
-                className="h-full w-full object-contain object-center drop-shadow-[0_50px_80px_rgba(0,0,0,0.7)]"
-              />
-            </Link>
-            {/* Floating spec chips — inset from edges so they stay on-screen on narrow phones */}
-            <div className="absolute left-2 top-6 max-w-[calc(100%-1rem)] glass px-2.5 py-1.5 text-[9px] uppercase tracking-luxury text-gold animate-float-slow sm:left-0 sm:top-10 sm:px-4 sm:py-2 sm:text-[10px] md:left-0">
-              陶瓷芯
-            </div>
-            <div
-              className="absolute bottom-12 right-2 max-w-[calc(100%-1rem)] glass px-2.5 py-1.5 text-[9px] uppercase tracking-luxury text-gold-glow animate-float-slow sm:bottom-16 sm:right-0 sm:px-4 sm:py-2 sm:text-[10px] md:right-0"
-              style={{ animationDelay: "1s" }}
-            >
-              3% 尼古丁鹽
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-foreground/50 safe-area-pb sm:bottom-10 sm:gap-3">
+      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 text-foreground/50 safe-area-pb sm:bottom-10 sm:gap-3">
         <span className="text-[9px] uppercase tracking-luxury text-gold/60">向下滾動</span>
-        <span className="h-10 w-px bg-gradient-to-b from-gold/50 to-transparent animate-float-slow" />
+        <span className="h-6 w-px bg-gradient-to-b from-gold/50 to-transparent animate-float-slow sm:h-10" />
       </div>
     </section>
   );

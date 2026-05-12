@@ -29,49 +29,57 @@ const Navbar = () => {
       }`}
     >
       <div className="safe-area-pt">
-      <div className="container flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 group">
-          <span className="grid h-9 w-9 place-items-center rounded-full border border-gold-soft text-gradient-gold font-serif text-sm transition-all duration-500 group-hover:border-gold">
-            S
-          </span>
-          <BrandSp2s className="font-serif text-xl tracking-vogue text-gradient-gold sm:text-2xl" />
-        </a>
-
-        <nav className="hidden md:flex items-center gap-10">
-          {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className="text-[11px] uppercase tracking-luxury text-foreground/60 hover:text-gradient-gold hover:text-gold transition-colors duration-500"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-4">
-          <button
-            type="button"
-            aria-label="購物車"
-            onClick={openCart}
-            className="relative grid h-11 min-h-[44px] min-w-[44px] w-11 place-items-center rounded-full hairline border hover:border-gold transition-colors duration-500"
-          >
-            <ShoppingBag className="h-4 w-4 text-gold" />
-            {itemCount > 0 ? (
-              <span className="absolute -top-0.5 -right-0.5 min-w-[1.15rem] h-[1.15rem] px-0.5 rounded-full bg-gold text-[10px] font-medium leading-none text-primary-foreground flex items-center justify-center">
-                {itemCount > 99 ? "99+" : itemCount}
+        <div className="container flex items-center gap-2 sm:gap-4">
+          <div className="flex min-w-0 flex-1 items-center justify-start">
+            <a href="#" className="flex min-w-0 items-center gap-2 sm:gap-3 group">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-gold-soft text-gradient-gold font-serif text-sm transition-all duration-500 group-hover:border-gold">
+                S
               </span>
-            ) : null}
-          </button>
-          <button
-            aria-label="Menu"
-            className="md:hidden grid h-11 min-h-[44px] min-w-[44px] w-11 place-items-center rounded-full hairline border"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <X className="h-4 w-4 text-gold" /> : <Menu className="h-4 w-4 text-gold" />}
-          </button>
+              <BrandSp2s className="min-w-0 truncate font-serif text-lg tracking-vogue text-gradient-gold sm:text-xl md:text-2xl" />
+            </a>
+          </div>
+
+          <p className="pointer-events-none shrink-0 text-center text-xs font-medium tracking-wide text-gold sm:text-sm md:text-base">
+            货到付款
+          </p>
+
+          <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:gap-4 md:gap-8">
+            <nav className="hidden min-w-0 items-center gap-6 lg:gap-10 md:flex">
+              {links.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  className="shrink-0 text-[10px] uppercase tracking-luxury text-foreground/60 hover:text-gradient-gold hover:text-gold transition-colors duration-500 lg:text-[11px]"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+              <button
+                type="button"
+                aria-label="購物車"
+                onClick={openCart}
+                className="relative grid h-11 min-h-[44px] min-w-[44px] w-11 place-items-center rounded-full hairline border hover:border-gold transition-colors duration-500"
+              >
+                <ShoppingBag className="h-4 w-4 text-gold" />
+                {itemCount > 0 ? (
+                  <span className="absolute -top-0.5 -right-0.5 min-w-[1.15rem] h-[1.15rem] px-0.5 rounded-full bg-gold text-[10px] font-medium leading-none text-primary-foreground flex items-center justify-center">
+                    {itemCount > 99 ? "99+" : itemCount}
+                  </span>
+                ) : null}
+              </button>
+              <button
+                aria-label="Menu"
+                className="md:hidden grid h-11 min-h-[44px] min-w-[44px] w-11 place-items-center rounded-full hairline border"
+                onClick={() => setOpen(!open)}
+              >
+                {open ? <X className="h-4 w-4 text-gold" /> : <Menu className="h-4 w-4 text-gold" />}
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
 
       {open && (
         <nav className="md:hidden glass-strong border-t hairline mt-2 sm:mt-3">

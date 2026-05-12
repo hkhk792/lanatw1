@@ -6,15 +6,17 @@
   "scripts": {
     "dev": "vite",
     "dev:vercel": "vercel dev",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "build": "npm run gen:pinky-flavors && vite build",
+    "build:dev": "npm run gen:pinky-flavors && vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "optimize:images": "node scripts/optimize-images.mjs",
     "gen:responsive": "node scripts/generate-responsive-variants.mjs",
-    "flatten:banner": "node scripts/flatten-promo-banner.mjs"
+    "flatten:banner": "node scripts/flatten-promo-banner.mjs",
+    "gen:pinky-cloudways": "node scripts/gen-pinky-cloudways-details.mjs",
+    "gen:pinky-flavors": "node scripts/gen-pinky-phpstack-flavors.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

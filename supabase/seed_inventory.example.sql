@@ -1,6 +1,5 @@
--- Example: seed on_hand for each product_id that exists in your storefront CartContext.
--- product_id must match the string used in addToCart (e.g. "lana-pods", "diya-pods").
--- Run in Supabase SQL Editor after migrations.
+-- 建議：直接執行 seed_inventory_all.sql（涵蓋主站 + Pinky 目錄的 product_id）。
+-- 下列為最小示例；product_id 必須與購物車 addToCart 的字串完全一致。
 
 -- INSERT INTO public.inventory (product_id, title, on_hand) VALUES
 --   ('lana-pods', 'LANA 3 顆裝', 500),

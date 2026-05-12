@@ -36,6 +36,8 @@ interface Props {
   responsive?: ResponsiveImageSet;
   /** 搭配 responsive；預設適合三欄商品格 */
   responsiveSizes?: string;
+  /** 無 QUICK_ADD 對應時，整卡與「+」導向此外部路徑（例如匯入目錄詳情） */
+  detailHref?: string;
 }
 
 const renderTitle = (name: string) => {
@@ -159,34 +161,43 @@ const ProductCard = ({
   variant = "default",
   responsive,
   responsiveSizes,
+  detailHref,
 }: Props) => {
   const ref = useReveal<HTMLDivElement>();
   const navigate = useNavigate();
   const dense = variant === "dense";
 
   const quickAdd = QUICK_ADD_PRODUCTS[id];
+  const isNavigable = Boolean(quickAdd) || Boolean(detailHref);
 
-  const handleClick = () => {
+  const goDetail = () => {
     if (quickAdd) {
       flushHomeScrollPosition();
       navigate(quickAdd.route);
+      return;
     }
+    if (detailHref) {
+      flushHomeScrollPosition();
+      navigate(detailHref);
+    }
+  };
+
+  const handleClick = () => {
+    goDetail();
   };
 
   const handlePlusClick: React.MouseEventHandler = (e) => {
     e.stopPropagation();
-    if (quickAdd) {
-      flushHomeScrollPosition();
-      navigate(quickAdd.route);
-    }
+    goDetail();
   };
 
   return (
     <div
       ref={ref}
-      onClick={handleClick}
+      onClick={isNavigable ? handleClick : undefined}
       className={cn(
-        "reveal group relative cursor-pointer transition-shadow duration-700 hover:shadow-gold glass overflow-hidden",
+        "reveal group relative transition-shadow duration-700 hover:shadow-gold glass overflow-hidden",
+        isNavigable && "cursor-pointer",
         dense
           ? "max-md:flex max-md:flex-col max-md:h-auto max-md:min-h-0 max-md:aspect-auto shadow-none sm:shadow-none md:aspect-[4/5] md:overflow-hidden md:hover:shadow-gold"
           : "aspect-[4/5]"
@@ -261,7 +272,7 @@ const ProductCard = ({
             </div>
             <p className="shrink-0 text-right font-sans text-sm font-light text-gold">{price}</p>
           </div>
-          {quickAdd ? (
+          {isNavigable ? (
             <button
               type="button"
               onClick={handlePlusClick}
@@ -312,7 +323,7 @@ const ProductCard = ({
           </div>
         </div>
 
-        {quickAdd ? (
+        {isNavigable ? (
           <button
             type="button"
             onClick={handlePlusClick}

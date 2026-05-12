@@ -1,5 +1,7 @@
 -- Read-only view: one row per order line, headers duplicated per row —便于在 Supabase Table Editor 按单号筛发货明细。
 -- Depends on orders.country / orders.payment_method（20250505120000_orders_country_payment.sql）。
+DROP VIEW IF EXISTS public.orders_shippable_lines CASCADE;
+
 CREATE OR REPLACE VIEW public.orders_shippable_lines AS
 SELECT
   o.id AS order_id,

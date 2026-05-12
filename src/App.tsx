@@ -34,6 +34,7 @@ import Admin from "./pages/Admin.tsx";
 import Sp2sPodFlavorGuidePage from "./pages/Sp2sPodFlavorGuidePage.tsx";
 import LanavapNews10Page from "./pages/LanavapNews10Page.tsx";
 import AirportVapeArticlePage from "./pages/AirportVapeArticlePage.tsx";
+import PinkyImportedCatalogDetailPage from "./pages/PinkyImportedCatalogDetailPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ const App = () => (
               element={<Navigate to="/info/diy-e-liquid-guide" replace />}
             />
             <Route path="/info/airport-vaping-guide" element={<AirportVapeArticlePage />} />
+            <Route path="/catalog/:id" element={<PinkyImportedCatalogDetailPage />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-complete" element={<OrderComplete />} />
             <Route path="/admin2589" element={<Admin />} />

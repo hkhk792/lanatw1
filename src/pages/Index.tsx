@@ -7,9 +7,7 @@ import {
 import AgeGate from "@/components/landing/AgeGate";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
-import Collection from "@/components/landing/Collection";
-import PodsAndLiquid from "@/components/landing/PodsAndLiquid";
-import Accessories from "@/components/landing/Accessories";
+import PinkyImportedSection from "@/components/landing/PinkyImportedSection";
 import Manifesto from "@/components/landing/Manifesto";
 import HuanVapeStoreSection from "@/components/landing/HuanVapeStoreSection";
 import Footer from "@/components/landing/Footer";
@@ -62,9 +60,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <Collection />
-        <PodsAndLiquid />
-        <Accessories />
+        <PinkyImportedSection />
         <HuanVapeStoreSection />
         <Manifesto />
       </main>

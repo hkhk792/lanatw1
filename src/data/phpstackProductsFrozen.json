@@ -1,0 +1,4874 @@
+[
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 1,
+"product_name": "LANA葡萄"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 2,
+"product_name": "LANA百香果"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 3,
+"product_name": "LANA薄荷"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 4,
+"product_name": "LANA芭樂"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 5,
+"product_name": "LANA西瓜"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 6,
+"product_name": "LANA荔枝"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 7,
+"product_name": "LANA可樂"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 8,
+"product_name": "LANA芒果"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 9,
+"product_name": "LANA藍莓"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 10,
+"product_name": "LANA蜜桃"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 11,
+"product_name": "LANA青蘋果"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 12,
+"product_name": "LANA老冰棍"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 13,
+"product_name": "LANA綠豆"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 14,
+"product_name": "LANA鐵觀音"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 15,
+"product_name": "LANA哈密瓜"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 16,
+"product_name": "LANA莓果"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 17,
+"product_name": "LANA鳳梨"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 18,
+"product_name": "LANA沙士"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 19,
+"product_name": "LANA龍井"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 20,
+"product_name": "LANA冰泉"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 21,
+"product_name": "LANA烏龍茶"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 22,
+"product_name": "LANA雪碧"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 23,
+"product_name": "LANA草莓"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 24,
+"product_name": "LANA蔓越莓"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 25,
+"product_name": "LANA橙冰"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 26,
+"product_name": "LANA冰紅茶"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 27,
+"product_name": "LANA草莓西瓜"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 28,
+"product_name": "LANA芒果百香果"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 29,
+"product_name": "LANA綜合水果"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 30,
+"product_name": "LANA彩虹糖"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 31,
+"product_name": "LANA漿果葡萄柚"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 32,
+"product_name": "LANA咖啡"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 34,
+"product_name": "LANA奇異果"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 35,
+"product_name": "LANA紅酒冰"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 1074,
+"product_name": "LANA 葡萄鐵觀音"
+},
+{
+"brand_id": 1,
+"brand_name": "LANA",
+"product_id": 1075,
+"product_name": "LANA 黑加侖泡泡糖"
+},
+{
+"brand_id": 2,
+"brand_name": "LANA機",
+"product_id": 36,
+"product_name": "LANA機浩瀚藍"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 44,
+"product_name": "ILIA一代葡萄"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 45,
+"product_name": "ILIA一代百香果"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 46,
+"product_name": "ILIA一代薄荷"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 47,
+"product_name": "ILIA一代芭樂"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 48,
+"product_name": "ILIA一代西瓜"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 49,
+"product_name": "ILIA一代荔枝"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 50,
+"product_name": "ILIA一代可樂"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 51,
+"product_name": "ILIA一代芒果"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 52,
+"product_name": "ILIA一代藍莓"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 53,
+"product_name": "ILIA一代蜜桃烏龍"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 54,
+"product_name": "ILIA一代青蘋果"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 55,
+"product_name": "ILIA一代老冰棍"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 56,
+"product_name": "ILIA一代綠豆"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 57,
+"product_name": "ILIA一代鐵觀音"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 58,
+"product_name": "ILIA一代哈密瓜"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 59,
+"product_name": "ILIA一代莓果"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 60,
+"product_name": "ILIA一代鳳梨"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 61,
+"product_name": "ILIA一代沙士"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 62,
+"product_name": "ILIA一代龍井"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 63,
+"product_name": "ILIA一代冰泉"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 64,
+"product_name": "ILIA一代檸檬海鹽"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 65,
+"product_name": "ILIA一代草莓"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 66,
+"product_name": "ILIA一代寶礦力"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 67,
+"product_name": "ILIA一代可爾必思"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 68,
+"product_name": "ILIA一代雪碧"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 69,
+"product_name": "ILIA一代奇異果"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 70,
+"product_name": "ILIA一代菸草"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 71,
+"product_name": "ILIA一代冰心蜜桃"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 72,
+"product_name": "ILIA一代南極冰"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 1191,
+"product_name": "ILIA一代梨山雪梨"
+},
+{
+"brand_id": 4,
+"brand_name": "ILIA",
+"product_id": 1192,
+"product_name": "ILIA一代冰葡萄柚"
+},
+{
+"brand_id": 6,
+"brand_name": "ILIA主機",
+"product_id": 77,
+"product_name": "ILIA主機櫻落金粉"
+},
+{
+"brand_id": 6,
+"brand_name": "ILIA主機",
+"product_id": 78,
+"product_name": "ILIA主機黎霧青山"
+},
+{
+"brand_id": 6,
+"brand_name": "ILIA主機",
+"product_id": 79,
+"product_name": "ILIA主機星辰銀灰"
+},
+{
+"brand_id": 6,
+"brand_name": "ILIA主機",
+"product_id": 80,
+"product_name": "ILIA主機騎士黑"
+},
+{
+"brand_id": 6,
+"brand_name": "ILIA主機",
+"product_id": 81,
+"product_name": "ILIA主機初雪白"
+},
+{
+"brand_id": 6,
+"brand_name": "ILIA主機",
+"product_id": 82,
+"product_name": "ILIA主機寶寶藍"
+},
+{
+"brand_id": 6,
+"brand_name": "ILIA主機",
+"product_id": 83,
+"product_name": "ILIA主機寶寶粉"
+},
+{
+"brand_id": 6,
+"brand_name": "ILIA主機",
+"product_id": 84,
+"product_name": "ILIA主機夢幻紫晶"
+},
+{
+"brand_id": 6,
+"brand_name": "ILIA主機",
+"product_id": 85,
+"product_name": "ILIA主機天空之境"
+},
+{
+"brand_id": 7,
+"brand_name": "ILIA皮革",
+"product_id": 86,
+"product_name": "ILIA皮革愛馬仕 橙"
+},
+{
+"brand_id": 7,
+"brand_name": "ILIA皮革",
+"product_id": 87,
+"product_name": "ILIA皮革古馳 綠"
+},
+{
+"brand_id": 7,
+"brand_name": "ILIA皮革",
+"product_id": 88,
+"product_name": "ILIA皮革慕雪白"
+},
+{
+"brand_id": 7,
+"brand_name": "ILIA皮革",
+"product_id": 89,
+"product_name": "ILIA皮革魅影黑"
+},
+{
+"brand_id": 7,
+"brand_name": "ILIA皮革",
+"product_id": 90,
+"product_name": "ILIA皮革櫻花粉"
+},
+{
+"brand_id": 7,
+"brand_name": "ILIA皮革",
+"product_id": 91,
+"product_name": "ILIA皮革銀河灰"
+},
+{
+"brand_id": 8,
+"brand_name": "ILIA布紋主機",
+"product_id": 92,
+"product_name": "ILIA布紋主機布紋黑"
+},
+{
+"brand_id": 8,
+"brand_name": "ILIA布紋主機",
+"product_id": 93,
+"product_name": "ILIA布紋主機布紋灰"
+},
+{
+"brand_id": 8,
+"brand_name": "ILIA布紋主機",
+"product_id": 94,
+"product_name": "ILIA布紋主機布紋粉"
+},
+{
+"brand_id": 8,
+"brand_name": "ILIA布紋主機",
+"product_id": 95,
+"product_name": "ILIA布紋主機布紋綠"
+},
+{
+"brand_id": 8,
+"brand_name": "ILIA布紋主機",
+"product_id": 97,
+"product_name": "ILIA布紋主機奶油紫"
+},
+{
+"brand_id": 8,
+"brand_name": "ILIA布紋主機",
+"product_id": 98,
+"product_name": "ILIA布紋主機奶油藍"
+},
+{
+"brand_id": 8,
+"brand_name": "ILIA布紋主機",
+"product_id": 99,
+"product_name": "ILIA布紋主機牛仔藍"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 100,
+"product_name": "TUT-X葡萄"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 101,
+"product_name": "TUT-X百香果"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 102,
+"product_name": "TUT-X薄荷"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 103,
+"product_name": "TUT-X芭樂"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 104,
+"product_name": "TUT-X西瓜"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 105,
+"product_name": "TUT-X荔枝"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 106,
+"product_name": "TUT-X可樂"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 107,
+"product_name": "TUT-X芒果"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 108,
+"product_name": "TUT-X藍莓"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 109,
+"product_name": "TUT-X蜜桃"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 110,
+"product_name": "TUT-X青蘋果"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 111,
+"product_name": "TUT-X老冰棍"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 113,
+"product_name": "TUT-X鐵觀音"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 114,
+"product_name": "TUT-X哈密瓜"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 115,
+"product_name": "TUT-X莓果"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 116,
+"product_name": "TUT-X鳳梨"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 117,
+"product_name": "TUT-X沙士"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 118,
+"product_name": "TUT-X龍井"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 119,
+"product_name": "TUT-X南極冰"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 120,
+"product_name": "TUT-X檸檬海鹽"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 121,
+"product_name": "TUT-X礦力"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 122,
+"product_name": "TUT-X菸草"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 872,
+"product_name": "TUT-X水梨"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 873,
+"product_name": "TUT-X蔓越莓"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 874,
+"product_name": "TUT-X奶茶"
+},
+{
+"brand_id": 9,
+"brand_name": "TUT-X",
+"product_id": 875,
+"product_name": "TUT-X雪碧"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 133,
+"product_name": "SP2葡萄"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 134,
+"product_name": "SP2百香果"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 136,
+"product_name": "SP2芭樂"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 137,
+"product_name": "SP2西瓜"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 138,
+"product_name": "SP2荔枝"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 139,
+"product_name": "SP2可樂"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 140,
+"product_name": "SP2芒果"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 141,
+"product_name": "SP2藍莓"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 142,
+"product_name": "SP2蜜桃"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 143,
+"product_name": "SP2青蘋果"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 144,
+"product_name": "SP2老冰棍"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 146,
+"product_name": "SP2鐵觀音"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 147,
+"product_name": "SP2哈密瓜"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 148,
+"product_name": "SP2莓果"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 149,
+"product_name": "SP2鳳梨"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 150,
+"product_name": "SP2沙士啤酒"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 151,
+"product_name": "SP2龍井"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 152,
+"product_name": "SP2南極冰"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 153,
+"product_name": "SP2檸檬海鹽"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 154,
+"product_name": "SP2礦力冰飲"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 155,
+"product_name": "SP2超柔菸草"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 156,
+"product_name": "SP2紅顏知己"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 157,
+"product_name": "SP2柳橙綠"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 158,
+"product_name": "SP2蜜桃烏龍"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 159,
+"product_name": "SP2茗茶青梅"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 165,
+"product_name": "SP2新-凍檸冰橙"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 166,
+"product_name": "SP2新-礦泉荔枝"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 167,
+"product_name": "SP2新-清涼薄荷"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 169,
+"product_name": "SP2新-檸檬紅茶"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 170,
+"product_name": "SP2新-利賓納"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 171,
+"product_name": "SP2新-茉莉綠茶"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 172,
+"product_name": "SP2新-冰礦泉"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 616,
+"product_name": "SP2新-冰礦茉莉"
+},
+{
+"brand_id": 12,
+"brand_name": "SP2",
+"product_id": 952,
+"product_name": "SP2黑嘉麗"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 189,
+"product_name": "SP2主機鈦紅"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 190,
+"product_name": "SP2主機鈦粉"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 191,
+"product_name": "SP2主機鈦銀"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 192,
+"product_name": "SP2主機鈦藍"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 193,
+"product_name": "SP2主機鈦黑"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 194,
+"product_name": "SP2主機鈦原色"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 615,
+"product_name": "SP2主機鈦綠"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 818,
+"product_name": "SP2主機鈦白"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 844,
+"product_name": "SP2主機鈦山染青色"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 845,
+"product_name": "SP2主機鈦霞光紫"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 846,
+"product_name": "SP2主機鈦閃電黃"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 847,
+"product_name": "SP2主機鈦鸚鵡綠"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 848,
+"product_name": "SP2主機鈦玄鐵灰"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 1230,
+"product_name": "SP2主機流星藍"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 1231,
+"product_name": "SP2主機暮光紅"
+},
+{
+"brand_id": 13,
+"brand_name": "SP2主機",
+"product_id": 1232,
+"product_name": "SP2主機柔花粉"
+},
+{
+"brand_id": 14,
+"brand_name": "SP2專用-PRO主機",
+"product_id": 197,
+"product_name": "PRO主機森林綠"
+},
+{
+"brand_id": 14,
+"brand_name": "SP2專用-PRO主機",
+"product_id": 198,
+"product_name": "PRO主機海棠粉"
+},
+{
+"brand_id": 14,
+"brand_name": "SP2專用-PRO主機",
+"product_id": 199,
+"product_name": "PRO主機星空藍"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 202,
+"product_name": "魅嗨葡萄"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 203,
+"product_name": "魅嗨百香果"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 204,
+"product_name": "魅嗨薄荷"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 205,
+"product_name": "魅嗨芭樂"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 206,
+"product_name": "魅嗨西瓜"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 207,
+"product_name": "魅嗨荔枝"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 208,
+"product_name": "魅嗨可樂"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 209,
+"product_name": "魅嗨芒果"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 210,
+"product_name": "魅嗨藍莓"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 211,
+"product_name": "魅嗨蜜桃"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 212,
+"product_name": "魅嗨蘋果"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 213,
+"product_name": "魅嗨老冰棍"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 215,
+"product_name": "魅嗨鐵觀音"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 216,
+"product_name": "魅嗨哈密瓜"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 217,
+"product_name": "魅嗨鳳梨"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 218,
+"product_name": "魅嗨沙士"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 219,
+"product_name": "魅嗨冰泉"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 220,
+"product_name": "魅嗨檸檬海鹽"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 222,
+"product_name": "魅嗨草莓"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 223,
+"product_name": "魅嗨檸檬草"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 226,
+"product_name": "魅嗨菸草"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 617,
+"product_name": "魅嗨紅顏知己"
+},
+{
+"brand_id": 15,
+"brand_name": "魅嗨",
+"product_id": 618,
+"product_name": "魅嗨寶礦力"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 227,
+"product_name": "無限INF葡萄"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 228,
+"product_name": "無限INF百香果"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 229,
+"product_name": "無限INF芭樂"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 230,
+"product_name": "無限INF蜜桃"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 231,
+"product_name": "無限INF西瓜"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 232,
+"product_name": "無限INF檸檬海鹽"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 233,
+"product_name": "無限INF荔枝"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 234,
+"product_name": "無限INF藍莓"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 236,
+"product_name": "無限INF凍頂烏龍"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 237,
+"product_name": "無限INF蜜桃烏龍"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 239,
+"product_name": "無限INF可樂"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 240,
+"product_name": "無限INF莓果"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 241,
+"product_name": "無限INF薄荷"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 242,
+"product_name": "無限INF芒果"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 244,
+"product_name": "無限INF蜜瓜"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 247,
+"product_name": "無限INF冰凍檸茶"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 251,
+"product_name": "無限INF南極冰"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 866,
+"product_name": "無限INF橘子汽水"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 867,
+"product_name": "無限INF青蘋果"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 868,
+"product_name": "無限INF鳳梨冰沙"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 869,
+"product_name": "無限INF奇異果"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 870,
+"product_name": "無限INF鐵觀音"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 871,
+"product_name": "無限INF沙士"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 956,
+"product_name": "無限INF麝香葡萄"
+},
+{
+"brand_id": 16,
+"brand_name": "無限INF",
+"product_id": 957,
+"product_name": "無限INF手打檸檬"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 252,
+"product_name": "KIS5葡萄-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 254,
+"product_name": "KIS5薄荷-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 255,
+"product_name": "KIS5芭樂-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 256,
+"product_name": "KIS5西瓜-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 257,
+"product_name": "KIS5荔枝-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 258,
+"product_name": "KIS5可樂-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 259,
+"product_name": "KIS5芒果-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 262,
+"product_name": "KIS5蘋果-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 264,
+"product_name": "KIS5哈密瓜-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 265,
+"product_name": "KIS5鳳梨-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 266,
+"product_name": "KIS5沙士-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 267,
+"product_name": "KIS5龍井-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 268,
+"product_name": "KIS5蜜桃烏龍-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 270,
+"product_name": "KIS5寶礦力-1盒3顆"
+},
+{
+"brand_id": 17,
+"brand_name": "KIS5",
+"product_id": 272,
+"product_name": "KIS5抹茶莓果-1盒3顆"
+},
+{
+"brand_id": 18,
+"brand_name": "KIS5主機",
+"product_id": 276,
+"product_name": "KIS5主機太空黑"
+},
+{
+"brand_id": 18,
+"brand_name": "KIS5主機",
+"product_id": 277,
+"product_name": "KIS5主機宇宙白"
+},
+{
+"brand_id": 18,
+"brand_name": "KIS5主機",
+"product_id": 278,
+"product_name": "KIS5主機琥珀綠"
+},
+{
+"brand_id": 19,
+"brand_name": "KIS5主機特",
+"product_id": 282,
+"product_name": "KIS5主機特寶寶綠"
+},
+{
+"brand_id": 19,
+"brand_name": "KIS5主機特",
+"product_id": 283,
+"product_name": "KIS5主機特寶寶紅"
+},
+{
+"brand_id": 19,
+"brand_name": "KIS5主機特",
+"product_id": 285,
+"product_name": "KIS5主機特寶寶黃"
+},
+{
+"brand_id": 19,
+"brand_name": "KIS5主機特",
+"product_id": 286,
+"product_name": "KIS5主機特寶寶紫"
+},
+{
+"brand_id": 19,
+"brand_name": "KIS5主機特",
+"product_id": 287,
+"product_name": "KIS5主機特寶寶軍綠"
+},
+{
+"brand_id": 19,
+"brand_name": "KIS5主機特",
+"product_id": 288,
+"product_name": "KIS5主機特鈦金"
+},
+{
+"brand_id": 19,
+"brand_name": "KIS5主機特",
+"product_id": 289,
+"product_name": "KIS5主機特鈦銀"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 290,
+"product_name": "MAX-G蛋葡萄"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 291,
+"product_name": "MAX-G蛋百香果"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 292,
+"product_name": "MAX-G蛋薄荷"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 293,
+"product_name": "MAX-G蛋西瓜"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 294,
+"product_name": "MAX-G蛋荔枝"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 295,
+"product_name": "MAX-G蛋可樂"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 296,
+"product_name": "MAX-G蛋芒果"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 297,
+"product_name": "MAX-G蛋蘋果"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 298,
+"product_name": "MAX-G蛋老冰棍"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 299,
+"product_name": "MAX-G蛋蜜桃烏龍"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 300,
+"product_name": "MAX-G蛋檸檬雪碧"
+},
+{
+"brand_id": 20,
+"brand_name": "MAX-G蛋",
+"product_id": 301,
+"product_name": "MAX-G蛋黑莓"
+},
+{
+"brand_id": 21,
+"brand_name": "MAX-G主機",
+"product_id": 302,
+"product_name": "MAX-G主機珍珠白"
+},
+{
+"brand_id": 21,
+"brand_name": "MAX-G主機",
+"product_id": 303,
+"product_name": "MAX-G主機曜石黑"
+},
+{
+"brand_id": 21,
+"brand_name": "MAX-G主機",
+"product_id": 304,
+"product_name": "MAX-G主機潘多拉紫"
+},
+{
+"brand_id": 21,
+"brand_name": "MAX-G主機",
+"product_id": 305,
+"product_name": "MAX-G主機冰川藍"
+},
+{
+"brand_id": 21,
+"brand_name": "MAX-G主機",
+"product_id": 306,
+"product_name": "MAX-G主機黑武士"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 307,
+"product_name": "LUCKIN葡萄-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 308,
+"product_name": "LUCKIN百香果-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 309,
+"product_name": "LUCKIN薄荷-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 310,
+"product_name": "LUCKIN芭樂-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 311,
+"product_name": "LUCKIN西瓜-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 312,
+"product_name": "LUCKIN荔枝-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 313,
+"product_name": "LUCKIN可樂-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 314,
+"product_name": "LUCKIN芒果-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 315,
+"product_name": "LUCKIN藍莓-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 316,
+"product_name": "LUCKIN蜜桃-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 317,
+"product_name": "LUCKIN青蘋果-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 318,
+"product_name": "LUCKIN老冰棍-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 319,
+"product_name": "LUCKIN綠豆-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 320,
+"product_name": "LUCKIN鐵觀音-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 321,
+"product_name": "LUCKIN哈密瓜-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 322,
+"product_name": "LUCKIN野莓果-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 323,
+"product_name": "LUCKIN沙士-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 324,
+"product_name": "LUCKIN南極冰-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 325,
+"product_name": "LUCKIN檸檬冰-1盒3顆"
+},
+{
+"brand_id": 22,
+"brand_name": "LUCKIN",
+"product_id": 326,
+"product_name": "LUCKIN寶礦力-1盒3顆"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 327,
+"product_name": "LUCKIN主機幻影粉"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 328,
+"product_name": "LUCKIN主機魔力紫"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 329,
+"product_name": "LUCKIN主機仙境綠"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 330,
+"product_name": "LUCKIN主機皓月白"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 331,
+"product_name": "LUCKIN主機寂靜灰"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 332,
+"product_name": "LUCKIN主機夜月黑"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 333,
+"product_name": "LUCKIN主機烈焰紅"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 334,
+"product_name": "LUCKIN主機香檳金"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 335,
+"product_name": "LUCKIN主機公主粉"
+},
+{
+"brand_id": 23,
+"brand_name": "LUCKIN主機",
+"product_id": 336,
+"product_name": "LUCKIN主機蒼墨綠"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 337,
+"product_name": "LUCKIN主機特雕刻銀"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 338,
+"product_name": "LUCKIN主機特雕刻金"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 339,
+"product_name": "海綿寶寶"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 634,
+"product_name": "LUCKIN主機特蠟筆小新黃"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 699,
+"product_name": "LUCKIN主機特哪吒"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 891,
+"product_name": "LUCKIN主機特哆啦a夢-限量版"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 892,
+"product_name": "LUCKIN主機特Hello Kitty-限量版"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 893,
+"product_name": "LUCKIN主機特史迪奇-限量版"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 936,
+"product_name": "LUCKIN主機拉布布-綠葡萄限量版(綠)"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 937,
+"product_name": "LUCKIN主機拉布布-大首領限量版(咖啡)"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 938,
+"product_name": "LUCKIN主機拉布布-荔枝莓莓限量版(粉)"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 1036,
+"product_name": "LUCKIN主機鬼滅之刃-彌豆子(限定版)"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 1037,
+"product_name": "LUCKIN主機鬼滅之刃-善逸(限定版)"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 1038,
+"product_name": "LUCKIN主機鬼滅之刃-炭治郎(限定版)"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 1047,
+"product_name": "LUCKIN主機拉布布-聖誕限量版"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 1048,
+"product_name": "LUCKIN主機聖誕老人限量版"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 1065,
+"product_name": "LUCKIN主機傑利鼠"
+},
+{
+"brand_id": 24,
+"brand_name": "LUCKIN主機特",
+"product_id": 1066,
+"product_name": "LUCKIN主機特哆啦a夢-新版"
+},
+{
+"brand_id": 25,
+"brand_name": "SARS",
+"product_id": 345,
+"product_name": "SARS彩虹糖"
+},
+{
+"brand_id": 25,
+"brand_name": "SARS",
+"product_id": 346,
+"product_name": "SARS菠蘿"
+},
+{
+"brand_id": 25,
+"brand_name": "SARS",
+"product_id": 348,
+"product_name": "SARS漿果"
+},
+{
+"brand_id": 25,
+"brand_name": "SARS",
+"product_id": 350,
+"product_name": "SARS綠豆"
+},
+{
+"brand_id": 26,
+"brand_name": "SARS主機",
+"product_id": 362,
+"product_name": "SARS主機綠"
+},
+{
+"brand_id": 26,
+"brand_name": "SARS主機",
+"product_id": 363,
+"product_name": "SARS主機白"
+},
+{
+"brand_id": 26,
+"brand_name": "SARS主機",
+"product_id": 364,
+"product_name": "SARS主機黑"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 365,
+"product_name": "ILIA五代葡萄"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 366,
+"product_name": "ILIA五代麝香葡萄"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 367,
+"product_name": "ILIA五代百香果"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 368,
+"product_name": "ILIA五代超A薄荷"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 369,
+"product_name": "ILIA五代激情薄荷"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 370,
+"product_name": "ILIA五代芭樂"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 371,
+"product_name": "ILIA五代西瓜"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 372,
+"product_name": "ILIA五代荔枝"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 373,
+"product_name": "ILIA五代可樂"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 374,
+"product_name": "ILIA五代芒果"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 375,
+"product_name": "ILIA五代藍莓"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 376,
+"product_name": "ILIA五代蜜桃"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 377,
+"product_name": "ILIA五代蘋果"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 378,
+"product_name": "ILIA五代老冰棍"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 379,
+"product_name": "ILIA五代鐵觀音"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 380,
+"product_name": "ILIA五代哈密瓜"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 381,
+"product_name": "ILIA五代南極冰"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 382,
+"product_name": "ILIA五代檸檬"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 383,
+"product_name": "ILIA五代檸檬百香"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 384,
+"product_name": "ILIA五代雪碧"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 385,
+"product_name": "ILIA五代高山茶韻"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 386,
+"product_name": "ILIA五代青梅"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 387,
+"product_name": "ILIA五代極冰蘇打"
+},
+{
+"brand_id": 27,
+"brand_name": "ILIA五代",
+"product_id": 388,
+"product_name": "ILIA五代菸草"
+},
+{
+"brand_id": 28,
+"brand_name": "ILIA五代主機",
+"product_id": 389,
+"product_name": "ILIA五代主機霜月白"
+},
+{
+"brand_id": 28,
+"brand_name": "ILIA五代主機",
+"product_id": 390,
+"product_name": "ILIA五代主機霞光粉"
+},
+{
+"brand_id": 28,
+"brand_name": "ILIA五代主機",
+"product_id": 391,
+"product_name": "ILIA五代主機星河藍"
+},
+{
+"brand_id": 28,
+"brand_name": "ILIA五代主機",
+"product_id": 392,
+"product_name": "ILIA五代主機魅影灰"
+},
+{
+"brand_id": 28,
+"brand_name": "ILIA五代主機",
+"product_id": 393,
+"product_name": "ILIA五代主機耀巖黑"
+},
+{
+"brand_id": 30,
+"brand_name": "冰熊主機",
+"product_id": 412,
+"product_name": "冰熊主機紫色"
+},
+{
+"brand_id": 30,
+"brand_name": "冰熊主機",
+"product_id": 413,
+"product_name": "冰熊主機水藍色"
+},
+{
+"brand_id": 30,
+"brand_name": "冰熊主機",
+"product_id": 414,
+"product_name": "冰熊主機黑色"
+},
+{
+"brand_id": 30,
+"brand_name": "冰熊主機",
+"product_id": 415,
+"product_name": "冰熊主機藍色"
+},
+{
+"brand_id": 30,
+"brand_name": "冰熊主機",
+"product_id": 416,
+"product_name": "冰熊主機白色"
+},
+{
+"brand_id": 30,
+"brand_name": "冰熊主機",
+"product_id": 417,
+"product_name": "冰熊主機灰色"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 439,
+"product_name": "魔盒 BOX葡萄"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 440,
+"product_name": "魔盒 BOX百香果"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 441,
+"product_name": "魔盒 BOX薄荷"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 442,
+"product_name": "魔盒 BOX芭樂"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 443,
+"product_name": "魔盒 BOX西瓜"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 444,
+"product_name": "魔盒 BOX荔枝"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 445,
+"product_name": "魔盒 BOX可樂"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 446,
+"product_name": "魔盒 BOX芒果"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 447,
+"product_name": "魔盒 BOX藍莓"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 448,
+"product_name": "魔盒 BOX蜜桃"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 449,
+"product_name": "魔盒 BOX蘋果"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 450,
+"product_name": "魔盒 BOX老冰棍"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 451,
+"product_name": "魔盒 BOX鐵觀音"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 452,
+"product_name": "魔盒 BOX哈密瓜"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 453,
+"product_name": "魔盒 BOX莓果"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 454,
+"product_name": "魔盒 BOX龍井"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 455,
+"product_name": "魔盒 BOX礦泉水"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 456,
+"product_name": "魔盒 BOX檸檬海鹽"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 457,
+"product_name": "魔盒 BOX蜜桃烏龍"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 458,
+"product_name": "魔盒 BOX烏龍"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 459,
+"product_name": "魔盒 BOX寶礦力"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 460,
+"product_name": "魔盒 BOX草莓"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 461,
+"product_name": "魔盒 BOX西瓜蜜桃芒果"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 462,
+"product_name": "魔盒 BOX檸檬茉莉"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 463,
+"product_name": "魔盒 BOX芒果火龍果"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 464,
+"product_name": "魔盒 BOX西柚葡萄柚"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 465,
+"product_name": "魔盒 BOX養樂多"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 466,
+"product_name": "魔盒 BOX紅牛"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 467,
+"product_name": "魔盒 BOX綠豆"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 468,
+"product_name": "魔盒 BOX沙士"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 469,
+"product_name": "魔盒 BOX雪碧"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 470,
+"product_name": "魔盒 BOX白葡萄"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 471,
+"product_name": "魔盒 BOX無涼草莓巧克力"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 472,
+"product_name": "魔盒 BOX無涼草莓"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 473,
+"product_name": "魔盒 BOX無涼古巴雪茄"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 474,
+"product_name": "魔盒 BOX無涼菸草"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 475,
+"product_name": "魔盒 BOX無涼百香果"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 476,
+"product_name": "魔盒 BOX無涼葡萄"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 477,
+"product_name": "魔盒 BOX無涼芭樂"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 819,
+"product_name": "魔盒 BOX極冰草莓優格冰沙"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 820,
+"product_name": "魔盒 BOX極冰檸檬優格冰沙"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 821,
+"product_name": "魔盒 BOX極冰紅標沙士糖"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 822,
+"product_name": "魔盒 BOX極冰貴妃葡萄"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 823,
+"product_name": "魔盒 BOX極冰柳橙綠茶"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 1081,
+"product_name": "魔盒 BOX極冰綜合野莓"
+},
+{
+"brand_id": 33,
+"brand_name": "魔盒 BOX",
+"product_id": 1082,
+"product_name": "魔盒 BOX極冰芒果奶昔"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 478,
+"product_name": "魔盒主機黑/深邃夜黑"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 479,
+"product_name": "魔盒主機白"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 480,
+"product_name": "魔盒主機灰/灰石古藍"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 481,
+"product_name": "魔盒主機蒂芬尼/碧波青藍"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 482,
+"product_name": "魔盒主機藍/冰川灣藍/暮光蔚藍漸層藍"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 483,
+"product_name": "魔盒主機綠/岩石蒼綠"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 484,
+"product_name": "魔盒主機深紫/王者紫晶"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 485,
+"product_name": "魔盒主機莫蘭迪紫/紫羅蘭霧"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 486,
+"product_name": "魔盒主機夢幻粉紫"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 487,
+"product_name": "魔盒主機黃/淺茶微棕"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 488,
+"product_name": "魔盒主機璀璨玫瑰紅/漸層紅"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 489,
+"product_name": "魔盒主機金色深紅夕陽/漸層橘"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 490,
+"product_name": "魔盒主機/藍海微瀾"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 491,
+"product_name": "魔盒主機薰衣草霜/漸層紫"
+},
+{
+"brand_id": 34,
+"brand_name": "魔盒主機",
+"product_id": 492,
+"product_name": "魔盒主機深紅翡翠火焰/西瓜色"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 493,
+"product_name": "RELX六代極凉青提"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 494,
+"product_name": "RELX六代勁爽薄荷"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 495,
+"product_name": "RELX六代零度薄荷"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 496,
+"product_name": "RELX六代熱情番石榴"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 497,
+"product_name": "RELX六代清涼西瓜"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 498,
+"product_name": "RELX六代勁涼觀音"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 499,
+"product_name": "RELX六代勁涼龍井"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 500,
+"product_name": "RELX六代極涼青檸"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 501,
+"product_name": "RELX六代勁涼檸檬紅茶"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 502,
+"product_name": "RELX六代冰爽紅茶"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 627,
+"product_name": "RELX六代老冰棍"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 628,
+"product_name": "RELX六代荔枝"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 629,
+"product_name": "RELX六代綠豆"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 630,
+"product_name": "RELX六代綠茶"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 631,
+"product_name": "RELX六代洛神花茶"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 632,
+"product_name": "RELX六代蜜桃"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 700,
+"product_name": "RELX六代沙士汽水"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 701,
+"product_name": "RELX六代芒果"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 702,
+"product_name": "RELX六代可樂冰"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 703,
+"product_name": "RELX六代混合莓果"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 704,
+"product_name": "RELX六代葡萄"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 705,
+"product_name": "RELX六代蜜桃烏龍茶"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 746,
+"product_name": "RELX六代經典菸草"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 747,
+"product_name": "RELX六代藍莓"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 748,
+"product_name": "RELX六代覆盆子冰"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 749,
+"product_name": "RELX六代菠蘿"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1110,
+"product_name": "RELX六代海鹽檸檬"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1111,
+"product_name": "RELX六代金桔百香果"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1112,
+"product_name": "RELX六代香芋冰淇淋"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1113,
+"product_name": "RELX六代橘子汽水"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1114,
+"product_name": "RELX六代草莓"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1115,
+"product_name": "RELX六代雪碧"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1140,
+"product_name": "RELX六代南極茉莉"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1141,
+"product_name": "RELX六代清新薄荷"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1142,
+"product_name": "RELX六代黃金奇異果"
+},
+{
+"brand_id": 35,
+"brand_name": "RELX六代",
+"product_id": 1143,
+"product_name": "RELX六代樹頂蘋果"
+},
+{
+"brand_id": 36,
+"brand_name": "RELX六代主機",
+"product_id": 503,
+"product_name": "RELX六代主機瑪瑙黑"
+},
+{
+"brand_id": 36,
+"brand_name": "RELX六代主機",
+"product_id": 506,
+"product_name": "RELX六代主機霞光紫"
+},
+{
+"brand_id": 36,
+"brand_name": "RELX六代主機",
+"product_id": 508,
+"product_name": "RELX六代主機海軍綠"
+},
+{
+"brand_id": 36,
+"brand_name": "RELX六代主機",
+"product_id": 654,
+"product_name": "RELX六代主機流光白PLUS"
+},
+{
+"brand_id": 36,
+"brand_name": "RELX六代主機",
+"product_id": 655,
+"product_name": "RELX六代主機星際灰PLUS"
+},
+{
+"brand_id": 36,
+"brand_name": "RELX六代主機",
+"product_id": 656,
+"product_name": "RELX六代主機瑪瑙黑PLUS"
+},
+{
+"brand_id": 36,
+"brand_name": "RELX六代主機",
+"product_id": 657,
+"product_name": "RELX六代主機玫瑰金PLUS"
+},
+{
+"brand_id": 36,
+"brand_name": "RELX六代主機",
+"product_id": 658,
+"product_name": "RELX六代主機竹葉青PLUS"
+},
+{
+"brand_id": 36,
+"brand_name": "RELX六代主機",
+"product_id": 659,
+"product_name": "RELX六代主機橄欖金PLUS"
+},
+{
+"brand_id": 37,
+"brand_name": "RELX幻影加SE2六代主機",
+"product_id": 509,
+"product_name": "RELX幻影六代主機赤焰橘"
+},
+{
+"brand_id": 37,
+"brand_name": "RELX幻影加SE2六代主機",
+"product_id": 511,
+"product_name": "RELX幻影六代主機星河映月"
+},
+{
+"brand_id": 37,
+"brand_name": "RELX幻影加SE2六代主機",
+"product_id": 1039,
+"product_name": "黑色-RELX-ES2六代主機"
+},
+{
+"brand_id": 37,
+"brand_name": "RELX幻影加SE2六代主機",
+"product_id": 1040,
+"product_name": "銀灰-RELX-ES2六代主機"
+},
+{
+"brand_id": 37,
+"brand_name": "RELX幻影加SE2六代主機",
+"product_id": 1041,
+"product_name": "紫色-RELX-ES2六代主機"
+},
+{
+"brand_id": 37,
+"brand_name": "RELX幻影加SE2六代主機",
+"product_id": 1042,
+"product_name": "粉色-RELX-ES2六代主機"
+},
+{
+"brand_id": 38,
+"brand_name": "空彈",
+"product_id": 512,
+"product_name": "空彈-白底座"
+},
+{
+"brand_id": 38,
+"brand_name": "空彈",
+"product_id": 740,
+"product_name": "空彈-黑底"
+},
+{
+"brand_id": 38,
+"brand_name": "空彈",
+"product_id": 741,
+"product_name": "空彈-側注式"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 513,
+"product_name": "哩亞四代葡萄"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 514,
+"product_name": "哩亞四代青葡萄"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 515,
+"product_name": "哩亞四代百香果"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 516,
+"product_name": "哩亞四代薄荷"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 517,
+"product_name": "哩亞四代芭樂"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 518,
+"product_name": "哩亞四代西瓜"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 519,
+"product_name": "哩亞四代荔枝"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 520,
+"product_name": "哩亞四代可樂"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 521,
+"product_name": "哩亞四代芒果"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 522,
+"product_name": "哩亞四代藍莓"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 523,
+"product_name": "哩亞四代蜜桃"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 524,
+"product_name": "哩亞四代蘋果"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 525,
+"product_name": "哩亞四代老冰棍"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 526,
+"product_name": "哩亞四代鐵觀音"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 527,
+"product_name": "哩亞四代哈密瓜"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 528,
+"product_name": "哩亞四代沙士"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 529,
+"product_name": "哩亞四代龍井"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 530,
+"product_name": "哩亞四代雪碧"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 531,
+"product_name": "哩亞四代檸檬海鹽"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 532,
+"product_name": "哩亞四代蘇打"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 533,
+"product_name": "哩亞四代養樂多"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 776,
+"product_name": "哩亞四代冬瓜檸檬"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 777,
+"product_name": "哩亞四代烏龍綠茶"
+},
+{
+"brand_id": 39,
+"brand_name": "哩亞四代",
+"product_id": 778,
+"product_name": "哩亞四代冰爆葡萄柚"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 550,
+"product_name": "MEEL-奶茶杯蜜桃"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 551,
+"product_name": "MEEL-奶茶杯荔枝"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 552,
+"product_name": "MEEL-奶茶杯西瓜"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 553,
+"product_name": "MEEL-奶茶杯葡萄"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 554,
+"product_name": "MEEL-奶茶杯芭樂"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 555,
+"product_name": "MEEL-奶茶杯藍莓"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 556,
+"product_name": "MEEL-奶茶杯密語瓜香"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 557,
+"product_name": "MEEL-奶茶杯薄荷"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 558,
+"product_name": "MEEL-奶茶杯檸檬海鹽"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 559,
+"product_name": "MEEL-奶茶杯芒果"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 560,
+"product_name": "MEEL-奶茶杯鐵觀音"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 561,
+"product_name": "MEEL-奶茶杯百香果"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 562,
+"product_name": "MEEL-奶茶杯雪碧"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 563,
+"product_name": "MEEL-奶茶杯神仙水"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 564,
+"product_name": "MEEL-奶茶杯莓果沙拉"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 565,
+"product_name": "MEEL-奶茶杯七星爆珠(菸草"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 566,
+"product_name": "MEEL-奶茶杯廚師佳釀(啤酒"
+},
+{
+"brand_id": 41,
+"brand_name": "MEEL-奶茶杯",
+"product_id": 567,
+"product_name": "MEEL-奶茶杯冰冰涼涼(冰棍"
+},
+{
+"brand_id": 44,
+"brand_name": "TISIC-可樂瓶",
+"product_id": 582,
+"product_name": "TISIC-可樂瓶雙倍葡萄"
+},
+{
+"brand_id": 44,
+"brand_name": "TISIC-可樂瓶",
+"product_id": 585,
+"product_name": "TISIC-可樂瓶奇異果檸檬"
+},
+{
+"brand_id": 44,
+"brand_name": "TISIC-可樂瓶",
+"product_id": 586,
+"product_name": "TISIC-可樂瓶老冰棍"
+},
+{
+"brand_id": 44,
+"brand_name": "TISIC-可樂瓶",
+"product_id": 587,
+"product_name": "TISIC-可樂瓶芒果蜜桃"
+},
+{
+"brand_id": 44,
+"brand_name": "TISIC-可樂瓶",
+"product_id": 588,
+"product_name": "TISIC-可樂瓶茉莉觀音"
+},
+{
+"brand_id": 44,
+"brand_name": "TISIC-可樂瓶",
+"product_id": 589,
+"product_name": "TISIC-可樂瓶混合莓果"
+},
+{
+"brand_id": 44,
+"brand_name": "TISIC-可樂瓶",
+"product_id": 590,
+"product_name": "TISIC-可樂瓶百香果芭樂"
+},
+{
+"brand_id": 44,
+"brand_name": "TISIC-可樂瓶",
+"product_id": 591,
+"product_name": "TISIC-可樂瓶草莓奇異果"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 602,
+"product_name": "MEEL-BOOST葡萄"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 603,
+"product_name": "MEEL-BOOST百香果"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 604,
+"product_name": "MEEL-BOOST薄荷"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 605,
+"product_name": "MEEL-BOOST芭樂"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 606,
+"product_name": "MEEL-BOOST西瓜"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 607,
+"product_name": "MEEL-BOOST荔枝"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 608,
+"product_name": "MEEL-BOOST芒果"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 609,
+"product_name": "MEEL-BOOST藍莓"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 610,
+"product_name": "MEEL-BOOST蜜桃"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 611,
+"product_name": "MEEL-BOOST鐵觀音"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 612,
+"product_name": "MEEL-BOOST蜜瓜"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 613,
+"product_name": "MEEL-BOOST檸檬"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 914,
+"product_name": "MEEL-BOOST南極冰"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 915,
+"product_name": "MEEL-BOOST雪碧"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 916,
+"product_name": "MEEL-BOOST冰棍"
+},
+{
+"brand_id": 46,
+"brand_name": "MEEL-BOOST",
+"product_id": 917,
+"product_name": "MEEL-BOOST莓果"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 635,
+"product_name": "KIS5拋棄式-葡萄"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 636,
+"product_name": "KIS5拋棄式-百香果"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 637,
+"product_name": "KIS5拋棄式-薄荷"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 638,
+"product_name": "KIS5拋棄式-青箭口香糖"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 639,
+"product_name": "KIS5拋棄式-芭樂"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 640,
+"product_name": "KIS5拋棄式-西瓜"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 641,
+"product_name": "KIS5拋棄式-蘋果"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 642,
+"product_name": "KIS5拋棄式-鐵觀音"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 643,
+"product_name": "KIS5拋棄式-桂花綠茶"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 644,
+"product_name": "KIS5拋棄式-神仙檸檬"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 645,
+"product_name": "KIS5拋棄式-草莓西瓜"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 646,
+"product_name": "KIS5拋棄式-紅柚翡翠"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 647,
+"product_name": "KIS5拋棄式-甜橙"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 779,
+"product_name": "KIS5拋棄式-蜜桃烏龍"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 780,
+"product_name": "KIS5拋棄式-南極冰"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 933,
+"product_name": "KIS5拋棄式-草莓"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 934,
+"product_name": "KIS5拋棄式-可樂"
+},
+{
+"brand_id": 47,
+"brand_name": "KIS5拋棄式6500口",
+"product_id": 935,
+"product_name": "KIS5拋棄式-藍冰"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 667,
+"product_name": "主機皮套-編號1"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 668,
+"product_name": "主機皮套-編號2"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 669,
+"product_name": "主機皮套-編號3"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 670,
+"product_name": "主機皮套-編號4"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 671,
+"product_name": "主機皮套-編號5"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 672,
+"product_name": "主機皮套-編號6"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 673,
+"product_name": "主機皮套-編號7"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 674,
+"product_name": "主機皮套-編號8"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 676,
+"product_name": "主機皮套-編號9"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 677,
+"product_name": "主機皮套-編號10"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 678,
+"product_name": "主機皮套-編號11"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 679,
+"product_name": "主機皮套-編號12"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 680,
+"product_name": "主機皮套-編號13"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 681,
+"product_name": "主機皮套-編號14"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 682,
+"product_name": "主機皮套-編號15"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 683,
+"product_name": "主機皮套-編號16"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 684,
+"product_name": "主機皮套-編號17"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 685,
+"product_name": "主機皮套-編號18"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 686,
+"product_name": "主機皮套-編號19"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 687,
+"product_name": "主機皮套-編號20"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 688,
+"product_name": "主機皮套-編號21"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 689,
+"product_name": "主機皮套-編號22"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 690,
+"product_name": "主機皮套-編號23"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 691,
+"product_name": "主機皮套-編號24"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 692,
+"product_name": "主機皮套-編號25"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 693,
+"product_name": "主機皮套-編號26"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 694,
+"product_name": "主機皮套-編號27"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 695,
+"product_name": "主機皮套-編號28"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 696,
+"product_name": "主機皮套-編號29"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 697,
+"product_name": "主機皮套-編號30"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 698,
+"product_name": "通用主機掛鍊"
+},
+{
+"brand_id": 52,
+"brand_name": "主機可愛皮套 拋棄式掛繩",
+"product_id": 979,
+"product_name": "拋棄式掛繩"
+},
+{
+"brand_id": 57,
+"brand_name": "魅嗨五代",
+"product_id": 718,
+"product_name": "魅嗨五代-多肉葡萄"
+},
+{
+"brand_id": 57,
+"brand_name": "魅嗨五代",
+"product_id": 719,
+"product_name": "魅嗨五代-冰鎮西瓜"
+},
+{
+"brand_id": 57,
+"brand_name": "魅嗨五代",
+"product_id": 720,
+"product_name": "魅嗨五代-百香果汁"
+},
+{
+"brand_id": 57,
+"brand_name": "魅嗨五代",
+"product_id": 721,
+"product_name": "魅嗨五代-荔枝甘露"
+},
+{
+"brand_id": 57,
+"brand_name": "魅嗨五代",
+"product_id": 724,
+"product_name": "魅嗨五代-鐵觀音"
+},
+{
+"brand_id": 57,
+"brand_name": "魅嗨五代",
+"product_id": 729,
+"product_name": "魅嗨五代-芒果冰沙"
+},
+{
+"brand_id": 57,
+"brand_name": "魅嗨五代",
+"product_id": 730,
+"product_name": "魅嗨五代-零度可樂"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 750,
+"product_name": "OBI葡萄冰"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 751,
+"product_name": "OBI青提"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 752,
+"product_name": "OBI葡萄百香果"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 753,
+"product_name": "OBI百香果"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 754,
+"product_name": "OBI薄荷"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 755,
+"product_name": "OBI芭樂"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 756,
+"product_name": "OBI西瓜"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 757,
+"product_name": "OBI荔枝"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 758,
+"product_name": "OBI可樂"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 759,
+"product_name": "OBI芒果"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 760,
+"product_name": "OBI藍莓"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 761,
+"product_name": "OBI蜜桃"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 762,
+"product_name": "OBI青蘋果"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 763,
+"product_name": "OBI老冰棍"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 764,
+"product_name": "OBI鐵觀音"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 765,
+"product_name": "OBI哈密瓜"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 766,
+"product_name": "OBI莓果"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 767,
+"product_name": "OBI沙士"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 768,
+"product_name": "OBI蜜桃烏龍"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 769,
+"product_name": "OBI雪碧"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 770,
+"product_name": "OBI檸檬海鹽"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 771,
+"product_name": "OBI草莓"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 772,
+"product_name": "OBI可爾必思"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 773,
+"product_name": "OBI奇異果"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 774,
+"product_name": "OBI櫻花"
+},
+{
+"brand_id": 60,
+"brand_name": "OBI奧比拋棄式8000口",
+"product_id": 775,
+"product_name": "OBI七星"
+},
+{
+"brand_id": 61,
+"brand_name": "MEEL馬博9000口",
+"product_id": 781,
+"product_name": "MEEL馬博9000口-水蜜桃"
+},
+{
+"brand_id": 61,
+"brand_name": "MEEL馬博9000口",
+"product_id": 782,
+"product_name": "MEEL馬博9000口-百香果"
+},
+{
+"brand_id": 61,
+"brand_name": "MEEL馬博9000口",
+"product_id": 783,
+"product_name": "MEEL馬博9000口-芒果"
+},
+{
+"brand_id": 61,
+"brand_name": "MEEL馬博9000口",
+"product_id": 784,
+"product_name": "MEEL馬博9000口-芭樂"
+},
+{
+"brand_id": 61,
+"brand_name": "MEEL馬博9000口",
+"product_id": 785,
+"product_name": "MEEL馬博9000口-荔枝"
+},
+{
+"brand_id": 61,
+"brand_name": "MEEL馬博9000口",
+"product_id": 786,
+"product_name": "MEEL馬博9000口-葡萄"
+},
+{
+"brand_id": 61,
+"brand_name": "MEEL馬博9000口",
+"product_id": 787,
+"product_name": "MEEL馬博9000口-藍莓"
+},
+{
+"brand_id": 61,
+"brand_name": "MEEL馬博9000口",
+"product_id": 788,
+"product_name": "MEEL馬博9000口-西瓜"
+},
+{
+"brand_id": 61,
+"brand_name": "MEEL馬博9000口",
+"product_id": 789,
+"product_name": "MEEL馬博9000口-鐵觀音"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 802,
+"product_name": "MARBO 9000口-葡萄蘆薈"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 803,
+"product_name": "MARBO 9000口-西瓜冰沙"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 804,
+"product_name": "MARBO 9000口-藍冰"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 805,
+"product_name": "MARBO 9000口-急凍薄荷"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 806,
+"product_name": "MARBO 9000口-草莓"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 807,
+"product_name": "MARBO 9000口-彩虹糖"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 808,
+"product_name": "MARBO 9000口-荔枝葡萄"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 809,
+"product_name": "MARBO 9000口-蘋果蘆薈"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 810,
+"product_name": "MARBO 9000口-冰礦泉水"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 811,
+"product_name": "MARBO 9000口-可樂冰"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 812,
+"product_name": "MARBO 9000口-紫葡萄冰"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 813,
+"product_name": "MARBO 9000口-甜橙冰"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 814,
+"product_name": "MARBO 9000口-檸檬海鹽"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 815,
+"product_name": "MARBO 9000口-酸軟糖"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 816,
+"product_name": "MARBO 9000口-檸檬水"
+},
+{
+"brand_id": 63,
+"brand_name": "MARBO 9000口",
+"product_id": 817,
+"product_name": "MARBO 9000口-水蜜桃冰"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 824,
+"product_name": "TISIC-黑騎士 蜜桃威士忌"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 825,
+"product_name": "TISIC-黑騎士 黑加侖泡泡糖"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 826,
+"product_name": "TISIC-黑騎士 茉莉綠茶"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 827,
+"product_name": "TISIC-黑騎士 冰咖啡"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 828,
+"product_name": "TISIC-黑騎士 冰西瓜"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 829,
+"product_name": "TISIC-黑騎士 雪茄菸草"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 830,
+"product_name": "TISIC-黑騎士 密露思冰樂"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 831,
+"product_name": "TISIC-黑騎士 海鹽檸檬"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 832,
+"product_name": "TISIC-黑騎士 混合莓果"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 833,
+"product_name": "TISIC-黑騎士 南極冰"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 834,
+"product_name": "TISIC-萌貓派對 葡萄香檳"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 835,
+"product_name": "TISIC-萌貓派對 茉莉鐵觀音"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 836,
+"product_name": "TISIC-萌貓派對 老冰棍"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 837,
+"product_name": "TISIC-萌貓派對 草莓奇異果"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 838,
+"product_name": "TISIC-萌貓派對 芒果桃子"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 839,
+"product_name": "TISIC-萌貓派對 莓果冰沙"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 840,
+"product_name": "TISIC-萌貓派對 荔枝覆盆子"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 841,
+"product_name": "TISIC-萌貓派對 薄荷"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 842,
+"product_name": "TISIC-萌貓派對 芭樂冰沙"
+},
+{
+"brand_id": 66,
+"brand_name": "TISIC-黑騎士/萌貓派對12000口",
+"product_id": 843,
+"product_name": "TISIC-萌貓派對 百香果綠茶"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 894,
+"product_name": "Relx GA8000口-綠豆冰"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 895,
+"product_name": "Relx GA8000口-極涼青提"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 896,
+"product_name": "Relx GA8000口-冷泡龍井"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 897,
+"product_name": "Relx GA8000口-鳳梨"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 898,
+"product_name": "Relx GA8000口-鐵觀音"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 899,
+"product_name": "Relx GA8000口-混合莓果"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 900,
+"product_name": "Relx GA8000口-番石柳"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 901,
+"product_name": "Relx GA8000口-白桃烏龍"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 902,
+"product_name": "Relx GA8000口-芒果"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 903,
+"product_name": "Relx GA8000口-檸檬紅茶"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 904,
+"product_name": "Relx GA8000口-海鹽檸檬"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 905,
+"product_name": "Relx GA8000口-百香果"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 906,
+"product_name": "Relx GA8000口-西瓜"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 907,
+"product_name": "Relx GA8000口-薄荷"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 908,
+"product_name": "Relx GA8000口-冬瓜檸檬茶"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 909,
+"product_name": "Relx GA8000口-可樂"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 910,
+"product_name": "Relx GA8000口-荔枝"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 911,
+"product_name": "Relx GA8000口-葡萄"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 912,
+"product_name": "Relx GA8000口-礦泉水"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 913,
+"product_name": "Relx GA8000口-藍莓"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 1144,
+"product_name": "Relx GA8000口-西柚百香果"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 1145,
+"product_name": "Relx GA8000口-藍莓菸草"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 1146,
+"product_name": "Relx GA8000口-經典菸草"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 1147,
+"product_name": "Relx GA8000口-南極茉莉"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 1148,
+"product_name": "Relx GA8000口-酸梅番石榴"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 1149,
+"product_name": "Relx GA8000口-冰川薄荷"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 1150,
+"product_name": "Relx GA8000口-青芒"
+},
+{
+"brand_id": 70,
+"brand_name": "Relx GA8000口",
+"product_id": 1151,
+"product_name": "Relx GA8000口-巨峰葡萄"
+},
+{
+"brand_id": 71,
+"brand_name": "TUTX 6500口",
+"product_id": 921,
+"product_name": "TUTX 6500口-鐵觀音"
+},
+{
+"brand_id": 71,
+"brand_name": "TUTX 6500口",
+"product_id": 928,
+"product_name": "TUTX 6500口-南極冰"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 959,
+"product_name": "CHILL拋棄式西瓜"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 960,
+"product_name": "CHILL拋棄式覆盆子森林"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 961,
+"product_name": "CHILL拋棄式蜜桃"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 962,
+"product_name": "CHILL拋棄式芭樂"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 963,
+"product_name": "CHILL拋棄式百香果"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 964,
+"product_name": "CHILL拋棄式龍井"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 965,
+"product_name": "CHILL拋棄式葡萄"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 966,
+"product_name": "CHILL拋棄式薄荷"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 967,
+"product_name": "CHILL拋棄式陽光玫瑰青提"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 968,
+"product_name": "CHILL拋棄式伯牙絕弦"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 1076,
+"product_name": "CHILL拋棄式荔枝"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 1077,
+"product_name": "CHILL拋棄式奶油菸草"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 1078,
+"product_name": "CHILL拋棄式藍莓"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 1079,
+"product_name": "CHILL拋棄式冰棍"
+},
+{
+"brand_id": 79,
+"brand_name": "CHILL拋棄式8800口",
+"product_id": 1080,
+"product_name": "CHILL拋棄式青峰雪(橘子柚子)"
+},
+{
+"brand_id": 80,
+"brand_name": "NIGA主機",
+"product_id": 972,
+"product_name": "NIGA主機航海王索隆-綠"
+},
+{
+"brand_id": 80,
+"brand_name": "NIGA主機",
+"product_id": 973,
+"product_name": "NIGA主機航海王魯夫-藍"
+},
+{
+"brand_id": 80,
+"brand_name": "NIGA主機",
+"product_id": 974,
+"product_name": "NIGA主機多拉A夢"
+},
+{
+"brand_id": 80,
+"brand_name": "NIGA主機",
+"product_id": 975,
+"product_name": "NIGA主機庫洛米"
+},
+{
+"brand_id": 80,
+"brand_name": "NIGA主機",
+"product_id": 976,
+"product_name": "NIGA主機KT貓"
+},
+{
+"brand_id": 80,
+"brand_name": "NIGA主機",
+"product_id": 977,
+"product_name": "NIGA主機蠟筆小新"
+},
+{
+"brand_id": 80,
+"brand_name": "NIGA主機",
+"product_id": 978,
+"product_name": "NIGA主機火影忍者卡卡西"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 980,
+"product_name": "RELX Smash Go 12000紫晶葡萄"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 981,
+"product_name": "RELX Smash Go 12000百香金果"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 982,
+"product_name": "RELX Smash Go 12000冰新薄荷"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 983,
+"product_name": "RELX Smash Go 12000清澄芭樂"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 984,
+"product_name": "RELX Smash Go 12000赤玉西瓜"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 985,
+"product_name": "RELX Smash Go 12000葡萄荔枝"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 986,
+"product_name": "RELX Smash Go 12000冰沁可樂"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 987,
+"product_name": "RELX Smash Go 12000金耀芒果"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 988,
+"product_name": "RELX Smash Go 12000紫冰藍莓"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 989,
+"product_name": "RELX Smash Go 12000樹頂蘋果"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 990,
+"product_name": "RELX Smash Go 12000韻香鐵觀"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 991,
+"product_name": "RELX Smash Go 12000混合莓果"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 992,
+"product_name": "RELX Smash Go 12000白桃烏龍"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 993,
+"product_name": "RELX Smash Go 12000沁爽青檸"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 994,
+"product_name": "RELX Smash Go 12000冰川泉水"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 995,
+"product_name": "RELX Smash Go 12000翡翠青提"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 996,
+"product_name": "RELX Smash Go 12000草莓晶鑽"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 997,
+"product_name": "RELX Smash Go 12000海鹽檸檬"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 998,
+"product_name": "RELX Smash Go 12000寶礦力"
+},
+{
+"brand_id": 81,
+"brand_name": "RELX Smash Go12000",
+"product_id": 999,
+"product_name": "RELX Smash Go 12000黑金氣泡(沙士)"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1000,
+"product_name": "Dot Plus 8000 Puffs 葡萄"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1001,
+"product_name": "Dot Plus 8000 Puffs 百香果"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1002,
+"product_name": "Dot Plus 8000 Puffs 薄荷"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1003,
+"product_name": "Dot Plus 8000 Puffs 番石榴"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1004,
+"product_name": "Dot Plus 8000 Puffs 西瓜"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1005,
+"product_name": "Dot Plus 8000 Puffs 荔枝"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1006,
+"product_name": "Dot Plus 8000 Puffs 芒果"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1007,
+"product_name": "Dot Plus 8000 Puffs 藍莓"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1008,
+"product_name": "Dot Plus 8000 Puffs 蜜桃"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1009,
+"product_name": "Dot Plus 8000 Puffs 鐵觀音"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1010,
+"product_name": "Dot Plus 8000 Puffs 檸檬可樂"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1012,
+"product_name": "Dot Plus 8000 Puffs 龍井"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1013,
+"product_name": "Dot Plus 8000 Puffs 青提"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1014,
+"product_name": "Dot Plus 8000 Puffs 海鹽檸檬"
+},
+{
+"brand_id": 82,
+"brand_name": "Dot Plus 8000 Puffs ",
+"product_id": 1015,
+"product_name": "Dot Plus 8000 Puffs 蘇打"
+},
+{
+"brand_id": 83,
+"brand_name": "MistX 6500口",
+"product_id": 1027,
+"product_name": "MistX 6500口莓果"
+},
+{
+"brand_id": 83,
+"brand_name": "MistX 6500口",
+"product_id": 1028,
+"product_name": "MistX 6500口沙士"
+},
+{
+"brand_id": 83,
+"brand_name": "MistX 6500口",
+"product_id": 1033,
+"product_name": "MistX 6500口寶礦力"
+},
+{
+"brand_id": 83,
+"brand_name": "MistX 6500口",
+"product_id": 1034,
+"product_name": "MistX 6500口椰子水"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1049,
+"product_name": "MEHA 泰坦15000口多肉葡萄"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1050,
+"product_name": "MEHA 泰坦15000口百香果汁"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1051,
+"product_name": "MEHA 泰坦15000口紅心芭樂"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1052,
+"product_name": "MEHA 泰坦15000口掛綠荔枝"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1053,
+"product_name": "MEHA 泰坦15000口多汁蜜桃"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1054,
+"product_name": "MEHA 泰坦15000口香瓜密語"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1055,
+"product_name": "MEHA 泰坦15000口鐵觀音"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1056,
+"product_name": "MEHA 泰坦15000口元氣檸檬"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1057,
+"product_name": "MEHA 泰坦15000口VCT菸草"
+},
+{
+"brand_id": 85,
+"brand_name": "MEHA 泰坦15000口",
+"product_id": 1058,
+"product_name": "MEHA 泰坦15000口蘭芷烏龍"
+},
+{
+"brand_id": 86,
+"brand_name": "MEHA 泰坦主機",
+"product_id": 1059,
+"product_name": "MEHA 泰坦主機-蒼藍極光"
+},
+{
+"brand_id": 86,
+"brand_name": "MEHA 泰坦主機",
+"product_id": 1060,
+"product_name": "MEHA 泰坦主機-紫魅幻影"
+},
+{
+"brand_id": 86,
+"brand_name": "MEHA 泰坦主機",
+"product_id": 1061,
+"product_name": "MEHA 泰坦主機-鈦空啞灰"
+},
+{
+"brand_id": 86,
+"brand_name": "MEHA 泰坦主機",
+"product_id": 1062,
+"product_name": "MEHA 泰坦主機-暗影鎏金"
+},
+{
+"brand_id": 86,
+"brand_name": "MEHA 泰坦主機",
+"product_id": 1063,
+"product_name": "MEHA 泰坦主機-粉霧幻影"
+},
+{
+"brand_id": 89,
+"brand_name": "RELX Creator7500(優惠套裝彈+機)",
+"product_id": 1116,
+"product_name": "RELX Creator7500葡萄"
+},
+{
+"brand_id": 89,
+"brand_name": "RELX Creator7500(優惠套裝彈+機)",
+"product_id": 1117,
+"product_name": "RELX Creator7500薄荷"
+},
+{
+"brand_id": 89,
+"brand_name": "RELX Creator7500(優惠套裝彈+機)",
+"product_id": 1118,
+"product_name": "RELX Creator7500鐵觀音"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1119,
+"product_name": "RELX Creator 22000葡萄"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1120,
+"product_name": "RELX Creator 22000青葡萄"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1121,
+"product_name": "RELX Creator 22000百香果"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1122,
+"product_name": "RELX Creator 22000薄荷"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1123,
+"product_name": "RELX Creator 22000芭樂"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1124,
+"product_name": "RELX Creator 22000西瓜"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1125,
+"product_name": "RELX Creator 22000茉香西瓜"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1126,
+"product_name": "RELX Creator 22000荔枝"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1127,
+"product_name": "RELX Creator 22000梅子可樂"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1128,
+"product_name": "RELX Creator 22000蜜桃"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1129,
+"product_name": "RELX Creator 22000鐵觀音"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1130,
+"product_name": "RELX Creator 22000青葡萄鐵觀音"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1131,
+"product_name": "RELX Creator 22000極涼青檸"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1132,
+"product_name": "RELX Creator 22000極涼礦泉水"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1133,
+"product_name": "RELX Creator 22000檸檬海鹽"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1134,
+"product_name": "RELX Creator 22000茉香芭樂"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1135,
+"product_name": "RELX Creator 22000沙士"
+},
+{
+"brand_id": 90,
+"brand_name": "RELX Creator 22000",
+"product_id": 1136,
+"product_name": "RELX Creator 22000酸梅青檸汁"
+},
+{
+"brand_id": 91,
+"brand_name": "RELX Creator 主機",
+"product_id": 1137,
+"product_name": "RELX Creator 主機灰黑"
+},
+{
+"brand_id": 91,
+"brand_name": "RELX Creator 主機",
+"product_id": 1138,
+"product_name": "RELX Creator 主機橙白"
+},
+{
+"brand_id": 91,
+"brand_name": "RELX Creator 主機",
+"product_id": 1139,
+"product_name": "RELX Creator 主機紫綠"
+},
+{
+"brand_id": 92,
+"brand_name": "LANA小瓶油 (30ML)",
+"product_id": 1183,
+"product_name": "LANA小瓶油 (30ML) - 鐵觀音"
+},
+{
+"brand_id": 92,
+"brand_name": "LANA小瓶油 (30ML)",
+"product_id": 1184,
+"product_name": "LANA小瓶油 (30ML) - 莓果"
+},
+{
+"brand_id": 92,
+"brand_name": "LANA小瓶油 (30ML)",
+"product_id": 1185,
+"product_name": "LANA小瓶油 (30ML) - 西瓜"
+},
+{
+"brand_id": 92,
+"brand_name": "LANA小瓶油 (30ML)",
+"product_id": 1186,
+"product_name": "LANA小瓶油 (30ML) - 橙冰"
+},
+{
+"brand_id": 92,
+"brand_name": "LANA小瓶油 (30ML)",
+"product_id": 1187,
+"product_name": "LANA小瓶油 (30ML) - 荔枝"
+},
+{
+"brand_id": 92,
+"brand_name": "LANA小瓶油 (30ML)",
+"product_id": 1188,
+"product_name": "LANA小瓶油 (30ML) - 葡萄"
+},
+{
+"brand_id": 92,
+"brand_name": "LANA小瓶油 (30ML)",
+"product_id": 1189,
+"product_name": "LANA小瓶油 (30ML) - 蘋果"
+},
+{
+"brand_id": 92,
+"brand_name": "LANA小瓶油 (30ML)",
+"product_id": 1190,
+"product_name": "LANA小瓶油 (30ML) - 寶礦力"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1213,
+"product_name": "LANA PIX20000 - 葡萄"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1214,
+"product_name": "LANA PIX20000 - 青提"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1215,
+"product_name": "LANA PIX20000 - 百香果"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1216,
+"product_name": "LANA PIX20000 - 留蘭香薄荷"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1217,
+"product_name": "LANA PIX20000 - 芭樂"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1218,
+"product_name": "LANA PIX20000 - 西瓜"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1219,
+"product_name": "LANA PIX20000 - 荔枝"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1220,
+"product_name": "LANA PIX20000 - 芒果"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1221,
+"product_name": "LANA PIX20000 - 水蜜桃"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1222,
+"product_name": "LANA PIX20000 - 龍井"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1223,
+"product_name": "LANA PIX20000 - 莓果"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1224,
+"product_name": "LANA PIX20000 - 鳳梨"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1225,
+"product_name": "LANA PIX20000 - 粉紅檸檬"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1226,
+"product_name": "LANA PIX20000 - 草莓"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1227,
+"product_name": "LANA PIX20000 - 雪梨"
+},
+{
+"brand_id": 95,
+"brand_name": "LANA PIX20000",
+"product_id": 1228,
+"product_name": "LANA PIX20000 - 堅果菸草"
+}
+]

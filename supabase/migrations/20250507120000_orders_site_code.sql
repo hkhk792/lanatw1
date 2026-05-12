@@ -182,6 +182,9 @@ BEGIN
 END;
 $$;
 
+-- 列序与前一版视图不同，CREATE OR REPLACE 会报 42P16；先 DROP 再建。
+DROP VIEW IF EXISTS public.orders_shippable_lines CASCADE;
+
 CREATE OR REPLACE VIEW public.orders_shippable_lines AS
 SELECT
   o.id AS order_id,
