@@ -5,6 +5,7 @@ import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
 import { Sp2sGen1PodsCatalog } from "@/lib/responsiveImageVariants.generated";
 
 const GEN1_PODS_ROUTE = "/product/sp2s-gen1-pods";
+const CATALOG_ANCHOR = "/#disposables";
 
 const Hero = () => {
   return (
@@ -28,7 +29,7 @@ const Hero = () => {
           <p className="mb-6 inline-flex max-w-full flex-wrap items-center gap-2 text-[10px] uppercase tracking-luxury text-gold animate-fade-in-up sm:mb-10 sm:gap-3">
             <span className="h-px w-6 shrink-0 bg-gold/60 sm:w-10" />
             <span className="inline-flex min-w-0 flex-wrap items-center gap-x-2 gap-y-0.5 font-serif">
-              彈匣系統
+              精選目錄
               <span className="text-gold/50">·</span>
               <BrandSp2s className="text-[10px] tracking-luxury text-gold" />
             </span>
@@ -40,11 +41,11 @@ const Hero = () => {
           >
             <div className="mb-1.5 sm:mb-2">
               <span className="text-gradient-gold">
-                <BrandSp2s className="font-serif text-inherit" /> 煙彈通用一代，
+                主機、一次性、通配，
               </span>
             </div>
             <div className="text-[1.05rem] italic leading-snug text-foreground/70 sm:text-3xl sm:leading-[1.07] md:text-5xl md:leading-[1.05] lg:text-6xl xl:text-7xl">
-              陶瓷白芯 · 口味全陣容。
+              <BrandSp2s className="font-serif text-inherit italic" /> 同一套選品標準。
             </div>
           </h1>
 
@@ -52,7 +53,7 @@ const Hero = () => {
             className="mt-5 max-w-md text-[14px] leading-relaxed text-muted-foreground animate-fade-in-up sm:mt-8 sm:text-base md:text-lg md:tracking-vogue font-light"
             style={{ animationDelay: "0.25s" }}
           >
-            白色陶瓷芯霧化細緻，相容多款一代主機；水果、汽水冰感、茶飲與甜品系，三十六種風味一次瀏覽。
+            首頁目錄已合併門市熱賣與新匯入系列：旗艦主機、大口數一次性到一代／五代通配，點進條目即可看規格、口味並加入購物車。
           </p>
 
           <div
@@ -60,10 +61,10 @@ const Hero = () => {
             style={{ animationDelay: "0.4s" }}
           >
             <Link
-              to={GEN1_PODS_ROUTE}
+              to={CATALOG_ANCHOR}
               className="group inline-flex min-h-[48px] w-full items-center justify-center gap-3 bg-gradient-gold px-8 py-3.5 text-[11px] font-medium uppercase tracking-luxury text-primary-foreground transition-all duration-500 ease-luxury hover:shadow-gold sm:w-auto sm:justify-start sm:px-10 sm:py-4"
             >
-              立即選購
+              瀏覽分類目錄
               <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
             </Link>
             <Link
@@ -71,7 +72,7 @@ const Hero = () => {
               className="group inline-flex min-h-[44px] w-full items-center justify-center gap-3 py-2 text-[11px] uppercase tracking-luxury text-foreground/70 transition-colors duration-500 hover:text-gold sm:w-auto sm:justify-start sm:py-0"
             >
               <span className="hidden h-px w-8 bg-gold/40 transition-colors duration-500 group-hover:bg-gold sm:inline-block" />
-              36 口味 · 查看詳情
+              一代菸彈 · 三十六口味
             </Link>
           </div>
         </div>
