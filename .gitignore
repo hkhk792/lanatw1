@@ -28,3 +28,4 @@ dist-ssr
 
 scripts/.phpstack-products-dump.json
 .tmp-home.html
+.tmp-login.html
