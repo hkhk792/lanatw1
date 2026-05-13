@@ -10,7 +10,8 @@ function isAgeOrLineGateOk() {
   );
 }
 
-const posterPrimary = `${import.meta.env.BASE_URL}promo/entry-buy5-splash.png`;
+/** 查詢參數：更換海報檔後遞增，避免 CDN／瀏覽器沿用舊快取 */
+const posterPrimary = `${import.meta.env.BASE_URL}promo/entry-buy5-splash.png?v=3`;
 const posterLegacy = `${import.meta.env.BASE_URL}promo/entry-activity.jpg`;
 
 type Props = {
@@ -57,12 +58,12 @@ const EntryActivityPromoGate = ({ gateEpoch }: Props) => {
         {/* 活動海報（新檔優先；無則回退舊圖／內建版式） */}
         <div className="relative flex flex-1 flex-col items-center justify-center px-2 pt-4 pb-2 sm:px-4 sm:pt-6">
           <h1 id="entry-promo-title" className="sr-only">
-            超值活動：LANA 與 SP2S 分別買五送一，須同品牌系列，贈品為該品牌隨機口味
+            超值活動：LANA 與 SP2S 買五送一，五件須為同品牌系列，贈品為該品牌隨機口味
           </h1>
           {!posterFailed ? (
             <img
               src={posterSrc}
-              alt="超值活動：LANA 買五送一、SP2S 買五送一，任選同品牌口味，贈品隨機口味"
+              alt="LANAVAPE 與 SP2S 買五送一活動：同品牌五件，贈該品牌隨機口味"
               className="max-h-[min(88dvh,calc(100dvh-9rem))] w-full max-w-2xl object-contain object-top"
               loading="eager"
               decoding="async"
