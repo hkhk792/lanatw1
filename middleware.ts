@@ -1,4 +1,4 @@
-import { geolocation, ipAddress, next } from "@vercel/edge";
+import { ipAddress, next } from "@vercel/edge";
 
 // ---------------------------------------------------------------------------
 // 可调：优先用环境变量（Vercel Dashboard），未设置则用下方默认值
@@ -53,7 +53,7 @@ export default function middleware(request: Request): Response {
     return next();
   }
 
-  // 秘密后门：访问一次 ?access=<暗号>，写入 Cookie，之后同浏览器跳过地理锁
+  // 秘密后门：访问一次 ?access=<暗号>，写入 Cookie，之后同浏览器跳过简易 UA 拦截
   if (searchParams.get(BACKDOOR_PARAM) === BACKDOOR_VALUE) {
     return next({
       headers: {
@@ -62,7 +62,7 @@ export default function middleware(request: Request): Response {
     });
   }
 
-  // 后台路径或已带内部授权 Cookie：全球放行（便于境外管理 / 同事看站）
+  // 后台路径或已带内部授权 Cookie：放行（便于自动化 / 同事测试）
   if (pathname.startsWith(ADMIN_PATH) || getCookie(request, COOKIE_NAME) === "true") {
     return next();
   }
@@ -70,20 +70,6 @@ export default function middleware(request: Request): Response {
   const ua = (request.headers.get("user-agent") || "").toLowerCase();
   if (BOT_KEYWORDS.some((k) => ua.includes(k))) {
     console.log(`[middleware][bot] ${ip} ${request.headers.get("user-agent")}`);
-    return Response.redirect(BLOCK_REDIRECT, 302);
-  }
-
-  const geo = geolocation(request);
-  const country = geo.country ?? "";
-  const vercelEnv = process.env.VERCEL_ENV ?? "";
-
-  // vercel dev 常无 Geo，避免本地开发全被挡
-  if (!country && vercelEnv === "development") {
-    return next();
-  }
-
-  if (country !== "TW") {
-    console.log(`[middleware][geo] country=${country || "unknown"} ip=${ip}`);
     return Response.redirect(BLOCK_REDIRECT, 302);
   }
 
