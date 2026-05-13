@@ -9,7 +9,10 @@ const CATALOG_ANCHOR = "/#disposables";
 
 const Hero = () => {
   return (
-    <section className="relative flex w-full max-md:min-h-0 max-md:items-start md:min-h-screen md:items-center overflow-hidden pt-[calc(6.5rem+env(safe-area-inset-top,0px))] pb-12 sm:pb-24 md:pb-28 lg:pb-32">
+    <section
+      id="hero"
+      className="relative flex w-full max-md:min-h-0 max-md:items-start md:min-h-screen md:items-center overflow-hidden scroll-mt-24 pt-[calc(6.5rem+env(safe-area-inset-top,0px))] pb-12 sm:pb-24 md:pb-28 sm:scroll-mt-28 lg:pb-32"
+    >
       {/* Cinematic background */}
       <div className="absolute inset-0">
         <ResponsiveAssetImg

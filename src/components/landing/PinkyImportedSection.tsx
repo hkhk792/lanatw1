@@ -301,9 +301,27 @@ function sortPodSectionCards(legacy: DisplayCard[], imported: DisplayCard[]): Di
   return [...head, ...imported, ...tailShells, ...gear];
 }
 
+function catalogSectionDomId(
+  category: (typeof SECTION_CONFIG)[number]["category"]
+): string {
+  switch (category) {
+    case "主機系列":
+      return "home-catalog-host";
+    case "拋棄式／大口數系列":
+      return "home-catalog-disposable";
+    case "菸彈／通配系列":
+      return "home-catalog-pods";
+    default:
+      return "home-catalog";
+  }
+}
+
 const PinkyImportedSection = () => {
   return (
-    <section id="disposables" className="relative border-y hairline py-12 sm:py-24 md:py-36 lg:py-44">
+    <section
+      id="disposables"
+      className="relative scroll-mt-24 border-y hairline py-12 sm:scroll-mt-28 sm:py-24 md:py-36 lg:py-44"
+    >
       <div className="container max-sm:px-3">
         <div className="space-y-14 sm:space-y-18 md:space-y-24">
           {SECTION_CONFIG.map((section) => {
@@ -317,7 +335,11 @@ const PinkyImportedSection = () => {
             if (cards.length === 0) return null;
 
             return (
-              <div key={section.category}>
+              <div
+                key={section.category}
+                id={catalogSectionDomId(section.category)}
+                className="scroll-mt-24 sm:scroll-mt-28"
+              >
                 <div className="mb-6 sm:mb-8 md:mb-10">
                   <p className="mb-3 flex items-center gap-2 text-[9px] uppercase tracking-luxury text-gold sm:text-[10px]">
                     <span className="h-px w-6 bg-gold/60 sm:w-10" />

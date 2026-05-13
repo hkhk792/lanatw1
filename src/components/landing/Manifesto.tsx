@@ -31,7 +31,7 @@ const Manifesto = () => {
   return (
     <section
       id="manifesto"
-      className="relative border-y hairline py-16 sm:py-24 md:py-44 lg:py-60"
+      className="relative scroll-mt-24 border-y hairline py-16 sm:scroll-mt-28 sm:py-24 md:py-44 lg:py-60"
     >
       <div className="absolute inset-0 spotlight opacity-30 pointer-events-none" />
       <div className="container relative max-sm:px-3">

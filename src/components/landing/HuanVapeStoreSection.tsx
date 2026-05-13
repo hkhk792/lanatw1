@@ -60,7 +60,7 @@ const HuanVapeStoreSection = () => {
   return (
     <section
       id="taiwan-vape-store"
-      className="relative border-y hairline bg-background py-14 sm:py-20 md:py-28"
+      className="relative scroll-mt-24 border-y hairline bg-background py-14 sm:scroll-mt-28 sm:py-20 md:py-28"
       aria-labelledby="taiwan-vape-store-heading"
     >
       <div className="absolute inset-0 pointer-events-none spotlight opacity-20" />
