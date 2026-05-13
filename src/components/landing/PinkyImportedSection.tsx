@@ -161,7 +161,7 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     id: "sp2s-universal-pods",
     name: "SP2S 煙彈",
     flavor: "一代通用 · 32 口味可選",
-    price: "NT$325",
+    price: "NT$280",
     image: sp2sUniversalPodHeroImage(),
   },
   {
@@ -194,6 +194,20 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     flavor: "鹽尼古丁配方 · 風味層次",
     price: "NT$350",
     image: showcaseELiquid,
+  },
+  {
+    id: "sp2s-empty-shell-standard",
+    name: "SP2／SP2S 一代空殼（一般版黑芯）",
+    flavor: "空殼 · 約 2.3ml · NT$35／顆 · 100 顆起拿",
+    price: "NT$35",
+    image: "/sp2s-empty-shells/standard-black-core.png",
+  },
+  {
+    id: "sp2s-empty-shell-pro",
+    name: "SP2S 一代空殼（Pro 版盒裝殼）",
+    flavor: "空殼 · 約 2.3ml · NT$35／顆 · 100 顆起拿",
+    price: "NT$35",
+    image: "/sp2s-empty-shells/pro-shell.png",
   },
   {
     id: "showcase-gear",
@@ -274,10 +288,17 @@ function buildImportedCardsByCategory(category: CatalogCategory): DisplayCard[] 
 /** 首頁「配件」精選卡固定排在該區網格最後一排 */
 const LEGACY_ACCESSORY_SHOWCASE_ID = "showcase-gear";
 
+/** 空殼等補貨款：排在匯入目錄之後、配件卡之前 */
+const LEGACY_POD_TAIL_IDS = ["sp2s-empty-shell-standard", "sp2s-empty-shell-pro"] as const;
+
 function sortPodSectionCards(legacy: DisplayCard[], imported: DisplayCard[]): DisplayCard[] {
-  const tail = legacy.filter((c) => c.id === LEGACY_ACCESSORY_SHOWCASE_ID);
-  const head = legacy.filter((c) => c.id !== LEGACY_ACCESSORY_SHOWCASE_ID);
-  return [...head, ...imported, ...tail];
+  const tailIdSet = new Set<string>([LEGACY_ACCESSORY_SHOWCASE_ID, ...LEGACY_POD_TAIL_IDS]);
+  const tailShells = LEGACY_POD_TAIL_IDS.map((id) => legacy.find((c) => c.id === id)).filter(
+    (c): c is DisplayCard => Boolean(c)
+  );
+  const gear = legacy.filter((c) => c.id === LEGACY_ACCESSORY_SHOWCASE_ID);
+  const head = legacy.filter((c) => !tailIdSet.has(c.id));
+  return [...head, ...imported, ...tailShells, ...gear];
 }
 
 const PinkyImportedSection = () => {

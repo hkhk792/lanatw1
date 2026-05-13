@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useCart } from "@/contexts/CartContext";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
+import { buy5Get1PoolSummaries, buildCheckoutOrderItems } from "@/lib/cartBuy5Get1";
 import { CheckoutFooter, CheckoutProgress } from "@/components/checkout/CheckoutChrome";
 
 const FREE_SHIPPING_THRESHOLD = 1500;
@@ -18,7 +19,20 @@ const fieldClass =
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const { lines, subtotalTwd, clearCart } = useCart();
+  const { lines, clearCart } = useCart();
+
+  const orderItems = useMemo(() => buildCheckoutOrderItems(lines), [lines]);
+  const subtotalTwd = useMemo(
+    () => orderItems.reduce((s, it) => s + it.lineTotalTwd, 0),
+    [orderItems]
+  );
+  const buy5Summaries = useMemo(() => buy5Get1PoolSummaries(lines), [lines]);
+
+  const promoLabel = (productId: string) => {
+    if (productId === "sp2s-universal-pods") return "SP2S 煙彈";
+    if (productId === "lana-pods") return "LANA 煙彈";
+    return productId;
+  };
 
   const [country, setCountry] = useState("台灣");
   const [name, setName] = useState("");
@@ -71,14 +85,14 @@ const Checkout = () => {
       subtotalTwd,
       shippingTwd,
       totalTwd,
-      items: lines.map((line) => ({
-        productModel: line.title,
-        variant: line.variant,
-        quantity: line.quantity,
-        unitPriceTwd: line.priceTwd,
-        lineTotalTwd: line.priceTwd * line.quantity,
-        productId: line.productId,
-        imageUrl: line.imageUrl ?? "",
+      items: orderItems.map((it) => ({
+        productModel: it.productModel,
+        variant: it.variant,
+        quantity: it.quantity,
+        unitPriceTwd: it.unitPriceTwd,
+        lineTotalTwd: it.lineTotalTwd,
+        productId: it.productId,
+        imageUrl: it.imageUrl ?? "",
       })),
     };
 
@@ -283,31 +297,50 @@ const Checkout = () => {
               <h2 className="text-lg font-semibold text-neutral-900">您的訂單</h2>
 
               <div className="mt-6 space-y-4 border-b border-neutral-200 pb-6">
-                {lines.map((line) => (
-                  <div key={line.lineId} className="flex gap-3 text-sm">
-                    <div className="h-14 w-14 shrink-0 border border-neutral-200 bg-white">
-                      {line.imageUrl ? (
-                        <img src={line.imageUrl} alt="" className="h-full w-full object-contain" />
-                      ) : (
-                        <div className="flex h-full items-center justify-center text-[10px] text-neutral-400">
-                          商品
-                        </div>
-                      )}
+                {orderItems.map((it) => {
+                  const isGift = it.productId.endsWith("::buy5-gift");
+                  return (
+                    <div
+                      key={`${it.productId}-${it.variant}`}
+                      className={`flex gap-3 text-sm ${isGift ? "rounded-md border border-emerald-200 bg-emerald-50/70 px-2 py-2" : ""}`}
+                    >
+                      <div className="h-14 w-14 shrink-0 border border-neutral-200 bg-white">
+                        {it.imageUrl ? (
+                          <img src={it.imageUrl} alt="" className="h-full w-full object-contain" />
+                        ) : (
+                          <div className="flex h-full items-center justify-center text-[10px] text-neutral-400">
+                            商品
+                          </div>
+                        )}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-medium leading-snug text-neutral-900">
+                          {isGift ? "贈品 · " : ""}
+                          {it.productModel}
+                        </p>
+                        <p className="mt-0.5 text-xs text-neutral-500">
+                          【{it.variant}】× {it.quantity}
+                        </p>
+                      </div>
+                      <p className="shrink-0 font-medium text-neutral-900">{formatTwd(it.lineTotalTwd)}</p>
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="font-medium leading-snug text-neutral-900">{line.title}</p>
-                      <p className="mt-0.5 text-xs text-neutral-500">
-                        【{line.variant}】× {line.quantity}
-                      </p>
-                    </div>
-                    <p className="shrink-0 font-medium text-neutral-900">
-                      {formatTwd(line.priceTwd * line.quantity)}
-                    </p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               <dl className="mt-6 space-y-3 text-sm">
+                {buy5Summaries.length > 0 && (
+                  <div className="rounded-md border border-emerald-200 bg-emerald-50/90 px-3 py-2 text-xs text-emerald-950">
+                    <ul className="space-y-1">
+                      {buy5Summaries.map((s) => (
+                        <li key={s.productId}>
+                          買五送一（{promoLabel(s.productId)}）：付費 {s.paidQty} 顆，贈 {s.giftUnits} 顆，共{" "}
+                          {s.totalPieces} 顆到手
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 <div className="flex justify-between text-neutral-600">
                   <dt>小計</dt>
                   <dd className="font-medium text-neutral-900">{formatTwd(subtotalTwd)}</dd>

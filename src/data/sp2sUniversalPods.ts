@@ -1,6 +1,6 @@
 /** 與 `public/sp2s-universal-pods/{01..32}.webp` 對齊；圖檔由匯出目錄批次複製 */
 export const SP2S_UNIVERSAL_POD_PRODUCT_ID = "sp2s-universal-pods";
-export const SP2S_UNIVERSAL_POD_PRICE_TWD = 325;
+export const SP2S_UNIVERSAL_POD_PRICE_TWD = 280;
 
 export const SP2S_UNIVERSAL_PODS_FLAVORS: readonly { index: number; name: string }[] = [
   { index: 1, name: "芭樂星冰" },

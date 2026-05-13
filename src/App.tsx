@@ -36,6 +36,7 @@ import LanavapNews10Page from "./pages/LanavapNews10Page.tsx";
 import AirportVapeArticlePage from "./pages/AirportVapeArticlePage.tsx";
 import PinkyImportedCatalogDetailPage from "./pages/PinkyImportedCatalogDetailPage.tsx";
 import Sp2sUniversalPodsDetail from "./pages/Sp2sUniversalPodsDetail.tsx";
+import { Sp2sEmptyShellProDetail, Sp2sEmptyShellStandardDetail } from "./pages/Sp2sEmptyShellDetails.tsx";
 
 const queryClient = new QueryClient();
 
@@ -75,6 +76,8 @@ const App = () => (
             <Route path="/product/diya-pods" element={<DiyaPodsDetail />} />
             <Route path="/product/sp2s-gen1-pods" element={<Sp2sGen1PodsDetail />} />
             <Route path="/product/sp2s-universal-pods" element={<Sp2sUniversalPodsDetail />} />
+            <Route path="/product/sp2s-empty-shell-standard" element={<Sp2sEmptyShellStandardDetail />} />
+            <Route path="/product/sp2s-empty-shell-pro" element={<Sp2sEmptyShellProDetail />} />
             <Route path="/product/venus-host" element={<VenusHostDetail />} />
             <Route path="/product/mohoo-tokyo-box" element={<MohooTokyoBoxDetail />} />
             <Route path="/product/hebat-gen6" element={<HebatGen6Detail />} />

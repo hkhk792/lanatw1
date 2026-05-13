@@ -1,5 +1,7 @@
+import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
+import { buy5Get1PoolSummaries } from "@/lib/cartBuy5Get1";
 import {
   Sheet,
   SheetContent,
@@ -23,6 +25,14 @@ const CartSheet = () => {
     clearCart,
   } = useCart();
   const navigate = useNavigate();
+
+  const buy5Summaries = useMemo(() => buy5Get1PoolSummaries(lines), [lines]);
+
+  const promoLabel = (productId: string) => {
+    if (productId === "sp2s-universal-pods") return "SP2S 煙彈";
+    if (productId === "lana-pods") return "LANA 煙彈";
+    return productId;
+  };
 
   const handleGoCheckout = () => {
     if (lines.length === 0) return;
@@ -53,6 +63,8 @@ const CartSheet = () => {
     else if (productId === "diya-pods") navigate("/product/diya-pods");
     else if (productId === "sp2s-gen1-pods") navigate("/product/sp2s-gen1-pods");
     else if (productId === "sp2s-universal-pods") navigate("/product/sp2s-universal-pods");
+    else if (productId === "sp2s-empty-shell-standard") navigate("/product/sp2s-empty-shell-standard");
+    else if (productId === "sp2s-empty-shell-pro") navigate("/product/sp2s-empty-shell-pro");
     else if (productId === "showcase-e-liquid" || productId === "lana-e-liquid-30ml")
       navigate("/product/lana-e-liquid-30ml");
   };
@@ -67,7 +79,7 @@ const CartSheet = () => {
           <SheetTitle className="flex items-center gap-2 text-lg font-semibold text-gray-900">
             <ShoppingCart className="h-5 w-5" />
             購物車
-            <span className="text-sm font-normal text-gray-500">（{itemCount} 件）</span>
+            <span className="text-sm font-normal text-gray-500">（{itemCount} 顆）</span>
           </SheetTitle>
         </SheetHeader>
 
@@ -161,10 +173,51 @@ const CartSheet = () => {
                     </div>
                   </li>
                 ))}
+                {buy5Summaries.map((s) => (
+                  <li
+                    key={`gift-${s.productId}`}
+                    className="flex gap-3 rounded-xl border border-emerald-200/90 bg-emerald-50/60 p-3"
+                  >
+                    <div className="h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-emerald-200/80 bg-white">
+                      {s.poolImageUrl ? (
+                        <img
+                          src={s.poolImageUrl}
+                          alt="贈品"
+                          className="h-full w-full object-contain opacity-90"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-[10px] text-emerald-800">
+                          贈
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex min-w-0 flex-1 flex-col justify-between">
+                      <div>
+                        <p className="text-sm font-medium text-emerald-950">
+                          贈品 · 買五送一（{promoLabel(s.productId)}）
+                        </p>
+                        <p className="mt-1 text-xs text-emerald-900/90">
+                          付費 {s.paidQty} 顆 → 贈 {s.giftUnits} 顆，實際到手 {s.totalPieces} 顆
+                        </p>
+                      </div>
+                      <div className="mt-2 flex items-center justify-between">
+                        <span className="rounded-full border border-emerald-300 bg-white px-2 py-0.5 text-xs font-medium text-emerald-900">
+                          × {s.giftUnits}
+                        </span>
+                        <span className="text-sm font-semibold text-emerald-900">免費</span>
+                      </div>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="border-t border-gray-100 bg-white px-6 py-4">
+              {buy5Summaries.length > 0 && (
+                <p className="mb-3 text-[11px] leading-relaxed text-emerald-900/90">
+                  買五送一：贈品口味以門市／客服為準；小計為付費顆數金額，贈品不計價。
+                </p>
+              )}
               <div className="flex items-baseline justify-between text-gray-700">
                 <span className="text-sm">小計</span>
                 <span className="text-xl font-bold text-gray-900">{formatTwd(subtotalTwd)}</span>

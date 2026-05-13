@@ -16,6 +16,8 @@ import {
   ORDER_MODEL_MOHOO_BOX,
   ORDER_MODEL_NINGA_CARTOON,
   ORDER_MODEL_SP2S_GEN1_DEVICE,
+  ORDER_MODEL_SP2S_EMPTY_SHELL_PRO,
+  ORDER_MODEL_SP2S_EMPTY_SHELL_STANDARD,
   ORDER_MODEL_SP2S_UNIVERSAL_PODS,
   ORDER_MODEL_SP2S_PRO,
   ORDER_MODEL_SP2S_SILICONE_SLEEVE,
@@ -96,8 +98,20 @@ const QUICK_ADD_PRODUCTS: Record<
   "sp2s-universal-pods": {
     title: ORDER_MODEL_SP2S_UNIVERSAL_PODS,
     variant: "芭樂星冰",
-    priceTwd: 325,
+    priceTwd: 280,
     route: "/product/sp2s-universal-pods",
+  },
+  "sp2s-empty-shell-standard": {
+    title: ORDER_MODEL_SP2S_EMPTY_SHELL_STANDARD,
+    variant: "一般版黑芯空殼",
+    priceTwd: 35,
+    route: "/product/sp2s-empty-shell-standard",
+  },
+  "sp2s-empty-shell-pro": {
+    title: ORDER_MODEL_SP2S_EMPTY_SHELL_PRO,
+    variant: "Pro 版盒裝殼",
+    priceTwd: 35,
+    route: "/product/sp2s-empty-shell-pro",
   },
   "disp-vapengin": {
     title: ORDER_MODEL_VENUS_HOST,

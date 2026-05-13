@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { totalBuy5GiftPieces } from "@/lib/cartBuy5Get1";
 
 const STORAGE_KEY = "obsidian-vapor-zen-cart";
 
@@ -113,10 +114,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const closeCart = useCallback(() => setIsOpen(false), []);
   const toggleCart = useCallback(() => setIsOpen((v) => !v), []);
 
-  const itemCount = useMemo(
+  const paidPieceCount = useMemo(
     () => lines.reduce((sum, l) => sum + l.quantity, 0),
     [lines]
   );
+  const buy5GiftPieces = useMemo(() => totalBuy5GiftPieces(lines), [lines]);
+  const itemCount = paidPieceCount + buy5GiftPieces;
+
   const subtotalTwd = useMemo(
     () => lines.reduce((sum, l) => sum + l.priceTwd * l.quantity, 0),
     [lines]
