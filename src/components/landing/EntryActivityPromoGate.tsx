@@ -57,12 +57,12 @@ const EntryActivityPromoGate = ({ gateEpoch }: Props) => {
         {/* 活動海報（新檔優先；無則回退舊圖／內建版式） */}
         <div className="relative flex flex-1 flex-col items-center justify-center px-2 pt-4 pb-2 sm:px-4 sm:pt-6">
           <h1 id="entry-promo-title" className="sr-only">
-            超值活動：LANAVAPE／SP2S 指定系列買五送一
+            超值活動：LANA 與 SP2S 分別買五送一，須同品牌系列，贈品為該品牌隨機口味
           </h1>
           {!posterFailed ? (
             <img
               src={posterSrc}
-              alt="超值活動：LANAVAPE／SP2S 指定系列買五送一"
+              alt="超值活動：LANA 買五送一、SP2S 買五送一，任選同品牌口味，贈品隨機口味"
               className="max-h-[min(88dvh,calc(100dvh-9rem))] w-full max-w-2xl object-contain object-top"
               loading="eager"
               decoding="async"
