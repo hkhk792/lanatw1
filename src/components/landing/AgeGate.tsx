@@ -6,21 +6,31 @@ import { LineWelcomeGate } from "@/lib/responsiveImageVariants.generated";
 const STORAGE_DISMISSED = "sp2s-line-welcome-dismissed";
 /** 舊版年齡門檻鍵：已通過者不再顯示本頁 */
 const STORAGE_LEGACY_AGE = "sp2s-age-verified";
+/** 與首頁活動層一致：須先關閉活動頁再顯示 LINE 二維碼門檻 */
+const STORAGE_PROMO_DISMISSED = "sp2s-entry-activity-promo-dismissed";
 
 type AgeGateProps = {
-  /** 通過門檻後觸發（例如顯示首頁活動跳轉層） */
+  /** 通過門檻後觸發 */
   onAfterDismiss?: () => void;
+  /** 活動層關閉後遞增，用於接續顯示本門檻 */
+  resumeAfterPromoEpoch?: number;
 };
 
-const AgeGate = ({ onAfterDismiss }: AgeGateProps) => {
+const AgeGate = ({ onAfterDismiss, resumeAfterPromoEpoch = 0 }: AgeGateProps) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    const promoDone = sessionStorage.getItem(STORAGE_PROMO_DISMISSED) === "yes";
     const dismissed =
       sessionStorage.getItem(STORAGE_DISMISSED) === "yes" ||
       sessionStorage.getItem(STORAGE_LEGACY_AGE) === "yes";
+    if (!promoDone) {
+      setOpen(false);
+      return;
+    }
     if (!dismissed) setOpen(true);
-  }, []);
+    else setOpen(false);
+  }, [resumeAfterPromoEpoch]);
 
   const dismiss = () => {
     sessionStorage.setItem(STORAGE_DISMISSED, "yes");

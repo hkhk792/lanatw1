@@ -3,23 +3,16 @@ import { LINE_OFFICIAL_CUSTOMER_URL } from "@/constants/lineOfficial";
 
 const STORAGE_PROMO_DISMISSED = "sp2s-entry-activity-promo-dismissed";
 
-function isAgeOrLineGateOk() {
-  return (
-    sessionStorage.getItem("sp2s-line-welcome-dismissed") === "yes" ||
-    sessionStorage.getItem("sp2s-age-verified") === "yes"
-  );
-}
-
 /** 查詢參數：更換海報檔後遞增，避免 CDN／瀏覽器沿用舊快取 */
 const posterPrimary = `${import.meta.env.BASE_URL}promo/entry-buy5-splash.png?v=3`;
 const posterLegacy = `${import.meta.env.BASE_URL}promo/entry-activity.jpg`;
 
 type Props = {
-  /** 與 AgeGate 解鎖後連動，強制重新判斷是否顯示 */
-  gateEpoch: number;
+  /** 關閉活動層後觸發（例如接續顯示 LINE 二維碼門檻） */
+  onAfterDismiss?: () => void;
 };
 
-const EntryActivityPromoGate = ({ gateEpoch }: Props) => {
+const EntryActivityPromoGate = ({ onAfterDismiss }: Props) => {
   const [dismissedLocal, setDismissedLocal] = useState(false);
   const [posterFailed, setPosterFailed] = useState(false);
   const [useLegacyPoster, setUseLegacyPoster] = useState(false);
@@ -27,14 +20,13 @@ const EntryActivityPromoGate = ({ gateEpoch }: Props) => {
   const posterSrc = useLegacyPoster ? posterLegacy : posterPrimary;
 
   const canShow =
-    !dismissedLocal &&
-    sessionStorage.getItem(STORAGE_PROMO_DISMISSED) !== "yes" &&
-    isAgeOrLineGateOk();
+    !dismissedLocal && sessionStorage.getItem(STORAGE_PROMO_DISMISSED) !== "yes";
 
   const dismiss = useCallback(() => {
     sessionStorage.setItem(STORAGE_PROMO_DISMISSED, "yes");
     setDismissedLocal(true);
-  }, []);
+    onAfterDismiss?.();
+  }, [onAfterDismiss]);
 
   const onPosterError = useCallback(() => {
     if (!useLegacyPoster) {
@@ -48,7 +40,6 @@ const EntryActivityPromoGate = ({ gateEpoch }: Props) => {
 
   return (
     <div
-      key={gateEpoch}
       className="fixed inset-0 z-[58] flex flex-col overflow-y-auto overscroll-contain bg-[#050505] animate-fade-in"
       role="dialog"
       aria-modal="true"

@@ -15,7 +15,7 @@ import Footer from "@/components/landing/Footer";
 import HealthWarning from "@/components/landing/HealthWarning";
 
 const Index = () => {
-  const [promoGateEpoch, setPromoGateEpoch] = useState(0);
+  const [resumeAfterPromoEpoch, setResumeAfterPromoEpoch] = useState(0);
   useLayoutEffect(() => {
     if (consumeHomeScrollRestore()) {
       const y = getPersistedHomeScrollY();
@@ -58,8 +58,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden pb-[calc(3rem+env(safe-area-inset-bottom,0px))]">
-      <AgeGate onAfterDismiss={() => setPromoGateEpoch((n) => n + 1)} />
-      <EntryActivityPromoGate gateEpoch={promoGateEpoch} />
+      <AgeGate resumeAfterPromoEpoch={resumeAfterPromoEpoch} />
+      <EntryActivityPromoGate
+        onAfterDismiss={() => setResumeAfterPromoEpoch((n) => n + 1)}
+      />
       <Navbar />
       <main>
         <Hero />
