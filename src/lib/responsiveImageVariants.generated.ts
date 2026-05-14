@@ -6,7 +6,6 @@ import AtomizerHostGemini_R640 from "@/assets/atomizer-host-gemini.r640.webp";
 import DiyaPodsShowcase_Full from "@/assets/diya-pods-showcase.webp";
 import DiyaPodsShowcase_R640 from "@/assets/diya-pods-showcase.r640.webp";
 import HuanTaiwanVapeBanner_Full from "@/assets/huan-taiwan-vape-banner.webp";
-import HuanTaiwanVapeBanner_R1280 from "@/assets/huan-taiwan-vape-banner.r1280.webp";
 import HuanTaiwanVapeBanner_R640 from "@/assets/huan-taiwan-vape-banner.r640.webp";
 import LineWelcomeGate_Full from "@/assets/line-welcome-gate.webp";
 import Sp2sGen1PodsCatalog_Full from "@/assets/sp2s-gen1-pods-catalog.webp";
@@ -21,9 +20,9 @@ export const Sp2sGen1PodsCatalog = {
 
 export const HuanTaiwanVapeBanner = {
   src: HuanTaiwanVapeBanner_Full,
-  srcSet: `${HuanTaiwanVapeBanner_R640} 640w, ${HuanTaiwanVapeBanner_R1280} 1280w, ${HuanTaiwanVapeBanner_Full} 1484w`,
-  width: 1484,
-  height: 540,
+  srcSet: `${HuanTaiwanVapeBanner_R640} 640w, ${HuanTaiwanVapeBanner_Full} 1024w`,
+  width: 1024,
+  height: 681,
 } as const;
 
 export const LineWelcomeGate = {
