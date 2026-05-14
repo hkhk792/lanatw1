@@ -124,30 +124,10 @@ export async function buildShipmentWorkbookBuffer(orders) {
       ws.getCell(r, 7).value = variant;
     }
 
-    let hi = 0;
-    while (hi < items.length) {
-      const mk = modelKey(items[hi]);
-      let hj = hi + 1;
-      while (hj < items.length && modelKey(items[hj]) === mk) {
-        hj++;
-      }
-      const r1 = start + hi;
-      const r2 = start + hj - 1;
-      const slice = items.slice(hi, hj);
-      const q0 = Number(slice[0]?.quantity) || 0;
-      const allSameQty = slice.every((it) => (Number(it.quantity) || 0) === q0);
-      if (allSameQty && r2 > r1) {
-        ws.mergeCells(r1, 8, r2, 8);
-        ws.getCell(r1, 8).value = q0;
-        ws.getCell(r1, 8).alignment = { horizontal: "center", vertical: "middle" };
-      } else {
-        for (let k = hi; k < hj; k++) {
-          const r = start + k;
-          ws.getCell(r, 8).value = Number(items[k].quantity) || 0;
-          ws.getCell(r, 8).alignment = { horizontal: "center", vertical: "middle" };
-        }
-      }
-      hi = hj;
+    for (let k = 0; k < items.length; k++) {
+      const r = start + k;
+      ws.getCell(r, 8).value = Number(items[k].quantity) || 0;
+      ws.getCell(r, 8).alignment = { horizontal: "center", vertical: "middle" };
     }
 
     if (span) {
