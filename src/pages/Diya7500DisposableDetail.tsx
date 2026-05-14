@@ -11,7 +11,7 @@ import logoImage from "@/assets/product-14.jpg";
 import { ORDER_MODEL_DIYA_7500 } from "@/lib/orderProductModels";
 
 const DIYA_7500_PRODUCT_ID = "diya-7500";
-const DIYA_7500_PRICE_TWD = 249;
+const DIYA_7500_PRICE_TWD = 209;
 
 const flavorGroups: { group: string; options: string[] }[] = [
   {
@@ -309,7 +309,7 @@ const Diya7500DisposableDetail = () => {
               讓出霧量與口感還原維持穩定；多數口味為
               30mg（3%）鹽尼古丁，神仙薄荷則多為
               50mg（5%），選購時務必確認外盒。包裝針對各口味設計色彩與插圖，並以星等標示甜度、涼度，方便比對。以
-              NT$ 249
+              NT$ 209
               的定價與大容量＋可充式設計，在重度使用、重視口味多樣與實用性的消費者之間有明顯性價比。
             </p>
 
@@ -325,7 +325,7 @@ const Diya7500DisposableDetail = () => {
             <h3 className="mt-8 text-lg font-semibold text-gray-900">產品特色</h3>
             <ul className="mt-4 list-disc space-y-2 pl-5 leading-8 text-gray-700">
               <li>
-                <span className="font-semibold text-gray-900">高性價比：</span>與多數大口數產品相較，NT$ 249
+                <span className="font-semibold text-gray-900">高性價比：</span>與多數大口數產品相較，NT$ 209
                 定價具競爭力。
               </li>
               <li>
@@ -377,7 +377,7 @@ const Diya7500DisposableDetail = () => {
                   ["電池", "650mAh 可充電（介面以包裝為準）"],
                   ["霧化芯", "1.2Ω"],
                   ["尼古丁", "多數 3%（30mg），神仙薄荷多為 5%（50mg）"],
-                  ["參攷價格", "NT$ 249"],
+                  ["參攷價格", "NT$ 209"],
                   ["客服", "LINE ID：abs791012"],
                 ].map(([k, v]) => (
                   <div

@@ -14,6 +14,7 @@ import { pinkyImportedCloudwaysDetailsById } from "@/data/pinkyImportedCloudways
 
 const DEFAULT_SITE_TITLE = "SP2S — 品味精髓 | 奢華蒸氣工坊";
 const DEFAULT_IMPORTED_PRICE_TWD = 299;
+const IMPORTED_DISPOSABLE_PRICE_TWD = 269;
 
 const PinkyImportedCatalogDetailPage = () => {
   const navigate = useNavigate();
@@ -40,7 +41,10 @@ const PinkyImportedCatalogDetailPage = () => {
   const flavors = cloudways?.flavors?.length ? [...cloudways.flavors] : [];
   const hasVariants = flavors.length > 0;
   const activeVariant = selectedOption ?? (hasVariants ? null : "標準款");
-  const unitPriceTwd = DEFAULT_IMPORTED_PRICE_TWD;
+  const unitPriceTwd =
+    item?.category === "拋棄式／大口數系列"
+      ? IMPORTED_DISPOSABLE_PRICE_TWD
+      : DEFAULT_IMPORTED_PRICE_TWD;
 
   const related = useMemo(
     () =>

@@ -64,9 +64,9 @@ export const ORDER_MODEL_SP2S_SILICONE_SLEEVE =
 /** Vapor Storm 五代煙彈 */
 export const ORDER_MODEL_VSTORM_GEN5_PODS = "Vapor Storm 風暴五代煙彈（五代主機通用）";
 
-/** SP2／SP2S 一代空殼（一般版黑芯）／product/sp2s-empty-shell-standard */
+/** SP2／SP2S 一代空殼（一般版白芯）／product/sp2s-empty-shell-standard */
 export const ORDER_MODEL_SP2S_EMPTY_SHELL_STANDARD =
-  "SP2／SP2S 一代空殼（一般版黑芯）正版空殼 · 參考灌滿 2.3ml";
+  "SP2／SP2S 一代空殼（一般版白芯）正版空殼 · 參考灌滿 2.3ml";
 
 /** SP2S 一代空殼 Pro 版盒裝殼／product/sp2s-empty-shell-pro */
 export const ORDER_MODEL_SP2S_EMPTY_SHELL_PRO =

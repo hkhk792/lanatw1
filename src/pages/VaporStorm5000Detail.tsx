@@ -11,7 +11,7 @@ import logoImage from "@/assets/product-14.jpg";
 import { ORDER_MODEL_VAPOR_STORM_5000 } from "@/lib/orderProductModels";
 
 const VAPOR_STORM_PRODUCT_ID = "vapor-storm-5000";
-const VAPOR_STORM_PRICE_TWD = 290;
+const VAPOR_STORM_PRICE_TWD = 229;
 
 const flavorGroups: { group: string; options: string[] }[] = [
   {
@@ -326,7 +326,7 @@ const VaporStorm5000Detail = () => {
               <li>大容量體系：10ml 配 650mAh，參攷 5000 口級的完整使用曲線（以實測為準）。</li>
             </ul>
             <p className="mt-6 border-l-4 border-blue-200 pl-4 leading-8 text-gray-600">
-              總結：以 NT$ 290
+              總結：以 NT$ 229
               提供發光外觀＋Mesh 霧化與參攷 5000
               口，在同價帶產品中，適合同時在意視覺效果與吸食細節的族群（請遵守年齡、法規與警語，勿於禁菸或未成年人場所使用）。
             </p>
@@ -368,7 +368,7 @@ const VaporStorm5000Detail = () => {
                   ["煙油", "10ml"],
                   ["電池", "650mAh 等級拋棄式配置"],
                   ["霧化", "Mesh 網狀線圈"],
-                  ["參攷價格", "NT$ 290"],
+                  ["參攷價格", "NT$ 229"],
                   ["客服", "LINE ID：abs791012"],
                 ].map(([k, v]) => (
                   <div

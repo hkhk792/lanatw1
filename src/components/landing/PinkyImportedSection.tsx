@@ -24,6 +24,8 @@ import type { ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
 import { sp2sUniversalPodHeroImage } from "@/data/sp2sUniversalPods";
 
 const IMPORTED_LIST_PRICE = "NT$299";
+/** 匯入目錄「拋棄式／大口數」列表價：約九折後取尾數 9（與購物車／詳情頁一致） */
+const IMPORTED_DISPOSABLE_LIST_PRICE = "NT$269";
 
 const BRAND_BY_ID_PREFIX: Array<[string, string]> = [
   ["relx-", "RELX"],
@@ -115,35 +117,35 @@ const LEGACY_DISPOSABLE_CARDS: DisplayCard[] = [
     id: "disp-vapengin",
     name: "VENUS金星主機",
     flavor: "可充電霧化電子煙主機 · 台灣現貨 · VAPENGIN 2ml Mesh",
-    price: "NT$240",
+    price: "NT$219",
     image: disposableVapengin,
   },
   {
     id: "disp-mohoo-box",
     name: "TOKYO MOHOO BOX東京魔盒",
     flavor: "煙彈多種口味 · 12ml · 約 10000 口",
-    price: "NT$450",
+    price: "NT$399",
     image: disposableMohoo,
   },
   {
     id: "disp-hebat",
     name: "HEBAT喜貝六代",
     flavor: "10000口拋棄式一次性電子煙 · 15ml",
-    price: "NT$340",
+    price: "NT$269",
     image: disposableHebat,
   },
   {
     id: "disp-diya-7500",
     name: "DIYA叮啞拋棄式7500口",
     flavor: "大容量可充電一次性拋棄式電子煙 · 13ml",
-    price: "NT$249",
+    price: "NT$209",
     image: disposableDiya,
   },
   {
     id: "disp-vapor-storm",
     name: "VAPOR STORM風暴5000口",
     flavor: "拋棄式飛霧發光一次性電子煙桿 · 10ml Mesh",
-    price: "NT$290",
+    price: "NT$229",
     image: disposableVaporStorm,
   },
 ];
@@ -189,10 +191,10 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
   },
   {
     id: "sp2s-empty-shell-standard",
-    name: "SP2／SP2S 一代空殼（一般版黑芯）",
+    name: "SP2／SP2S 一代空殼（一般版白芯）",
     flavor: "空殼 · 約 2.3ml · NT$35／顆 · 100 顆起拿",
     price: "NT$35",
-    image: "/sp2s-empty-shells/standard-black-core.png",
+    image: "/sp2s-empty-shells/standard-white-core.png",
   },
   {
     id: "sp2s-empty-shell-pro",
@@ -267,11 +269,13 @@ function sortCatalogItemsForGrid(items: readonly PinkyCatalogItem[]): PinkyCatal
 function buildImportedCardsByCategory(category: CatalogCategory): DisplayCard[] {
   const group = pinkyImportedCatalog.filter((item) => item.category === category);
   const ordered = sortCatalogItemsForGrid(group);
+  const listPrice =
+    category === "拋棄式／大口數系列" ? IMPORTED_DISPOSABLE_LIST_PRICE : IMPORTED_LIST_PRICE;
   return ordered.map((item) => ({
     id: item.id,
     name: item.title,
     flavor: getBrandName(item.id, item.title),
-    price: IMPORTED_LIST_PRICE,
+    price: listPrice,
     image: getPinkyImportedCatalogImage(item.id),
     detailHref: `/catalog/${item.id}`,
   }));

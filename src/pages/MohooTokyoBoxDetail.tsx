@@ -11,7 +11,7 @@ import logoImage from "@/assets/product-14.jpg";
 import { ORDER_MODEL_MOHOO_BOX } from "@/lib/orderProductModels";
 
 const MOHOO_PRODUCT_ID = "mohoo-tokyo-box";
-const MOHOO_PRICE_TWD = 450;
+const MOHOO_PRICE_TWD = 399;
 
 const flavorGroups: { group: string; options: string[] }[] = [
   {
@@ -412,7 +412,7 @@ const MohooTokyoBoxDetail = () => {
                   ["系列", "MOHOO BOX／東京魔盒"],
                   ["煙油容量", "12ml／顆（以包裝為準）"],
                   ["參攷續航", "單顆約 7–10 天、套裝約 10000 口（實測隨使用而異）"],
-                  ["參攷價格", "NT$ 450"],
+                  ["參攷價格", "NT$ 399"],
                   ["客服", "LINE ID：abs791012"],
                 ].map(([k, v]) => (
                   <div

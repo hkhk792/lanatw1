@@ -11,7 +11,7 @@ import logoImage from "@/assets/product-14.jpg";
 import { ORDER_MODEL_HEBAT_GEN6 } from "@/lib/orderProductModels";
 
 const HEBAT_PRODUCT_ID = "hebat-gen6";
-const HEBAT_PRICE_TWD = 340;
+const HEBAT_PRICE_TWD = 269;
 
 const flavorGroups: { group: string; options: string[] }[] = [
   {
@@ -299,7 +299,7 @@ const HebatGen6Detail = () => {
               煙油倉與
               550mAh
               電池，讓重度使用者盡量一路用到煙油殆盡而無需額外保養。採用拋棄式一體結構，開封即用、無需充油與清潔，用完即丟、適合步調緊湊的族群。霧氣濃度與風味穩定，口味線涵蓋飲品、水果與茶感清新，可依喜好挑選 20
-              款。以 NT$ 340 的入手門檻搭配長壽命設計，適合重視續航與省心體驗的消費者。
+              款。以 NT$ 269 的入手門檻搭配長壽命設計，適合重視續航與省心體驗的消費者。
             </p>
 
             <h3 className="mt-8 text-lg font-semibold text-gray-900">極致長效續航</h3>
@@ -373,7 +373,7 @@ const HebatGen6Detail = () => {
                   ["煙油容量", "15ml（以包裝為準；有誤標 20ml 時以實體為準）"],
                   ["參攷口數", "約 10,000 口"],
                   ["電池", "內建 550mAh（一次性設計，勿自行拆解）"],
-                  ["參攷價格", "NT$ 340"],
+                  ["參攷價格", "NT$ 269"],
                   ["客服", "LINE ID：abs791012"],
                 ].map(([k, v]) => (
                   <div

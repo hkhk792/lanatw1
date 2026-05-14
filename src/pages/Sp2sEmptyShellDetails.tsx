@@ -32,12 +32,12 @@ const SHELL_CONFIG: Record<
   standard: {
     productId: "sp2s-empty-shell-standard",
     orderModel: ORDER_MODEL_SP2S_EMPTY_SHELL_STANDARD,
-    pageTitle: "SP2／SP2S 一代空殼（一般版黑芯）",
-    heroSrc: "/sp2s-empty-shells/standard-black-core.png",
-    heroAlt: "SP2 一代空殼 一般版黑芯 透明殼體",
+    pageTitle: "SP2／SP2S 一代空殼（一般版白芯）",
+    heroSrc: "/sp2s-empty-shells/standard-white-core.png",
+    heroAlt: "SP2 一代空殼 一般版白芯 透明殼體",
     badge: "正版空殼 · 2.3ml",
     bullets: [
-      "一般版黑芯，正版 SP2 一代通用空殼。",
+      "一般版白芯，正版 SP2 一代通用空殼。",
       "灌滿參考容量約 2.3ml（實際以灌裝與使用方式為準）。",
       "原為舊版 SP2 盒裝殼路線；下單前可透過 LINE 與客服確認批次與相容。",
     ],

@@ -102,7 +102,7 @@ const QUICK_ADD_PRODUCTS: Record<
   },
   "sp2s-empty-shell-standard": {
     title: ORDER_MODEL_SP2S_EMPTY_SHELL_STANDARD,
-    variant: "一般版黑芯空殼",
+    variant: "一般版白芯空殼",
     priceTwd: 35,
     route: "/product/sp2s-empty-shell-standard",
   },
@@ -115,31 +115,31 @@ const QUICK_ADD_PRODUCTS: Record<
   "disp-vapengin": {
     title: ORDER_MODEL_VENUS_HOST,
     variant: "口味待選",
-    priceTwd: 240,
+    priceTwd: 219,
     route: "/product/venus-host",
   },
   "disp-mohoo-box": {
     title: ORDER_MODEL_MOHOO_BOX,
     variant: "口味待選",
-    priceTwd: 450,
+    priceTwd: 399,
     route: "/product/mohoo-tokyo-box",
   },
   "disp-hebat": {
     title: ORDER_MODEL_HEBAT_GEN6,
     variant: "口味待選",
-    priceTwd: 340,
+    priceTwd: 269,
     route: "/product/hebat-gen6",
   },
   "disp-diya-7500": {
     title: ORDER_MODEL_DIYA_7500,
     variant: "口味待選",
-    priceTwd: 249,
+    priceTwd: 209,
     route: "/product/diya-7500",
   },
   "disp-vapor-storm": {
     title: ORDER_MODEL_VAPOR_STORM_5000,
     variant: "口味待選",
-    priceTwd: 290,
+    priceTwd: 229,
     route: "/product/vapor-storm-5000",
   },
   "showcase-gen5": {

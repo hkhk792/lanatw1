@@ -11,7 +11,7 @@ import logoImage from "@/assets/product-14.jpg";
 import { ORDER_MODEL_VENUS_HOST } from "@/lib/orderProductModels";
 
 const VENUS_PRODUCT_ID = "venus-host";
-const VENUS_PRICE_TWD = 240;
+const VENUS_PRICE_TWD = 219;
 
 const flavorGroups: { group: string; options: string[] }[] = [
   { group: "甜點類", options: ["花生曲奇", "焦糖花生"] },
@@ -360,7 +360,7 @@ const VenusHostDetail = () => {
                   ["電池容量", "500mAh 可充電"],
                   ["參攷口數", "約 600 口（依使用方式而異）"],
                   ["煙彈規格", "2ml，Mesh 線圈"],
-                  ["參攷價格", "NT$ 240"],
+                  ["參攷價格", "NT$ 219"],
                   ["客服", "LINE ID：abs791012"],
                 ].map(([k, v]) => (
                   <div

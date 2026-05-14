@@ -41,7 +41,7 @@ const SITE_EXTRA_ENTRIES: readonly { id: string; title: string; href: string; ca
   { id: "showcase-gear", title: "SP2S 矽膠保護套／掛繩", href: "/product/sp2s-silicone-sleeve", category: "配件" },
   {
     id: "sp2s-empty-shell-standard",
-    title: "SP2／SP2S 一代空殼（一般版黑芯）",
+    title: "SP2／SP2S 一代空殼（一般版白芯）",
     href: "/product/sp2s-empty-shell-standard",
     category: "空殼",
   },
