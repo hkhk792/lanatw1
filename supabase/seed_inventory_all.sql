@@ -23,6 +23,9 @@ VALUES
   ('vapor-storm-5000', 'Vapor Storm 5000', 99999),
   ('vstorm-gen5-pods', 'Vapor Storm Gen5 煙彈', 99999),
   ('venus-host', 'Venus 主機', 99999),
+  ('sp2s-universal-pods', 'SP2S 通用煙彈', 99999),
+  ('sp2s-empty-shell-standard', 'SP2S 空倉標準版', 99999),
+  ('sp2s-empty-shell-pro', 'SP2S 空倉 Pro', 99999),
   -- Pinky 進口精選（src/data/pinkyImportedCatalog.ts）
   ('relx-pod-pro2-pods', 'RELX POD PRO 2 菸彈', 99999),
   ('relx-infinity-pro2-host', 'RELX Infinity Pro 2 主機', 99999),

@@ -9,7 +9,6 @@ import disposableVapengin from "@/assets/disposable-vapengin-venus.webp";
 import disposableMohoo from "@/assets/disposable-mohoo-tokyo.webp";
 import disposableHebat from "@/assets/disposable-hebat-hb10000.webp";
 import disposableDiya from "@/assets/disposable-diya-7500.webp";
-import disposableFlare from "@/assets/disposable-flare-nimmbox-go.webp";
 import disposableVaporStorm from "@/assets/disposable-vapor-storm-cf5000.webp";
 import showcaseGen5Pods from "@/assets/showcase-gen5-pods.webp";
 import showcaseELiquid from "@/assets/showcase-e-liquid.webp";
@@ -75,13 +74,6 @@ const disposableProducts = [
     flavor: "大容量可充電一次性拋棄式電子煙 · 13ml",
     price: "NT$249",
     id: "disp-diya-7500",
-  },
-  {
-    image: disposableFlare,
-    name: "JUPITER木星套裝6500口",
-    flavor: "木星套裝煙彈換彈拋棄式電子煙",
-    price: "NT$480",
-    id: "disp-jupiter",
   },
   {
     image: disposableVaporStorm,

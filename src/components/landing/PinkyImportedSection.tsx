@@ -13,7 +13,6 @@ import disposableVapengin from "@/assets/disposable-vapengin-venus.webp";
 import disposableMohoo from "@/assets/disposable-mohoo-tokyo.webp";
 import disposableHebat from "@/assets/disposable-hebat-hb10000.webp";
 import disposableDiya from "@/assets/disposable-diya-7500.webp";
-import disposableFlare from "@/assets/disposable-flare-nimmbox-go.webp";
 import disposableVaporStorm from "@/assets/disposable-vapor-storm-cf5000.webp";
 import p7 from "@/assets/product-7.webp";
 import showcaseGen5Pods from "@/assets/showcase-gen5-pods.webp";
@@ -139,13 +138,6 @@ const LEGACY_DISPOSABLE_CARDS: DisplayCard[] = [
     flavor: "大容量可充電一次性拋棄式電子煙 · 13ml",
     price: "NT$249",
     image: disposableDiya,
-  },
-  {
-    id: "disp-jupiter",
-    name: "JUPITER木星套裝6500口",
-    flavor: "木星套裝煙彈換彈拋棄式電子煙",
-    price: "NT$480",
-    image: disposableFlare,
   },
   {
     id: "disp-vapor-storm",

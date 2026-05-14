@@ -306,6 +306,12 @@ const Admin = () => {
                 ))}
               </select>
             </label>
+            <Link
+              to="/admin2589/supabase-sql"
+              className="text-sm text-neutral-700 underline-offset-4 hover:text-neutral-900 hover:underline"
+            >
+              Supabase 查詢範本
+            </Link>
             <Link to="/" className="text-sm text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline">
               返回商城
             </Link>

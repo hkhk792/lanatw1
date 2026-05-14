@@ -11,7 +11,6 @@ import {
   ORDER_MODEL_DIYA_7500,
   ORDER_MODEL_DIYA_DEVICE,
   ORDER_MODEL_HEBAT_GEN6,
-  ORDER_MODEL_JUPITER_SET,
   ORDER_MODEL_LANA_ELiquid_30ML,
   ORDER_MODEL_MOHOO_BOX,
   ORDER_MODEL_NINGA_CARTOON,
@@ -136,12 +135,6 @@ const QUICK_ADD_PRODUCTS: Record<
     variant: "口味待選",
     priceTwd: 249,
     route: "/product/diya-7500",
-  },
-  "disp-jupiter": {
-    title: ORDER_MODEL_JUPITER_SET,
-    variant: "套裝待選",
-    priceTwd: 480,
-    route: "/product/jupiter-6500",
   },
   "disp-vapor-storm": {
     title: ORDER_MODEL_VAPOR_STORM_5000,

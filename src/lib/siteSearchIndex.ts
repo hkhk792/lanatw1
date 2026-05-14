@@ -35,7 +35,6 @@ const SITE_EXTRA_ENTRIES: readonly { id: string; title: string; href: string; ca
   { id: "disp-mohoo-box", title: "TOKYO MOHOO BOX 東京魔盒", href: "/product/mohoo-tokyo-box", category: "拋棄式" },
   { id: "disp-hebat", title: "HEBAT 喜貝六代", href: "/product/hebat-gen6", category: "拋棄式" },
   { id: "disp-diya-7500", title: "DIYA 拋棄式 7500 口", href: "/product/diya-7500", category: "拋棄式" },
-  { id: "disp-jupiter", title: "JUPITER 木星套裝 6500 口", href: "/product/jupiter-6500", category: "拋棄式" },
   { id: "disp-vapor-storm", title: "VAPOR STORM 風暴 5000 口", href: "/product/vapor-storm-5000", category: "拋棄式" },
   { id: "showcase-gen5", title: "風暴五代煙彈", href: "/product/vapor-storm-gen5-pods", category: "菸彈" },
   { id: "showcase-e-liquid", title: "LANA 煙油 30ml", href: "/product/lana-e-liquid-30ml", category: "煙油" },

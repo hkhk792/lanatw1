@@ -31,6 +31,7 @@ import Sp2sSiliconeSleeveDetail from "./pages/Sp2sSiliconeSleeveDetail.tsx";
 import Checkout from "./pages/Checkout.tsx";
 import OrderComplete from "./pages/OrderComplete.tsx";
 import Admin from "./pages/Admin.tsx";
+import AdminSupabaseSql from "./pages/AdminSupabaseSql.tsx";
 import Sp2sPodFlavorGuidePage from "./pages/Sp2sPodFlavorGuidePage.tsx";
 import LanavapNews10Page from "./pages/LanavapNews10Page.tsx";
 import AirportVapeArticlePage from "./pages/AirportVapeArticlePage.tsx";
@@ -61,6 +62,7 @@ const App = () => (
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-complete" element={<OrderComplete />} />
             <Route path="/admin2589" element={<Admin />} />
+            <Route path="/admin2589/supabase-sql" element={<AdminSupabaseSql />} />
             <Route path="/product/lanna" element={<LannaDetail />} />
             <Route path="/product/bullet" element={<BulletDetail />} />
             <Route path="/product/pro" element={<Sp2sProDetail />} />
