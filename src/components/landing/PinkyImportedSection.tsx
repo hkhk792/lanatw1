@@ -226,6 +226,13 @@ const SECTION_CONFIG: Array<{
   description: string;
 }> = [
   {
+    category: "菸彈／通配系列",
+    eyebrow: "通配與菸彈",
+    titleMain: "日常補給。",
+    titleSub: "相容快選，口味輪替不設限。",
+    description: "通配與菸彈合併成一區，補貨、換口味、找相容型號一次完成。",
+  },
+  {
     category: "主機系列",
     eyebrow: "主機專區",
     titleMain: "握感即戰力。",
@@ -238,13 +245,6 @@ const SECTION_CONFIG: Array<{
     titleMain: "一口到位。",
     titleSub: "高口數續航，風味一路在線。",
     description: "一次性系列集中展示，從 6K 到 15K 規格連續排版，口味切換更直覺。",
-  },
-  {
-    category: "菸彈／通配系列",
-    eyebrow: "通配與菸彈",
-    titleMain: "日常補給。",
-    titleSub: "相容快選，口味輪替不設限。",
-    description: "通配與菸彈合併成一區，補貨、換口味、找相容型號一次完成。",
   },
 ];
 
@@ -319,7 +319,7 @@ function catalogSectionDomId(
 const PinkyImportedSection = () => {
   return (
     <section
-      id="disposables"
+      id="home-catalog"
       className="relative scroll-mt-24 border-y hairline py-12 sm:scroll-mt-28 sm:py-24 md:py-36 lg:py-44"
     >
       <div className="container max-sm:px-3">

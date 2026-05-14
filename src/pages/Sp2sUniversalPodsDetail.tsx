@@ -137,7 +137,7 @@ const Sp2sUniversalPodsDetail = () => {
                 首頁
               </Link>
               <span>/</span>
-              <Link to="/#disposables" className="hover:text-gray-700">
+              <Link to="/#home-catalog-pods" className="hover:text-gray-700">
                 通配與菸彈
               </Link>
             </div>

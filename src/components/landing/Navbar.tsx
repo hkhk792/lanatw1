@@ -8,9 +8,9 @@ import SiteSearchSheet from "@/components/SiteSearchSheet";
 /** 首頁錨點：點選平滑捲動（自子頁回首頁後再捲） */
 const HOME_NAV_ITEMS = [
   { id: "hero", label: "精選首屏", hint: "主視覺" },
+  { id: "home-catalog-pods", label: "菸彈", hint: "菸彈／通配" },
   { id: "home-catalog-host", label: "主機", hint: "主機專區・目錄" },
   { id: "home-catalog-disposable", label: "拋棄式", hint: "一次性／大口數" },
-  { id: "home-catalog-pods", label: "菸彈", hint: "菸彈／通配" },
   { id: "taiwan-vape-store", label: "專賣店", hint: "配送與正品" },
   { id: "manifesto", label: "品牌日誌", hint: "資訊與指南" },
   { id: "contact", label: "聯絡我們", hint: "頁尾與社群" },
@@ -112,7 +112,7 @@ const Navbar = () => {
               </button>
               <button
                 type="button"
-                aria-label="主機・拋棄式・菸彈選單"
+                aria-label="菸彈・主機・拋棄式選單"
                 aria-expanded={open}
                 className="md:hidden grid h-11 min-h-[44px] min-w-[44px] w-11 place-items-center rounded-full hairline border"
                 onClick={() => {
@@ -129,7 +129,7 @@ const Navbar = () => {
         {open && (
           <nav
             className="md:hidden glass-strong border-t hairline mt-2 sm:mt-3"
-            aria-label="首頁區塊（主機・拋棄式・菸彈）"
+            aria-label="首頁區塊（菸彈・主機・拋棄式）"
           >
             <div className="container grid grid-cols-1 gap-2 py-4 sm:grid-cols-2 sm:gap-3 sm:py-5">
               {HOME_NAV_ITEMS.map((s) => (

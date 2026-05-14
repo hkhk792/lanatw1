@@ -4,7 +4,7 @@ import { BrandSp2s } from "@/components/BrandSp2s";
 import sp2sGen2PodsFlavorCatalog from "@/assets/sp2s-gen2-pods-flavor-catalog.png";
 
 const GEN1_PODS_ROUTE = "/product/sp2s-gen1-pods";
-const CATALOG_ANCHOR = "/#disposables";
+const CATALOG_ANCHOR = "/#home-catalog";
 
 const Hero = () => {
   return (

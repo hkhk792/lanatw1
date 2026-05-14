@@ -41,17 +41,17 @@ export function CheckoutFooter() {
             <h3 className="text-xs font-semibold uppercase tracking-widest text-white">產品分類</h3>
             <ul className="mt-4 space-y-2 text-sm text-neutral-400">
               <li>
-                <a href="/#disposables" className="hover:text-white">
+                <a href="/#home-catalog-host" className="hover:text-white">
                   SP2S 主機
                 </a>
               </li>
               <li>
-                <a href="/#pods" className="hover:text-white">
+                <a href="/#home-catalog-pods" className="hover:text-white">
                   SP2S 煙彈
                 </a>
               </li>
               <li>
-                <a href="/#accessories" className="hover:text-white">
+                <a href="/#home-catalog-pods" className="hover:text-white">
                   LANA 煙彈
                 </a>
               </li>
