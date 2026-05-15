@@ -10,7 +10,6 @@ import disposableMohoo from "@/assets/disposable-mohoo-tokyo.webp";
 import disposableHebat from "@/assets/disposable-hebat-hb10000.webp";
 import disposableDiya from "@/assets/disposable-diya-7500.webp";
 import disposableVaporStorm from "@/assets/disposable-vapor-storm-cf5000.webp";
-import showcaseGen5Pods from "@/assets/showcase-gen5-pods.webp";
 import showcaseELiquid from "@/assets/showcase-e-liquid.webp";
 import showcaseVapeGear from "@/assets/showcase-vape-gear.webp";
 
@@ -23,13 +22,6 @@ const highlights = [
 
 /** 全品類一覽：與拋棄式區同用 ProductCard（＋、價格、glass） */
 const showcaseProducts = [
-  {
-    id: "showcase-gen5",
-    image: showcaseGen5Pods,
-    name: "五代煙彈",
-    flavor: "換彈系統 · 多口味霧化",
-    price: "NT$129",
-  },
   {
     id: "showcase-e-liquid",
     image: showcaseELiquid,

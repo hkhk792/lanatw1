@@ -2,22 +2,18 @@ import ProductCard from "./ProductCard";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import p1 from "@/assets/product-1.webp";
-import lanaPremiumHero from "@/assets/lana-premium-device.webp";
 import p3 from "@/assets/product-3.webp";
 import p4 from "@/assets/product-4.webp";
 import p6 from "@/assets/product-6.webp";
 import { AtomizerHostGemini } from "@/lib/responsiveImageVariants.generated";
-import { LANNA_HOMEPAGE_FLAVOR, LANNA_HOMEPAGE_NAME } from "@/lib/lannaProduct";
-
 const products = [
   { image: p1, name: "卡通限量版一代通配主機", flavor: "經典工藝系列", price: "NT$550", id: "cartoon" },
-  { image: lanaPremiumHero, name: LANNA_HOMEPAGE_NAME, flavor: LANNA_HOMEPAGE_FLAVOR, price: "NT$500", id: "lanna" },
   { image: p3, name: "SP2S 思博瑞 一代", flavor: "十三色工坊系列", price: "NT$450", id: "bullet" },
   { image: p4, name: "SP2S Pro", flavor: "八色旗艦 · 智慧感應", price: "NT$450", id: "pro" },
   {
     image: AtomizerHostGemini.src,
     name: "原子棒一代通配主機",
-    flavor: "綠 · 霧藍 · 黑 · 曲線輸出",
+    flavor: "綠 · 黑 · 曲線輸出",
     price: "NT$290",
     id: "atomizer",
     responsive: AtomizerHostGemini,
@@ -47,7 +43,7 @@ const Collection = () => {
               主機與硬體系列
             </p>
             <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08] sm:leading-[1.02]">
-              <span className="text-gradient-gold">六款設備。</span>
+              <span className="text-gradient-gold">五款設備。</span>
               <br />
               <span className="italic text-foreground/70">旗艦手感，一手掌握。</span>
             </h2>

@@ -16,7 +16,8 @@
     "gen:responsive": "node scripts/generate-responsive-variants.mjs",
     "flatten:banner": "node scripts/flatten-promo-banner.mjs",
     "gen:pinky-cloudways": "node scripts/gen-pinky-cloudways-details.mjs",
-    "gen:pinky-flavors": "node scripts/gen-pinky-phpstack-flavors.mjs"
+    "gen:pinky-flavors": "node scripts/gen-pinky-phpstack-flavors.mjs",
+    "export:product-photos": "node scripts/export-product-photos.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -83,6 +84,7 @@
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react-swc": "^3.11.0",
+    "archiver": "^8.0.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",

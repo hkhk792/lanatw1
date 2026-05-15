@@ -27,7 +27,6 @@ const SITE_EXTRA_ENTRIES: readonly { id: string; title: string; href: string; ca
   { id: "sp2s-gen1-pods", title: "SP2S 一代煙彈", href: "/product/sp2s-gen1-pods", category: "菸彈" },
   { id: "bullet", title: "SP2S 思博瑞一代主機", href: "/product/bullet", category: "主機" },
   { id: "pro", title: "SP2S Pro 主機", href: "/product/pro", category: "主機" },
-  { id: "lanna", title: "LANA 皮革主機", href: "/product/lanna", category: "主機" },
   { id: "cartoon", title: "卡通限量一代通配主機", href: "/product/cartoon", category: "主機" },
   { id: "atomizer", title: "原子棒一代通配主機", href: "/product/atomizer", category: "主機" },
   { id: "diya", title: "DIYA 叮啞霧化桿", href: "/product/diya", category: "主機" },
@@ -36,7 +35,6 @@ const SITE_EXTRA_ENTRIES: readonly { id: string; title: string; href: string; ca
   { id: "disp-hebat", title: "HEBAT 喜貝六代", href: "/product/hebat-gen6", category: "拋棄式" },
   { id: "disp-diya-7500", title: "DIYA 拋棄式 7500 口", href: "/product/diya-7500", category: "拋棄式" },
   { id: "disp-vapor-storm", title: "VAPOR STORM 風暴 5000 口", href: "/product/vapor-storm-5000", category: "拋棄式" },
-  { id: "showcase-gen5", title: "風暴五代煙彈", href: "/product/vapor-storm-gen5-pods", category: "菸彈" },
   { id: "showcase-e-liquid", title: "LANA 煙油 30ml", href: "/product/lana-e-liquid-30ml", category: "煙油" },
   { id: "showcase-gear", title: "SP2S 矽膠保護套／掛繩", href: "/product/sp2s-silicone-sleeve", category: "配件" },
   {

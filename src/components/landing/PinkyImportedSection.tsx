@@ -5,7 +5,6 @@ import {
   pinkyImportedCatalog,
 } from "@/data/pinkyImportedCatalog";
 import p1 from "@/assets/product-1.webp";
-import lanaPremiumHero from "@/assets/lana-premium-device.webp";
 import p3 from "@/assets/product-3.webp";
 import p4 from "@/assets/product-4.webp";
 import p6 from "@/assets/product-6.webp";
@@ -15,11 +14,9 @@ import disposableHebat from "@/assets/disposable-hebat-hb10000.webp";
 import disposableDiya from "@/assets/disposable-diya-7500.webp";
 import disposableVaporStorm from "@/assets/disposable-vapor-storm-cf5000.webp";
 import p7 from "@/assets/product-7.webp";
-import showcaseGen5Pods from "@/assets/showcase-gen5-pods.webp";
 import showcaseELiquid from "@/assets/showcase-e-liquid.webp";
 import showcaseVapeGear from "@/assets/showcase-vape-gear.webp";
 import { AtomizerHostGemini, DiyaPodsShowcase } from "@/lib/responsiveImageVariants.generated";
-import { LANNA_HOMEPAGE_FLAVOR, LANNA_HOMEPAGE_NAME } from "@/lib/lannaProduct";
 import type { ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
 import { sp2sUniversalPodHeroImage } from "@/data/sp2sUniversalPods";
 
@@ -70,14 +67,6 @@ const LEGACY_HOST_CARDS: DisplayCard[] = [
     detailHref: "/product/cartoon",
   },
   {
-    id: "lanna",
-    name: LANNA_HOMEPAGE_NAME,
-    flavor: LANNA_HOMEPAGE_FLAVOR,
-    price: "NT$500",
-    image: lanaPremiumHero,
-    detailHref: "/product/lanna",
-  },
-  {
     id: "bullet",
     name: "SP2S 思博瑞 一代",
     flavor: "十三色工坊系列",
@@ -96,7 +85,7 @@ const LEGACY_HOST_CARDS: DisplayCard[] = [
   {
     id: "atomizer",
     name: "原子棒一代通配主機",
-    flavor: "綠 · 霧藍 · 黑 · 曲線輸出",
+    flavor: "綠 · 黑 · 曲線輸出",
     price: "NT$290",
     image: AtomizerHostGemini.src,
     responsive: AtomizerHostGemini,
@@ -174,13 +163,6 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     image: DiyaPodsShowcase.src,
     responsive: DiyaPodsShowcase,
     detailHref: "/product/diya-pods",
-  },
-  {
-    id: "showcase-gen5",
-    name: "五代煙彈",
-    flavor: "換彈系統 · 多口味霧化",
-    price: "NT$129",
-    image: showcaseGen5Pods,
   },
   {
     id: "showcase-e-liquid",
