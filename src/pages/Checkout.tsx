@@ -16,6 +16,7 @@ import {
   resolveShippingTwd,
 } from "@/lib/checkoutShipping";
 import { isValidTaiwanMobile, normalizeTaiwanMobile } from "@/lib/phoneTaiwan";
+import CartLineThumbnail from "@/components/CartLineThumbnail";
 import FirstOrderShippingVerify from "@/components/checkout/FirstOrderShippingVerify";
 import CheckoutLineRebateNotice from "@/components/checkout/CheckoutLineRebateNotice";
 import { CheckoutFooter, CheckoutProgress } from "@/components/checkout/CheckoutChrome";
@@ -353,13 +354,12 @@ const Checkout = () => {
                       className={`flex gap-3 text-sm ${isGift ? "rounded-md border border-emerald-200 bg-emerald-50/70 px-2 py-2" : ""}`}
                     >
                       <div className="h-14 w-14 shrink-0 border border-neutral-200 bg-white">
-                        {it.imageUrl ? (
-                          <img src={it.imageUrl} alt="" className="h-full w-full object-contain" />
-                        ) : (
-                          <div className="flex h-full items-center justify-center text-[10px] text-neutral-400">
-                            商品
-                          </div>
-                        )}
+                        <CartLineThumbnail
+                          productId={it.productId}
+                          imageUrl={it.imageUrl}
+                          alt=""
+                          className="h-full w-full object-contain"
+                        />
                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="font-medium leading-snug text-neutral-900">

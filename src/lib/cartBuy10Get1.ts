@@ -1,4 +1,5 @@
 import type { CartLine } from "@/contexts/CartContext";
+import { resolveCartLineImageUrl } from "@/lib/cartProductImages";
 
 /** 買十送一（SP2S／LANA 煙彈）：每付費 10 顆送 1 顆贈品，實際到手 = 付費顆數 + floor(付費/10)。 */
 export const BUY10_GET1_PRODUCT_IDS = new Set<string>(["sp2s-universal-pods", "lana-pods"]);
@@ -30,7 +31,10 @@ export function buy10Get1PoolSummaries(lines: readonly CartLine[]): Buy10Get1Poo
     const giftUnits = Math.floor(paidQty / PAY_FOR);
     if (giftUnits <= 0) continue;
     const productTitle = pool[0]?.title ?? "";
-    const poolImageUrl = pool.find((l) => l.imageUrl)?.imageUrl ?? "";
+    const poolImageUrl =
+      pool
+        .map((l) => resolveCartLineImageUrl(l.productId, l.imageUrl))
+        .find((url) => url.length > 0) ?? "";
     out.push({
       productId,
       productTitle,
@@ -70,7 +74,7 @@ export function buildCheckoutOrderItems(lines: readonly CartLine[]): CheckoutOrd
     unitPriceTwd: line.priceTwd,
     lineTotalTwd: line.priceTwd * line.quantity,
     productId: line.productId,
-    imageUrl: line.imageUrl ?? "",
+    imageUrl: resolveCartLineImageUrl(line.productId, line.imageUrl),
   }));
 
   const giftItems: CheckoutOrderItem[] = buy10Get1PoolSummaries(lines).map((s) => ({

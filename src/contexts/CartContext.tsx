@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import { totalBuy10GiftPieces } from "@/lib/cartBuy10Get1";
+import { resolveCartLineImageUrl } from "@/lib/cartProductImages";
 
 const STORAGE_KEY = "obsidian-vapor-zen-cart";
 
@@ -46,21 +47,28 @@ type CartContextValue = {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
+function hydrateCartLine(line: CartLine): CartLine {
+  const imageUrl = resolveCartLineImageUrl(line.productId, line.imageUrl);
+  return imageUrl ? { ...line, imageUrl } : line;
+}
+
 function loadFromStorage(): CartLine[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw) as unknown;
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (l): l is CartLine =>
-        l !== null &&
-        typeof l === "object" &&
-        typeof (l as CartLine).lineId === "string" &&
-        typeof (l as CartLine).productId === "string" &&
-        typeof (l as CartLine).quantity === "number" &&
-        (l as CartLine).quantity > 0
-    );
+    return parsed
+      .filter(
+        (l): l is CartLine =>
+          l !== null &&
+          typeof l === "object" &&
+          typeof (l as CartLine).lineId === "string" &&
+          typeof (l as CartLine).productId === "string" &&
+          typeof (l as CartLine).quantity === "number" &&
+          (l as CartLine).quantity > 0
+      )
+      .map(hydrateCartLine);
   } catch {
     return [];
   }
@@ -83,14 +91,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setLines((prev) => {
       const i = prev.findIndex((l) => l.lineId === lineId);
       if (i === -1) {
-        return [...prev, { lineId, ...item }];
+        return [...prev, hydrateCartLine({ lineId, ...item })];
       }
       const next = [...prev];
-      next[i] = {
+      next[i] = hydrateCartLine({
         ...next[i],
         quantity: next[i].quantity + item.quantity,
         imageUrl: item.imageUrl ?? next[i].imageUrl,
-      };
+      });
       return next;
     });
   }, []);

@@ -8,6 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import CartLineThumbnail from "@/components/CartLineThumbnail";
 import { useCart } from "@/contexts/CartContext";
 import { flushHomeScrollPosition } from "@/lib/homeScrollRestore";
 
@@ -109,17 +110,12 @@ const CartSheet = () => {
                       onClick={() => goToProduct(line.productId)}
                       className="h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-gray-200 bg-white"
                     >
-                      {line.imageUrl ? (
-                        <img
-                          src={line.imageUrl}
-                          alt={line.title}
-                          className="h-full w-full object-contain"
-                        />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">
-                          商品
-                        </div>
-                      )}
+                      <CartLineThumbnail
+                        productId={line.productId}
+                        imageUrl={line.imageUrl}
+                        alt={line.title}
+                        className="h-full w-full object-contain"
+                      />
                     </button>
                     <div className="flex min-w-0 flex-1 flex-col justify-between">
                       <div>
