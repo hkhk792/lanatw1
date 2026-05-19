@@ -248,6 +248,10 @@ const Checkout = () => {
                   inputMode="tel"
                   autoComplete="tel"
                 />
+                <FirstOrderShippingVerify
+                  phone={phone}
+                  onFirstOrderChange={handleFirstOrderChange}
+                />
               </div>
 
               <div className="space-y-2">
@@ -311,12 +315,6 @@ const Checkout = () => {
                   autoComplete="username"
                 />
               </div>
-
-              <FirstOrderShippingVerify
-                phone={phone}
-                lineId={lineId}
-                onFirstOrderChange={handleFirstOrderChange}
-              />
 
               <CheckoutLineRebateNotice subtotalTwd={subtotalTwd} />
 

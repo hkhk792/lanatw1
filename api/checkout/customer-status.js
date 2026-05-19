@@ -1,5 +1,5 @@
 import { customerHasPriorOrders } from "../_lib/customerOrders.js";
-import { normalizeLineId, normalizeTaiwanMobile } from "../_lib/phoneTaiwan.js";
+import { normalizeTaiwanMobile } from "../_lib/phoneTaiwan.js";
 import { getSiteCode } from "../_lib/supabaseAdmin.js";
 
 function parseJsonBody(req) {
@@ -19,26 +19,23 @@ export default async function handler(req, res) {
   try {
     const body = parseJsonBody(req);
     const phone = normalizeTaiwanMobile(body?.phone || "");
-    const lineId = normalizeLineId(body?.lineId || "");
 
-    if (!phone && !lineId) {
-      return res.status(400).json({ error: "請提供手機號碼或 LINE ID。" });
+    if (!phone) {
+      return res.status(400).json({ error: "請提供有效的台灣手機號碼。" });
     }
 
     const prior = await customerHasPriorOrders({
       phone,
-      lineId,
+      lineId: "",
       siteCode: getSiteCode(),
     });
 
     return res.status(200).json({
       ok: true,
       phone,
-      lineId,
       isFirstOrder: !prior.hasPriorOrders,
       hasPriorOrders: prior.hasPriorOrders,
       matchedByPhone: prior.matchedByPhone,
-      matchedByLineId: prior.matchedByLineId,
     });
   } catch (error) {
     const status = error && typeof error.status === "number" ? error.status : 500;

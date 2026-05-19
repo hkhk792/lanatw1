@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { customerHasPriorOrders } from "./_lib/customerOrders.js";
-import { normalizeLineId, normalizeTaiwanMobile } from "./_lib/phoneTaiwan.js";
+import { normalizeTaiwanMobile } from "./_lib/phoneTaiwan.js";
 
 const AIRTABLE_API_BASE = "https://api.airtable.com/v0";
 
@@ -135,10 +135,9 @@ async function applyFirstOrderShippingRules(payload) {
 
   if (shippingTwd === 0 && subtotalTwd < FREE_SHIPPING_THRESHOLD) {
     const phone = normalizeTaiwanMobile(payload.phone);
-    const lineId = normalizeLineId(payload.lineId);
 
-    if (!phone || !lineId) {
-      const err = new Error("請填寫有效的手機號碼與 LINE ID。");
+    if (!phone) {
+      const err = new Error("請填寫有效的台灣手機號碼。");
       err.status = 400;
       throw err;
     }
@@ -149,9 +148,9 @@ async function applyFirstOrderShippingRules(payload) {
       throw err;
     }
 
-    const prior = await customerHasPriorOrders({ phone, lineId });
+    const prior = await customerHasPriorOrders({ phone, lineId: "" });
     if (prior.hasPriorOrders) {
-      const err = new Error("此手機或 LINE ID 已有訂單紀錄，無法使用首單包郵。");
+      const err = new Error("此手機已有訂單紀錄，無法使用首單包郵。");
       err.status = 409;
       throw err;
     }
