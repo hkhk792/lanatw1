@@ -6,8 +6,10 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/disposable-diya-7500.webp";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const productMain = productPhoto("disposable-diya-7500.webp");
+const logoImage = SITE_LOGO_PHOTO;
 import { ORDER_MODEL_DIYA_7500 } from "@/lib/orderProductModels";
 
 const DIYA_7500_PRODUCT_ID = "diya-7500";

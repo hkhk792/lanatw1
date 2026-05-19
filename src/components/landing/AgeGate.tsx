@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
+import { LINE_WELCOME_GATE_ENABLED } from "@/constants/entryGates";
 import { LINE_OFFICIAL_CUSTOMER_URL } from "@/constants/lineOfficial";
 import { LineWelcomeGate } from "@/lib/responsiveImageVariants.generated";
 
@@ -20,6 +21,10 @@ const AgeGate = ({ onAfterDismiss, resumeAfterPromoEpoch = 0 }: AgeGateProps) =>
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    if (!LINE_WELCOME_GATE_ENABLED) {
+      setOpen(false);
+      return;
+    }
     const promoDone = sessionStorage.getItem(STORAGE_PROMO_DISMISSED) === "yes";
     const dismissed =
       sessionStorage.getItem(STORAGE_DISMISSED) === "yes" ||
@@ -39,7 +44,7 @@ const AgeGate = ({ onAfterDismiss, resumeAfterPromoEpoch = 0 }: AgeGateProps) =>
     onAfterDismiss?.();
   };
 
-  if (!open) return null;
+  if (!LINE_WELCOME_GATE_ENABLED || !open) return null;
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center bg-obsidian/95 backdrop-blur-xl animate-fade-in p-4 sm:p-6">

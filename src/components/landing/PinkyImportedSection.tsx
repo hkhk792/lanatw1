@@ -4,18 +4,7 @@ import {
   getPinkyImportedCatalogImage,
   pinkyImportedCatalog,
 } from "@/data/pinkyImportedCatalog";
-import p1 from "@/assets/product-1.webp";
-import p3 from "@/assets/product-3.webp";
-import p4 from "@/assets/product-4.webp";
-import p6 from "@/assets/product-6.webp";
-import disposableVapengin from "@/assets/disposable-vapengin-venus.webp";
-import disposableMohoo from "@/assets/disposable-mohoo-tokyo.webp";
-import disposableHebat from "@/assets/disposable-hebat-hb10000.webp";
-import disposableDiya from "@/assets/disposable-diya-7500.webp";
-import disposableVaporStorm from "@/assets/disposable-vapor-storm-cf5000.webp";
-import p7 from "@/assets/product-7.webp";
-import showcaseELiquid from "@/assets/showcase-e-liquid.webp";
-import showcaseVapeGear from "@/assets/showcase-vape-gear.webp";
+import { productPhoto } from "@/lib/productPhotos";
 import { AtomizerHostGemini, DiyaPodsShowcase } from "@/lib/responsiveImageVariants.generated";
 import type { ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
 import { sp2sUniversalPodHeroImage } from "@/data/sp2sUniversalPods";
@@ -63,7 +52,7 @@ const LEGACY_HOST_CARDS: DisplayCard[] = [
     name: "卡通限量版一代通配主機",
     flavor: "經典工藝系列",
     price: "NT$550",
-    image: p1,
+    image: productPhoto("product-1.webp"),
     detailHref: "/product/cartoon",
   },
   {
@@ -71,7 +60,7 @@ const LEGACY_HOST_CARDS: DisplayCard[] = [
     name: "SP2S 思博瑞 一代",
     flavor: "十三色工坊系列",
     price: "NT$450",
-    image: p3,
+    image: productPhoto("product-3.webp"),
     detailHref: "/product/bullet",
   },
   {
@@ -79,7 +68,7 @@ const LEGACY_HOST_CARDS: DisplayCard[] = [
     name: "SP2S Pro",
     flavor: "八色旗艦 · 智慧感應",
     price: "NT$450",
-    image: p4,
+    image: productPhoto("product-4.webp"),
     detailHref: "/product/pro",
   },
   {
@@ -96,7 +85,7 @@ const LEGACY_HOST_CARDS: DisplayCard[] = [
     name: "DIYA 叮啞霧化桿",
     flavor: "2.5ML 大容量兼容／一代通用",
     price: "NT$320",
-    image: p6,
+    image: productPhoto("product-6.webp"),
     detailHref: "/product/diya",
   },
 ];
@@ -107,35 +96,35 @@ const LEGACY_DISPOSABLE_CARDS: DisplayCard[] = [
     name: "VENUS金星主機",
     flavor: "可充電霧化電子煙主機 · 台灣現貨 · VAPENGIN 2ml Mesh",
     price: "NT$219",
-    image: disposableVapengin,
+    image: productPhoto("disposable-vapengin-venus.webp"),
   },
   {
     id: "disp-mohoo-box",
     name: "TOKYO MOHOO BOX東京魔盒",
     flavor: "煙彈多種口味 · 12ml · 約 10000 口",
     price: "NT$399",
-    image: disposableMohoo,
+    image: productPhoto("disposable-mohoo-tokyo.webp"),
   },
   {
     id: "disp-hebat",
     name: "HEBAT喜貝六代",
     flavor: "10000口拋棄式一次性電子煙 · 15ml",
     price: "NT$269",
-    image: disposableHebat,
+    image: productPhoto("disposable-hebat-hb10000.webp"),
   },
   {
     id: "disp-diya-7500",
     name: "DIYA叮啞拋棄式7500口",
     flavor: "大容量可充電一次性拋棄式電子煙 · 13ml",
     price: "NT$209",
-    image: disposableDiya,
+    image: productPhoto("disposable-diya-7500.webp"),
   },
   {
     id: "disp-vapor-storm",
     name: "VAPOR STORM風暴5000口",
     flavor: "拋棄式飛霧發光一次性電子煙桿 · 10ml Mesh",
     price: "NT$229",
-    image: disposableVaporStorm,
+    image: productPhoto("disposable-vapor-storm-cf5000.webp"),
   },
 ];
 
@@ -152,7 +141,7 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     name: "lana煙彈",
     flavor: "彈匣系統 · 一代通配",
     price: "NT$220",
-    image: p7,
+    image: productPhoto("product-7.webp"),
     detailHref: "/product/lana-pods",
   },
   {
@@ -169,28 +158,28 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     name: "電子煙煙油",
     flavor: "鹽尼古丁配方 · 風味層次",
     price: "NT$350",
-    image: showcaseELiquid,
+    image: productPhoto("showcase-e-liquid.webp"),
   },
   {
     id: "sp2s-empty-shell-standard",
     name: "SP2／SP2S 一代空殼（一般版白芯）",
     flavor: "空殼 · 約 2.3ml · NT$35／顆 · 100 顆起拿",
     price: "NT$35",
-    image: "/sp2s-empty-shells/standard-white-core.png",
+    image: productPhoto("standard-white-core.png"),
   },
   {
     id: "sp2s-empty-shell-pro",
     name: "SP2S 一代空殼（Pro 版盒裝殼）",
     flavor: "空殼 · 約 2.3ml · NT$35／顆 · 100 顆起拿",
     price: "NT$35",
-    image: "/sp2s-empty-shells/pro-shell.png",
+    image: productPhoto("pro-shell.png"),
   },
   {
     id: "showcase-gear",
     name: "配件",
     flavor: "保護與收納 · 日常搭配",
     price: "NT$120",
-    image: showcaseVapeGear,
+    image: productPhoto("showcase-vape-gear.webp"),
   },
 ];
 

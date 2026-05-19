@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT_DIR = ROOT / "public" / "pinky-imported"
+OUT_DIR = ROOT / "public" / "product-photos"
 SOURCE_PAGE = "https://sites.google.com/view/product-catalogue-e"
 
 CATALOG_IDS = [

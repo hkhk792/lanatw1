@@ -1,0 +1,163 @@
+﻿Type,SKU,Name,Published,Is featured?,Visibility in catalog,Regular price,In stock?,Stock status,Manage stock?,Stock,Backorders allowed?,Attribute 1 name,Attribute 1 value(s),Attribute 1 default,Attribute 1 visible,Attribute 1 global,Attribute 1 variation,Images,Parent,Description,Short description
+variable,ilia-gen1,ILIA 一代系列,1,0,visible,,1,instock,0,999,0,口味,"一代可爾必思, 一代可樂, 一代冰心蜜桃, 一代冰泉, 一代冰葡萄柚, 一代百香果, 一代老冰棍, 一代西瓜, 一代沙士, 一代芒果, 一代奇異果, 一代芭樂, 一代青蘋果, 一代南極冰, 一代哈密瓜, 一代草莓, 一代荔枝, 一代梨山雪梨, 一代莓果, 一代雪碧, 一代菸草, 一代葡萄, 一代綠豆, 一代蜜桃烏龍, 一代鳳梨, 一代龍井, 一代薄荷, 一代檸檬海鹽, 一代藍莓, 一代寶礦力, 一代鐵觀音",一代可爾必思,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,,"<h2>ILIA 一代系列</h2>
+<p>台灣現貨發貨。電子煙相關商品，規格與口味請於下單頁選擇。</p>
+<p><strong>可選規格</strong>：一代可爾必思、一代可樂、一代冰心蜜桃、一代冰泉、一代冰葡萄柚、一代百香果、一代老冰棍、一代西瓜等共 31 款（請於下單頁「口味」下拉選擇）。</p>
+<ul>
+<li>商品編號 SKU：ilia-gen1</li>
+<li>配送：台灣本島，支援<strong>貨到付款</strong></li>
+<li>客服：下單前可透過 <strong>LINE ID</strong> 確認口味／配色與庫存</li>
+</ul>
+<p>台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。</p>
+<p>※ 未滿 18 歲請勿購買；請依當地法規使用電子煙相關產品。</p>",台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-001,ILIA 一代系列 - 一代可爾必思,1,0,visible,299,1,instock,0,999,0,口味,一代可爾必思,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-002,ILIA 一代系列 - 一代可樂,1,0,visible,299,1,instock,0,999,0,口味,一代可樂,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-003,ILIA 一代系列 - 一代冰心蜜桃,1,0,visible,299,1,instock,0,999,0,口味,一代冰心蜜桃,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-004,ILIA 一代系列 - 一代冰泉,1,0,visible,299,1,instock,0,999,0,口味,一代冰泉,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-005,ILIA 一代系列 - 一代冰葡萄柚,1,0,visible,299,1,instock,0,999,0,口味,一代冰葡萄柚,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-006,ILIA 一代系列 - 一代百香果,1,0,visible,299,1,instock,0,999,0,口味,一代百香果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-007,ILIA 一代系列 - 一代老冰棍,1,0,visible,299,1,instock,0,999,0,口味,一代老冰棍,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-008,ILIA 一代系列 - 一代西瓜,1,0,visible,299,1,instock,0,999,0,口味,一代西瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-009,ILIA 一代系列 - 一代沙士,1,0,visible,299,1,instock,0,999,0,口味,一代沙士,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-010,ILIA 一代系列 - 一代芒果,1,0,visible,299,1,instock,0,999,0,口味,一代芒果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-011,ILIA 一代系列 - 一代奇異果,1,0,visible,299,1,instock,0,999,0,口味,一代奇異果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-012,ILIA 一代系列 - 一代芭樂,1,0,visible,299,1,instock,0,999,0,口味,一代芭樂,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-013,ILIA 一代系列 - 一代青蘋果,1,0,visible,299,1,instock,0,999,0,口味,一代青蘋果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-014,ILIA 一代系列 - 一代南極冰,1,0,visible,299,1,instock,0,999,0,口味,一代南極冰,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-015,ILIA 一代系列 - 一代哈密瓜,1,0,visible,299,1,instock,0,999,0,口味,一代哈密瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-016,ILIA 一代系列 - 一代草莓,1,0,visible,299,1,instock,0,999,0,口味,一代草莓,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-017,ILIA 一代系列 - 一代荔枝,1,0,visible,299,1,instock,0,999,0,口味,一代荔枝,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-018,ILIA 一代系列 - 一代梨山雪梨,1,0,visible,299,1,instock,0,999,0,口味,一代梨山雪梨,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-019,ILIA 一代系列 - 一代莓果,1,0,visible,299,1,instock,0,999,0,口味,一代莓果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-020,ILIA 一代系列 - 一代雪碧,1,0,visible,299,1,instock,0,999,0,口味,一代雪碧,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-021,ILIA 一代系列 - 一代菸草,1,0,visible,299,1,instock,0,999,0,口味,一代菸草,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-022,ILIA 一代系列 - 一代葡萄,1,0,visible,299,1,instock,0,999,0,口味,一代葡萄,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-023,ILIA 一代系列 - 一代綠豆,1,0,visible,299,1,instock,0,999,0,口味,一代綠豆,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-024,ILIA 一代系列 - 一代蜜桃烏龍,1,0,visible,299,1,instock,0,999,0,口味,一代蜜桃烏龍,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-025,ILIA 一代系列 - 一代鳳梨,1,0,visible,299,1,instock,0,999,0,口味,一代鳳梨,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-026,ILIA 一代系列 - 一代龍井,1,0,visible,299,1,instock,0,999,0,口味,一代龍井,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-027,ILIA 一代系列 - 一代薄荷,1,0,visible,299,1,instock,0,999,0,口味,一代薄荷,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-028,ILIA 一代系列 - 一代檸檬海鹽,1,0,visible,299,1,instock,0,999,0,口味,一代檸檬海鹽,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-029,ILIA 一代系列 - 一代藍莓,1,0,visible,299,1,instock,0,999,0,口味,一代藍莓,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-030,ILIA 一代系列 - 一代寶礦力,1,0,visible,299,1,instock,0,999,0,口味,一代寶礦力,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,ilia-gen1-031,ILIA 一代系列 - 一代鐵觀音,1,0,visible,299,1,instock,0,999,0,口味,一代鐵觀音,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/ilia-gen1.jpg,ilia-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variable,tutx-gen1,TUTX一代系列,1,0,visible,,1,instock,0,999,0,口味,"水梨, 可樂, 奶茶, 百香果, 老冰棍, 西瓜, 沙士, 芒果, 芭樂, 青蘋果, 南極冰, 哈密瓜, 荔枝, 莓果, 雪碧, 菸草, 葡萄, 蜜桃, 鳳梨, 蔓越莓, 龍井, 薄荷, 檸檬海鹽, 藍莓, 礦力, 鐵觀音",水梨,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,,"<h2>TUTX一代系列</h2>
+<p>台灣現貨發貨。電子煙相關商品，規格與口味請於下單頁選擇。</p>
+<p><strong>可選規格</strong>：水梨、可樂、奶茶、百香果、老冰棍、西瓜、沙士、芒果等共 26 款（請於下單頁「口味」下拉選擇）。</p>
+<ul>
+<li>商品編號 SKU：tutx-gen1</li>
+<li>配送：台灣本島，支援<strong>貨到付款</strong></li>
+<li>客服：下單前可透過 <strong>LINE ID</strong> 確認口味／配色與庫存</li>
+</ul>
+<p>台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。</p>
+<p>※ 未滿 18 歲請勿購買；請依當地法規使用電子煙相關產品。</p>",台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-001,TUTX一代系列 - 水梨,1,0,visible,299,1,instock,0,999,0,口味,水梨,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-002,TUTX一代系列 - 可樂,1,0,visible,299,1,instock,0,999,0,口味,可樂,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-003,TUTX一代系列 - 奶茶,1,0,visible,299,1,instock,0,999,0,口味,奶茶,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-004,TUTX一代系列 - 百香果,1,0,visible,299,1,instock,0,999,0,口味,百香果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-005,TUTX一代系列 - 老冰棍,1,0,visible,299,1,instock,0,999,0,口味,老冰棍,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-006,TUTX一代系列 - 西瓜,1,0,visible,299,1,instock,0,999,0,口味,西瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-007,TUTX一代系列 - 沙士,1,0,visible,299,1,instock,0,999,0,口味,沙士,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-008,TUTX一代系列 - 芒果,1,0,visible,299,1,instock,0,999,0,口味,芒果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-009,TUTX一代系列 - 芭樂,1,0,visible,299,1,instock,0,999,0,口味,芭樂,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-010,TUTX一代系列 - 青蘋果,1,0,visible,299,1,instock,0,999,0,口味,青蘋果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-011,TUTX一代系列 - 南極冰,1,0,visible,299,1,instock,0,999,0,口味,南極冰,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-012,TUTX一代系列 - 哈密瓜,1,0,visible,299,1,instock,0,999,0,口味,哈密瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-013,TUTX一代系列 - 荔枝,1,0,visible,299,1,instock,0,999,0,口味,荔枝,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-014,TUTX一代系列 - 莓果,1,0,visible,299,1,instock,0,999,0,口味,莓果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-015,TUTX一代系列 - 雪碧,1,0,visible,299,1,instock,0,999,0,口味,雪碧,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-016,TUTX一代系列 - 菸草,1,0,visible,299,1,instock,0,999,0,口味,菸草,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-017,TUTX一代系列 - 葡萄,1,0,visible,299,1,instock,0,999,0,口味,葡萄,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-018,TUTX一代系列 - 蜜桃,1,0,visible,299,1,instock,0,999,0,口味,蜜桃,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-019,TUTX一代系列 - 鳳梨,1,0,visible,299,1,instock,0,999,0,口味,鳳梨,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-020,TUTX一代系列 - 蔓越莓,1,0,visible,299,1,instock,0,999,0,口味,蔓越莓,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-021,TUTX一代系列 - 龍井,1,0,visible,299,1,instock,0,999,0,口味,龍井,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-022,TUTX一代系列 - 薄荷,1,0,visible,299,1,instock,0,999,0,口味,薄荷,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-023,TUTX一代系列 - 檸檬海鹽,1,0,visible,299,1,instock,0,999,0,口味,檸檬海鹽,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-024,TUTX一代系列 - 藍莓,1,0,visible,299,1,instock,0,999,0,口味,藍莓,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-025,TUTX一代系列 - 礦力,1,0,visible,299,1,instock,0,999,0,口味,礦力,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,tutx-gen1-026,TUTX一代系列 - 鐵觀音,1,0,visible,299,1,instock,0,999,0,口味,鐵觀音,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/tutx-gen1.jpg,tutx-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variable,diya-7500,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙,1,0,visible,,1,instock,0,999,0,口味,"冬瓜冷露, 雪碧, 養樂多, 可口可樂, 夏日酷飲（檸檬海鹽）, 白玉山竹, 芭樂, 荔枝, 百香果, 西瓜, 藍莓, 葡萄, 哈密瓜, 芒果, 櫻桃, 草莓西瓜, 薔薇布林（首薇布林）, 鐵觀音, 神仙薄荷, 玫瑰茉莉, 冰清玉露, 童年冰棍, 冰冰爆爆",冬瓜冷露,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,,"<h2>DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙</h2>
+<p>台灣現貨發貨。大口數一次性拋棄式，開箱即用，口味請在規格中選擇。</p>
+<p><strong>可選規格</strong>：冬瓜冷露、雪碧、養樂多、可口可樂、夏日酷飲（檸檬海鹽）、白玉山竹、芭樂、荔枝等共 23 款（請於下單頁「口味」下拉選擇）。</p>
+<ul>
+<li>商品編號 SKU：diya-7500</li>
+<li>配送：台灣本島，支援<strong>貨到付款</strong></li>
+<li>客服：下單前可透過 <strong>LINE ID</strong> 確認口味／配色與庫存</li>
+</ul>
+<p>台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。</p>
+<p>※ 未滿 18 歲請勿購買；請依當地法規使用電子煙相關產品。</p>",台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-001,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 冬瓜冷露,1,0,visible,209,1,instock,0,999,0,口味,冬瓜冷露,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-002,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 雪碧,1,0,visible,209,1,instock,0,999,0,口味,雪碧,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-003,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 養樂多,1,0,visible,209,1,instock,0,999,0,口味,養樂多,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-004,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 可口可樂,1,0,visible,209,1,instock,0,999,0,口味,可口可樂,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-005,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 夏日酷飲（檸檬海鹽）,1,0,visible,209,1,instock,0,999,0,口味,夏日酷飲（檸檬海鹽）,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-006,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 白玉山竹,1,0,visible,209,1,instock,0,999,0,口味,白玉山竹,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-007,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 芭樂,1,0,visible,209,1,instock,0,999,0,口味,芭樂,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-008,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 荔枝,1,0,visible,209,1,instock,0,999,0,口味,荔枝,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-009,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 百香果,1,0,visible,209,1,instock,0,999,0,口味,百香果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-010,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 西瓜,1,0,visible,209,1,instock,0,999,0,口味,西瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-011,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 藍莓,1,0,visible,209,1,instock,0,999,0,口味,藍莓,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-012,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 葡萄,1,0,visible,209,1,instock,0,999,0,口味,葡萄,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-013,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 哈密瓜,1,0,visible,209,1,instock,0,999,0,口味,哈密瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-014,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 芒果,1,0,visible,209,1,instock,0,999,0,口味,芒果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-015,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 櫻桃,1,0,visible,209,1,instock,0,999,0,口味,櫻桃,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-016,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 草莓西瓜,1,0,visible,209,1,instock,0,999,0,口味,草莓西瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-017,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 薔薇布林（首薇布林）,1,0,visible,209,1,instock,0,999,0,口味,薔薇布林（首薇布林）,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-018,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 鐵觀音,1,0,visible,209,1,instock,0,999,0,口味,鐵觀音,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-019,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 神仙薄荷,1,0,visible,209,1,instock,0,999,0,口味,神仙薄荷,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-020,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 玫瑰茉莉,1,0,visible,209,1,instock,0,999,0,口味,玫瑰茉莉,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-021,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 冰清玉露,1,0,visible,209,1,instock,0,999,0,口味,冰清玉露,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-022,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 童年冰棍,1,0,visible,209,1,instock,0,999,0,口味,童年冰棍,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,diya-7500-023,DIYA 叮啞拋棄式 7500 口大容量可充電一次性電子煙 - 冰冰爆爆,1,0,visible,209,1,instock,0,999,0,口味,冰冰爆爆,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/disposable-diya-7500.webp,diya-7500,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variable,mehai-gen1,魅嗨一代,1,0,visible,,1,instock,0,999,0,口味,"可樂, 冰泉, 百香果, 老冰棍, 西瓜, 沙士, 芒果, 芭樂, 哈密瓜, 紅顏知己, 草莓, 荔枝, 菸草, 葡萄, 蜜桃, 鳳梨, 薄荷, 檸檬海鹽, 檸檬草, 藍莓, 寶礦力, 蘋果, 鐵觀音",可樂,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,,"<h2>魅嗨一代</h2>
+<p>台灣現貨發貨。電子煙相關商品，規格與口味請於下單頁選擇。</p>
+<p><strong>可選規格</strong>：可樂、冰泉、百香果、老冰棍、西瓜、沙士、芒果、芭樂等共 23 款（請於下單頁「口味」下拉選擇）。</p>
+<ul>
+<li>商品編號 SKU：mehai-gen1</li>
+<li>配送：台灣本島，支援<strong>貨到付款</strong></li>
+<li>客服：下單前可透過 <strong>LINE ID</strong> 確認口味／配色與庫存</li>
+</ul>
+<p>台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。</p>
+<p>※ 未滿 18 歲請勿購買；請依當地法規使用電子煙相關產品。</p>",台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-001,魅嗨一代 - 可樂,1,0,visible,299,1,instock,0,999,0,口味,可樂,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-002,魅嗨一代 - 冰泉,1,0,visible,299,1,instock,0,999,0,口味,冰泉,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-003,魅嗨一代 - 百香果,1,0,visible,299,1,instock,0,999,0,口味,百香果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-004,魅嗨一代 - 老冰棍,1,0,visible,299,1,instock,0,999,0,口味,老冰棍,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-005,魅嗨一代 - 西瓜,1,0,visible,299,1,instock,0,999,0,口味,西瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-006,魅嗨一代 - 沙士,1,0,visible,299,1,instock,0,999,0,口味,沙士,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-007,魅嗨一代 - 芒果,1,0,visible,299,1,instock,0,999,0,口味,芒果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-008,魅嗨一代 - 芭樂,1,0,visible,299,1,instock,0,999,0,口味,芭樂,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-009,魅嗨一代 - 哈密瓜,1,0,visible,299,1,instock,0,999,0,口味,哈密瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-010,魅嗨一代 - 紅顏知己,1,0,visible,299,1,instock,0,999,0,口味,紅顏知己,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-011,魅嗨一代 - 草莓,1,0,visible,299,1,instock,0,999,0,口味,草莓,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-012,魅嗨一代 - 荔枝,1,0,visible,299,1,instock,0,999,0,口味,荔枝,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-013,魅嗨一代 - 菸草,1,0,visible,299,1,instock,0,999,0,口味,菸草,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-014,魅嗨一代 - 葡萄,1,0,visible,299,1,instock,0,999,0,口味,葡萄,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-015,魅嗨一代 - 蜜桃,1,0,visible,299,1,instock,0,999,0,口味,蜜桃,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-016,魅嗨一代 - 鳳梨,1,0,visible,299,1,instock,0,999,0,口味,鳳梨,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-017,魅嗨一代 - 薄荷,1,0,visible,299,1,instock,0,999,0,口味,薄荷,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-018,魅嗨一代 - 檸檬海鹽,1,0,visible,299,1,instock,0,999,0,口味,檸檬海鹽,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-019,魅嗨一代 - 檸檬草,1,0,visible,299,1,instock,0,999,0,口味,檸檬草,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-020,魅嗨一代 - 藍莓,1,0,visible,299,1,instock,0,999,0,口味,藍莓,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-021,魅嗨一代 - 寶礦力,1,0,visible,299,1,instock,0,999,0,口味,寶礦力,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-022,魅嗨一代 - 蘋果,1,0,visible,299,1,instock,0,999,0,口味,蘋果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,mehai-gen1-023,魅嗨一代 - 鐵觀音,1,0,visible,299,1,instock,0,999,0,口味,鐵觀音,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/mehai-gen1.jpg,mehai-gen1,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variable,meel-marbo-9000,MEEL-馬博-9000口,1,0,visible,,1,instock,0,999,0,口味,"水蜜桃, 百香果, 西瓜, 芒果, 芭樂, 荔枝, 葡萄, 藍莓, 鐵觀音",水蜜桃,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,,"<h2>MEEL-馬博-9000口</h2>
+<p>台灣現貨發貨。大口數一次性拋棄式，開箱即用，口味請在規格中選擇。</p>
+<p><strong>可選規格</strong>：水蜜桃、百香果、西瓜、芒果、芭樂、荔枝、葡萄、藍莓等共 9 款（請於下單頁「口味」下拉選擇）。</p>
+<ul>
+<li>商品編號 SKU：meel-marbo-9000</li>
+<li>配送：台灣本島，支援<strong>貨到付款</strong></li>
+<li>客服：下單前可透過 <strong>LINE ID</strong> 確認口味／配色與庫存</li>
+</ul>
+<p>台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。</p>
+<p>※ 未滿 18 歲請勿購買；請依當地法規使用電子煙相關產品。</p>",台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,meel-marbo-9000-001,MEEL-馬博-9000口 - 水蜜桃,1,0,visible,269,1,instock,0,999,0,口味,水蜜桃,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,meel-marbo-9000,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,meel-marbo-9000-002,MEEL-馬博-9000口 - 百香果,1,0,visible,269,1,instock,0,999,0,口味,百香果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,meel-marbo-9000,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,meel-marbo-9000-003,MEEL-馬博-9000口 - 西瓜,1,0,visible,269,1,instock,0,999,0,口味,西瓜,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,meel-marbo-9000,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,meel-marbo-9000-004,MEEL-馬博-9000口 - 芒果,1,0,visible,269,1,instock,0,999,0,口味,芒果,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,meel-marbo-9000,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,meel-marbo-9000-005,MEEL-馬博-9000口 - 芭樂,1,0,visible,269,1,instock,0,999,0,口味,芭樂,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,meel-marbo-9000,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,meel-marbo-9000-006,MEEL-馬博-9000口 - 荔枝,1,0,visible,269,1,instock,0,999,0,口味,荔枝,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,meel-marbo-9000,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,meel-marbo-9000-007,MEEL-馬博-9000口 - 葡萄,1,0,visible,269,1,instock,0,999,0,口味,葡萄,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,meel-marbo-9000,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,meel-marbo-9000-008,MEEL-馬博-9000口 - 藍莓,1,0,visible,269,1,instock,0,999,0,口味,藍莓,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,meel-marbo-9000,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。
+variation,meel-marbo-9000-009,MEEL-馬博-9000口 - 鐵觀音,1,0,visible,269,1,instock,0,999,0,口味,鐵觀音,,1,0,1,https://sp2s.app/wp-content/uploads/2026/05/meel-marbo-9000.jpg,meel-marbo-9000,,台灣現貨，支援貨到付款；下單前可透過 LINE ID 聯繫確認口味、規格與庫存。

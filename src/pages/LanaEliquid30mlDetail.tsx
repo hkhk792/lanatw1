@@ -6,8 +6,10 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/showcase-e-liquid.webp";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const productMain = productPhoto("showcase-e-liquid.webp");
+const logoImage = SITE_LOGO_PHOTO;
 import { ORDER_MODEL_LANA_ELiquid_30ML } from "@/lib/orderProductModels";
 
 const LANA_ELiquid_PRODUCT_ID = "lana-e-liquid-30ml";

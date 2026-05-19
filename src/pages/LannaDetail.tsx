@@ -6,8 +6,10 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/lana-premium-device.webp";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const productMain = productPhoto("lana-premium-device.webp");
+const logoImage = SITE_LOGO_PHOTO;
 import { LANNA_PAGE_SUBTITLE, LANNA_PAGE_TITLE_MAIN } from "@/lib/lannaProduct";
 import { LANNA_ORDER_PRODUCT_MODEL } from "@/lib/orderProductModels";
 

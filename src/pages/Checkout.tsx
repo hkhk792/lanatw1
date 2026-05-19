@@ -6,11 +6,19 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useCart } from "@/contexts/CartContext";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
-import { buy5Get1PoolSummaries, buildCheckoutOrderItems } from "@/lib/cartBuy5Get1";
+import {
+  buy10Get1PoolSummaries,
+  buildCheckoutOrderItems,
+  isBuy10GiftProductId,
+} from "@/lib/cartBuy10Get1";
+import {
+  FREE_SHIPPING_THRESHOLD_TWD,
+  resolveShippingTwd,
+} from "@/lib/checkoutShipping";
+import { isValidTaiwanMobile, normalizeTaiwanMobile } from "@/lib/phoneTaiwan";
+import FirstOrderShippingVerify from "@/components/checkout/FirstOrderShippingVerify";
+import CheckoutLineRebateNotice from "@/components/checkout/CheckoutLineRebateNotice";
 import { CheckoutFooter, CheckoutProgress } from "@/components/checkout/CheckoutChrome";
-
-const FREE_SHIPPING_THRESHOLD = 1500;
-const SHIPPING_FEE = 70;
 
 const formatTwd = (n: number) => `NT$${n.toLocaleString("zh-TW")}`;
 
@@ -26,7 +34,9 @@ const Checkout = () => {
     () => orderItems.reduce((s, it) => s + it.lineTotalTwd, 0),
     [orderItems]
   );
-  const buy5Summaries = useMemo(() => buy5Get1PoolSummaries(lines), [lines]);
+  const buy10Summaries = useMemo(() => buy10Get1PoolSummaries(lines), [lines]);
+  const [isFirstOrder, setIsFirstOrder] = useState<boolean | null>(null);
+  const [firstOrderChecking, setFirstOrderChecking] = useState(false);
 
   const promoLabel = (productId: string) => {
     if (productId === "sp2s-universal-pods") return "SP2S 煙彈";
@@ -45,11 +55,17 @@ const Checkout = () => {
   const [pickupStoreCode, setPickupStoreCode] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const firstOrderFreeShipping = isFirstOrder === true;
   const shippingTwd = useMemo(
-    () => (subtotalTwd >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE),
-    [subtotalTwd]
+    () => resolveShippingTwd(subtotalTwd, firstOrderFreeShipping),
+    [subtotalTwd, firstOrderFreeShipping]
   );
   const totalTwd = subtotalTwd + shippingTwd;
+
+  const handleFirstOrderChange = (next: boolean | null, checking: boolean) => {
+    setIsFirstOrder(next);
+    setFirstOrderChecking(checking);
+  };
 
   useEffect(() => {
     if (lines.length === 0) {
@@ -73,11 +89,32 @@ const Checkout = () => {
       return;
     }
 
+    if (firstOrderChecking) {
+      toast.error("正在確認首單資格", { description: "請稍候再送出訂單。" });
+      return;
+    }
+
+    if (
+      shippingTwd === 0 &&
+      subtotalTwd < FREE_SHIPPING_THRESHOLD_TWD &&
+      !firstOrderFreeShipping
+    ) {
+      toast.error("運費不符合活動", {
+        description: "首單包郵僅限首次下單；否則小計須滿 NT$1,500 才免運。",
+      });
+      return;
+    }
+
+    if (!isValidTaiwanMobile(phone)) {
+      toast.error("請輸入有效的台灣手機號碼");
+      return;
+    }
+
     const payload = {
       country: country.trim() || "台灣",
       paymentMethod: payment,
       customerName: name.trim(),
-      phone: phone.trim(),
+      phone: normalizeTaiwanMobile(phone) || phone.trim(),
       shippingAddress: shippingAddress.trim(),
       pickupStoreCode: pickupStoreCode.trim(),
       lineId: lineId.trim(),
@@ -85,6 +122,7 @@ const Checkout = () => {
       subtotalTwd,
       shippingTwd,
       totalTwd,
+      ...(firstOrderFreeShipping ? { firstOrderFreeShipping: true } : {}),
       items: orderItems.map((it) => ({
         productModel: it.productModel,
         variant: it.variant,
@@ -231,12 +269,12 @@ const Checkout = () => {
                   value={shippingAddress}
                   onChange={(e) => setShippingAddress(e.target.value)}
                   className={fieldClass}
-                  placeholder="超商取貨可填店名與路段；宅配或面交請填詳細地址。"
+                  placeholder="超商取貨可填店名與路段；宅配請填詳細地址。"
                   autoComplete="street-address"
                   required
                 />
                 <p className="text-xs leading-relaxed text-neutral-500">
-                  超商取貨可填店名與路段以利辨識；店號（如 195946）請改填於下方「收貨門市號」。宅配或面交請於本欄寫明詳細地址（原「運送到不同地址」已取消，改以本欄與門市號搭配填寫即可）。
+                  超商取貨（7-11／全家）可填店名與路段，店號請填於下方「收貨門市號」。宅配請於本欄寫明完整地址；宅配運費為超商取貨運費之二倍。
                 </p>
               </div>
 
@@ -255,7 +293,7 @@ const Checkout = () => {
                   required
                 />
                 <p className="text-xs leading-relaxed text-neutral-500">
-                  僅限超商取貨必填；若為宅配或面交，請填「無」或於收貨地址與備註說明。
+                  超商取貨請填 7-11／全家店號；宅配請填「無」。
                 </p>
               </div>
 
@@ -274,12 +312,20 @@ const Checkout = () => {
                 />
               </div>
 
+              <FirstOrderShippingVerify
+                phone={phone}
+                lineId={lineId}
+                onFirstOrderChange={handleFirstOrderChange}
+              />
+
+              <CheckoutLineRebateNotice subtotalTwd={subtotalTwd} />
+
               <div className="space-y-2">
                 <Label htmlFor="notesDefault" className="text-neutral-800">
                   額外資訊 · 訂單備註
                 </Label>
                 <p className="text-[11px] leading-relaxed text-neutral-500">
-                  宅配／面交請於「收貨地址」寫完整地址，並於「收貨門市號」填「無」或依上方說明填寫。
+                  宅配請於「收貨地址」寫完整地址，並於「收貨門市號」填「無」。
                 </p>
                 <Textarea
                   id="notesDefault"
@@ -296,9 +342,13 @@ const Checkout = () => {
             <div className="border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
               <h2 className="text-lg font-semibold text-neutral-900">您的訂單</h2>
 
+              <div className="mt-4">
+                <CheckoutLineRebateNotice subtotalTwd={subtotalTwd} />
+              </div>
+
               <div className="mt-6 space-y-4 border-b border-neutral-200 pb-6">
                 {orderItems.map((it) => {
-                  const isGift = it.productId.endsWith("::buy5-gift");
+                  const isGift = isBuy10GiftProductId(it.productId);
                   return (
                     <div
                       key={`${it.productId}-${it.variant}`}
@@ -329,12 +379,12 @@ const Checkout = () => {
               </div>
 
               <dl className="mt-6 space-y-3 text-sm">
-                {buy5Summaries.length > 0 && (
+                {buy10Summaries.length > 0 && (
                   <div className="rounded-md border border-emerald-200 bg-emerald-50/90 px-3 py-2 text-xs text-emerald-950">
                     <ul className="space-y-1">
-                      {buy5Summaries.map((s) => (
+                      {buy10Summaries.map((s) => (
                         <li key={s.productId}>
-                          買五送一（{promoLabel(s.productId)}）：付費 {s.paidQty} 顆，贈 {s.giftUnits} 顆，共{" "}
+                          買十送一（{promoLabel(s.productId)}）：付費 {s.paidQty} 顆，贈 {s.giftUnits} 顆，共{" "}
                           {s.totalPieces} 顆到手
                         </li>
                       ))}
@@ -346,7 +396,11 @@ const Checkout = () => {
                   <dd className="font-medium text-neutral-900">{formatTwd(subtotalTwd)}</dd>
                 </div>
                 <div className="flex justify-between text-neutral-600">
-                  <dt>超商取貨（滿 {FREE_SHIPPING_THRESHOLD.toLocaleString("zh-TW")} 免運）</dt>
+                  <dt>
+                    {firstOrderFreeShipping
+                      ? "超商取貨（首單包郵）"
+                      : `超商取貨（滿 ${FREE_SHIPPING_THRESHOLD_TWD.toLocaleString("zh-TW")} 免運）`}
+                  </dt>
                   <dd className="font-medium text-neutral-900">
                     {shippingTwd === 0 ? "免運" : formatTwd(shippingTwd)}
                   </dd>

@@ -12,7 +12,9 @@ import { Sp2sGen1PodsCatalog } from "@/lib/responsiveImageVariants.generated";
 import { ORDER_MODEL_SP2S_GEN1_PODS } from "@/lib/orderProductModels";
 
 const productMain = Sp2sGen1PodsCatalog.src;
-import logoImage from "@/assets/product-14.jpg";
+import { SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const logoImage = SITE_LOGO_PHOTO;
 
 const SP2S_GEN1_PODS_PRODUCT_ID = "sp2s-gen1-pods";
 const SP2S_GEN1_PODS_PRICE_TWD = 290;

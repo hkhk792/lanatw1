@@ -6,8 +6,10 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/product-4.webp";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const productMain = productPhoto("product-4.webp");
+const logoImage = SITE_LOGO_PHOTO;
 import { ORDER_MODEL_SP2S_PRO } from "@/lib/orderProductModels";
 
 const PRO_PRODUCT_ID = "pro";

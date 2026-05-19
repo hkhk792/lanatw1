@@ -1,4 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
+import { customerHasPriorOrders } from "./_lib/customerOrders.js";
+import { normalizeLineId, normalizeTaiwanMobile } from "./_lib/phoneTaiwan.js";
 
 const AIRTABLE_API_BASE = "https://api.airtable.com/v0";
 
@@ -99,8 +101,11 @@ function mapSupabaseOrderError(message) {
       error: sku ? `庫存不足（${sku}），請調整數量或聯繫客服。` : "庫存不足，請調整數量或聯繫客服。",
     };
   }
-  if (m.includes("subtotal mismatch") || m.includes("total mismatch")) {
+  if (m.includes("subtotal mismatch") || m.includes("total mismatch") || m.includes("shipping mismatch")) {
     return { status: 400, error: "訂單金額驗證失敗，請重新整理頁面後再試。" };
+  }
+  if (m.includes("first_order_shipping_not_eligible")) {
+    return { status: 409, error: "不符合首單包郵資格，請確認手機與 LINE ID 或重新整理頁面。" };
   }
   if (m.includes("missing required customer fields") || m.includes("items required")) {
     return { status: 400, error: "請填寫完整訂單資料。" };
@@ -112,6 +117,58 @@ function mapSupabaseOrderError(message) {
 }
 
 /** 站群：每個 Vercel 部署設 SITE_CODE；優先於請求體中的 siteCode（防止偽造）。未設時沿用 body 或 default。 */
+const FREE_SHIPPING_THRESHOLD = 1500;
+const STANDARD_SHIPPING_FEE = 70;
+
+function expectedStandardShippingTwd(subtotalTwd) {
+  return subtotalTwd >= FREE_SHIPPING_THRESHOLD ? 0 : STANDARD_SHIPPING_FEE;
+}
+
+async function applyFirstOrderShippingRules(payload) {
+  const subtotalTwd = Number(payload.subtotalTwd) || 0;
+  const shippingTwd = Number(payload.shippingTwd) || 0;
+  const standardShipping = expectedStandardShippingTwd(subtotalTwd);
+
+  if (shippingTwd === standardShipping) {
+    return { ...payload, firstOrderFreeShipping: false };
+  }
+
+  if (shippingTwd === 0 && subtotalTwd < FREE_SHIPPING_THRESHOLD) {
+    const phone = normalizeTaiwanMobile(payload.phone);
+    const lineId = normalizeLineId(payload.lineId);
+
+    if (!phone || !lineId) {
+      const err = new Error("請填寫有效的手機號碼與 LINE ID。");
+      err.status = 400;
+      throw err;
+    }
+
+    if (!payload.firstOrderFreeShipping) {
+      const err = new Error("首單免運標記缺失，請重新整理結帳頁。");
+      err.status = 400;
+      throw err;
+    }
+
+    const prior = await customerHasPriorOrders({ phone, lineId });
+    if (prior.hasPriorOrders) {
+      const err = new Error("此手機或 LINE ID 已有訂單紀錄，無法使用首單包郵。");
+      err.status = 409;
+      throw err;
+    }
+
+    return {
+      ...payload,
+      phone: payload.phone,
+      lineId: payload.lineId,
+      firstOrderFreeShipping: true,
+    };
+  }
+
+  const err = new Error("運費計算錯誤，請重新整理頁面。");
+  err.status = 400;
+  throw err;
+}
+
 function mergeSiteCodeIntoPayload(payload) {
   const fromEnv = getEnv("SITE_CODE");
   const fromBody =
@@ -293,17 +350,26 @@ export default async function handler(req, res) {
       getEnv("AIRTABLE_TOKEN") && getEnv("AIRTABLE_BASE_ID") && getEnv("AIRTABLE_ORDERS_TABLE") && getEnv("AIRTABLE_ITEMS_TABLE")
     );
 
+    let orderPayload = payload;
+    if (hasSupabase) {
+      orderPayload = await applyFirstOrderShippingRules(payload);
+    } else if (Number(payload.shippingTwd) === 0 && Number(payload.subtotalTwd) < FREE_SHIPPING_THRESHOLD) {
+      return res.status(503).json({
+        error: "首單包郵須使用 Supabase 訂單後端；請設定 SUPABASE_URL 與 SUPABASE_SERVICE_ROLE_KEY。",
+      });
+    }
+
     let result;
     if (backend === "supabase" || (!backend && hasSupabase)) {
       if (!hasSupabase) {
         return res.status(503).json({ error: "Supabase is not configured (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)." });
       }
-      result = await placeOrderSupabase({ ...payload });
+      result = await placeOrderSupabase({ ...orderPayload });
     } else if (backend === "airtable" || (!backend && hasAirtable)) {
       if (!hasAirtable) {
         return res.status(503).json({ error: "Airtable is not configured." });
       }
-      result = await placeOrderAirtable(payload);
+      result = await placeOrderAirtable(orderPayload);
     } else {
       return res.status(503).json({
         error:

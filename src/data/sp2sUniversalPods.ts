@@ -1,4 +1,6 @@
-/** 與 `public/sp2s-universal-pods/{01..32}.webp` 對齊；圖檔由匯出目錄批次複製 */
+import { sp2sUniversalPodHeroPhoto, sp2sUniversalPodPhoto } from "@/lib/productPhotos";
+
+/** 與 `public/product-photos/sp2s-pod-{01..32}.webp` 對齊 */
 export const SP2S_UNIVERSAL_POD_PRODUCT_ID = "sp2s-universal-pods";
 export const SP2S_UNIVERSAL_POD_PRICE_TWD = 280;
 
@@ -38,10 +40,9 @@ export const SP2S_UNIVERSAL_PODS_FLAVORS: readonly { index: number; name: string
 ] as const;
 
 export function sp2sUniversalPodImageByIndex(index: number) {
-  const n = Math.min(32, Math.max(1, index));
-  return `${import.meta.env.BASE_URL}sp2s-universal-pods/${String(n).padStart(2, "0")}.webp`;
+  return sp2sUniversalPodPhoto(index);
 }
 
 export function sp2sUniversalPodHeroImage() {
-  return `${import.meta.env.BASE_URL}sp2s-universal-pods/hero.png`;
+  return sp2sUniversalPodHeroPhoto();
 }

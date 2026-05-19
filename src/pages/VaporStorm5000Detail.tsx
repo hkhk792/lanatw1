@@ -6,8 +6,10 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/disposable-vapor-storm-cf5000.webp";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const productMain = productPhoto("disposable-vapor-storm-cf5000.webp");
+const logoImage = SITE_LOGO_PHOTO;
 import { ORDER_MODEL_VAPOR_STORM_5000 } from "@/lib/orderProductModels";
 
 const VAPOR_STORM_PRODUCT_ID = "vapor-storm-5000";

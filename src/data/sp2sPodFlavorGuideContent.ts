@@ -1,10 +1,10 @@
-import sp2sHimalayaJasmine from "@/assets/sp2s-info-himalaya-jasmine.webp";
+import { productPhoto } from "@/lib/productPhotos";
 
 /** 首頁與內頁共用的內文資料 */
 export const SP2S_POD_FLAVOR_GUIDE_ROUTE = "/info/sp2s-pod-flavor-guide" as const;
 
 export const sp2sPodFlavorGuideContent = {
-  heroImage: sp2sHimalayaJasmine,
+  heroImage: productPhoto("sp2s-info-himalaya-jasmine.webp"),
   imageAlt: "SP2S 煙彈風味示意 — 思博瑞系列",
   eyebrow: "實測推薦 · 口味指南",
   title: "【SP2S 煙彈口味推薦】 煙彈口味解析，選出你的本命款！",

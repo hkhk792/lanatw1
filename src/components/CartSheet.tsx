@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
-import { buy5Get1PoolSummaries } from "@/lib/cartBuy5Get1";
+import { buy10Get1PoolSummaries } from "@/lib/cartBuy10Get1";
 import {
   Sheet,
   SheetContent,
@@ -26,7 +26,7 @@ const CartSheet = () => {
   } = useCart();
   const navigate = useNavigate();
 
-  const buy5Summaries = useMemo(() => buy5Get1PoolSummaries(lines), [lines]);
+  const buy10Summaries = useMemo(() => buy10Get1PoolSummaries(lines), [lines]);
 
   const promoLabel = (productId: string) => {
     if (productId === "sp2s-universal-pods") return "SP2S 煙彈";
@@ -173,7 +173,7 @@ const CartSheet = () => {
                     </div>
                   </li>
                 ))}
-                {buy5Summaries.map((s) => (
+                {buy10Summaries.map((s) => (
                   <li
                     key={`gift-${s.productId}`}
                     className="flex gap-3 rounded-xl border border-emerald-200/90 bg-emerald-50/60 p-3"
@@ -194,7 +194,7 @@ const CartSheet = () => {
                     <div className="flex min-w-0 flex-1 flex-col justify-between">
                       <div>
                         <p className="text-sm font-medium text-emerald-950">
-                          贈品 · 買五送一（{promoLabel(s.productId)}）
+                          贈品 · 買十送一（{promoLabel(s.productId)}）
                         </p>
                         <p className="mt-1 text-xs text-emerald-900/90">
                           付費 {s.paidQty} 顆 → 贈 {s.giftUnits} 顆，實際到手 {s.totalPieces} 顆
@@ -213,9 +213,9 @@ const CartSheet = () => {
             </div>
 
             <div className="border-t border-gray-100 bg-white px-6 py-4">
-              {buy5Summaries.length > 0 && (
+              {buy10Summaries.length > 0 && (
                 <p className="mb-3 text-[11px] leading-relaxed text-emerald-900/90">
-                  買五送一：贈品口味以門市／客服為準；小計為付費顆數金額，贈品不計價。
+                  買十送一：贈品口味以門市／客服為準；小計為付費顆數金額，贈品不計價。
                 </p>
               )}
               <div className="flex items-baseline justify-between text-gray-700">

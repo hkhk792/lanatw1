@@ -1,7 +1,6 @@
 /**
- * 將站內商品相關圖檔打包成單一 ZIP（exports/product-photos-export.zip）。
- * 含：public/pinky-imported、sp2s-universal-pods、sp2s-empty-shells、promo 買五送一；
- *     src/assets 中排除門市／文章等非商品圖示與橫幅。
+ * 將站內商品主圖打包成單一 ZIP（exports/product-photos-export.zip）。
+ * 來源：public/product-photos/（全站商品圖已合併於此，扁平目錄）。
  */
 import fs, { createWriteStream } from "node:fs";
 import path from "node:path";
@@ -12,20 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const outDir = path.join(root, "exports");
 const outZip = path.join(outDir, "product-photos-export.zip");
-
-/** 首頁／門市／文章等，非商品主圖 */
-const ASSET_DENY = new Set([
-  "airport-vape-article-hero.webp",
-  "diy-liquid-mixing-workbench-hero.webp",
-  "huan-icon-711.webp",
-  "huan-icon-store.webp",
-  "huan-icon-support.webp",
-  "huan-icon-truck.webp",
-  "huan-promo-banner.webp",
-  "huan-taiwan-vape-banner.webp",
-  "huan-taiwan-vape-banner.r640.webp",
-  "line-welcome-gate.webp",
-]);
+const photosDir = path.join(root, "public", "product-photos");
 
 function countFilesInDir(dir) {
   if (!fs.existsSync(dir)) return 0;
@@ -38,26 +24,7 @@ function countFilesInDir(dir) {
   return n;
 }
 
-const pinkyDir = path.join(root, "public", "pinky-imported");
-const podsDir = path.join(root, "public", "sp2s-universal-pods");
-const shellsDir = path.join(root, "public", "sp2s-empty-shells");
-const promoFile = path.join(root, "public", "promo", "entry-buy5-splash.png");
-const assetsDir = path.join(root, "src", "assets");
-
-let assetCount = 0;
-for (const name of fs.readdirSync(assetsDir)) {
-  if (!/\.(webp|png|jpe?g)$/i.test(name)) continue;
-  if (ASSET_DENY.has(name)) continue;
-  assetCount += 1;
-}
-
-const promoCount = fs.existsSync(promoFile) ? 1 : 0;
-const total =
-  countFilesInDir(pinkyDir) +
-  countFilesInDir(podsDir) +
-  countFilesInDir(shellsDir) +
-  promoCount +
-  assetCount;
+const total = countFilesInDir(photosDir);
 
 fs.mkdirSync(outDir, { recursive: true });
 if (fs.existsSync(outZip)) fs.unlinkSync(outZip);
@@ -70,23 +37,10 @@ await new Promise((resolve, reject) => {
   archive.on("error", reject);
   archive.pipe(output);
 
-  if (fs.existsSync(pinkyDir)) archive.directory(pinkyDir, "pinky-imported");
-  else console.warn("skip missing: public/pinky-imported");
-
-  if (fs.existsSync(podsDir)) archive.directory(podsDir, "sp2s-universal-pods");
-  else console.warn("skip missing: public/sp2s-universal-pods");
-
-  if (fs.existsSync(shellsDir)) archive.directory(shellsDir, "sp2s-empty-shells");
-  else console.warn("skip missing: public/sp2s-empty-shells");
-
-  if (fs.existsSync(promoFile)) {
-    archive.file(promoFile, { name: "promo/entry-buy5-splash.png" });
-  }
-
-  for (const name of fs.readdirSync(assetsDir)) {
-    if (!/\.(webp|png|jpe?g)$/i.test(name)) continue;
-    if (ASSET_DENY.has(name)) continue;
-    archive.file(path.join(assetsDir, name), { name: `src-assets/${name}` });
+  if (fs.existsSync(photosDir)) {
+    archive.directory(photosDir, "product-photos");
+  } else {
+    console.warn("skip missing: public/product-photos");
   }
 
   archive.finalize();

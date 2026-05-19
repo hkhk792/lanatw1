@@ -6,8 +6,10 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/showcase-gen5-pods.webp";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const productMain = productPhoto("showcase-gen5-pods.webp");
+const logoImage = SITE_LOGO_PHOTO;
 import { ORDER_MODEL_VSTORM_GEN5_PODS } from "@/lib/orderProductModels";
 
 const VSTORM_GEN5_PRODUCT_ID = "vstorm-gen5-pods";

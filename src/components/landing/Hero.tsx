@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import sp2sGen2PodsFlavorCatalog from "@/assets/sp2s-gen2-pods-flavor-catalog.png";
+import { productPhoto } from "@/lib/productPhotos";
+
+const sp2sGen2PodsFlavorCatalog = productPhoto("sp2s-gen2-pods-flavor-catalog.png");
 
 const GEN1_PODS_ROUTE = "/product/sp2s-gen1-pods";
 const CATALOG_ANCHOR = "/#home-catalog";

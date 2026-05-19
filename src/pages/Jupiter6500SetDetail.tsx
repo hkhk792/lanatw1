@@ -6,8 +6,10 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/disposable-flare-nimmbox-go.webp";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const productMain = productPhoto("disposable-flare-nimmbox-go.webp");
+const logoImage = SITE_LOGO_PHOTO;
 import { ORDER_MODEL_JUPITER_SET } from "@/lib/orderProductModels";
 
 const JUPITER_PRODUCT_ID = "jupiter-6500-set";

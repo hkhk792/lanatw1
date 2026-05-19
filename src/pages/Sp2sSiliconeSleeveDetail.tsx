@@ -7,8 +7,10 @@ import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import productMain from "@/assets/showcase-vape-gear.webp";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const productMain = productPhoto("showcase-vape-gear.webp");
+const logoImage = SITE_LOGO_PHOTO;
 import { ORDER_MODEL_SP2S_SILICONE_SLEEVE } from "@/lib/orderProductModels";
 
 const SP2S_SLEEVE_PRODUCT_ID = "sp2s-silicone-sleeve";

@@ -1,11 +1,13 @@
 import { useCallback, useState } from "react";
 import { LINE_OFFICIAL_CUSTOMER_URL } from "@/constants/lineOfficial";
+import { productPhoto } from "@/lib/productPhotos";
 
 const STORAGE_PROMO_DISMISSED = "sp2s-entry-activity-promo-dismissed";
 
 /** 查詢參數：更換海報檔後遞增，避免 CDN／瀏覽器沿用舊快取 */
-const posterPrimary = `${import.meta.env.BASE_URL}promo/entry-buy5-splash.png?v=3`;
-const posterLegacy = `${import.meta.env.BASE_URL}promo/entry-activity.jpg`;
+
+const posterPrimary = `${productPhoto("entry-promo-splash.png")}?v=1`;
+const posterLegacy = `${productPhoto("entry-buy5-splash.png")}?v=1`;
 
 type Props = {
   /** 關閉活動層後觸發（例如接續顯示 LINE 二維碼門檻） */
@@ -49,12 +51,12 @@ const EntryActivityPromoGate = ({ onAfterDismiss }: Props) => {
         {/* 活動海報（新檔優先；無則回退舊圖／內建版式） */}
         <div className="relative flex flex-1 flex-col items-center justify-center px-2 pt-4 pb-2 sm:px-4 sm:pt-6">
           <h1 id="entry-promo-title" className="sr-only">
-            超值活動：LANA 與 SP2S 買五送一，五件須為同品牌系列，贈品為該品牌隨機口味
+            超值活動：買十送一、首單包郵、滿千送三百現金券
           </h1>
           {!posterFailed ? (
             <img
               src={posterSrc}
-              alt="LANAVAPE 與 SP2S 買五送一活動：同品牌五件，贈該品牌隨機口味"
+              alt="買越多省越多：買十送一、首單包郵、消費滿一千送三百現金券"
               className="max-h-[min(88dvh,calc(100dvh-9rem))] w-full max-w-2xl object-contain object-top"
               loading="eager"
               decoding="async"
@@ -68,17 +70,17 @@ const EntryActivityPromoGate = ({ onAfterDismiss }: Props) => {
                 超值活動 · 指定系列
               </p>
               <h2 className="relative font-serif text-3xl leading-[1.08] tracking-tight text-gradient-gold sm:text-5xl sm:leading-[1.02]">
-                買 5 送 1
+                買 10 送 1
               </h2>
               <p className="relative mt-3 text-sm text-foreground/75 sm:text-base">任選不同口味（以門市／客服公告為準）</p>
               <div className="relative mt-10 grid grid-cols-2 gap-3 sm:gap-4">
                 <div className="hairline border border-gold/25 bg-card/20 p-3 text-center sm:p-4">
                   <p className="text-[9px] uppercase tracking-luxury text-gold/80">LANAVAPE</p>
-                  <p className="mt-1 font-serif text-lg text-foreground sm:text-xl">買 5 送 1</p>
+                  <p className="mt-1 font-serif text-lg text-foreground sm:text-xl">買 10 送 1</p>
                 </div>
                 <div className="hairline border border-gold/25 bg-card/20 p-3 text-center sm:p-4">
                   <p className="text-[9px] uppercase tracking-luxury text-gold/80">SP2S</p>
-                  <p className="mt-1 font-serif text-lg text-foreground sm:text-xl">買 5 送 1</p>
+                  <p className="mt-1 font-serif text-lg text-foreground sm:text-xl">買 10 送 1</p>
                 </div>
               </div>
             </div>

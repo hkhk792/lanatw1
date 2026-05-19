@@ -5,13 +5,7 @@ import { BrandSp2s } from "@/components/BrandSp2s";
 import ProductCard from "@/components/landing/ProductCard";
 import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
 import { Sp2sGen1PodsCatalog } from "@/lib/responsiveImageVariants.generated";
-import disposableVapengin from "@/assets/disposable-vapengin-venus.webp";
-import disposableMohoo from "@/assets/disposable-mohoo-tokyo.webp";
-import disposableHebat from "@/assets/disposable-hebat-hb10000.webp";
-import disposableDiya from "@/assets/disposable-diya-7500.webp";
-import disposableVaporStorm from "@/assets/disposable-vapor-storm-cf5000.webp";
-import showcaseELiquid from "@/assets/showcase-e-liquid.webp";
-import showcaseVapeGear from "@/assets/showcase-vape-gear.webp";
+import { productPhoto } from "@/lib/productPhotos";
 
 const highlights = [
   { label: "水果系列", sub: "18 款" },
@@ -24,14 +18,14 @@ const highlights = [
 const showcaseProducts = [
   {
     id: "showcase-e-liquid",
-    image: showcaseELiquid,
+    image: productPhoto("showcase-e-liquid.webp"),
     name: "電子煙煙油",
     flavor: "鹽尼古丁配方 · 風味層次",
     price: "NT$350",
   },
   {
     id: "showcase-gear",
-    image: showcaseVapeGear,
+    image: productPhoto("showcase-vape-gear.webp"),
     name: "配件",
     flavor: "保護與收納 · 日常搭配",
     price: "NT$120",
@@ -40,35 +34,35 @@ const showcaseProducts = [
 
 const disposableProducts = [
   {
-    image: disposableVapengin,
+    image: productPhoto("disposable-vapengin-venus.webp"),
     name: "VENUS金星主機",
     flavor: "可充電霧化電子煙主機 · 台灣現貨 · VAPENGIN 2ml Mesh",
     price: "NT$219",
     id: "disp-vapengin",
   },
   {
-    image: disposableMohoo,
+    image: productPhoto("disposable-mohoo-tokyo.webp"),
     name: "TOKYO MOHOO BOX東京魔盒",
     flavor: "煙彈多種口味 · 12ml · 約 10000 口",
     price: "NT$399",
     id: "disp-mohoo-box",
   },
   {
-    image: disposableHebat,
+    image: productPhoto("disposable-hebat-hb10000.webp"),
     name: "HEBAT喜貝六代",
     flavor: "10000口拋棄式一次性電子煙 · 15ml",
     price: "NT$269",
     id: "disp-hebat",
   },
   {
-    image: disposableDiya,
+    image: productPhoto("disposable-diya-7500.webp"),
     name: "DIYA叮啞拋棄式7500口",
     flavor: "大容量可充電一次性拋棄式電子煙 · 13ml",
     price: "NT$209",
     id: "disp-diya-7500",
   },
   {
-    image: disposableVaporStorm,
+    image: productPhoto("disposable-vapor-storm-cf5000.webp"),
     name: "VAPOR STORM風暴5000口",
     flavor: "拋棄式飛霧發光一次性電子煙桿 · 10ml Mesh",
     price: "NT$229",

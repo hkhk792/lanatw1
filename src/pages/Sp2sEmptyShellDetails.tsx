@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 import {
   ORDER_MODEL_SP2S_EMPTY_SHELL_PRO,
   ORDER_MODEL_SP2S_EMPTY_SHELL_STANDARD,
@@ -33,7 +33,7 @@ const SHELL_CONFIG: Record<
     productId: "sp2s-empty-shell-standard",
     orderModel: ORDER_MODEL_SP2S_EMPTY_SHELL_STANDARD,
     pageTitle: "SP2／SP2S 一代空殼（一般版白芯）",
-    heroSrc: "/sp2s-empty-shells/standard-white-core.png",
+    heroSrc: productPhoto("standard-white-core.png"),
     heroAlt: "SP2 一代空殼 一般版白芯 透明殼體",
     badge: "正版空殼 · 2.3ml",
     bullets: [
@@ -46,7 +46,7 @@ const SHELL_CONFIG: Record<
     productId: "sp2s-empty-shell-pro",
     orderModel: ORDER_MODEL_SP2S_EMPTY_SHELL_PRO,
     pageTitle: "SP2S 一代空殼（Pro 版盒裝殼）",
-    heroSrc: "/sp2s-empty-shells/pro-shell.png",
+    heroSrc: productPhoto("pro-shell.png"),
     heroAlt: "SP2S Pro 版一代空殼 透明殼體",
     badge: "Pro 版殼 · 2.3ml",
     bullets: [
@@ -106,7 +106,7 @@ function Sp2sEmptyShellDetailPage({ kind }: { kind: ShellKind }) {
       >
         <div className="container mx-auto flex items-center justify-between px-4 py-1">
           <div className="flex items-center gap-2">
-            <img src={logoImage} alt="SP2S Logo" className="h-20 w-20 rounded-lg object-contain" />
+            <img src={SITE_LOGO_PHOTO} alt="SP2S Logo" className="h-20 w-20 rounded-lg object-contain" />
           </div>
 
           <div className="hidden items-center gap-6 md:flex">

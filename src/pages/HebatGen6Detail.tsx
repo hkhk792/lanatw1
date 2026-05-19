@@ -6,8 +6,10 @@ import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
-import productMain from "@/assets/disposable-hebat-hb10000.webp";
-import logoImage from "@/assets/product-14.jpg";
+import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const productMain = productPhoto("disposable-hebat-hb10000.webp");
+const logoImage = SITE_LOGO_PHOTO;
 import { ORDER_MODEL_HEBAT_GEN6 } from "@/lib/orderProductModels";
 
 const HEBAT_PRODUCT_ID = "hebat-gen6";

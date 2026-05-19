@@ -11,7 +11,9 @@ import { AtomizerHostGemini } from "@/lib/responsiveImageVariants.generated";
 import { ORDER_MODEL_ATOMIZER_HOST } from "@/lib/orderProductModels";
 
 const productMain = AtomizerHostGemini.src;
-import logoImage from "@/assets/product-14.jpg";
+import { SITE_LOGO_PHOTO } from "@/lib/productPhotos";
+
+const logoImage = SITE_LOGO_PHOTO;
 
 const ATOMIZER_PRODUCT_ID = "atomizer";
 const ATOMIZER_PRICE_TWD = 290;

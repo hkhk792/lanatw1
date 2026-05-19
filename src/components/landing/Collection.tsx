@@ -1,15 +1,12 @@
 import ProductCard from "./ProductCard";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
-import p1 from "@/assets/product-1.webp";
-import p3 from "@/assets/product-3.webp";
-import p4 from "@/assets/product-4.webp";
-import p6 from "@/assets/product-6.webp";
+import { productPhoto } from "@/lib/productPhotos";
 import { AtomizerHostGemini } from "@/lib/responsiveImageVariants.generated";
 const products = [
-  { image: p1, name: "卡通限量版一代通配主機", flavor: "經典工藝系列", price: "NT$550", id: "cartoon" },
-  { image: p3, name: "SP2S 思博瑞 一代", flavor: "十三色工坊系列", price: "NT$450", id: "bullet" },
-  { image: p4, name: "SP2S Pro", flavor: "八色旗艦 · 智慧感應", price: "NT$450", id: "pro" },
+  { image: productPhoto("product-1.webp"), name: "卡通限量版一代通配主機", flavor: "經典工藝系列", price: "NT$550", id: "cartoon" },
+  { image: productPhoto("product-3.webp"), name: "SP2S 思博瑞 一代", flavor: "十三色工坊系列", price: "NT$450", id: "bullet" },
+  { image: productPhoto("product-4.webp"), name: "SP2S Pro", flavor: "八色旗艦 · 智慧感應", price: "NT$450", id: "pro" },
   {
     image: AtomizerHostGemini.src,
     name: "原子棒一代通配主機",
@@ -19,7 +16,7 @@ const products = [
     responsive: AtomizerHostGemini,
   },
   {
-    image: p6,
+    image: productPhoto("product-6.webp"),
     name: "DIYA 叮啞霧化桿",
     flavor: "2.5ML 大容量兼容／一代通用",
     price: "NT$320",

@@ -1,3 +1,5 @@
+import { pinkyCatalogPhoto } from "@/lib/productPhotos";
+
 export interface PinkyCatalogItem {
   id: string;
   title: string;
@@ -123,8 +125,7 @@ export const pinkyImportedCatalogImageById: Record<string, string> = {
     "https://lh3.googleusercontent.com/sitesv/AA5AbUBC3q3EBQ8by9qNRoWGgYI4Fp16WhXAIGKgguzt6d-lePfa7MVJcpi7i37wz5xiY_xHFr17dO0Zv-YbcFFUcMLBeRndSOhTb5l-RGWbQuoa6CvZI7TKp4KJ2qKEcXiYC-T4u1h8OQkkCxALdZldaYC8BHJLDVEt5tiaQLGl1UxLJ_gqUOX7OWT3H8MegXCMyRb2d1-4Be_lvaDrW1VDvHgE63KCRg42cbWrQsc=w1280",
 };
 
-export const getPinkyImportedCatalogImage = (id: string) =>
-  `${import.meta.env.BASE_URL}pinky-imported/${id}.jpg`;
+export const getPinkyImportedCatalogImage = (id: string) => pinkyCatalogPhoto(id);
 
 export const findPinkyCatalogItemById = (id?: string) =>
   pinkyImportedCatalog.find((item) => item.id === id);

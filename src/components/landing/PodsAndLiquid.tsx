@@ -6,7 +6,7 @@ import { BrandSp2s } from "@/components/BrandSp2s";
 import type { ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
 import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
 import { cn } from "@/lib/utils";
-import p7 from "@/assets/product-7.webp";
+import { productPhoto } from "@/lib/productPhotos";
 import { DiyaPodsShowcase } from "@/lib/responsiveImageVariants.generated";
 
 interface Feature {
@@ -179,7 +179,7 @@ const FeatureCard = ({ f, i }: { f: Feature; i: number }) => {
 
 const features: Feature[] = [
   {
-    image: p7,
+    image: productPhoto("product-7.webp"),
     eyebrow: "彈匣系統",
     title: "lana煙彈",
     desc: (

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import {
   consumeHomeScrollRestore,
   getPersistedHomeScrollY,
@@ -15,7 +15,6 @@ import Footer from "@/components/landing/Footer";
 import HealthWarning from "@/components/landing/HealthWarning";
 
 const Index = () => {
-  const [resumeAfterPromoEpoch, setResumeAfterPromoEpoch] = useState(0);
   useLayoutEffect(() => {
     if (consumeHomeScrollRestore()) {
       const y = getPersistedHomeScrollY();
@@ -58,10 +57,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden pb-[calc(3rem+env(safe-area-inset-bottom,0px))]">
-      <AgeGate resumeAfterPromoEpoch={resumeAfterPromoEpoch} />
-      <EntryActivityPromoGate
-        onAfterDismiss={() => setResumeAfterPromoEpoch((n) => n + 1)}
-      />
+      <AgeGate />
+      <EntryActivityPromoGate />
       <Navbar />
       <main>
         <Hero />
