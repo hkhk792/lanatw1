@@ -51,12 +51,12 @@ const EntryActivityPromoGate = ({ onAfterDismiss }: Props) => {
         {/* 活動海報（新檔優先；無則回退舊圖／內建版式） */}
         <div className="relative flex flex-1 flex-col items-center justify-center px-2 pt-4 pb-2 sm:px-4 sm:pt-6">
           <h1 id="entry-promo-title" className="sr-only">
-            超值活動：買十送一、首單包郵、滿千送三百現金券
+            超值活動：全場買 10 送 1、煙彈買 5 送 1、首單包郵、滿千送三百現金券
           </h1>
           {!posterFailed ? (
             <img
               src={posterSrc}
-              alt="買越多省越多：買十送一、首單包郵、消費滿一千送三百現金券"
+              alt="買越多省越多：全場買 10 送 1、煙彈買 5 送 1、首單包郵、消費滿一千送三百現金券"
               className="max-h-[min(88dvh,calc(100dvh-9rem))] w-full max-w-2xl object-contain object-top"
               loading="eager"
               decoding="async"
@@ -67,20 +67,22 @@ const EntryActivityPromoGate = ({ onAfterDismiss }: Props) => {
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,175,55,0.18),transparent_55%)]" />
               <p className="relative mb-4 flex items-center gap-2 text-[10px] uppercase tracking-luxury text-gold/90">
                 <span className="inline-block h-2 w-2 rounded-full bg-gold shadow-[0_0_12px_hsl(var(--gold)/0.6)]" />
-                超值活動 · 指定系列
+                超值活動 · 雙重贈品
               </p>
               <h2 className="relative font-serif text-3xl leading-[1.08] tracking-tight text-gradient-gold sm:text-5xl sm:leading-[1.02]">
-                買 10 送 1
+                全場買 10 送 1
               </h2>
-              <p className="relative mt-3 text-sm text-foreground/75 sm:text-base">任選不同口味（以門市／客服公告為準）</p>
+              <p className="relative mt-3 text-sm text-foreground/75 sm:text-base">
+                付費滿 10 件 · 私訊 LINE 客服自選 1 份贈品
+              </p>
               <div className="relative mt-10 grid grid-cols-2 gap-3 sm:gap-4">
                 <div className="hairline border border-gold/25 bg-card/20 p-3 text-center sm:p-4">
-                  <p className="text-[9px] uppercase tracking-luxury text-gold/80">LANAVAPE</p>
-                  <p className="mt-1 font-serif text-lg text-foreground sm:text-xl">買 10 送 1</p>
+                  <p className="text-[9px] uppercase tracking-luxury text-gold/80">LANAVAPE 煙彈</p>
+                  <p className="mt-1 font-serif text-lg text-foreground sm:text-xl">買 5 送 1</p>
                 </div>
                 <div className="hairline border border-gold/25 bg-card/20 p-3 text-center sm:p-4">
-                  <p className="text-[9px] uppercase tracking-luxury text-gold/80">SP2S</p>
-                  <p className="mt-1 font-serif text-lg text-foreground sm:text-xl">買 10 送 1</p>
+                  <p className="text-[9px] uppercase tracking-luxury text-gold/80">SP2S 煙彈</p>
+                  <p className="mt-1 font-serif text-lg text-foreground sm:text-xl">買 5 送 1</p>
                 </div>
               </div>
             </div>

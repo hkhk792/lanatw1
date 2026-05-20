@@ -9,6 +9,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import CartLineThumbnail from "@/components/CartLineThumbnail";
+import SitewideGiftNotice from "@/components/checkout/SitewideGiftNotice";
 import { useCart } from "@/contexts/CartContext";
 import { flushHomeScrollPosition } from "@/lib/homeScrollRestore";
 
@@ -190,7 +191,7 @@ const CartSheet = () => {
                     <div className="flex min-w-0 flex-1 flex-col justify-between">
                       <div>
                         <p className="text-sm font-medium text-emerald-950">
-                          贈品 · 買十送一（{promoLabel(s.productId)}）
+                          贈品 · 買五送一（{promoLabel(s.productId)}）
                         </p>
                         <p className="mt-1 text-xs text-emerald-900/90">
                           付費 {s.paidQty} 顆 → 贈 {s.giftUnits} 顆，實際到手 {s.totalPieces} 顆
@@ -211,9 +212,10 @@ const CartSheet = () => {
             <div className="border-t border-gray-100 bg-white px-6 py-4">
               {buy10Summaries.length > 0 && (
                 <p className="mb-3 text-[11px] leading-relaxed text-emerald-900/90">
-                  買十送一：贈品口味以門市／客服為準；小計為付費顆數金額，贈品不計價。
+                  煙彈買五送一：贈品口味以門市／客服為準；小計為付費顆數金額，贈品不計價。
                 </p>
               )}
+              <SitewideGiftNotice lines={lines} compact className="mb-3" />
               <div className="flex items-baseline justify-between text-gray-700">
                 <span className="text-sm">小計</span>
                 <span className="text-xl font-bold text-gray-900">{formatTwd(subtotalTwd)}</span>

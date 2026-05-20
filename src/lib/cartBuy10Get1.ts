@@ -1,10 +1,11 @@
 import type { CartLine } from "@/contexts/CartContext";
 import { resolveCartLineImageUrl } from "@/lib/cartProductImages";
 
-/** 買十送一（SP2S／LANA 煙彈）：每付費 10 顆送 1 顆贈品，實際到手 = 付費顆數 + floor(付費/10)。 */
+/** 煙彈買五送一（SP2S／LANA）：每付費 5 顆自動送 1 顆贈品，實際到手 = 付費顆數 + floor(付費/5)。 */
 export const BUY10_GET1_PRODUCT_IDS = new Set<string>(["sp2s-universal-pods", "lana-pods"]);
 
-const PAY_FOR = 10;
+const PAY_FOR = 5;
+/** 內部贈品識別後綴（沿用 buy10-gift 字串，避免破壞舊持久化資料；活動規則本身已改為 5+1） */
 export const BUY10_GIFT_SUFFIX = "::buy10-gift";
 
 export type Buy10Get1PoolSummary = {
@@ -79,7 +80,7 @@ export function buildCheckoutOrderItems(lines: readonly CartLine[]): CheckoutOrd
 
   const giftItems: CheckoutOrderItem[] = buy10Get1PoolSummaries(lines).map((s) => ({
     productModel: s.productTitle,
-    variant: "買十送一贈品（口味隨機或依活動／客服，與付費品同系列）",
+    variant: "買五送一贈品（口味隨機或依活動／客服，與付費品同系列）",
     quantity: s.giftUnits,
     unitPriceTwd: 0,
     lineTotalTwd: 0,

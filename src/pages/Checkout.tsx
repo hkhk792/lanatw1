@@ -19,6 +19,7 @@ import { isValidTaiwanMobile, normalizeTaiwanMobile } from "@/lib/phoneTaiwan";
 import CartLineThumbnail from "@/components/CartLineThumbnail";
 import FirstOrderShippingVerify from "@/components/checkout/FirstOrderShippingVerify";
 import CheckoutLineRebateNotice from "@/components/checkout/CheckoutLineRebateNotice";
+import SitewideGiftNotice from "@/components/checkout/SitewideGiftNotice";
 import { CheckoutFooter, CheckoutProgress } from "@/components/checkout/CheckoutChrome";
 
 const formatTwd = (n: number) => `NT$${n.toLocaleString("zh-TW")}`;
@@ -382,13 +383,14 @@ const Checkout = () => {
                     <ul className="space-y-1">
                       {buy10Summaries.map((s) => (
                         <li key={s.productId}>
-                          買十送一（{promoLabel(s.productId)}）：付費 {s.paidQty} 顆，贈 {s.giftUnits} 顆，共{" "}
+                          買五送一（{promoLabel(s.productId)}）：付費 {s.paidQty} 顆，贈 {s.giftUnits} 顆，共{" "}
                           {s.totalPieces} 顆到手
                         </li>
                       ))}
                     </ul>
                   </div>
                 )}
+                <SitewideGiftNotice lines={lines} />
                 <div className="flex justify-between text-neutral-600">
                   <dt>小計</dt>
                   <dd className="font-medium text-neutral-900">{formatTwd(subtotalTwd)}</dd>
