@@ -6,11 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useCart } from "@/contexts/CartContext";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
-import {
-  buy10Get1PoolSummaries,
-  buildCheckoutOrderItems,
-  isBuy10GiftProductId,
-} from "@/lib/cartBuy10Get1";
+import { resolveCartLineImageUrl } from "@/lib/cartProductImages";
 import {
   FREE_SHIPPING_THRESHOLD_TWD,
   resolveShippingTwd,
@@ -31,20 +27,25 @@ const Checkout = () => {
   const navigate = useNavigate();
   const { lines, clearCart } = useCart();
 
-  const orderItems = useMemo(() => buildCheckoutOrderItems(lines), [lines]);
+  const orderItems = useMemo(
+    () =>
+      lines.map((line) => ({
+        productModel: line.title,
+        variant: line.variant,
+        quantity: line.quantity,
+        unitPriceTwd: line.priceTwd,
+        lineTotalTwd: line.priceTwd * line.quantity,
+        productId: line.productId,
+        imageUrl: resolveCartLineImageUrl(line.productId, line.imageUrl),
+      })),
+    [lines]
+  );
   const subtotalTwd = useMemo(
     () => orderItems.reduce((s, it) => s + it.lineTotalTwd, 0),
     [orderItems]
   );
-  const buy10Summaries = useMemo(() => buy10Get1PoolSummaries(lines), [lines]);
   const [isFirstOrder, setIsFirstOrder] = useState<boolean | null>(null);
   const [firstOrderChecking, setFirstOrderChecking] = useState(false);
-
-  const promoLabel = (productId: string) => {
-    if (productId === "sp2s-universal-pods") return "SP2S 煙彈";
-    if (productId === "lana-pods") return "LANA 煙彈";
-    return productId;
-  };
 
   const [country, setCountry] = useState("台灣");
   const [name, setName] = useState("");
@@ -347,49 +348,33 @@ const Checkout = () => {
               </div>
 
               <div className="mt-6 space-y-4 border-b border-neutral-200 pb-6">
-                {orderItems.map((it) => {
-                  const isGift = isBuy10GiftProductId(it.productId);
-                  return (
-                    <div
-                      key={`${it.productId}-${it.variant}`}
-                      className={`flex gap-3 text-sm ${isGift ? "rounded-md border border-emerald-200 bg-emerald-50/70 px-2 py-2" : ""}`}
-                    >
-                      <div className="h-14 w-14 shrink-0 border border-neutral-200 bg-white">
-                        <CartLineThumbnail
-                          productId={it.productId}
-                          imageUrl={it.imageUrl}
-                          alt=""
-                          className="h-full w-full object-contain"
-                        />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-medium leading-snug text-neutral-900">
-                          {isGift ? "贈品 · " : ""}
-                          {it.productModel}
-                        </p>
-                        <p className="mt-0.5 text-xs text-neutral-500">
-                          【{it.variant}】× {it.quantity}
-                        </p>
-                      </div>
-                      <p className="shrink-0 font-medium text-neutral-900">{formatTwd(it.lineTotalTwd)}</p>
+                {orderItems.map((it) => (
+                  <div
+                    key={`${it.productId}-${it.variant}`}
+                    className="flex gap-3 text-sm"
+                  >
+                    <div className="h-14 w-14 shrink-0 border border-neutral-200 bg-white">
+                      <CartLineThumbnail
+                        productId={it.productId}
+                        imageUrl={it.imageUrl}
+                        alt=""
+                        className="h-full w-full object-contain"
+                      />
                     </div>
-                  );
-                })}
+                    <div className="min-w-0 flex-1">
+                      <p className="font-medium leading-snug text-neutral-900">
+                        {it.productModel}
+                      </p>
+                      <p className="mt-0.5 text-xs text-neutral-500">
+                        【{it.variant}】× {it.quantity}
+                      </p>
+                    </div>
+                    <p className="shrink-0 font-medium text-neutral-900">{formatTwd(it.lineTotalTwd)}</p>
+                  </div>
+                ))}
               </div>
 
               <dl className="mt-6 space-y-3 text-sm">
-                {buy10Summaries.length > 0 && (
-                  <div className="rounded-md border border-emerald-200 bg-emerald-50/90 px-3 py-2 text-xs text-emerald-950">
-                    <ul className="space-y-1">
-                      {buy10Summaries.map((s) => (
-                        <li key={s.productId}>
-                          買五送一（{promoLabel(s.productId)}）：付費 {s.paidQty} 顆，贈 {s.giftUnits} 顆，共{" "}
-                          {s.totalPieces} 顆到手
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
                 <SitewideGiftNotice lines={lines} />
                 <div className="flex justify-between text-neutral-600">
                   <dt>小計</dt>

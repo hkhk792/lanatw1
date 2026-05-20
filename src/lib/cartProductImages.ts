@@ -31,10 +31,6 @@ for (const item of pinkyImportedCatalog) {
   CART_PRODUCT_IMAGE_BY_ID[item.id] = pinkyCatalogPhoto(item.id);
 }
 
-function stripGiftSuffix(productId: string): string {
-  return productId.replace(/::buy10-gift$/, "");
-}
-
 /** 將各種歷史路徑統一為站內絕對路徑 `/product-photos/...` */
 function normalizeProductPhotoPath(imageUrl?: string): string | undefined {
   const raw = imageUrl?.trim();
@@ -66,8 +62,7 @@ function normalizeProductPhotoPath(imageUrl?: string): string | undefined {
 }
 
 export function getCartProductImageById(productId: string): string {
-  const pid = stripGiftSuffix(productId);
-  return CART_PRODUCT_IMAGE_BY_ID[pid] ?? "";
+  return CART_PRODUCT_IMAGE_BY_ID[productId] ?? "";
 }
 
 /** 結帳／購物車展示用：優先保留有效的 product-photos URL，否則依 productId 回退 */
