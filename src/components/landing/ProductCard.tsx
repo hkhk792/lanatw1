@@ -97,7 +97,7 @@ const QUICK_ADD_PRODUCTS: Record<
   "sp2s-universal-pods": {
     title: ORDER_MODEL_SP2S_UNIVERSAL_PODS,
     variant: "芭樂星冰",
-    priceTwd: 288,
+    priceTwd: 280,
     route: "/product/sp2s-universal-pods",
   },
   "sp2s-empty-shell-standard": {

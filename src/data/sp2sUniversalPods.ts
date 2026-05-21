@@ -2,7 +2,7 @@ import { sp2sUniversalPodHeroPhoto, sp2sUniversalPodPhoto } from "@/lib/productP
 
 /** 與 `public/product-photos/sp2s-pod-{01..32}.webp` 對齊 */
 export const SP2S_UNIVERSAL_POD_PRODUCT_ID = "sp2s-universal-pods";
-export const SP2S_UNIVERSAL_POD_PRICE_TWD = 288;
+export const SP2S_UNIVERSAL_POD_PRICE_TWD = 280;
 
 export const SP2S_UNIVERSAL_PODS_FLAVORS: readonly { index: number; name: string }[] = [
   { index: 1, name: "芭樂星冰" },
