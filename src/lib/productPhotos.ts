@@ -10,12 +10,11 @@ export function pinkyCatalogPhoto(id: string): string {
 }
 
 export function sp2sUniversalPodPhoto(index: number): string {
-  const n = Math.min(32, Math.max(1, index));
-  return productPhoto(`sp2s-pod-${String(n).padStart(2, "0")}.webp`);
+  return productPhoto("product-7.webp");
 }
 
 export function sp2sUniversalPodHeroPhoto(): string {
-  return productPhoto("sp2s-pod-hero.png");
+  return productPhoto("product-7.webp");
 }
 
 /** 站內 Logo／浮水印（多數詳情頁共用） */
