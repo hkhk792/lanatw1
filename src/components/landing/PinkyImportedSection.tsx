@@ -133,7 +133,7 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     id: "sp2s-universal-pods",
     name: "SP2S 煙彈",
     flavor: "一代通用 · 32 口味可選",
-    price: "NT$280",
+    price: "NT$288",
     image: sp2sUniversalPodHeroImage(),
   },
   {
