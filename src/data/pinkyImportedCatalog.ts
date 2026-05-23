@@ -32,7 +32,6 @@ export const pinkyImportedCatalog: readonly PinkyCatalogItem[] = [
   { id: "meel-boost-10000", title: "meeL BOOST10000口-一次性拋棄式", category: "拋棄式／大口數系列" },
   { id: "meel-max-6000", title: "MEEL奶茶杯拋棄式", category: "拋棄式／大口數系列" },
   { id: "meel-marbo-9000", title: "MEEL-馬博-9000口", category: "拋棄式／大口數系列" },
-  { id: "max-g-gen1", title: "MAX-G 一代通用系列 買5送1主機", category: "主機系列" },
   { id: "ilia-gen1", title: "ILIA 一代系列", category: "菸彈／通配系列" },
   { id: "tutx-gen1", title: "TUTX一代系列", category: "菸彈／通配系列" },
   { id: "luckin-gen1", title: "Luckin一代通用系列", category: "主機系列" },

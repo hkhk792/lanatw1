@@ -18,7 +18,6 @@ const BRAND_BY_ID_PREFIX: Array<[string, string]> = [
   ["relx-", "RELX"],
   ["ilia-", "ILIA"],
   ["meel-", "meeL"],
-  ["max-g-", "MAX-G"],
   ["tutx-", "TUTX"],
   ["luckin-", "Luckin"],
   ["lana-series-", "LANA"],

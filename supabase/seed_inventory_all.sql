@@ -35,7 +35,6 @@ VALUES
   ('meel-boost-10000', 'meeL BOOST 10000', 99999),
   ('meel-max-6000', 'meeL MAX 6000', 99999),
   ('meel-marbo-9000', 'MEEL 馬博 9000', 99999),
-  ('max-g-gen1', 'MAX-G 一代', 99999),
   ('ilia-gen1', 'ILIA 一代', 99999),
   ('tutx-gen1', 'TUTX 一代', 99999),
   ('luckin-gen1', 'Luckin 一代', 99999),

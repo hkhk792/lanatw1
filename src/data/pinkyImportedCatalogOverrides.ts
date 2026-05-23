@@ -113,6 +113,14 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
       "薰衣草霜",
     ],
   },
+  // RELX悅刻幻影五代主機
+  "relx-phantom-gen5-host": {
+    priceTwd: 845,
+  },
+  // RELX悅刻六代 Infinity Pro 2 主機
+  "relx-infinity-pro2-host": {
+    priceTwd: 845,
+  },
   // RELX六代菸彈（Cloudways 匯入）
   "relx-gen6-pods": {
     priceTwd: 160,
