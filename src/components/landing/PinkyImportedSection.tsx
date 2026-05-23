@@ -144,7 +144,7 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     id: "diya-pods",
     name: "DIYA 叮啞煙彈",
     flavor: "一盒三入 · 2.5ml／顆 · 一代通用",
-    price: "NT$199",
+    price: "NT$220",
     image: DiyaPodsShowcase.src,
     responsive: DiyaPodsShowcase,
     detailHref: "/product/diya-pods",
@@ -241,6 +241,11 @@ function sortCatalogItemsForGrid(items: readonly PinkyCatalogItem[]): PinkyCatal
   return out;
 }
 
+/** 已升級至專屬詳情頁模板的匯入目錄條目（覆寫 /catalog/:id 連結） */
+const IMPORTED_CATALOG_CUSTOM_DETAIL_HREF: Record<string, string> = {
+  "tokyo-magic-box-host": "/product/mohoo-tokyo-box-host",
+};
+
 function buildImportedCardsByCategory(category: CatalogCategory): DisplayCard[] {
   const group = pinkyImportedCatalog.filter((item) => item.category === category);
   const ordered = sortCatalogItemsForGrid(group);
@@ -256,7 +261,7 @@ function buildImportedCardsByCategory(category: CatalogCategory): DisplayCard[] 
       flavor: getBrandName(item.id, item.title),
       price: listPrice,
       image: getPinkyImportedCatalogImage(item.id),
-      detailHref: `/catalog/${item.id}`,
+      detailHref: IMPORTED_CATALOG_CUSTOM_DETAIL_HREF[item.id] ?? `/catalog/${item.id}`,
     };
   });
 }

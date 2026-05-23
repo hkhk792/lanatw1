@@ -11,6 +11,14 @@ export type PinkyImportedCatalogOverride = {
   variants?: readonly string[];
   /** 規格標籤（例如「顏色：」、「款式：」）。未填則沿用「口味／規格：」。 */
   variantLabel?: string;
+  /** 詳情頁主圖下方簡介（來源：Cloudways 等） */
+  summary?: string;
+  /** 詳情頁「產品描述」段落 */
+  description?: string;
+  /** 詳情頁要點列表（標題 + 條目） */
+  highlights?: ReadonlyArray<{ title: string; items: readonly string[] }>;
+  /** 詳情頁規格表 [標籤, 值] */
+  specs?: ReadonlyArray<readonly [string, string]>;
 };
 
 export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogOverride> = {
@@ -112,6 +120,38 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
       "藍海微瀾",
       "薰衣草霜",
     ],
+    summary:
+      "東京魔盒主機是專為電子菸愛好者設計的頂級電子菸產品，搭載 500mAh 大電量電池，搭配創新 MESH 鋼網棉霧化芯；搭配 12ml 大容量 MOHOO 煙彈可輕鬆吸食高達約 10,000 口。獨創小螢幕即時顯示電量，鋁合金輕巧機身、扁平吸嘴，煙霧飽滿濃郁、不漏油不燒焦；超過 20 種口味可選涼版或不涼版。",
+    description:
+      "東京魔盒主機輕巧鋁合金機身握感時尚，500mAh 大電量可支撐整日使用，獨創小螢幕隨時顯示電量。搭配 12ml 超大容量 MOHOO 煙彈與 MESH 鋼網棉芯，單顆煙彈即可享有萬口級續航，煙霧飽滿順滑。超過 20 種口味從清涼水果到濃郁菸草任選，忙碌上班族或夜生活族群出門旅行、派對聚會都適合；扁平吸嘴舒適，霧化細膩一口接一口。",
+    highlights: [
+      {
+        title: "核心規格",
+        items: [
+          "電池：500mAh 大電量，小螢幕即時顯示電量",
+          "煙彈：12ml 大容量 MOHOO 煙彈，參攷約 10,000 口",
+          "霧化：創新 MESH 鋼網棉芯，飽滿順滑、不漏油不燒焦",
+          "機身：鋁合金輕巧設計，扁平吸嘴舒適唇感",
+        ],
+      },
+      {
+        title: "口味與款式",
+        items: [
+          "主機 14 色可選（深邃夜黑、白、灰石古藍等）",
+          "煙彈超過 20 種口味，涼版／不涼版可選",
+          "可搭配 MOHOO BOX 系列煙彈輪替使用",
+        ],
+      },
+    ],
+    specs: [
+      ["商品名稱", "東京魔盒主機"],
+      ["產品編號", "TOKYO-DEVICE-001"],
+      ["分類", "主機"],
+      ["電池", "500mAh"],
+      ["煙彈容量", "12ml（MOHOO 煙彈另購）"],
+      ["參攷口數", "約 10,000 口（依煙彈口味與使用習慣而異）"],
+      ["參攷價格", "NT$650"],
+    ],
   },
   // RELX悅刻幻影五代主機
   "relx-phantom-gen5-host": {
@@ -185,7 +225,11 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
   },
   // CHILL拋棄式8800口（Cloudways 匯入）
   "chill-disposable-8800": {
-    priceTwd: 330,
+    priceTwd: 499,
+  },
+  // Kis5一代主機（Cloudways 匯入）
+  "kis5-gen1": {
+    priceTwd: 499,
   },
   // Dot Plus 8000（Cloudways 匯入）
   "dot-plus-8000": {

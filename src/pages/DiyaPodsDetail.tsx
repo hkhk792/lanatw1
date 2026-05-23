@@ -15,7 +15,7 @@ const logoImage = SITE_LOGO_PHOTO;
 import { ORDER_MODEL_DIYA_PODS } from "@/lib/orderProductModels";
 
 const DIYA_PODS_PRODUCT_ID = "diya-pods";
-const DIYA_PODS_PRICE_TWD = 199;
+const DIYA_PODS_PRICE_TWD = 220;
 
 const DEFAULT_MOOD =
   "叮啞一代通用煙彈，霧化細緻、口感順滑；每顆 2.5ml，日常與外出皆宜。";
@@ -85,7 +85,7 @@ const PRODUCT_BASE_NAME = "DIYA 叮啞電子煙彈一盒三入 / 通用一代主
 
 const SPECS: Array<[string, string]> = [
   ["商品名稱", PRODUCT_BASE_NAME],
-  ["價格", "NT$199／盒"],
+  ["價格", "NT$220／盒"],
   ["規格", "一盒 3 顆，每顆容量 2.5ml"],
   ["相容主機", "悅刻（RELX）一代、SP2S、LANA 等一代通用主機"],
   ["客服 LINE", `${LINE_CUSTOMER_ID}（下單前請先添加）`],
@@ -295,7 +295,7 @@ const DiyaPodsDetail = () => {
             <div className="space-y-2 text-gray-700">
               <p className="font-medium text-gray-900">DIYA 叮啞煙彈 — 相容強、口味全</p>
               <ProductDetailLineSupportNotice />
-              <p>NT$199／盒 · 每盒 3 顆 · 每顆 2.5ml</p>
+              <p>NT$220／盒 · 每盒 3 顆 · 每顆 2.5ml</p>
               <p>適配 RELX 一代、SP2S、LANA 等通用主機</p>
             </div>
 

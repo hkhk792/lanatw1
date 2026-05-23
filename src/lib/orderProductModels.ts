@@ -38,6 +38,10 @@ export const ORDER_MODEL_VENUS_HOST = "VENUS金星主機可充電霧化電子煙
 /** MOHOO /product/mohoo-tokyo-box */
 export const ORDER_MODEL_MOHOO_BOX = "TOKYO MOHOO BOX 東京魔盒煙彈（多種口味台灣現貨）";
 
+/** MOHOO 主機 /product/mohoo-tokyo-box-host */
+export const ORDER_MODEL_MOHOO_TOKYO_BOX_HOST =
+  "東京魔盒主機（MOHOO BOX · 500mAh 鋁合金 · 14 色可選）";
+
 /** JUPITER /product/jupiter-6500 */
 export const ORDER_MODEL_JUPITER_SET =
   "JUPITER 木星套裝 6500 口（換彈拋棄式電子煙，台灣現貨）";

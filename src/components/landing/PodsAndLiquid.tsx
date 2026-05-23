@@ -196,7 +196,7 @@ const features: Feature[] = [
     eyebrow: "叮啞系列",
     title: "DIYA 叮啞煙彈",
     desc: "一代通用、一盒三入；每顆 2.5ml，相容 RELX 一代、SP2S、LANA 等多款主機，口味陣容完整。",
-    price: "NT$199",
+    price: "NT$220",
     specs: ["一盒三入", "2.5ml／顆", "一代通用"],
     to: "/product/diya-pods",
     responsive: DiyaPodsShowcase,

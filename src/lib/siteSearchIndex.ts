@@ -46,6 +46,11 @@ const SITE_EXTRA_ENTRIES: readonly { id: string; title: string; href: string; ca
   { id: "sp2s-empty-shell-pro", title: "SP2S 一代空殼（Pro 版盒裝殼）", href: "/product/sp2s-empty-shell-pro", category: "空殼" },
 ];
 
+/** 已升級至專屬詳情頁的匯入目錄條目（搜尋結果直連專屬頁） */
+const PINKY_CUSTOM_HREF: Record<string, string> = {
+  "tokyo-magic-box-host": "/product/mohoo-tokyo-box-host",
+};
+
 let cached: SiteSearchEntry[] | null = null;
 
 export function getSiteSearchEntries(): SiteSearchEntry[] {
@@ -53,7 +58,12 @@ export function getSiteSearchEntries(): SiteSearchEntry[] {
     cached = [
       ...SITE_EXTRA_ENTRIES.map((e) => makeEntry(`site-${e.id}`, e.title, e.href, e.category)),
       ...pinkyImportedCatalog.map((p) =>
-        makeEntry(`pinky-${p.id}`, p.title, `/catalog/${p.id}`, p.category)
+        makeEntry(
+          `pinky-${p.id}`,
+          p.title,
+          PINKY_CUSTOM_HREF[p.id] ?? `/catalog/${p.id}`,
+          p.category
+        )
       ),
     ];
   }

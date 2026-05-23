@@ -13,6 +13,9 @@ export const PINKY_IMPORTED_SOURCE_URL = "https://sites.google.com/view/product-
  * - LALA/LANA 一代通用系列
  * - SP2 一代通用系列
  * - 魔盒 Tokyomonoobox 系列
+ *
+ * 已下架單品（需重新上架時再加回陣列）：
+ * - meha-titan-15000-host｜meha泰坦15000口(專用主機)
  */
 export const pinkyImportedCatalog: readonly PinkyCatalogItem[] = [
   { id: "relx-pod-pro2-pods", title: "RELX悅刻 POD PRO 2 菸彈", category: "菸彈／通配系列" },
@@ -50,7 +53,6 @@ export const pinkyImportedCatalog: readonly PinkyCatalogItem[] = [
   { id: "chill-disposable-8800", title: "CHILL拋棄式8800口", category: "拋棄式／大口數系列" },
   { id: "dot-plus-8000", title: "Dot Plus 8000 Puffs", category: "拋棄式／大口數系列" },
   { id: "mistx-6500", title: "MISTX 鴨嘴獸 拋棄式", category: "拋棄式／大口數系列" },
-  { id: "meha-titan-15000-host", title: "meha泰坦15000口(專用主機)", category: "主機系列" },
 ] as const;
 
 export const pinkyImportedCatalogCategories = [
@@ -119,8 +121,6 @@ export const pinkyImportedCatalogImageById: Record<string, string> = {
     "https://lh3.googleusercontent.com/sitesv/AA5AbUCPUZQ7feEHITOAzCzCg3RgG_JuzKascP6WKl_EOaW6cGF4VmuR_ioBocyZ5rY1YyJKE4RVVbrxmahwwtFDGboYHtRf0CkGLX6yAwtoB3-7n5FZGSMd50O4aM87GTuj4H8iB6R8wbUdN89dbLfLBfWgdbgHomKg5UheTKY-0Kq9q-R8zweWqFkk_uRuguXccVy4v2ALJLmkKpkXs89w7wopv2v9Ymr3-Dckb1Y=w1280",
   "mistx-6500":
     "https://lh3.googleusercontent.com/sitesv/AA5AbUD_OIJtNobNDU9Jo5qTLSLA98XidthYYd7Xp_NJPUlW7jw1AOKwcuN0zQ9IrasM8-0BTzZpuMdV7fzJekX_ZOccadTA07KwD5tFJCpO5C0QMrk5BDzn3icZdP3B-2a7Yvflw7p84jnHiKBSfj78m-URRsKjgsyGh0lXvhtzf5OGNu-ILjCmnLw1mvgRUO2_SytIgDJPl2sp6nQG5abLn3P39Myhb6UH8GEMYA0=w1280",
-  "meha-titan-15000-host":
-    "https://lh3.googleusercontent.com/sitesv/AA5AbUBC3q3EBQ8by9qNRoWGgYI4Fp16WhXAIGKgguzt6d-lePfa7MVJcpi7i37wz5xiY_xHFr17dO0Zv-YbcFFUcMLBeRndSOhTb5l-RGWbQuoa6CvZI7TKp4KJ2qKEcXiYC-T4u1h8OQkkCxALdZldaYC8BHJLDVEt5tiaQLGl1UxLJ_gqUOX7OWT3H8MegXCMyRb2d1-4Be_lvaDrW1VDvHgE63KCRg42cbWrQsc=w1280",
 };
 
 export const getPinkyImportedCatalogImage = (id: string) => pinkyCatalogPhoto(id);

@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { useCart } from "@/contexts/CartContext";
 import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import {
   findPinkyCatalogItemById,
   getPinkyImportedCatalogImage,
@@ -161,7 +162,7 @@ const PinkyImportedCatalogDetailPage = () => {
               src={getPinkyImportedCatalogImage(item.id)}
               alt={item.title}
               referrerPolicy="no-referrer"
-              className="w-full h-[420px] object-cover"
+              className="w-full h-[420px] object-contain bg-gray-100"
             />
           </div>
 
@@ -176,6 +177,10 @@ const PinkyImportedCatalogDetailPage = () => {
 
             <h1 className="text-3xl font-bold text-gray-900">{item.title}</h1>
             <div className="text-4xl font-bold text-gray-900">{`NT$${unitPriceTwd}.00`}</div>
+
+            {override?.summary ? (
+              <p className="text-sm leading-relaxed text-gray-600">{override.summary}</p>
+            ) : null}
 
             <div className="space-y-3">
               <label className="text-lg font-medium text-gray-800">{variantLabel}</label>
@@ -203,11 +208,15 @@ const PinkyImportedCatalogDetailPage = () => {
 
             <div className="space-y-2 text-gray-700 text-sm">
               <p>分類：{item.category}</p>
-              <p>
-                此頁商品為匯入目錄條目，實際現貨與
-                {override?.variants?.length ? "顏色／款式" : "口味"}
-                以客服回覆為準。
-              </p>
+              {!override?.description && !override?.summary ? (
+                <p>
+                  此頁商品為匯入目錄條目，實際現貨與
+                  {override?.variants?.length ? "顏色／款式" : "口味"}
+                  以客服回覆為準。
+                </p>
+              ) : (
+                <p>實際現貨、顏色／款式與批次以客服回覆為準。</p>
+              )}
             </div>
 
             <ProductDetailLineSupportNotice />
@@ -257,6 +266,55 @@ const PinkyImportedCatalogDetailPage = () => {
             </div>
           </div>
         </div>
+
+        {override?.description || override?.highlights?.length || override?.specs?.length ? (
+          <section className="mt-16 space-y-10">
+            {override.description ? (
+              <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-10">
+                <h2 className="text-2xl font-bold text-gray-900">產品描述</h2>
+                <div className="mt-4 h-px w-14 bg-gray-900" />
+                <p className="mt-6 leading-8 text-gray-700">{override.description}</p>
+              </div>
+            ) : null}
+
+            {override.highlights?.length ? (
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                {override.highlights.map((block) => (
+                  <div
+                    key={block.title}
+                    className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8"
+                  >
+                    <h3 className="text-xl font-bold text-gray-900">{block.title}</h3>
+                    <div className="mt-3 h-px w-12 bg-gray-900" />
+                    <ul className="mt-5 list-disc space-y-2 pl-5 text-gray-700">
+                      {block.items.map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+
+            {override.specs?.length ? (
+              <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
+                <h3 className="text-xl font-bold text-gray-900">詳細資訊</h3>
+                <div className="mt-3 h-px w-12 bg-gray-900" />
+                <dl className="mt-5 grid grid-cols-1 gap-3 text-sm text-gray-700 sm:grid-cols-2">
+                  {override.specs.map(([k, v]) => (
+                    <div
+                      key={k}
+                      className="flex flex-col gap-0.5 border-b border-dashed border-gray-200 py-1.5 sm:col-span-2 sm:flex-row sm:items-start sm:justify-between"
+                    >
+                      <dt className="text-gray-500">{k}</dt>
+                      <dd className="font-medium text-gray-900 sm:max-w-[60%] sm:text-right">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ) : null}
+          </section>
+        ) : null}
 
         {hasFlavorListSection ? (
           <section className="mt-12 border-t border-gray-200 pt-8">
