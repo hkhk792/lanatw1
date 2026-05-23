@@ -16,6 +16,7 @@ export const PINKY_IMPORTED_SOURCE_URL = "https://sites.google.com/view/product-
  */
 export const pinkyImportedCatalog: readonly PinkyCatalogItem[] = [
   { id: "relx-pod-pro2-pods", title: "RELX悅刻 POD PRO 2 菸彈", category: "菸彈／通配系列" },
+  { id: "relx-gen6-pods", title: "RELX六代菸彈", category: "菸彈／通配系列" },
   {
     id: "relx-infinity-pro2-host",
     title: "RELX悅刻六代 Infinity Pro 2 主機通用4-5-6代",
@@ -27,14 +28,18 @@ export const pinkyImportedCatalog: readonly PinkyCatalogItem[] = [
     category: "主機系列",
   },
   { id: "relx-ga8000", title: "RELX GA8000口", category: "拋棄式／大口數系列" },
-  { id: "ilia-gen4-6500", title: "ILIA 4代6500口-一次性拋棄式", category: "拋棄式／大口數系列" },
+  { id: "ilia-gen4-6500", title: "哩亞四代拋棄式", category: "拋棄式／大口數系列" },
   { id: "meel-boost-10000", title: "meeL BOOST10000口-一次性拋棄式", category: "拋棄式／大口數系列" },
-  { id: "meel-max-6000", title: "meeL MAX-6000口-一次性拋棄式", category: "拋棄式／大口數系列" },
+  { id: "meel-max-6000", title: "MEEL奶茶杯拋棄式", category: "拋棄式／大口數系列" },
   { id: "meel-marbo-9000", title: "MEEL-馬博-9000口", category: "拋棄式／大口數系列" },
   { id: "max-g-gen1", title: "MAX-G 一代通用系列 買5送1主機", category: "主機系列" },
   { id: "ilia-gen1", title: "ILIA 一代系列", category: "菸彈／通配系列" },
   { id: "tutx-gen1", title: "TUTX一代系列", category: "菸彈／通配系列" },
   { id: "luckin-gen1", title: "Luckin一代通用系列", category: "主機系列" },
+  { id: "lana-series-host", title: "LANA系列主機", category: "主機系列" },
+  { id: "ilia-series-host", title: "ILIA系列主機", category: "主機系列" },
+  { id: "ilia-gen5-host", title: "ILIA五代主機", category: "主機系列" },
+  { id: "tokyo-magic-box-host", title: "東京魔盒主機", category: "主機系列" },
   { id: "sars-gen1", title: "殺小SARS 一代通用系列 買3送一隻主機", category: "主機系列" },
   { id: "ilia-gen5", title: "ILIA5代 5代系列 買4送一隻主機", category: "菸彈／通配系列" },
   { id: "ice-bear-gen5", title: "冰熊 5代系列", category: "菸彈／通配系列" },
@@ -47,11 +52,11 @@ export const pinkyImportedCatalog: readonly PinkyCatalogItem[] = [
   { id: "infinity-series", title: "無限", category: "菸彈／通配系列" },
   { id: "universal-sleeve", title: "通用保護套", category: "配件系列" },
   { id: "marbo-9000", title: "MARBO 9000口", category: "拋棄式／大口數系列" },
-  { id: "obi-disposable-8000", title: "OBI奧比拋棄式8000口", category: "拋棄式／大口數系列" },
+  { id: "obi-disposable-8000", title: "OBI拋棄式", category: "拋棄式／大口數系列" },
   { id: "chill-disposable-8800", title: "CHILL拋棄式8800口", category: "拋棄式／大口數系列" },
   { id: "relx-smash-go-12k", title: "RELX Smash Go12K", category: "拋棄式／大口數系列" },
   { id: "dot-plus-8000", title: "Dot Plus 8000 Puffs", category: "拋棄式／大口數系列" },
-  { id: "mistx-6500", title: "MistX 6500口", category: "拋棄式／大口數系列" },
+  { id: "mistx-6500", title: "MISTX 鴨嘴獸 拋棄式", category: "拋棄式／大口數系列" },
   { id: "meha-titan-15000-host", title: "meha泰坦15000口(專用主機)", category: "主機系列" },
 ] as const;
 

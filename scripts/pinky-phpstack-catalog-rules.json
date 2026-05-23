@@ -3,6 +3,10 @@
     "brandNames": ["RELX六代"],
     "excludeNameSubstrings": ["主機"]
   },
+  "relx-gen6-pods": {
+    "brandNames": ["RELX六代"],
+    "excludeNameSubstrings": ["主機"]
+  },
   "relx-infinity-pro2-host": {
     "brandNames": ["RELX六代主機"]
   },
@@ -38,6 +42,18 @@
   "luckin-gen1": {
     "brandNames": ["LUCKIN"],
     "excludeNameSubstrings": ["主機"]
+  },
+  "lana-series-host": {
+    "brandNames": ["LANA機"]
+  },
+  "ilia-series-host": {
+    "brandNames": ["ILIA主機", "ILIA皮革", "ILIA布紋主機"]
+  },
+  "ilia-gen5-host": {
+    "brandNames": ["ILIA五代主機"]
+  },
+  "tokyo-magic-box-host": {
+    "brandNames": ["魔盒主機"]
   },
   "sars-gen1": {
     "brandNames": ["SARS"],

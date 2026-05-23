@@ -11,6 +11,7 @@ import {
   pinkyImportedCatalog,
 } from "@/data/pinkyImportedCatalog";
 import { pinkyImportedCloudwaysDetailsById } from "@/data/pinkyImportedCloudwaysDetails.generated";
+import { getPinkyImportedCatalogOverride } from "@/data/pinkyImportedCatalogOverrides";
 
 const DEFAULT_SITE_TITLE = "SP2S — 品味精髓 | 奢華蒸氣工坊";
 const DEFAULT_IMPORTED_PRICE_TWD = 299;
@@ -38,13 +39,21 @@ const PinkyImportedCatalogDetailPage = () => {
   };
 
   const cloudways = item ? pinkyImportedCloudwaysDetailsById[item.id] : null;
-  const flavors = cloudways?.flavors?.length ? [...cloudways.flavors] : [];
+  const override = getPinkyImportedCatalogOverride(item?.id);
+  const flavors = override?.variants?.length
+    ? [...override.variants]
+    : cloudways?.flavors?.length
+      ? [...cloudways.flavors]
+      : [];
   const hasVariants = flavors.length > 0;
+  const variantLabel = override?.variantLabel ?? (hasVariants ? "口味／規格：" : "規格：");
   const activeVariant = selectedOption ?? (hasVariants ? null : "標準款");
   const unitPriceTwd =
-    item?.category === "拋棄式／大口數系列"
+    override?.priceTwd ??
+    (item?.category === "拋棄式／大口數系列"
       ? IMPORTED_DISPOSABLE_PRICE_TWD
-      : DEFAULT_IMPORTED_PRICE_TWD;
+      : DEFAULT_IMPORTED_PRICE_TWD);
+  const hasFlavorListSection = !override?.variants?.length && flavors.length > 0;
 
   const related = useMemo(
     () =>
@@ -169,7 +178,7 @@ const PinkyImportedCatalogDetailPage = () => {
             <div className="text-4xl font-bold text-gray-900">{`NT$${unitPriceTwd}.00`}</div>
 
             <div className="space-y-3">
-              <label className="text-lg font-medium text-gray-800">{hasVariants ? "口味／規格：" : "規格："}</label>
+              <label className="text-lg font-medium text-gray-800">{variantLabel}</label>
               {hasVariants ? (
                 <div className="flex flex-wrap gap-2">
                   {flavors.map((name) => (
@@ -194,7 +203,11 @@ const PinkyImportedCatalogDetailPage = () => {
 
             <div className="space-y-2 text-gray-700 text-sm">
               <p>分類：{item.category}</p>
-              <p>此頁商品為匯入目錄條目，實際現貨與口味以客服回覆為準。</p>
+              <p>
+                此頁商品為匯入目錄條目，實際現貨與
+                {override?.variants?.length ? "顏色／款式" : "口味"}
+                以客服回覆為準。
+              </p>
             </div>
 
             <div className="flex flex-col gap-4">
@@ -234,14 +247,16 @@ const PinkyImportedCatalogDetailPage = () => {
               </div>
               <p className="text-sm text-gray-500">
                 {hasVariants
-                  ? "切換口味時不會清空已加入購物車的其他款式。"
+                  ? override?.variants?.length
+                    ? "切換顏色／款式時不會清空已加入購物車的其他款式。"
+                    : "切換口味時不會清空已加入購物車的其他款式。"
                   : "此商品目前提供標準款。"}
               </p>
             </div>
           </div>
         </div>
 
-        {flavors.length > 0 ? (
+        {hasFlavorListSection ? (
           <section className="mt-12 border-t border-gray-200 pt-8">
             <h2 className="mb-4 text-xl font-semibold text-gray-900">口味／規格清單</h2>
             <p className="mb-4 text-xs text-gray-500">

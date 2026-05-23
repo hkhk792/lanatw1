@@ -4,6 +4,7 @@ import {
   getPinkyImportedCatalogImage,
   pinkyImportedCatalog,
 } from "@/data/pinkyImportedCatalog";
+import { getPinkyImportedCatalogOverride } from "@/data/pinkyImportedCatalogOverrides";
 import { productPhoto } from "@/lib/productPhotos";
 import { AtomizerHostGemini, DiyaPodsShowcase } from "@/lib/responsiveImageVariants.generated";
 import type { ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
@@ -20,6 +21,8 @@ const BRAND_BY_ID_PREFIX: Array<[string, string]> = [
   ["max-g-", "MAX-G"],
   ["tutx-", "TUTX"],
   ["luckin-", "Luckin"],
+  ["lana-series-", "LANA"],
+  ["tokyo-magic-box-", "TOKYO"],
   ["sars-", "SARS"],
   ["ice-bear-", "ICE BEAR"],
   ["tisic-", "TISIC"],
@@ -88,23 +91,17 @@ const LEGACY_HOST_CARDS: DisplayCard[] = [
     image: productPhoto("product-6.webp"),
     detailHref: "/product/diya",
   },
-];
-
-const LEGACY_DISPOSABLE_CARDS: DisplayCard[] = [
   {
     id: "disp-vapengin",
     name: "VENUS金星主機",
     flavor: "可充電霧化電子煙主機 · 台灣現貨 · VAPENGIN 2ml Mesh",
     price: "NT$219",
     image: productPhoto("disposable-vapengin-venus.webp"),
+    detailHref: "/product/venus-host",
   },
-  {
-    id: "disp-mohoo-box",
-    name: "TOKYO MOHOO BOX東京魔盒",
-    flavor: "煙彈多種口味 · 12ml · 約 10000 口",
-    price: "NT$399",
-    image: productPhoto("disposable-mohoo-tokyo.webp"),
-  },
+];
+
+const LEGACY_DISPOSABLE_CARDS: DisplayCard[] = [
   {
     id: "disp-hebat",
     name: "HEBAT喜貝六代",
@@ -152,6 +149,14 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     image: DiyaPodsShowcase.src,
     responsive: DiyaPodsShowcase,
     detailHref: "/product/diya-pods",
+  },
+  {
+    id: "disp-mohoo-box",
+    name: "TOKYO MOHOO BOX東京魔盒",
+    flavor: "煙彈多種口味 · 12ml · 約 10000 口",
+    price: "NT$399",
+    image: productPhoto("disposable-mohoo-tokyo.webp"),
+    detailHref: "/product/mohoo-tokyo-box",
   },
   {
     id: "showcase-e-liquid",
@@ -240,16 +245,21 @@ function sortCatalogItemsForGrid(items: readonly PinkyCatalogItem[]): PinkyCatal
 function buildImportedCardsByCategory(category: CatalogCategory): DisplayCard[] {
   const group = pinkyImportedCatalog.filter((item) => item.category === category);
   const ordered = sortCatalogItemsForGrid(group);
-  const listPrice =
+  const defaultListPrice =
     category === "拋棄式／大口數系列" ? IMPORTED_DISPOSABLE_LIST_PRICE : IMPORTED_LIST_PRICE;
-  return ordered.map((item) => ({
-    id: item.id,
-    name: item.title,
-    flavor: getBrandName(item.id, item.title),
-    price: listPrice,
-    image: getPinkyImportedCatalogImage(item.id),
-    detailHref: `/catalog/${item.id}`,
-  }));
+  return ordered.map((item) => {
+    const override = getPinkyImportedCatalogOverride(item.id);
+    const listPrice =
+      override?.priceTwd != null ? `NT$${override.priceTwd}` : defaultListPrice;
+    return {
+      id: item.id,
+      name: item.title,
+      flavor: getBrandName(item.id, item.title),
+      price: listPrice,
+      image: getPinkyImportedCatalogImage(item.id),
+      detailHref: `/catalog/${item.id}`,
+    };
+  });
 }
 
 /** 首頁「配件」精選卡固定排在該區網格最後一排 */
