@@ -155,7 +155,7 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
   },
   // 哩亞四代拋棄式（Cloudways 匯入）
   "ilia-gen4-6500": {
-    priceTwd: 365,
+    priceTwd: 320,
     variants: [
       "葡萄",
       "青葡萄",
@@ -183,29 +183,17 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
       "冰爆葡萄柚",
     ],
   },
-  // MEEL奶茶杯拋棄式（Cloudways 匯入）
-  "meel-max-6000": {
-    priceTwd: 250,
-    variants: [
-      "蜜桃",
-      "荔枝",
-      "西瓜",
-      "葡萄",
-      "芭樂",
-      "藍莓",
-      "密語瓜香",
-      "薄荷",
-      "檸檬海鹽",
-      "芒果",
-      "鐵觀音",
-      "百香果",
-      "雪碧",
-      "神仙水",
-      "莓果沙拉",
-      "七星爆珠",
-      "廚師佳釀",
-      "冰冰涼涼",
-    ],
+  // CHILL拋棄式8800口（Cloudways 匯入）
+  "chill-disposable-8800": {
+    priceTwd: 330,
+  },
+  // Dot Plus 8000（Cloudways 匯入）
+  "dot-plus-8000": {
+    priceTwd: 330,
+  },
+  // MARBO 9000口（Cloudways 匯入）
+  "marbo-9000": {
+    priceTwd: 300,
   },
   // OBI拋棄式（Cloudways 匯入）
   "obi-disposable-8000": {
@@ -238,6 +226,10 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
       "櫻花",
       "七星",
     ],
+  },
+  // TISIC新版 黑騎士/萌貓派對（Cloudways 匯入）
+  "tisic-black-cat": {
+    priceTwd: 420,
   },
   // MISTX 鴨嘴獸拋棄式（Cloudways 匯入）
   "mistx-6500": {

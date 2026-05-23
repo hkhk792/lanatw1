@@ -127,13 +127,13 @@ const QUICK_ADD_PRODUCTS: Record<
   "disp-hebat": {
     title: ORDER_MODEL_HEBAT_GEN6,
     variant: "口味待選",
-    priceTwd: 269,
+    priceTwd: 650,
     route: "/product/hebat-gen6",
   },
   "disp-diya-7500": {
     title: ORDER_MODEL_DIYA_7500,
     variant: "口味待選",
-    priceTwd: 209,
+    priceTwd: 240,
     route: "/product/diya-7500",
   },
   "disp-vapor-storm": {

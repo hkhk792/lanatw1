@@ -105,14 +105,14 @@ const LEGACY_DISPOSABLE_CARDS: DisplayCard[] = [
     id: "disp-hebat",
     name: "HEBAT喜貝六代",
     flavor: "10000口拋棄式一次性電子煙 · 15ml",
-    price: "NT$269",
+    price: "NT$650",
     image: productPhoto("disposable-hebat-hb10000.webp"),
   },
   {
     id: "disp-diya-7500",
     name: "DIYA叮啞拋棄式7500口",
     flavor: "大容量可充電一次性拋棄式電子煙 · 13ml",
-    price: "NT$209",
+    price: "NT$240",
     image: productPhoto("disposable-diya-7500.webp"),
   },
   {
