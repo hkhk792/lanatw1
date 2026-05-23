@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -244,9 +246,7 @@ const Diya7500DisposableDetail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p>
-                客服聯繫：LINE ID <span className="font-medium">abs791012</span>
-              </p>
+              <ProductDetailLineSupportNotice />
               <p>13ml 大油倉配可充電 650mAh 電池，讓煙油較有機會用盡、減少「有油沒電」的狀況；實際口數隨使用習慣而異。</p>
             </div>
 
@@ -380,7 +380,7 @@ const Diya7500DisposableDetail = () => {
                   ["霧化芯", "1.2Ω"],
                   ["尼古丁", "多數 3%（30mg），神仙薄荷多為 5%（50mg）"],
                   ["參攷價格", `NT$ ${DIYA_7500_PRICE_TWD}`],
-                  ["客服", "LINE ID：abs791012"],
+                  ["客服", `LINE ID：${LINE_CUSTOMER_ID}`],
                 ].map(([k, v]) => (
                   <div
                     key={k}
@@ -399,7 +399,7 @@ const Diya7500DisposableDetail = () => {
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
               本產品屬含尼古丁之電子煙相關產品，具成癮性，非吸菸者、未成年者、孕婦等族群請勿使用。實測口數、甜度涼度星等與批次有關，以實體包裝與到貨為準。訂貨、留貨、口味確認請透過
-              LINE（abs791012）聯繫客服。
+              LINE（{LINE_CUSTOMER_ID}）聯繫客服。
             </p>
           </div>
         </section>

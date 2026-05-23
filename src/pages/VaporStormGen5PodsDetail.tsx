@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -201,7 +203,7 @@ const VaporStormGen5PodsDetail = () => {
               主打多品牌五代主機可共用，一顆參攷
               <span className="font-medium"> NT$ 129 </span>
               ，適合多機在手、想輪替口味的使用者。客服 LINE：
-              <span className="font-medium"> abs791012</span>。
+              <span className="font-medium"> {LINE_CUSTOMER_ID}</span>。
             </p>
 
             <div className="max-h-[min(50vh,420px)] space-y-4 overflow-y-auto pr-1">
@@ -228,6 +230,8 @@ const VaporStormGen5PodsDetail = () => {
                 </div>
               ))}
             </div>
+
+            <ProductDetailLineSupportNotice />
 
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap items-center gap-3">
@@ -341,7 +345,7 @@ const VaporStormGen5PodsDetail = () => {
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
               本產品屬含尼古丁之電子煙消耗品。請依年齡、法規與包裝警語使用；兒童、孕婦及非吸菸者不建議。相容性名單與庫存口味請透過
-              LINE（abs791012）與客服確認。若與主機密合度不符，請勿硬裝，以免影響安全與觸點壽命。
+              LINE（{LINE_CUSTOMER_ID}）與客服確認。若與主機密合度不符，請勿硬裝，以免影響安全與觸點壽命。
             </p>
           </div>
         </section>

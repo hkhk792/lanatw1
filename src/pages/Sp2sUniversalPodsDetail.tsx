@@ -5,6 +5,8 @@ import { toast } from "sonner";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import {
   SP2S_UNIVERSAL_POD_PRICE_TWD,
@@ -174,6 +176,8 @@ const Sp2sUniversalPodsDetail = () => {
                 </div>
               </div>
             </div>
+
+            <ProductDetailLineSupportNotice />
 
             <div className="flex flex-col gap-4 pt-2">
               <div className="flex flex-wrap items-center gap-3">

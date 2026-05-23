@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -207,7 +209,7 @@ const LanaEliquid30mlDetail = () => {
 
             <p className="text-sm text-gray-700 leading-relaxed">
               台灣正品出貨；客服聯繫：
-              <span className="font-medium">LINE abs791012</span>。單瓶參攷使用口數與
+              <span className="font-medium">LINE {LINE_CUSTOMER_ID}</span>。單瓶參攷使用口數與
               9000
               口層級為行銷參攷值，實際隨主機、線圈、功率與個人使用習慣差異極大。
             </p>
@@ -238,6 +240,8 @@ const LanaEliquid30mlDetail = () => {
                 </div>
               ))}
             </div>
+
+            <ProductDetailLineSupportNotice />
 
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap items-center gap-3">
@@ -326,7 +330,7 @@ const LanaEliquid30mlDetail = () => {
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
               本產品屬含尼古丁的電子煙專用煙液。未成年人、非吸煙者、懷孕或哺乳期婦女請勿接觸與使用。請只配合相容於瓶身標示濃度與劑型之霧化設備。若有不適，請即停用並尋求醫療諮詢。跨境或跨站購物時，法規、稅則、寄送限制可能不同，下單前可透過
-              LINE（abs791012）釐清。
+              LINE（{LINE_CUSTOMER_ID}）釐清。
             </p>
           </div>
         </section>

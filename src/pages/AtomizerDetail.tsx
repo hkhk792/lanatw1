@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
 import { AtomizerHostGemini } from "@/lib/responsiveImageVariants.generated";
@@ -221,7 +222,7 @@ const AtomizerDetail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p>購買前請添加客服 LINE: abs791012</p>
+              <ProductDetailLineSupportNotice />
               <p>支援預熱功率、主機端輸出曲線與記憶切換</p>
               <p>新舊霧化器辨識，降低誤選功率導致糊芯風險</p>
               <p>旁路機械模式，適合燒絲與 DIY 霧化器玩家</p>

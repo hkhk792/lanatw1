@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -273,9 +275,7 @@ const MohooTokyoBoxDetail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p>
-                客服聯繫：LINE ID <span className="font-medium">abs791012</span>
-              </p>
+              <ProductDetailLineSupportNotice />
               <p>大容量 12ml 煙油、鋼網棉芯與磁吸設計，口感穩定、更換直覺；實際使用天數隨抽吸習慣而異。</p>
             </div>
 
@@ -415,7 +415,7 @@ const MohooTokyoBoxDetail = () => {
                   ["煙油容量", "12ml／顆（以包裝為準）"],
                   ["參攷續航", "單顆約 7–10 天、套裝約 10000 口（實測隨使用而異）"],
                   ["參攷價格", "NT$ 399"],
-                  ["客服", "LINE ID：abs791012"],
+                  ["客服", `LINE ID：${LINE_CUSTOMER_ID}`],
                 ].map(([k, v]) => (
                   <div
                     key={k}
@@ -434,7 +434,7 @@ const MohooTokyoBoxDetail = () => {
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
               本產品屬含尼古丁之電子煙相關產品，請遵守法規與年齡限制，並以包裝、警語與產地標示為準。口味、庫存、批次與實測口數可能因到貨不同而有差異；訂貨、留貨與配送可透過
-              LINE（abs791012）聯繫客服確認。
+              LINE（{LINE_CUSTOMER_ID}）聯繫客服確認。
             </p>
           </div>
         </section>

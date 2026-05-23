@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -238,9 +240,7 @@ const VaporStorm5000Detail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p>
-                客服聯繫：LINE ID <span className="font-medium">abs791012</span>
-              </p>
+              <ProductDetailLineSupportNotice />
               <p>網狀加熱與發光外殻為本系列外觀亮點；參攷 5000 口與續航隨實機使用、環境溫度與抽吸習慣變化。</p>
             </div>
 
@@ -371,7 +371,7 @@ const VaporStorm5000Detail = () => {
                   ["電池", "650mAh 等級拋棄式配置"],
                   ["霧化", "Mesh 網狀線圈"],
                   ["參攷價格", "NT$ 229"],
-                  ["客服", "LINE ID：abs791012"],
+                  ["客服", `LINE ID：${LINE_CUSTOMER_ID}`],
                 ].map(([k, v]) => (
                   <div
                     key={k}
@@ -390,7 +390,7 @@ const VaporStorm5000Detail = () => {
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
               本產品含尼古丁。請遵守年齡與各項法規，並詳閱包裝、警語與廢棄物處理建議。發光功能在睡眠、行車或法規禁示場合請關閉或勿使用。訂貨與庫存請以
-              LINE（abs791012）向客服核對。
+              LINE（{LINE_CUSTOMER_ID}）向客服核對。
             </p>
           </div>
         </section>

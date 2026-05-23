@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -273,7 +274,7 @@ const Sp2sProDetail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p>購買前請添加客服 LINE: abs791012</p>
+              <ProductDetailLineSupportNotice />
               <p>品牌：SPRINGTIME 思博瑞 · SP2S Pro 二代旗艦</p>
               <p>380mAh 電池 · 6W–8W 輸出 · Type-C 充電</p>
               <p>智慧吸力感應 · 底部七彩 LED 燈條</p>

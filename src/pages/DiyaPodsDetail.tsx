@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -86,7 +88,7 @@ const SPECS: Array<[string, string]> = [
   ["價格", "NT$199／盒"],
   ["規格", "一盒 3 顆，每顆容量 2.5ml"],
   ["相容主機", "悅刻（RELX）一代、SP2S、LANA 等一代通用主機"],
-  ["客服 LINE", "abs791012（下單前請先添加）"],
+  ["客服 LINE", `${LINE_CUSTOMER_ID}（下單前請先添加）`],
 ];
 
 const KEY_FEATURES: Array<{ k: string; v: string }> = [
@@ -100,7 +102,7 @@ const PRODUCT_HIGHLIGHTS: Array<{ k: string; v: string }> = [
   { k: "口味陣容", v: "從果香、冰飲、茶系到複合調香，選擇多元。" },
   { k: "日常外出", v: "輕巧盒裝，適合日常與外出隨身使用。" },
   { k: "保存建議", v: "陰涼乾燥存放，避免陽光直射；定期清潔主機接口。" },
-  { k: "購買提醒", v: "下單前請添加客服 LINE：abs791012，以便訂購與售後聯繫。" },
+  { k: "購買提醒", v: `下單前請添加客服 LINE：${LINE_CUSTOMER_ID}，以便訂購與售後聯繫。` },
 ];
 
 const DiyaPodsDetail = () => {
@@ -292,7 +294,7 @@ const DiyaPodsDetail = () => {
 
             <div className="space-y-2 text-gray-700">
               <p className="font-medium text-gray-900">DIYA 叮啞煙彈 — 相容強、口味全</p>
-              <p>購買前請添加客服 LINE: abs791012</p>
+              <ProductDetailLineSupportNotice />
               <p>NT$199／盒 · 每盒 3 顆 · 每顆 2.5ml</p>
               <p>適配 RELX 一代、SP2S、LANA 等通用主機</p>
             </div>
@@ -359,7 +361,7 @@ const DiyaPodsDetail = () => {
             </p>
             <p className="mt-4 leading-8 text-gray-700">
               霧化技術成熟，能快速將煙液轉化為濃郁霧氣，提供順滑口感。叮啞煙彈採用高品質煙油，經過嚴格品質檢驗，確保安全可靠。建議存放於陰涼乾燥處，避免陽光直射，並定期清潔主機接口，以延長保存並維持最佳使用效果。下單前請添加客服
-              LINE：abs791012。
+              LINE：{LINE_CUSTOMER_ID}。
             </p>
           </div>
 

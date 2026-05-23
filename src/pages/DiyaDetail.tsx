@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -216,7 +217,7 @@ const DiyaDetail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p>購買前請添加客服 LINE: abs791012</p>
+              <ProductDetailLineSupportNotice />
               <p>8W 輸出 · 450mAh 電量 · 2.5ml 大容量油倉</p>
               <p>一代煙彈通用，換彈方便</p>
               <p>陶瓷霧化路徑，口感細緻順喉</p>

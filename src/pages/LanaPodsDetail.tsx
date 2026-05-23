@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -101,7 +103,7 @@ const SPECS: Array<[string, string]> = [
   ["霧化結構", "陶瓷蜂巢式霧化晶片"],
   ["包裝規格", "3 顆裝／盒"],
   ["現貨", "台灣現貨"],
-  ["客服 LINE", "abs791012（下單前請先添加）"],
+  ["客服 LINE", `${LINE_CUSTOMER_ID}（下單前請先添加）`],
 ];
 
 const KEY_FEATURES: Array<{ k: string; v: string }> = [
@@ -115,7 +117,7 @@ const PRODUCT_HIGHLIGHTS: Array<{ k: string; v: string }> = [
   { k: "多口味陣容", v: "從冰飲、水果到茶系與奶系，滿足不同情境的味覺偏好。" },
   { k: "3 顆裝設計", v: "每盒三顆，方便與同好分享或備貨替換。" },
   { k: "VAPE 體驗", v: "無論日常舒適感或嘗鮮刺激感，lana煙彈都能對應你的需求。" },
-  { k: "購買提醒", v: "下單前請添加客服 LINE：abs791012，以完成訂購與售後聯繫。" },
+  { k: "購買提醒", v: `下單前請添加客服 LINE：${LINE_CUSTOMER_ID}，以完成訂購與售後聯繫。` },
 ];
 
 const LanaPodsDetail = () => {
@@ -300,7 +302,7 @@ const LanaPodsDetail = () => {
 
             <div className="space-y-2 text-gray-700">
               <p className="font-medium text-gray-900">lana煙彈－極致，體驗非凡！</p>
-              <p>購買前請添加客服 LINE: abs791012</p>
+              <ProductDetailLineSupportNotice />
               <p>台灣現貨 · 每盒 3 顆裝 · 一代通配主機</p>
               <p>陶瓷蜂巢式霧化晶片，純粹而豐富的 VAPE 體驗</p>
             </div>
@@ -365,7 +367,8 @@ const LanaPodsDetail = () => {
               VAPE 體驗。不論你追求日常的舒適感，還是想嘗試新鮮刺激的體驗，lana煙彈都能滿足你的需求。
             </p>
             <p className="mt-4 leading-8 text-gray-700">
-              本商品為 lana煙彈 3 顆裝，一代通配主機；台灣現貨。下單前請依網頁提示添加客服 LINE：abs791012，以便完成訂購與售後聯繫。
+              本商品為 lana煙彈 3 顆裝，一代通配主機；台灣現貨。下單前請依網頁提示添加客服 LINE：
+              {LINE_CUSTOMER_ID}，以便完成訂購與售後聯繫。
             </p>
           </div>
 

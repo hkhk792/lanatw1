@@ -1,4 +1,4 @@
-import { toast } from "@/hooks/use-toast";
+﻿import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { useReveal } from "@/hooks/useReveal";
 import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
@@ -8,7 +8,9 @@ import icon711 from "@/assets/huan-icon-711.webp";
 import iconStore from "@/assets/huan-icon-store.webp";
 import iconSupport from "@/assets/huan-icon-support.webp";
 
-const LINE_SUPPORT_ID = "abs791012";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
+
+const LINE_SUPPORT_ID = LINE_CUSTOMER_ID;
 
 /** 公開路徑備援（預覽／子路徑部署）；主線用 `import` 由 Vite 產出穩定網址 */
 const PROMO_BANNER_PUBLIC = `${import.meta.env.BASE_URL}huan-taiwan-vape-banner.webp`;

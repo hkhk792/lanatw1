@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
@@ -208,7 +210,7 @@ const Sp2sSiliconeSleeveDetail = () => {
             <p className="text-sm text-gray-700 leading-relaxed">
               專為 <span className="font-medium">SP2S 一代主機</span>{" "}
               開模；可緩衝摔落、防日常刮損、提升單手掌握穩定度。購買前可透過
-              <span className="font-medium"> LINE abs791012</span>{" "}
+              <span className="font-medium"> LINE {LINE_CUSTOMER_ID}</span>{" "}
               確認庫存色與實體圖。價格具參攷性，以實際結帳與活動為準。
             </p>
 
@@ -236,6 +238,8 @@ const Sp2sSiliconeSleeveDetail = () => {
                 </div>
               ))}
             </div>
+
+            <ProductDetailLineSupportNotice />
 
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap items-center gap-3">
@@ -317,7 +321,7 @@ const Sp2sSiliconeSleeveDetail = () => {
             <p className="mt-5 leading-8 text-gray-700">
               本頁以不含尼古丁的保護套、掛繩等週邊販售為敘述主體；若圖中同時出現主機、煙彈，屬風格示意。未成年人請勿接觸電子煙及相關內容；成年人亦須符合當地法規。客服、大量採購請以
               LINE
-              <span className="font-medium"> abs791012</span> 聯絡。
+              <span className="font-medium"> {LINE_CUSTOMER_ID}</span> 聯絡。
             </p>
           </div>
         </section>

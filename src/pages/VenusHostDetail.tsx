@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -227,9 +229,7 @@ const VenusHostDetail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p>
-                客服聯繫：LINE ID <span className="font-medium">abs791012</span>
-              </p>
+              <ProductDetailLineSupportNotice />
               <p>半透明外殼＋金屬底座，小巧便攜；專用金星煙彈，Mesh 霧化細膩穩定。</p>
             </div>
 
@@ -363,7 +363,7 @@ const VenusHostDetail = () => {
                   ["參攷口數", "約 600 口（依使用方式而異）"],
                   ["煙彈規格", "2ml，Mesh 線圈"],
                   ["參攷價格", "NT$ 219"],
-                  ["客服", "LINE ID：abs791012"],
+                  ["客服", `LINE ID：${LINE_CUSTOMER_ID}`],
                 ].map(([k, v]) => (
                   <div
                     key={k}
@@ -384,7 +384,7 @@ const VenusHostDetail = () => {
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
               本產品屬含尼古丁之電子煙相關產品，請遵守法規與年齡限制，並參考包裝與產地標示。口味、庫存與包裝以門市及到貨實物為準；代留與出貨方式請透過
-              LINE（abs791012）聯繫客服。
+              LINE（{LINE_CUSTOMER_ID}）聯繫客服。
             </p>
           </div>
         </section>

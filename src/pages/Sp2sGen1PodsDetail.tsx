@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
@@ -114,7 +116,7 @@ const SPECS: Array<[string, string]> = [
   ["尼古丁含量", "常見 3%（實際以包裝標示為準）"],
   ["霧化結構", "白色陶瓷芯，導熱均勻、口感穩定"],
   ["相容主機", "SP2S／SP2S PRO 系列、RELX 一代等一代規格主機"],
-  ["客服 LINE", "abs791012（下單前請先添加）"],
+  ["客服 LINE", `${LINE_CUSTOMER_ID}（下單前請先添加）`],
 ];
 
 const KEY_FEATURES: Array<{ k: string; v: string }> = [
@@ -125,7 +127,7 @@ const KEY_FEATURES: Array<{ k: string; v: string }> = [
 ];
 
 const PRODUCT_HIGHLIGHTS: Array<{ k: string; v: string }> = [
-  { k: "選購提醒", v: "口味與批次以現貨為準；下單前請添加客服 LINE：abs791012。" },
+  { k: "選購提醒", v: `口味與批次以現貨為準；下單前請添加客服 LINE：${LINE_CUSTOMER_ID}。` },
   { k: "健康聲明", v: "電子煙產品具風險，非吸菸者請勿嘗試；未成年人不得購買與使用。" },
   { k: "包裝標示", v: "成分、產地與尼古丁濃度請一律以實際包裝與說明書為準。" },
   { k: "保存建議", v: "陰涼乾燥存放，避免高溫與陽光直射；主機接口建議定期清潔。" },
@@ -331,7 +333,7 @@ const Sp2sGen1PodsDetail = () => {
               <p className="font-medium text-gray-900">
                 <BrandSp2s /> 思博瑞煙彈 — 口味全、相容廣
               </p>
-              <p>購買前請添加客服 LINE: abs791012</p>
+              <ProductDetailLineSupportNotice />
               <p>白色陶瓷芯 · 一代通用 · 多層次風味</p>
             </div>
 
@@ -429,7 +431,8 @@ const Sp2sGen1PodsDetail = () => {
               <span className="font-semibold text-gray-900">總結</span>
               <br />
               思博瑞 <BrandSp2s className="text-gray-800" />{" "}
-              煙彈以口味豐富、霧化細緻與相容面向見長，適合希望在同一代主機生態中快速找到順口風味的使用者。下單前請添加客服 LINE：abs791012。
+              煙彈以口味豐富、霧化細緻與相容面向見長，適合希望在同一代主機生態中快速找到順口風味的使用者。下單前請添加客服 LINE：
+              {LINE_CUSTOMER_ID}。
             </p>
           </div>
 

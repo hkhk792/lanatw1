@@ -4,7 +4,7 @@ import { ChevronLeft, Minus, Plus, ShoppingCart } from "lucide-react";
 import { toast } from "sonner";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { useCart } from "@/contexts/CartContext";
-import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
 import {
   findPinkyCatalogItemById,
   getPinkyImportedCatalogImage,
@@ -209,6 +209,8 @@ const PinkyImportedCatalogDetailPage = () => {
                 以客服回覆為準。
               </p>
             </div>
+
+            <ProductDetailLineSupportNotice />
 
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap items-center gap-3">

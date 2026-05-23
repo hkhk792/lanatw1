@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
@@ -192,8 +194,10 @@ function Sp2sEmptyShellDetailPage({ kind }: { kind: ShellKind }) {
             </div>
 
             <p className="text-sm leading-relaxed text-gray-700">
-              批補／現貨與相容細節請洽 LINE 客服（abs791012）。本站僅供參考展示，實際出貨規格以客服回覆為準。
+              批補／現貨與相容細節請洽 LINE 客服（{LINE_CUSTOMER_ID}）。本站僅供參考展示，實際出貨規格以客服回覆為準。
             </p>
+
+            <ProductDetailLineSupportNotice />
 
             <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700">
               {c.bullets.map((line) => (

@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -217,9 +219,7 @@ const Jupiter6500SetDetail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p>
-                客服聯繫：LINE ID <span className="font-medium">abs791012</span>
-              </p>
+              <ProductDetailLineSupportNotice />
               <p>
                 木星專屬煙彈＋兩件式主機，單顆煙彈參攷約
                 6500
@@ -350,7 +350,7 @@ const Jupiter6500SetDetail = () => {
                   ["充電／電池", "Type-C 充電、參攷 700mAh"],
                   ["參攷功率／霧化", "12W、Mesh 線圈（以實測及包裝為準）"],
                   ["參攷價格", "NT$ 480"],
-                  ["客服", "LINE ID：abs791012"],
+                  ["客服", `LINE ID：${LINE_CUSTOMER_ID}`],
                 ].map(([k, v]) => (
                   <div
                     key={k}
@@ -369,7 +369,7 @@ const Jupiter6500SetDetail = () => {
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
               本產品屬含尼古丁之電子煙相關產品，具成癮性。請依各司法管轄之法規、年齡與產地警語使用。參攷顯示數值、口數、功率以實機與包裝說明為主；顏色、庫存與批次以門市、到貨實品為準。需預訂、核對庫存請透過
-              LINE（abs791012）聯繫客服。
+              LINE（{LINE_CUSTOMER_ID}）聯繫客服。
             </p>
           </div>
         </section>

@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, ChevronLeft, Plus, Minus } from "lucide-react";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
+import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
+import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
@@ -233,9 +235,7 @@ const HebatGen6Detail = () => {
             </div>
 
             <div className="space-y-2 text-gray-700">
-              <p>
-                客服聯繫：LINE ID <span className="font-medium">abs791012</span>
-              </p>
+              <ProductDetailLineSupportNotice />
               <p>一次性拋棄式設計，內建電池與大容量煙油；部分通路文宣若誤標 20ml，一律以 15ml 與實體包裝為準。</p>
             </div>
 
@@ -376,7 +376,7 @@ const HebatGen6Detail = () => {
                   ["參攷口數", "約 10,000 口"],
                   ["電池", "內建 550mAh（一次性設計，勿自行拆解）"],
                   ["參攷價格", `NT$ ${HEBAT_PRICE_TWD}`],
-                  ["客服", "LINE ID：abs791012"],
+                  ["客服", `LINE ID：${LINE_CUSTOMER_ID}`],
                 ].map(([k, v]) => (
                   <div
                     key={k}
@@ -395,7 +395,7 @@ const HebatGen6Detail = () => {
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <p className="mt-5 leading-8 text-gray-700">
               本產品含尼古丁，具成癮性，請依法規與年齡限制使用。包裝上常見成癮性警示，請完整閱讀。實測口數、電力與油耗隨使用方式變化；庫存、色款、批次以門市及客服為準。訂購、留貨可透過
-              LINE（abs791012）聯繫。
+              LINE（{LINE_CUSTOMER_ID}）聯繫。
             </p>
           </div>
         </section>
