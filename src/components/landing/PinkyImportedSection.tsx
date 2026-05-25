@@ -167,14 +167,14 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
   {
     id: "sp2s-empty-shell-standard",
     name: "SP2／SP2S 一代空殼（一般版白芯）",
-    flavor: "空殼 · 約 2.3ml · NT$35／顆 · 100 顆起拿",
+    flavor: "空殼 · 約 2.3ml · NT$35／顆 · 50 顆起拿（每 50 顆遞增）",
     price: "NT$35",
     image: productPhoto("standard-white-core.png"),
   },
   {
     id: "sp2s-empty-shell-pro",
     name: "SP2S 一代空殼（Pro 版盒裝殼）",
-    flavor: "空殼 · 約 2.3ml · NT$35／顆 · 100 顆起拿",
+    flavor: "空殼 · 約 2.3ml · NT$35／顆 · 50 顆起拿（每 50 顆遞增）",
     price: "NT$35",
     image: productPhoto("pro-shell.png"),
   },

@@ -13,6 +13,17 @@ import { flushHomeScrollPosition } from "@/lib/homeScrollRestore";
 
 const formatTwd = (n: number) => `NT$${n.toLocaleString("zh-TW")}`;
 
+const STEP_BY_PRODUCT: Record<string, { step: number; min: number }> = {
+  "sp2s-empty-shell-standard": { step: 50, min: 50 },
+  "sp2s-empty-shell-pro": { step: 50, min: 50 },
+};
+
+const getQuantityRule = (productId: string) =>
+  STEP_BY_PRODUCT[productId] ?? { step: 1, min: 1 };
+
+const roundToStep = (n: number, step: number, min: number) =>
+  Math.max(min, Math.round(n / step) * step);
+
 const CartSheet = () => {
   const {
     lines,
@@ -120,29 +131,36 @@ const CartSheet = () => {
                         <p className="mt-1 text-xs text-gray-500">款式：{line.variant}</p>
                       </div>
                       <div className="mt-2 flex items-center justify-between">
-                        <div className="inline-flex items-center overflow-hidden rounded-lg border border-gray-300 bg-white">
-                          <button
-                            type="button"
-                            aria-label="减少数量"
-                            onClick={() =>
-                              updateQuantity(line.lineId, Math.max(1, line.quantity - 1))
-                            }
-                            className="px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                          >
-                            <Minus className="h-3.5 w-3.5" />
-                          </button>
-                          <span className="min-w-8 px-2 text-center text-sm font-medium">
-                            {line.quantity}
-                          </span>
-                          <button
-                            type="button"
-                            aria-label="增加数量"
-                            onClick={() => updateQuantity(line.lineId, line.quantity + 1)}
-                            className="px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                          >
-                            <Plus className="h-3.5 w-3.5" />
-                          </button>
-                        </div>
+                        {(() => {
+                          const { step, min } = getQuantityRule(line.productId);
+                          const current = roundToStep(line.quantity, step, min);
+                          return (
+                            <div className="inline-flex items-center overflow-hidden rounded-lg border border-gray-300 bg-white">
+                              <button
+                                type="button"
+                                aria-label={step === 1 ? "減少數量" : `減少 ${step} 顆`}
+                                disabled={line.quantity <= min}
+                                onClick={() =>
+                                  updateQuantity(line.lineId, Math.max(min, current - step))
+                                }
+                                className="px-2 py-1.5 text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                              >
+                                <Minus className="h-3.5 w-3.5" />
+                              </button>
+                              <span className="min-w-8 px-2 text-center text-sm font-medium">
+                                {line.quantity}
+                              </span>
+                              <button
+                                type="button"
+                                aria-label={step === 1 ? "增加數量" : `增加 ${step} 顆`}
+                                onClick={() => updateQuantity(line.lineId, current + step)}
+                                className="px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                              >
+                                <Plus className="h-3.5 w-3.5" />
+                              </button>
+                            </div>
+                          );
+                        })()}
                         <div className="flex items-center gap-2">
                           <span className="text-sm font-semibold text-gray-900">
                             {formatTwd(line.priceTwd * line.quantity)}

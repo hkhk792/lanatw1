@@ -14,8 +14,11 @@ import {
   ORDER_MODEL_SP2S_EMPTY_SHELL_STANDARD,
 } from "@/lib/orderProductModels";
 
-const MOQ = 100;
+const MOQ = 50;
+const STEP = 50;
 const UNIT_PRICE_TWD = 35;
+
+const roundToStep = (n: number) => Math.max(MOQ, Math.round(n / STEP) * STEP);
 
 type ShellKind = "standard" | "pro";
 
@@ -76,8 +79,10 @@ function Sp2sEmptyShellDetailPage({ kind }: { kind: ShellKind }) {
   });
 
   const handleAddToCart = () => {
-    if (quantity < MOQ) {
-      toast.error(`本商品 ${MOQ} 顆起拿`, { description: "請將數量調整為至少 100 顆。" });
+    if (quantity < MOQ || quantity % STEP !== 0) {
+      toast.error(`本商品 ${MOQ} 顆起拿`, {
+        description: `數量需為 ${STEP} 的倍數（${MOQ}、${MOQ + STEP}、${MOQ + STEP * 2}…）。`,
+      });
       return;
     }
     addToCart(buildCartPayload());
@@ -85,8 +90,10 @@ function Sp2sEmptyShellDetailPage({ kind }: { kind: ShellKind }) {
   };
 
   const handleBuyNow = () => {
-    if (quantity < MOQ) {
-      toast.error(`本商品 ${MOQ} 顆起拿`, { description: "請將數量調整為至少 100 顆。" });
+    if (quantity < MOQ || quantity % STEP !== 0) {
+      toast.error(`本商品 ${MOQ} 顆起拿`, {
+        description: `數量需為 ${STEP} 的倍數（${MOQ}、${MOQ + STEP}、${MOQ + STEP * 2}…）。`,
+      });
       return;
     }
     addToCart(buildCartPayload());
@@ -190,7 +197,9 @@ function Sp2sEmptyShellDetailPage({ kind }: { kind: ShellKind }) {
 
             <div>
               <div className="text-4xl font-bold text-gray-900">{`NT$${UNIT_PRICE_TWD}`}</div>
-              <p className="mt-1 text-sm font-medium text-amber-800">每顆 · {MOQ} 顆起拿（未滿 {MOQ} 顆無法下單）</p>
+              <p className="mt-1 text-sm font-medium text-amber-800">
+                每顆 · {MOQ} 顆起拿，每次以 {STEP} 顆為單位調整（{MOQ}、{MOQ + STEP}、{MOQ + STEP * 2}…）
+              </p>
             </div>
 
             <p className="text-sm leading-relaxed text-gray-700">
@@ -211,15 +220,18 @@ function Sp2sEmptyShellDetailPage({ kind }: { kind: ShellKind }) {
                 <div className="flex items-center overflow-hidden rounded-lg border border-gray-300">
                   <button
                     type="button"
-                    onClick={() => setQuantity((q) => Math.max(MOQ, q - 1))}
-                    className="px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100"
+                    aria-label={`減少 ${STEP} 顆`}
+                    onClick={() => setQuantity((q) => Math.max(MOQ, roundToStep(q) - STEP))}
+                    className="px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-300"
+                    disabled={quantity <= MOQ}
                   >
                     <Minus className="h-4 w-4" />
                   </button>
                   <span className="min-w-[4rem] px-6 py-3 text-center text-lg font-medium text-gray-900">{quantity}</span>
                   <button
                     type="button"
-                    onClick={() => setQuantity((q) => q + 1)}
+                    aria-label={`增加 ${STEP} 顆`}
+                    onClick={() => setQuantity((q) => roundToStep(q) + STEP)}
                     className="px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100"
                   >
                     <Plus className="h-4 w-4" />
