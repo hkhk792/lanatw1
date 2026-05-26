@@ -10,7 +10,7 @@ const LEGACY_OUT = path.join(ROOT, "exports", "woocommerce-products-variable.csv
 const DESKTOP_OUT = path.join(process.env.USERPROFILE ?? "", "Desktop", "woocommerce-real-images.csv");
 const DESKTOP_STOCK_FIX_OUT = path.join(process.env.USERPROFILE ?? "", "Desktop", "woocommerce-stock-fix.csv");
 const PRODUCT_PHOTOS_DIR = path.join(ROOT, "public", "product-photos");
-const IMAGE_BASE_URL = "https://sp2s.app/wp-content/uploads/2026/05/";
+const IMAGE_BASE_URL = "https://sp2s.cfd/wp-content/uploads/2026/05/";
 
 const HEADERS = [
   "Type",
