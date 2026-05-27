@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Label } from "@/components/ui/label";
@@ -17,6 +17,13 @@ import FirstOrderShippingVerify from "@/components/checkout/FirstOrderShippingVe
 import CheckoutLineRebateNotice from "@/components/checkout/CheckoutLineRebateNotice";
 import SitewideGiftNotice from "@/components/checkout/SitewideGiftNotice";
 import { CheckoutFooter, CheckoutProgress } from "@/components/checkout/CheckoutChrome";
+import {
+  formatShippingAddressFromStore,
+  isPcscStoreMessage,
+  openPcscStoreSelector,
+  parsePcscStoreFromSearchParams,
+  type PcscSelectedStore,
+} from "@/lib/pcscEmap";
 
 const formatTwd = (n: number) => `NT$${n.toLocaleString("zh-TW")}`;
 
@@ -77,6 +84,37 @@ const Checkout = () => {
       toast.message("購物車是空的", { description: "請先加入商品後再結帳。" });
     }
   }, [lines.length, navigate]);
+
+  const applyPcscStore = useCallback((store: PcscSelectedStore) => {
+    setPickupStoreCode(store.storeId);
+    const addressLine = formatShippingAddressFromStore(store);
+    if (addressLine) setShippingAddress(addressLine);
+    toast.success("已帶入 7-11 門市", {
+      description: `${store.storeName || "門市"}（${store.storeId}）`,
+    });
+  }, []);
+
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      if (event.origin !== window.location.origin) return;
+      if (!isPcscStoreMessage(event.data)) return;
+      applyPcscStore(event.data.store);
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [applyPcscStore]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const store = parsePcscStoreFromSearchParams(params);
+    if (!store) return;
+    applyPcscStore(store);
+    params.delete("cvs_storeid");
+    params.delete("cvs_storename");
+    params.delete("cvs_storeaddress");
+    const next = params.toString();
+    navigate({ pathname: "/checkout", search: next ? `?${next}` : "" }, { replace: true });
+  }, [applyPcscStore, navigate]);
 
   const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -262,14 +300,20 @@ const Checkout = () => {
                   <Label htmlFor="shippingAddress" className="text-neutral-800">
                     收貨地址 <span className="text-red-600">*</span>
                   </Label>
-                  <a
-                    href="https://www.7-11.com.tw/service/store"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const win = openPcscStoreSelector();
+                      if (!win) {
+                        toast.error("無法開啟門市地圖", {
+                          description: "請允許彈出視窗，或改用手動填寫店號。",
+                        });
+                      }
+                    }}
                     className="text-xs text-neutral-600 underline underline-offset-2 hover:text-neutral-900"
                   >
                     查詢店號地圖
-                  </a>
+                  </button>
                 </div>
                 <Input
                   id="shippingAddress"
@@ -281,7 +325,7 @@ const Checkout = () => {
                   required
                 />
                 <p className="text-xs leading-relaxed text-neutral-500">
-                  超商取貨（7-11／全家）可填店名與路段，店號請填於下方「收貨門市號」。宅配請於本欄寫明完整地址；宅配運費為超商取貨運費之二倍。
+                  點「查詢店號地圖」可於 7-ELEVEN 官方地圖選店，選定後會自動帶入本欄與「收貨門市號」。超商取貨（7-11／全家）亦可手動填寫；宅配請寫完整地址，門市號填「無」。
                 </p>
               </div>
 

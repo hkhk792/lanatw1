@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import { cn } from "@/lib/utils";
 import {
-  sp2sPodFlavorGuideContent,
-  SP2S_POD_FLAVOR_GUIDE_ROUTE,
-} from "@/data/sp2sPodFlavorGuideContent";
-import {
-  lanavapNews10Content,
-  DIY_E_LIQUID_GUIDE_ROUTE,
-  lanavapHomeTeaser,
-} from "@/data/lanavapNews10Content";
-import {
-  airportVapeArticleContent,
-  AIRPORT_VAPE_ARTICLE_ROUTE,
-  airportVapeHomeTeaser,
-} from "@/data/airportVapeArticleContent";
+  GUIDE_AIRPORT_VAPING,
+  GUIDE_DIY_E_LIQUID,
+  GUIDE_SP2S_POD_FLAVOR,
+} from "@/lib/domains";
+import { sp2sPodFlavorGuideContent } from "@/data/sp2sPodFlavorGuideContent";
+import { lanavapNews10Content, lanavapHomeTeaser } from "@/data/lanavapNews10Content";
+import { airportVapeArticleContent, airportVapeHomeTeaser } from "@/data/airportVapeArticleContent";
+
+const guideCardClass = cn(
+  "group/card flex flex-col gap-6 sm:gap-8 md:gap-10 md:items-center md:flex-row",
+  "rounded-sm border border-transparent -m-1 p-1 md:-m-2 md:p-2",
+  "outline-none transition-colors duration-500",
+  "hover:border-gold/20 hover:bg-gold/[0.02] focus-visible:ring-2 focus-visible:ring-gold/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+);
 
 const stats = [
   { v: "2.5", u: "ml 容量" },
@@ -49,16 +49,13 @@ const Manifesto = () => {
           </p>
 
           <div className="space-y-10 sm:space-y-14 md:space-y-20">
-            <Link
-              to={SP2S_POD_FLAVOR_GUIDE_ROUTE}
+            <a
+              href={GUIDE_SP2S_POD_FLAVOR}
               id="sp2s-pod-flavor-guide"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={`閱讀：${sp2sPodFlavorGuideContent.title}`}
-              className={cn(
-                "group/card flex flex-col gap-6 sm:gap-8 md:gap-10 md:items-center md:flex-row",
-                "rounded-sm border border-transparent -m-1 p-1 md:-m-2 md:p-2",
-                "outline-none transition-colors duration-500",
-                "hover:border-gold/20 hover:bg-gold/[0.02] focus-visible:ring-2 focus-visible:ring-gold/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              )}
+              className={guideCardClass}
             >
               <div
                 className={cn(
@@ -98,18 +95,15 @@ const Manifesto = () => {
                   </span>
                 </span>
               </div>
-            </Link>
+            </a>
 
-            <Link
-              to={DIY_E_LIQUID_GUIDE_ROUTE}
+            <a
+              href={GUIDE_DIY_E_LIQUID}
               id="diy-e-liquid-guide"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={`閱讀：${lanavapHomeTeaser.title}`}
-              className={cn(
-                "group/card flex flex-col gap-6 sm:gap-8 md:gap-10 md:items-center md:flex-row-reverse",
-                "rounded-sm border border-transparent -m-1 p-1 md:-m-2 md:p-2",
-                "outline-none transition-colors duration-500",
-                "hover:border-gold/20 hover:bg-gold/[0.02] focus-visible:ring-2 focus-visible:ring-gold/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              )}
+              className={cn(guideCardClass, "md:flex-row-reverse")}
             >
               <div
                 className={cn(
@@ -149,18 +143,15 @@ const Manifesto = () => {
                   </span>
                 </span>
               </div>
-            </Link>
+            </a>
 
-            <Link
-              to={AIRPORT_VAPE_ARTICLE_ROUTE}
+            <a
+              href={GUIDE_AIRPORT_VAPING}
               id="airport-vaping-guide"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={`閱讀：${airportVapeHomeTeaser.title}`}
-              className={cn(
-                "group/card flex flex-col gap-6 sm:gap-8 md:gap-10 md:items-center md:flex-row",
-                "rounded-sm border border-transparent -m-1 p-1 md:-m-2 md:p-2",
-                "outline-none transition-colors duration-500",
-                "hover:border-gold/20 hover:bg-gold/[0.02] focus-visible:ring-2 focus-visible:ring-gold/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              )}
+              className={guideCardClass}
             >
               <div
                 className={cn(
@@ -200,7 +191,7 @@ const Manifesto = () => {
                   </span>
                 </span>
               </div>
-            </Link>
+            </a>
           </div>
         </div>
 

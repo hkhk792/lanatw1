@@ -9,6 +9,9 @@ const ADMIN_PATH = "/admin2589";
 const COOKIE_NAME = "internal_auth";
 const BLOCK_REDIRECT = (process.env.EDGE_BLOCK_REDIRECT ?? "https://www.google.com").trim();
 
+/** 搜索引擎爬虫：必须放行，否则 Google 无法收录 */
+const SEARCH_BOT_ALLOW = ["googlebot", "bingbot", "applebot", "duckduckbot", "yandexbot"];
+
 const BOT_KEYWORDS = [
   "bot",
   "spider",
@@ -68,6 +71,9 @@ export default function middleware(request: Request): Response {
   }
 
   const ua = (request.headers.get("user-agent") || "").toLowerCase();
+  if (SEARCH_BOT_ALLOW.some((b) => ua.includes(b))) {
+    return next();
+  }
   if (BOT_KEYWORDS.some((k) => ua.includes(k))) {
     console.log(`[middleware][bot] ${ip} ${request.headers.get("user-agent")}`);
     return Response.redirect(BLOCK_REDIRECT, 302);

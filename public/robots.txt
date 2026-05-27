@@ -12,4 +12,8 @@ Allow: /
 
 User-agent: *
 Allow: /
-Disallow: /admin
+Disallow: /admin2589
+Disallow: /checkout
+Disallow: /order-complete
+
+Sitemap: https://sp2spods.com/sitemap.xml

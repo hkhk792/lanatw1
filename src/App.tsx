@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Analytics } from "@vercel/analytics/react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ScrollToTopOnNavigate } from "@/components/ScrollToTopOnNavigate";
+import SiteSeo from "@/components/SiteSeo";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -33,9 +34,6 @@ import Checkout from "./pages/Checkout.tsx";
 import OrderComplete from "./pages/OrderComplete.tsx";
 import Admin from "./pages/Admin.tsx";
 import AdminSupabaseSql from "./pages/AdminSupabaseSql.tsx";
-import Sp2sPodFlavorGuidePage from "./pages/Sp2sPodFlavorGuidePage.tsx";
-import LanavapNews10Page from "./pages/LanavapNews10Page.tsx";
-import AirportVapeArticlePage from "./pages/AirportVapeArticlePage.tsx";
 import PinkyImportedCatalogDetailPage from "./pages/PinkyImportedCatalogDetailPage.tsx";
 import Sp2sUniversalPodsDetail from "./pages/Sp2sUniversalPodsDetail.tsx";
 import { Sp2sEmptyShellProDetail, Sp2sEmptyShellStandardDetail } from "./pages/Sp2sEmptyShellDetails.tsx";
@@ -50,15 +48,9 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTopOnNavigate />
+          <SiteSeo />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/info/sp2s-pod-flavor-guide" element={<Sp2sPodFlavorGuidePage />} />
-            <Route path="/info/diy-e-liquid-guide" element={<LanavapNews10Page />} />
-            <Route
-              path="/info/lanavap-news-10"
-              element={<Navigate to="/info/diy-e-liquid-guide" replace />}
-            />
-            <Route path="/info/airport-vaping-guide" element={<AirportVapeArticlePage />} />
             <Route
               path="/catalog/tokyo-magic-box-host"
               element={<Navigate to="/product/mohoo-tokyo-box-host" replace />}

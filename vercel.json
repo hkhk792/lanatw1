@@ -1,3 +1,25 @@
 {
+  "redirects": [
+    {
+      "source": "/info/sp2s-pod-flavor-guide",
+      "destination": "https://podpickguide.com/sp2s-pod-flavor-guide",
+      "permanent": true
+    },
+    {
+      "source": "/info/diy-e-liquid-guide",
+      "destination": "https://podpickguide.com/diy-e-liquid-guide",
+      "permanent": true
+    },
+    {
+      "source": "/info/lanavap-news-10",
+      "destination": "https://podpickguide.com/diy-e-liquid-guide",
+      "permanent": true
+    },
+    {
+      "source": "/info/airport-vaping-guide",
+      "destination": "https://podpickguide.com/airport-vaping-guide",
+      "permanent": true
+    }
+  ],
   "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
 }

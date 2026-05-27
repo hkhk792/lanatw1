@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { ResponsiveAssetImg } from "@/components/ResponsiveAssetImg";
+import { LINE_OFFICIAL_CUSTOMER_URL } from "@/constants/lineOfficial";
+import { LineWelcomeGate } from "@/lib/responsiveImageVariants.generated";
 
 export type CheckoutStep = "cart" | "checkout" | "complete";
 
@@ -26,13 +29,22 @@ export function CheckoutFooter() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
           <div className="flex flex-col items-center md:items-start">
-            <div className="grid h-36 w-36 place-items-center border border-white/20 bg-white p-2">
-              <span className="text-center text-[10px] font-medium leading-tight text-neutral-900">
-                LINE
-                <br />
-                客服
-              </span>
-            </div>
+            <a
+              href={LINE_OFFICIAL_CUSTOMER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="掃描加入官方 LINE 客服"
+              className="block h-36 w-36 border border-white/20 bg-white p-2 transition-opacity hover:opacity-95"
+            >
+              <ResponsiveAssetImg
+                set={LineWelcomeGate}
+                sizes="144px"
+                alt="加入官方 LINE 客服"
+                className="h-full w-full object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
             <p className="mt-3 max-w-[10rem] text-center text-[10px] text-neutral-400 md:text-left">
               掃描加入官方 LINE，即時回覆訂單與售後諮詢
             </p>
