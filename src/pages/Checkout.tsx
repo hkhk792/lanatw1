@@ -22,6 +22,7 @@ import {
   isPcscStoreMessage,
   openPcscStoreSelector,
   parsePcscStoreFromSearchParams,
+  PCSC_PUBLIC_STORE_LOOKUP_URL,
   type PcscSelectedStore,
 } from "@/lib/pcscEmap";
 
@@ -300,20 +301,23 @@ const Checkout = () => {
                   <Label htmlFor="shippingAddress" className="text-neutral-800">
                     收貨地址 <span className="text-red-600">*</span>
                   </Label>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const win = openPcscStoreSelector();
-                      if (!win) {
-                        toast.error("無法開啟門市地圖", {
-                          description: "請允許彈出視窗，或改用手動填寫店號。",
-                        });
-                      }
-                    }}
-                    className="text-xs text-neutral-600 underline underline-offset-2 hover:text-neutral-900"
-                  >
-                    查詢店號地圖
-                  </button>
+                  <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <button
+                      type="button"
+                      onClick={() => openPcscStoreSelector()}
+                      className="text-xs text-neutral-600 underline underline-offset-2 hover:text-neutral-900"
+                    >
+                      選擇 7-11 取貨門市
+                    </button>
+                    <a
+                      href={PCSC_PUBLIC_STORE_LOOKUP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-neutral-500 underline underline-offset-2 hover:text-neutral-800"
+                    >
+                      僅查店號
+                    </a>
+                  </span>
                 </div>
                 <Input
                   id="shippingAddress"
@@ -325,7 +329,7 @@ const Checkout = () => {
                   required
                 />
                 <p className="text-xs leading-relaxed text-neutral-500">
-                  點「查詢店號地圖」可於 7-ELEVEN 官方地圖選店，選定後會自動帶入本欄與「收貨門市號」。超商取貨（7-11／全家）亦可手動填寫；宅配請寫完整地址，門市號填「無」。
+                  點「選擇 7-11 取貨門市」於地圖選店後會自動帶回本欄與「收貨門市號」。若地圖顯示系統忙碌，請改點「僅查店號」手動填寫，或洽 LINE 客服。宅配請寫完整地址，門市號填「無」。
                 </p>
               </div>
 
