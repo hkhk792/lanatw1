@@ -21,5 +21,11 @@
       "permanent": true
     }
   ],
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/api/cvs/pcsc-callback",
+      "destination": "/api/pcsc-callback"
+    },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
 }

@@ -1,6 +1,6 @@
 import { SHOP_SITE_URL } from "@/lib/domains";
 
-/** postMessage / URL 回传类型（与 api/cvs/pcsc-callback 一致） */
+/** postMessage / URL 回传类型（与 api/pcsc-callback 一致） */
 export const PCSC_EMAP_MESSAGE = "sp2s-pcsc-cvs-store" as const;
 
 /** 7-11 门市名称／店号查询（仅供查阅，无法自动带回结帐页） */
@@ -32,12 +32,9 @@ function isLocalDevHost(hostname: string): boolean {
 /** 选店完成后 POST 回传的网址（须为 https 正式域或本地开发） */
 export function getPcscCallbackUrl(): string {
   if (typeof window === "undefined") {
-    return `${SHOP_SITE_URL}/api/cvs/pcsc-callback`;
+    return `${SHOP_SITE_URL}/api/pcsc-callback`;
   }
-  if (isLocalDevHost(window.location.hostname)) {
-    return `${window.location.origin}/api/cvs/pcsc-callback`;
-  }
-  return `${window.location.origin}/api/cvs/pcsc-callback`;
+  return `${window.location.origin}/api/pcsc-callback`;
 }
 
 /** Presco 选店地图（选店后会 POST 至 callback） */

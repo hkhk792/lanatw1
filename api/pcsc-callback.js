@@ -1,7 +1,8 @@
 /**
- * 7-ELEVEN 电子地图选店回调（POST application/x-www-form-urlencoded）。
- * 选店后由浏览器 POST 至此，回传 HTML 以 postMessage 通知 opener 或导回结帐页。
+ * GET/POST /api/pcsc-callback
+ * 7-ELEVEN（Presco）选店完成后回传；须为顶层 api 路径（嵌套 api/cvs/* 在 Vercel 会 404）。
  */
+import { parse as parseQuery } from "node:querystring";
 
 function pickField(body, keys) {
   if (!body || typeof body !== "object") return "";
@@ -35,6 +36,34 @@ function parseStore(body) {
       "cvsAddress",
     ]),
   };
+}
+
+function readUrlEncodedBody(req) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    req.on("data", (c) => chunks.push(c));
+    req.on("end", () => {
+      try {
+        const raw = Buffer.concat(chunks).toString("utf8");
+        resolve(raw ? parseQuery(raw) : {});
+      } catch (e) {
+        reject(e);
+      }
+    });
+    req.on("error", reject);
+  });
+}
+
+async function parseRequestBody(req) {
+  if (req.method === "GET") return req.query ?? {};
+  const parsed = req.body;
+  if (parsed && typeof parsed === "object" && Object.keys(parsed).length > 0) {
+    return parsed;
+  }
+  if (typeof parsed === "string" && parsed.trim()) {
+    return parseQuery(parsed);
+  }
+  return readUrlEncodedBody(req);
 }
 
 function buildCallbackHtml(store, origin) {
@@ -80,27 +109,34 @@ function buildCallbackHtml(store, origin) {
 </html>`;
 }
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== "POST" && req.method !== "GET") {
     res.setHeader("Allow", "POST, GET");
     return res.status(405).end("Method Not Allowed");
   }
 
-  const body = req.method === "POST" ? req.body ?? {} : req.query ?? {};
-  const store = parseStore(body);
+  try {
+    const body = await parseRequestBody(req);
+    const store = parseStore(body);
 
-  const proto = req.headers["x-forwarded-proto"] || "https";
-  const host = req.headers["x-forwarded-host"] || req.headers.host || "";
-  const origin = host ? `${proto}://${host}` : "";
+    const proto = req.headers["x-forwarded-proto"] || "https";
+    const host = req.headers["x-forwarded-host"] || req.headers.host || "";
+    const origin = host ? `${proto}://${host}` : "";
 
-  if (!store.storeId) {
+    if (!store.storeId) {
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      return res.status(400).send(
+        `<!DOCTYPE html><html lang="zh-Hant"><body><p>未取得門市資料，請返回<a href="${origin}/checkout">結帳頁</a>重新選擇門市。</p></body></html>`
+      );
+    }
+
     res.setHeader("Content-Type", "text/html; charset=utf-8");
-    return res.status(400).send(
-      `<!DOCTYPE html><html lang="zh-Hant"><body><p>未取得門市資料，請返回<a href="${origin}/checkout">結帳頁</a>重新選擇門市。</p></body></html>`
+    res.setHeader("Cache-Control", "no-store");
+    return res.status(200).send(buildCallbackHtml(store, origin));
+  } catch {
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    return res.status(500).send(
+      `<!DOCTYPE html><html lang="zh-Hant"><body><p>處理門市資料時發生錯誤，請返回<a href="/checkout">結帳頁</a>重試。</p></body></html>`
     );
   }
-
-  res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.setHeader("Cache-Control", "no-store");
-  return res.status(200).send(buildCallbackHtml(store, origin));
 }

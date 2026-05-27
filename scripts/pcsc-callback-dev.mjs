@@ -1,5 +1,5 @@
 /**
- * Vite dev：本地模拟 /api/cvs/pcsc-callback（7-11 选店 POST 回传）
+ * Vite dev：本地模拟 /api/pcsc-callback（7-11 选店 POST 回传）
  */
 import { parse as parseQuery } from "node:querystring";
 
@@ -71,7 +71,7 @@ function readUrlencodedBody(req) {
 export function pcscCallbackDevMiddleware() {
   return async (req, res, next) => {
     const url = req.url?.split("?")[0] ?? "";
-    if (url !== "/api/cvs/pcsc-callback") return next();
+    if (url !== "/api/pcsc-callback") return next();
 
     if (req.method !== "POST" && req.method !== "GET") {
       res.statusCode = 405;
