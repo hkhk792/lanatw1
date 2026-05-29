@@ -32,3 +32,4 @@ scripts/.phpstack-products-dump.json
 
 # 商品圖批次匯出（npm run export:product-photos）
 exports/product-photos-export.zip
+.vercel

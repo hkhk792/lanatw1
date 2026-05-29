@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/info/lanavap-news-10",
+      "destination": "https://podpickguide.com/diy-e-liquid-guide",
+      "permanent": true
+    },
+    {
       "source": "/info/sp2s-pod-flavor-guide",
       "destination": "https://podpickguide.com/sp2s-pod-flavor-guide",
       "permanent": true
@@ -11,13 +16,83 @@
       "permanent": true
     },
     {
-      "source": "/info/lanavap-news-10",
-      "destination": "https://podpickguide.com/diy-e-liquid-guide",
+      "source": "/info/airport-vaping-guide",
+      "destination": "https://podpickguide.com/airport-vaping-guide",
       "permanent": true
     },
     {
-      "source": "/info/airport-vaping-guide",
-      "destination": "https://podpickguide.com/airport-vaping-guide",
+      "source": "/info/coolness-and-sweetness-guide",
+      "destination": "https://podpickguide.com/coolness-and-sweetness-guide",
+      "permanent": true
+    },
+    {
+      "source": "/info/how-to-pick-first-pod-flavor",
+      "destination": "https://podpickguide.com/how-to-pick-first-pod-flavor",
+      "permanent": true
+    },
+    {
+      "source": "/info/sp2s-gen1-vs-gen2-pods",
+      "destination": "https://podpickguide.com/sp2s-gen1-vs-gen2-pods",
+      "permanent": true
+    },
+    {
+      "source": "/info/beginner-pod-flavors-2026",
+      "destination": "https://podpickguide.com/beginner-pod-flavors-2026",
+      "permanent": true
+    },
+    {
+      "source": "/info/sp2s-vs-lana-pod-how-to-choose",
+      "destination": "https://podpickguide.com/sp2s-vs-lana-pod-how-to-choose",
+      "permanent": true
+    },
+    {
+      "source": "/info/disposable-vs-refillable-pods",
+      "destination": "https://podpickguide.com/disposable-vs-refillable-pods",
+      "permanent": true
+    },
+    {
+      "source": "/info/pod-no-flavor-or-burned-taste",
+      "destination": "https://podpickguide.com/pod-no-flavor-or-burned-taste",
+      "permanent": true
+    },
+    {
+      "source": "/info/pod-leaking-troubleshooting",
+      "destination": "https://podpickguide.com/pod-leaking-troubleshooting",
+      "permanent": true
+    },
+    {
+      "source": "/info/pod-gurgling-spitback-fix",
+      "destination": "https://podpickguide.com/pod-gurgling-spitback-fix",
+      "permanent": true
+    },
+    {
+      "source": "/info/pod-storage-shelf-life",
+      "destination": "https://podpickguide.com/pod-storage-shelf-life",
+      "permanent": true
+    },
+    {
+      "source": "/info/how-often-replace-pod-cartridge",
+      "destination": "https://podpickguide.com/how-often-replace-pod-cartridge",
+      "permanent": true
+    },
+    {
+      "source": "/info/identify-counterfeit-pods",
+      "destination": "https://podpickguide.com/identify-counterfeit-pods",
+      "permanent": true
+    },
+    {
+      "source": "/info/tea-and-dessert-pod-flavors",
+      "destination": "https://podpickguide.com/tea-and-dessert-pod-flavors",
+      "permanent": true
+    },
+    {
+      "source": "/info/seasonal-pod-flavor-guide",
+      "destination": "https://podpickguide.com/seasonal-pod-flavor-guide",
+      "permanent": true
+    },
+    {
+      "source": "/info/bring-vape-to-japan-korea",
+      "destination": "https://podpickguide.com/bring-vape-to-japan-korea",
       "permanent": true
     }
   ],

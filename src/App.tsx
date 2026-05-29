@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ScrollToTopOnNavigate } from "@/components/ScrollToTopOnNavigate";
 import SiteSeo from "@/components/SiteSeo";
@@ -90,6 +91,7 @@ const App = () => (
           <FloatingLineWidget />
         </BrowserRouter>
         <Analytics />
+        <SpeedInsights />
       </CartProvider>
     </TooltipProvider>
   </QueryClientProvider>
