@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft, Minus, Plus, ShoppingCart } from "lucide-react";
 import { toast } from "sonner";
@@ -14,7 +14,6 @@ import {
 import { pinkyImportedCloudwaysDetailsById } from "@/data/pinkyImportedCloudwaysDetails.generated";
 import { getPinkyImportedCatalogOverride } from "@/data/pinkyImportedCatalogOverrides";
 
-const DEFAULT_SITE_TITLE = "SP2S — 品味精髓 | 奢華蒸氣工坊";
 const DEFAULT_IMPORTED_PRICE_TWD = 299;
 const IMPORTED_DISPOSABLE_PRICE_TWD = 269;
 
@@ -26,13 +25,6 @@ const PinkyImportedCatalogDetailPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [variantPromptOpen, setVariantPromptOpen] = useState(false);
-
-  useEffect(() => {
-    document.title = item ? `${item.title}｜匯入產品目錄` : "匯入產品目錄｜SP2S";
-    return () => {
-      document.title = DEFAULT_SITE_TITLE;
-    };
-  }, [item]);
 
   const goHome = () => {
     requestHomeScrollRestore();

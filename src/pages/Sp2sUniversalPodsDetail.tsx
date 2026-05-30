@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronLeft, Minus, Plus, ShoppingCart } from "lucide-react";
 import { toast } from "sonner";
@@ -16,8 +16,6 @@ import {
 } from "@/data/sp2sUniversalPods";
 import { ORDER_MODEL_SP2S_UNIVERSAL_PODS } from "@/lib/orderProductModels";
 
-const DEFAULT_SITE_TITLE = "SP2S — 品味精髓 | 奢華蒸氣工坊";
-
 const Sp2sUniversalPodsDetail = () => {
   const navigate = useNavigate();
   const { addToCart, itemCount, openCart } = useCart();
@@ -31,13 +29,6 @@ const Sp2sUniversalPodsDetail = () => {
   );
 
   const heroSrc = useMemo(() => sp2sUniversalPodImageByIndex(activeIndex), [activeIndex]);
-
-  useEffect(() => {
-    document.title = `${ORDER_MODEL_SP2S_UNIVERSAL_PODS}｜口味選購`;
-    return () => {
-      document.title = DEFAULT_SITE_TITLE;
-    };
-  }, []);
 
   const buildCartPayload = () => {
     if (!selectedFlavor) return null;

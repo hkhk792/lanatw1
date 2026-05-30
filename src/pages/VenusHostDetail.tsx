@@ -84,10 +84,6 @@ const VenusHostDetail = () => {
   };
 
   useEffect(() => {
-    document.title = "VENUS 金星主機｜VAPENGIN";
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

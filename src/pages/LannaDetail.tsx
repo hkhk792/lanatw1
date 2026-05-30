@@ -16,8 +16,6 @@ import { LANNA_ORDER_PRODUCT_MODEL } from "@/lib/orderProductModels";
 
 const LANNA_PRODUCT_ID = "lanna";
 const LANNA_PRICE_TWD = 500;
-const DOC_TITLE = `${LANNA_PAGE_TITLE_MAIN} | SP2S 商城`;
-const DEFAULT_SITE_TITLE = "SP2S — 品味精髓 | 奢華蒸氣工坊";
 
 const variantOptions = [
   "烈焰黑",
@@ -95,13 +93,6 @@ const LannaDetail = () => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    document.title = DOC_TITLE;
-    return () => {
-      document.title = DEFAULT_SITE_TITLE;
-    };
   }, []);
 
   return (

@@ -29,32 +29,6 @@ const Index = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.title = "SP2S — 品味精髓 | 奢華蒸氣工坊";
-
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute("name", name);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-    setMeta(
-      "description",
-      "SP2S — 新一代風味科技。手工精製設備、陶瓷芯彈匣和訂製配飾，為精緻生活打造。僅限18歲以上。"
-    );
-
-    let canon = document.querySelector('link[rel="canonical"]');
-    if (!canon) {
-      canon = document.createElement("link");
-      canon.setAttribute("rel", "canonical");
-      document.head.appendChild(canon);
-    }
-    canon.setAttribute("href", window.location.origin + "/");
-  }, []);
-
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden pb-[calc(3rem+env(safe-area-inset-bottom,0px))]">
       <AgeGate />

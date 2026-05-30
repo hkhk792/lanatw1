@@ -97,10 +97,6 @@ const MohooTokyoBoxHostDetail = () => {
   };
 
   useEffect(() => {
-    document.title = "東京魔盒主機｜MOHOO BOX";
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
