@@ -20,6 +20,12 @@ export type SeoMeta = {
   productName?: string;
 };
 
+export type ProductStructuredDataMeta = {
+  name: string;
+  priceTwd: number;
+  image?: string;
+};
+
 const OG_DEFAULT = `${SHOP_SITE_URL}/huan-taiwan-vape-banner.webp`;
 
 function absoluteShopAssetUrl(path: string): string {
@@ -28,6 +34,30 @@ function absoluteShopAssetUrl(path: string): string {
 }
 
 /** 静态路由 SEO */
+const PRODUCT_STRUCTURED_DATA_BY_PATH: Record<string, ProductStructuredDataMeta> = {
+  "/product/atomizer": { name: "原子棒一代通配主機", priceTwd: 290 },
+  "/product/bullet": { name: "SP2S 思博瑞 一代", priceTwd: 450 },
+  "/product/diya": { name: "DIYA 叮啞霧化桿", priceTwd: 320 },
+  "/product/diya-7500": { name: "DIYA 叮啞拋棄式 7500 口", priceTwd: 240 },
+  "/product/diya-pods": { name: "DIYA 叮啞通用煙彈", priceTwd: 220 },
+  "/product/hebat-gen6": { name: "HEBAT 喜貝六代", priceTwd: 650 },
+  "/product/jupiter-6500": { name: "JUPITER 木星 6500 套裝", priceTwd: 269 },
+  "/product/lana-e-liquid-30ml": { name: "LANA 小蠻腰煙油 30ml", priceTwd: 350 },
+  "/product/lana-pods": { name: "LANA 小蠻腰煙彈", priceTwd: 220 },
+  "/product/lanna": { name: "LANA 主機", priceTwd: 500 },
+  "/product/mohoo-tokyo-box": { name: "MOHOO 東京魔盒", priceTwd: 399 },
+  "/product/mohoo-tokyo-box-host": { name: "MOHOO 東京魔盒主機", priceTwd: 350 },
+  "/product/pro": { name: "SP2S Pro", priceTwd: 450 },
+  "/product/sp2s-empty-shell-pro": { name: "SP2S Pro 版空殼", priceTwd: 35 },
+  "/product/sp2s-empty-shell-standard": { name: "SP2S 一般版空殼", priceTwd: 35 },
+  "/product/sp2s-gen1-pods": { name: "SP2S 一代煙彈", priceTwd: 220 },
+  "/product/sp2s-silicone-sleeve": { name: "SP2S 矽膠保護套", priceTwd: 120 },
+  "/product/sp2s-universal-pods": { name: "SP2S 二代通用煙彈", priceTwd: 280 },
+  "/product/vapor-storm-5000": { name: "VAPOR STORM 5000 口", priceTwd: 229 },
+  "/product/vapor-storm-gen5-pods": { name: "VAPOR STORM 五代煙彈", priceTwd: 129 },
+  "/product/venus-host": { name: "VENUS 金星主機", priceTwd: 219 },
+};
+
 export const STATIC_SEO_ROUTES: Record<string, SeoMeta> = {
   "/": {
     path: "/",
@@ -242,4 +272,9 @@ export function getSeoForPath(pathname: string): SeoMeta {
 
 export function isProductPath(path: string): boolean {
   return path.startsWith("/product/") || path.startsWith("/catalog/");
+}
+
+export function getProductStructuredDataForPath(pathname: string): ProductStructuredDataMeta | null {
+  const base = pathname.split("?")[0] || "/";
+  return PRODUCT_STRUCTURED_DATA_BY_PATH[base] ?? null;
 }

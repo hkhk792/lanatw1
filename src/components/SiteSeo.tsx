@@ -2,13 +2,14 @@ import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { SHOP_SITE_URL } from "@/lib/domains";
-import { getSeoForPath, isProductPath } from "@/lib/seoRoutes";
+import { getProductStructuredDataForPath, getSeoForPath, isProductPath } from "@/lib/seoRoutes";
 
 const SiteSeo = () => {
   const { pathname } = useLocation();
   const meta = getSeoForPath(pathname);
   const canonical = `${SHOP_SITE_URL}${meta.path === "/" ? "/" : meta.path}`;
   const ogImage = meta.ogImage ?? `${SHOP_SITE_URL}/huan-taiwan-vape-banner.webp`;
+  const productSeo = getProductStructuredDataForPath(pathname);
 
   const jsonLd = useMemo(() => {
     const graph: Record<string, unknown>[] = [
@@ -35,14 +36,25 @@ const SiteSeo = () => {
         "@type": "Product",
         name: meta.productName,
         description: meta.description,
-        image: ogImage,
+        image: productSeo?.image ?? ogImage,
         url: canonical,
+        sku: meta.path.replace("/product/", ""),
         brand: { "@type": "Brand", name: "SP2S" },
+        offers: productSeo
+          ? {
+              "@type": "Offer",
+              url: canonical,
+              priceCurrency: "TWD",
+              price: productSeo.priceTwd.toString(),
+              availability: "https://schema.org/InStock",
+              itemCondition: "https://schema.org/NewCondition",
+            }
+          : undefined,
       });
     }
 
     return graph;
-  }, [meta, canonical, ogImage]);
+  }, [meta, canonical, ogImage, productSeo]);
 
   return (
     <Helmet>
