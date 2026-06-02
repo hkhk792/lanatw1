@@ -231,13 +231,17 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
   "kis5-gen1": {
     priceTwd: 499,
   },
+  // Kis5拋棄式6500口（Cloudways 匯入）
+  "kis5-disposable-6500": {
+    priceTwd: 299,
+  },
   // Dot Plus 8000（Cloudways 匯入）
   "dot-plus-8000": {
     priceTwd: 330,
   },
   // MARBO 9000口（Cloudways 匯入）
   "marbo-9000": {
-    priceTwd: 300,
+    priceTwd: 399,
   },
   // OBI拋棄式（Cloudways 匯入）
   "obi-disposable-8000": {
