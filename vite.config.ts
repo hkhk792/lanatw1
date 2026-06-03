@@ -36,7 +36,8 @@ export default defineConfig(({ mode }) => {
           .replaceAll("__SHOP_SITE_URL__", htmlEnv.site)
           .replaceAll("__SHOP_HOME_TITLE__", htmlEnv.title)
           .replaceAll("__SHOP_HOME_DESCRIPTION__", htmlEnv.description)
-          .replaceAll("__SHOP_OG_IMAGE__", htmlEnv.ogImage);
+          .replaceAll("__SHOP_OG_IMAGE__", htmlEnv.ogImage)
+          .replace(/(<link rel="stylesheet"[^>]*)\s+crossorigin/g, "$1");
       },
     },
     {
