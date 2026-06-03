@@ -6,7 +6,8 @@
 
 | 项目 | sp2spods.com | lanatw1.com |
 |------|----------------|-------------|
-| Vercel 项目 | 现有 `obsidian-vapor-zen` | **新建**项目，同一 GitHub 仓库 |
+| Vercel 项目 | 现有 `obsidian-vapor-zen` | **`sp2s-3`** |
+| GitHub 仓库 | `hkhk792/obsidian-vapor-zen` | **`hkhk792/lanatw1`** |
 | `SITE_CODE` | 不设或 `sp2spods` | **`lanatw1`** |
 | `VITE_SHOP_SITE_URL` | `https://sp2spods.com` | `https://lanatw1.com` |
 | Supabase / `ADMIN_SECRET` | 相同 | **相同** |
@@ -17,7 +18,7 @@
 ### 控制台（手动）
 
 1. 打开 https://vercel.com/mpm4hndtbr-4652s-projects → **Add New** → **Project**
-2. 导入 Git：`hkhk792/obsidian-vapor-zen`
+2. 导入 Git：`hkhk792/lanatw1`（或继续用 `obsidian-vapor-zen` 同代码）
 3. **Project Name** 填 **`sp2s-3`**
 4. Build 命令保持 **`npm run build`**
 
@@ -33,21 +34,27 @@ powershell -ExecutionPolicy Bypass -File scripts/setup-sp2s-3-vercel.ps1
 
 ## 2. 环境变量（Production）
 
-从 `.env.lanatw1.example` 复制，并填入与主站相同的 Supabase / 后台密钥：
+从 `.env.lanatw1.example` 复制，并填入与主站相同的 Supabase / 后台密钥。
+
+**注意：** Vercel 的 **Sensitive** 变量在 UI 里 **不能 Copy to Clipboard**，API/CLI 也无法解密导出。不要从主站项目「复制」，请从**原始来源**抄同一套值，在 `sp2s-3` 里 **Add Environment Variable** 逐条添加（或写入本地 `.env.secrets.manual` 后运行 `node scripts/copy-vercel-secrets-browser.mjs`）。
+
+| 变量 | 去哪里拿（与主站必须一致） |
+|------|---------------------------|
+| `SUPABASE_URL` | [Supabase](https://supabase.com/dashboard/project/zcaosonsvlaxtfqeoacv/settings/api) → Project URL |
+| `SUPABASE_SERVICE_ROLE_KEY` | 同上 → `service_role`（secret，只用于服务端） |
+| `ADMIN_SECRET` | 后台 `/admin2589` 管理密钥；与主站 `obsidian-vapor-zen` 保持一致 |
 
 ```
 SITE_CODE=lanatw1
 VITE_SHOP_SITE_URL=https://lanatw1.com
-VITE_SHOP_HOME_TITLE=...
-VITE_SHOP_HOME_DESCRIPTION=...
-VITE_SHOP_ORG_NAME=...
-VITE_SHOP_WEBSITE_NAME=...
-VITE_SHOP_JSON_LD_BRAND=LANA
+（其余 VITE_SHOP_* 见 .env.lanatw1.example）
 
-SUPABASE_URL=（与主站相同）
-SUPABASE_SERVICE_ROLE_KEY=（与主站相同）
+SUPABASE_URL=https://zcaosonsvlaxtfqeoacv.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=（Supabase → API → Legacy service_role）
 ADMIN_SECRET=（与主站相同）
 ```
+
+本项目**不使用 Storyblok**，无需配置 `VITE_STORYBLOK_*`。
 
 主站 `sp2spods.com` 项目可设 `SITE_CODE=sp2spods`（可选），便于后台区分来源。
 
