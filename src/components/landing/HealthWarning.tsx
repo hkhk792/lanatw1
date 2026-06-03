@@ -7,9 +7,9 @@ const HealthWarning = () => {
         <Gift className="h-4 w-4 shrink-0 text-gold" aria-hidden />
         <p className="text-[10px] sm:text-xs leading-relaxed font-medium text-background/95">
           <span className="text-gold">新客首單</span>
-          ：首次下單先加 LINE 客服，解鎖
-          <span className="font-semibold text-background">到貨免運費</span>
-          ；同享限時折扣、套組加碼優惠。實際內容與名額以客服即時回覆為準。
+          ：結帳填寫手機即可享
+          <span className="font-semibold text-background">首單超商免運</span>
+          ；滿 NT$1,500 全館免運。限時折扣與贈品以結帳頁與活動說明為準。
         </p>
       </div>
     </div>

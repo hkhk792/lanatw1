@@ -66,31 +66,32 @@ async function parseRequestBody(req) {
   return readUrlEncodedBody(req);
 }
 
-function buildCallbackHtml(store, origin) {
-  const payload = JSON.stringify({
-    type: "sp2s-pcsc-cvs-store",
-    store,
-  });
+function buildCheckoutRedirectUrl(store, origin) {
   const q = new URLSearchParams({
     cvs_storeid: store.storeId,
     cvs_storename: store.storeName,
     cvs_storeaddress: store.storeAddress,
   });
-  const checkoutUrl = `${origin}/checkout?${q.toString()}`;
+  return `${origin}/checkout?${q.toString()}`;
+}
+
+/** 彈窗選店時仍用 HTML + postMessage；同頁跳轉則直接 HTTP 重定向（較快）。 */
+function buildCallbackHtml(store, origin, checkoutUrl) {
+  const payload = JSON.stringify({
+    type: "sp2s-pcsc-cvs-store",
+    store,
+  });
 
   return `<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0;url=${encodeURI(checkoutUrl)}" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>門市選擇完成</title>
-  <style>
-    body { font-family: system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; background: #fafafa; color: #171717; }
-    p { font-size: 14px; }
-  </style>
 </head>
 <body>
-  <p>門市資料已送出，正在返回結帳頁…</p>
+  <p>正在返回結帳頁…<a href="${checkoutUrl}">若未自動跳轉請點此</a></p>
   <script>
     (function () {
       var payload = ${payload};
@@ -130,9 +131,21 @@ export default async function handler(req, res) {
       );
     }
 
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    const checkoutUrl = buildCheckoutRedirectUrl(store, origin);
     res.setHeader("Cache-Control", "no-store");
-    return res.status(200).send(buildCallbackHtml(store, origin));
+
+    // 結帳頁為同頁跳轉選店：直接 303 回結帳，略過 HTML/JS 中轉（較快）
+    const wantsHtmlBridge =
+      String(req.headers["x-pcsc-bridge"] || "") === "1" ||
+      String(req.query?.bridge || "") === "1";
+
+    if (!wantsHtmlBridge) {
+      res.setHeader("Location", checkoutUrl);
+      return res.status(303).end();
+    }
+
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    return res.status(200).send(buildCallbackHtml(store, origin, checkoutUrl));
   } catch {
     res.setHeader("Content-Type", "text/html; charset=utf-8");
     return res.status(500).send(

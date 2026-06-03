@@ -105,7 +105,10 @@ function mapSupabaseOrderError(message) {
     return { status: 400, error: "訂單金額驗證失敗，請重新整理頁面後再試。" };
   }
   if (m.includes("first_order_shipping_not_eligible")) {
-    return { status: 409, error: "不符合首單包郵資格，請確認手機與 LINE ID 或重新整理頁面。" };
+    return {
+      status: 409,
+      error: "此手機不符合首單免運（已有訂單紀錄）。請改付運費或滿 NT$1,500 再下單。",
+    };
   }
   if (m.includes("missing required customer fields") || m.includes("items required")) {
     return { status: 400, error: "請填寫完整訂單資料。" };

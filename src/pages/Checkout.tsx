@@ -132,7 +132,7 @@ const Checkout = () => {
     }
 
     if (firstOrderChecking) {
-      toast.error("正在確認首單資格", { description: "請稍候再送出訂單。" });
+      toast.error("正在確認首單免運", { description: "請待手機旁提示完成後再送出。" });
       return;
     }
 
@@ -141,8 +141,9 @@ const Checkout = () => {
       subtotalTwd < FREE_SHIPPING_THRESHOLD_TWD &&
       !firstOrderFreeShipping
     ) {
-      toast.error("運費不符合活動", {
-        description: "首單包郵僅限首次下單；否則小計須滿 NT$1,500 才免運。",
+      toast.error("運費與活動不符", {
+        description:
+          "首單免運僅限此手機首次下單；老客戶請滿 NT$1,500 小計，或依系統顯示運費 NT$70 下單。",
       });
       return;
     }
@@ -430,14 +431,27 @@ const Checkout = () => {
                 </div>
                 <div className="flex justify-between text-neutral-600">
                   <dt>
-                    {firstOrderFreeShipping
-                      ? "超商取貨（首單包郵）"
-                      : `超商取貨（滿 ${FREE_SHIPPING_THRESHOLD_TWD.toLocaleString("zh-TW")} 免運）`}
+                    {firstOrderChecking
+                      ? "超商取貨運費"
+                      : firstOrderFreeShipping
+                        ? "超商取貨（首單免運）"
+                        : shippingTwd === 0
+                          ? "超商取貨（滿額免運）"
+                          : `超商取貨（滿 ${FREE_SHIPPING_THRESHOLD_TWD.toLocaleString("zh-TW")} 免運）`}
                   </dt>
                   <dd className="font-medium text-neutral-900">
-                    {shippingTwd === 0 ? "免運" : formatTwd(shippingTwd)}
+                    {firstOrderChecking
+                      ? "確認中…"
+                      : shippingTwd === 0
+                        ? "免運"
+                        : formatTwd(shippingTwd)}
                   </dd>
                 </div>
+                {!firstOrderChecking && shippingTwd > 0 && subtotalTwd < FREE_SHIPPING_THRESHOLD_TWD ? (
+                  <p className="text-[11px] leading-relaxed text-neutral-500">
+                    新客請確認手機號碼以套用首單免運；或加購至 NT$1,500 享滿額免運。
+                  </p>
+                ) : null}
                 <div className="flex justify-between border-t border-neutral-200 pt-4 text-base font-semibold text-neutral-900">
                   <dt>合計</dt>
                   <dd>{formatTwd(totalTwd)}</dd>
