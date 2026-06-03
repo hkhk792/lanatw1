@@ -12,11 +12,24 @@
 | Supabase / `ADMIN_SECRET` | 相同 | **相同** |
 | 订单后台 | `https://sp2spods.com/admin2589` | 同一后台，筛选站点 `lanatw1` |
 
-## 1. 新建 Vercel 项目
+## 1. 新建 Vercel 项目（推荐名：`sp2s-3`）
 
-1. Vercel → **Add New Project** → 导入 `hkhk792/obsidian-vapor-zen`
-2. 项目名称建议：`obsidian-vapor-zen-lanatw1`
-3. **不要**改 Build 命令：仍为 `npm run build`（会按环境变量生成该域名的 sitemap / robots）
+### 控制台（手动）
+
+1. 打开 https://vercel.com/mpm4hndtbr-4652s-projects → **Add New** → **Project**
+2. 导入 Git：`hkhk792/obsidian-vapor-zen`
+3. **Project Name** 填 **`sp2s-3`**
+4. Build 命令保持 **`npm run build`**
+
+### CLI（登录后一键）
+
+```powershell
+cd D:\obsidian\obsidian-vapor-zen
+npx vercel login
+powershell -ExecutionPolicy Bypass -File scripts/setup-sp2s-3-vercel.ps1
+```
+
+脚本会：创建 `sp2s-3`、从 `obsidian-vapor-zen` 复制 Supabase/后台密钥、写入 `SITE_CODE=lanatw1` 与 `VITE_*`、绑定 `lanatw1.com`、执行 `deploy --prod`。
 
 ## 2. 环境变量（Production）
 
