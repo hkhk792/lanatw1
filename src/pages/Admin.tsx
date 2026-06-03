@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { mergeAdminSiteCodes } from "@/lib/adminSites";
 
 type OrderItemRow = {
   product_model: string;
@@ -140,14 +141,9 @@ const Admin = () => {
       const data = (await res.json()) as { orders?: AdminOrder[]; error?: string };
       if (!res.ok) throw new Error(data.error || "載入失敗");
       setOrders(data.orders ?? []);
-      setKnownSites((prev) => {
-        const merged = new Set(prev);
-        for (const o of data.orders ?? []) {
-          const sc = (o as AdminOrder).site_code?.trim();
-          if (sc) merged.add(sc);
-        }
-        return Array.from(merged).sort();
-      });
+      setKnownSites(
+        mergeAdminSiteCodes((data.orders ?? []).map((o) => (o as AdminOrder).site_code))
+      );
       setAuthorized(true);
       sessionStorage.setItem(STORAGE_KEY, token);
       const keys = [...new Set((data.orders ?? []).map((o) => o.batch_date))];
