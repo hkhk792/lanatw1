@@ -65,7 +65,7 @@ const Navbar = () => {
           </div>
 
           <p className="pointer-events-none shrink-0 text-center text-xs font-medium tracking-wide text-gold sm:text-sm md:text-base">
-            线上付款
+            货到付款
           </p>
 
           <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:gap-4 md:gap-8">
