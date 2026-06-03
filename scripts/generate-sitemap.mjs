@@ -1,8 +1,9 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { shopSiteUrl } from "./shop-site-env.mjs";
 
-const SITE = "https://sp2spods.com";
+const SITE = shopSiteUrl();
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 const seoRoutesSrc = readFileSync(join(root, "src/lib/seoRoutes.ts"), "utf8");
@@ -53,4 +54,27 @@ ${urls}
 `;
 
 writeFileSync(join(root, "public/sitemap.xml"), xml, "utf8");
-console.log(`Wrote sitemap.xml (${paths.length} URLs)`);
+
+const robots = `User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /admin2589
+Disallow: /checkout
+Disallow: /order-complete
+
+Sitemap: ${SITE}/sitemap.xml
+`;
+writeFileSync(join(root, "public/robots.txt"), robots, "utf8");
+
+console.log(`Wrote sitemap.xml + robots.txt for ${SITE} (${paths.length} URLs)`);

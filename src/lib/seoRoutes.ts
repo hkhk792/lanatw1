@@ -4,10 +4,15 @@ import {
   pinkyImportedCatalog,
 } from "@/data/pinkyImportedCatalog";
 import { SHOP_SITE_URL } from "@/lib/domains";
+import {
+  DEFAULT_SITE_DESCRIPTION,
+  DEFAULT_SITE_TITLE,
+  SHOP_OG_DEFAULT,
+  SITE_HOME_DESCRIPTION,
+  SITE_HOME_TITLE,
+} from "@/lib/siteConfig";
 
-export const DEFAULT_SITE_TITLE = "SP2S 官方精選";
-export const DEFAULT_SITE_DESCRIPTION =
-  "SP2S 思博瑞官方商城：SP2S 煙彈、一代／二代通用菸彈、主機與拋棄式電子煙現貨。陶瓷芯、多口味選購，僅限 18 歲以上。";
+export { DEFAULT_SITE_DESCRIPTION, DEFAULT_SITE_TITLE };
 
 export type SeoMeta = {
   title: string;
@@ -26,7 +31,7 @@ export type ProductStructuredDataMeta = {
   image?: string;
 };
 
-const OG_DEFAULT = `${SHOP_SITE_URL}/huan-taiwan-vape-banner.webp`;
+const OG_DEFAULT = SHOP_OG_DEFAULT;
 
 function absoluteShopAssetUrl(path: string): string {
   if (path.startsWith("http")) return path;
@@ -61,8 +66,8 @@ const PRODUCT_STRUCTURED_DATA_BY_PATH: Record<string, ProductStructuredDataMeta>
 export const STATIC_SEO_ROUTES: Record<string, SeoMeta> = {
   "/": {
     path: "/",
-    title: "SP2S 煙彈官方商城｜思博瑞電子煙現貨",
-    description: DEFAULT_SITE_DESCRIPTION,
+    title: SITE_HOME_TITLE,
+    description: SITE_HOME_DESCRIPTION,
     ogImage: OG_DEFAULT,
   },
   "/product/lanna": {

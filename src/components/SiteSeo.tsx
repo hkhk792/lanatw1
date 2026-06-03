@@ -2,6 +2,11 @@ import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { SHOP_SITE_URL } from "@/lib/domains";
+import {
+  SITE_JSON_LD_BRAND,
+  SITE_ORG_NAME,
+  SITE_WEBSITE_NAME,
+} from "@/lib/siteConfig";
 import { getProductStructuredDataForPath, getSeoForPath, isProductPath } from "@/lib/seoRoutes";
 
 const SiteSeo = () => {
@@ -16,17 +21,17 @@ const SiteSeo = () => {
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: "SP2S 官方精選",
+        name: SITE_ORG_NAME,
         url: SHOP_SITE_URL,
         logo: `${SHOP_SITE_URL}/favicon.svg`,
       },
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        name: "SP2S 煙彈官方商城",
+        name: SITE_WEBSITE_NAME,
         url: SHOP_SITE_URL,
         inLanguage: "zh-Hant-TW",
-        publisher: { "@type": "Organization", name: "SP2S 官方精選" },
+        publisher: { "@type": "Organization", name: SITE_ORG_NAME },
       },
     ];
 
@@ -39,7 +44,7 @@ const SiteSeo = () => {
         image: productSeo?.image ?? ogImage,
         url: canonical,
         sku: meta.path.replace("/product/", ""),
-        brand: { "@type": "Brand", name: "SP2S" },
+        brand: { "@type": "Brand", name: SITE_JSON_LD_BRAND },
         offers: productSeo
           ? {
               "@type": "Offer",
