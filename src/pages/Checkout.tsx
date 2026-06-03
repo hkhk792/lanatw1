@@ -8,6 +8,7 @@ import { useCart } from "@/contexts/CartContext";
 import { requestHomeScrollRestore } from "@/lib/homeScrollRestore";
 import { resolveCartLineImageUrl } from "@/lib/cartProductImages";
 import {
+  displayShippingTwdForCheckout,
   FREE_SHIPPING_THRESHOLD_TWD,
   resolveShippingTwd,
 } from "@/lib/checkoutShipping";
@@ -71,12 +72,13 @@ const Checkout = () => {
     () => resolveShippingTwd(subtotalTwd, firstOrderFreeShipping),
     [subtotalTwd, firstOrderFreeShipping]
   );
+  const displayShippingTwd = useMemo(
+    () => displayShippingTwdForCheckout(subtotalTwd, isFirstOrder),
+    [subtotalTwd, isFirstOrder]
+  );
+  const displayTotalTwd = subtotalTwd + displayShippingTwd;
   const totalTwd = subtotalTwd + shippingTwd;
 
-  const handleFirstOrderChange = (next: boolean | null, checking: boolean) => {
-    setIsFirstOrder(next);
-    setFirstOrderChecking(checking);
-  };
 
   useEffect(() => {
     if (lines.length === 0) {
@@ -293,7 +295,8 @@ const Checkout = () => {
                 />
                 <FirstOrderShippingVerify
                   phone={phone}
-                  onFirstOrderChange={handleFirstOrderChange}
+                  onFirstOrderChange={setIsFirstOrder}
+                  onCheckingChange={setFirstOrderChecking}
                 />
               </div>
 
@@ -429,32 +432,24 @@ const Checkout = () => {
                   <dt>小計</dt>
                   <dd className="font-medium text-neutral-900">{formatTwd(subtotalTwd)}</dd>
                 </div>
-                <div className="flex justify-between text-neutral-600">
-                  <dt>
-                    {firstOrderChecking
-                      ? "超商取貨運費"
-                      : firstOrderFreeShipping
-                        ? "超商取貨（首單免運）"
-                        : shippingTwd === 0
-                          ? "超商取貨（滿額免運）"
-                          : `超商取貨（滿 ${FREE_SHIPPING_THRESHOLD_TWD.toLocaleString("zh-TW")} 免運）`}
+                <div className="flex justify-between gap-3 text-neutral-600">
+                  <dt className="min-w-0 flex-1 leading-snug">
+                    超商取貨
+                    {isFirstOrder === true && subtotalTwd < FREE_SHIPPING_THRESHOLD_TWD ? (
+                      <span className="mt-0.5 block text-[11px] font-normal text-emerald-700">
+                        首單免運
+                      </span>
+                    ) : null}
                   </dt>
-                  <dd className="font-medium text-neutral-900">
-                    {firstOrderChecking
-                      ? "確認中…"
-                      : shippingTwd === 0
-                        ? "免運"
-                        : formatTwd(shippingTwd)}
+                  <dd className="shrink-0 min-w-[4.5rem] text-right font-medium tabular-nums text-neutral-900">
+                    {displayShippingTwd === 0 ? "免運" : formatTwd(displayShippingTwd)}
                   </dd>
                 </div>
-                {!firstOrderChecking && shippingTwd > 0 && subtotalTwd < FREE_SHIPPING_THRESHOLD_TWD ? (
-                  <p className="text-[11px] leading-relaxed text-neutral-500">
-                    新客請確認手機號碼以套用首單免運；或加購至 NT$1,500 享滿額免運。
-                  </p>
-                ) : null}
                 <div className="flex justify-between border-t border-neutral-200 pt-4 text-base font-semibold text-neutral-900">
                   <dt>合計</dt>
-                  <dd>{formatTwd(totalTwd)}</dd>
+                  <dd className="shrink-0 min-w-[4.5rem] text-right tabular-nums">
+                    {formatTwd(displayTotalTwd)}
+                  </dd>
                 </div>
               </dl>
 
