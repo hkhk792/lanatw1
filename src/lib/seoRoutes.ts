@@ -52,7 +52,7 @@ const PRODUCT_STRUCTURED_DATA_BY_PATH: Record<string, ProductStructuredDataMeta>
   "/product/lanna": { name: "LANA 主機", priceTwd: 500 },
   "/product/mohoo-tokyo-box": { name: "MOHOO 東京魔盒", priceTwd: 399 },
   "/product/mohoo-tokyo-box-host": { name: "SP2魔盒主機統配東京", priceTwd: 499 },
-  "/product/sp2-tokyo-box-pods": { name: "SP2魔盒煙彈通配東京", priceTwd: 399 },
+  "/product/sp2-tokyo-box-pods": { name: "SP2魔盒煙彈通配東京", priceTwd: 330 },
   "/product/pro": { name: "SP2S Pro", priceTwd: 450 },
   "/product/sp2s-empty-shell-pro": { name: "SP2S Pro 版空殼", priceTwd: 35 },
   "/product/sp2s-empty-shell-standard": { name: "SP2S 一般版空殼", priceTwd: 35 },

@@ -154,7 +154,7 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
     ],
   },
   "sp2-tokyo-box-pods": {
-    priceTwd: 399,
+    priceTwd: 330,
     variants: ["葡萄", "百香果", "龍井", "南極冰", "老冰棍", "荔枝", "蜜桃", "藍莓", "蜜桃烏龍"],
     summary: "SP2魔盒煙彈通配東京，通配 SP2魔盒主機統配東京（MOHOO BOX），12ml 大容量磁吸換彈。",
     description:
@@ -163,7 +163,7 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
       ["商品名稱", "SP2魔盒煙彈通配東京"],
       ["分類", "菸彈"],
       ["煙油容量", "12ml／顆（以包裝為準）"],
-      ["參攷價格", "NT$399"],
+      ["參攷價格", "NT$330"],
     ],
   },
   // RELX悅刻幻影五代主機
