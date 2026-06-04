@@ -51,7 +51,7 @@ const PRODUCT_STRUCTURED_DATA_BY_PATH: Record<string, ProductStructuredDataMeta>
   "/product/lana-pods": { name: "LANA 小蠻腰煙彈", priceTwd: 220 },
   "/product/lanna": { name: "LANA 主機", priceTwd: 500 },
   "/product/mohoo-tokyo-box": { name: "MOHOO 東京魔盒", priceTwd: 399 },
-  "/product/mohoo-tokyo-box-host": { name: "SP2魔盒主機統配東京", priceTwd: 499 },
+  "/product/mohoo-tokyo-box-host": { name: "SP2魔盒主機通配東京", priceTwd: 499 },
   "/product/sp2-tokyo-box-pods": { name: "SP2魔盒煙彈通配東京", priceTwd: 330 },
   "/product/pro": { name: "SP2S Pro", priceTwd: 450 },
   "/product/sp2s-empty-shell-pro": { name: "SP2S Pro 版空殼", priceTwd: 35 },
@@ -145,9 +145,9 @@ export const STATIC_SEO_ROUTES: Record<string, SeoMeta> = {
   },
   "/product/mohoo-tokyo-box-host": {
     path: "/product/mohoo-tokyo-box-host",
-    title: "SP2魔盒主機統配東京｜MOHOO BOX 14 色可選",
-    description: "SP2魔盒主機統配東京 MOHOO BOX，500mAh 鋁合金，14 色可選。現貨。",
-    productName: "SP2魔盒主機統配東京",
+    title: "SP2魔盒主機通配東京｜MOHOO BOX 14 色可選",
+    description: "SP2魔盒主機通配東京 MOHOO BOX，500mAh 鋁合金，14 色可選。現貨。",
+    productName: "SP2魔盒主機通配東京",
   },
   "/product/sp2-tokyo-box-pods": {
     path: "/product/sp2-tokyo-box-pods",

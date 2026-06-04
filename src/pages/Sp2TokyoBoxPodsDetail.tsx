@@ -221,7 +221,7 @@ const Sp2TokyoBoxPodsDetail = () => {
             <div className="space-y-2 text-gray-700">
               <ProductDetailLineSupportNotice />
               <p>
-                通配 SP2魔盒主機統配東京（MOHOO BOX 主機），12ml 大容量煙彈，磁吸換彈設計；口味、庫存以實際到貨為準。
+                通配 SP2魔盒主機通配東京（MOHOO BOX 主機），12ml 大容量煙彈，磁吸換彈設計；口味、庫存以實際到貨為準。
               </p>
             </div>
 
@@ -279,7 +279,7 @@ const Sp2TokyoBoxPodsDetail = () => {
             <h2 className="text-2xl font-bold text-gray-900">商品介紹</h2>
             <div className="mt-4 h-px w-14 bg-gray-900" />
             <p className="mt-6 leading-8 text-gray-700">
-              {SP2_TOKYO_BOX_PODS_NAME} 專為 SP2魔盒主機統配東京設計，單顆 12ml
+              {SP2_TOKYO_BOX_PODS_NAME} 專為 SP2魔盒主機通配東京設計，單顆 12ml
               大容量煙油，磁吸換彈更順手。目前提供葡萄、百香果、龍井、南極冰、老冰棍、荔枝、蜜桃、藍莓、蜜桃烏龍等 9
               種口味，適合日常補彈與口味輪替。
             </p>
@@ -291,7 +291,7 @@ const Sp2TokyoBoxPodsDetail = () => {
               <div className="mt-3 h-px w-12 bg-gray-900" />
               <ul className="mt-5 space-y-3 text-gray-700">
                 {[
-                  { k: "相容主機", v: "SP2魔盒主機統配東京（MOHOO BOX）" },
+                  { k: "相容主機", v: "SP2魔盒主機通配東京（MOHOO BOX）" },
                   { k: "容量", v: "12ml／顆（以包裝為準）" },
                   { k: "連接方式", v: "磁吸式，換彈更順手" },
                   { k: "口味", v: "9 種精選口味可選" },

@@ -15,7 +15,7 @@ const productMain = pinkyCatalogPhoto("tokyo-magic-box-host");
 const logoImage = SITE_LOGO_PHOTO;
 
 const MOHOO_HOST_PRODUCT_ID = "tokyo-magic-box-host";
-const MOHOO_HOST_PRODUCT_NAME = "SP2魔盒主機統配東京";
+const MOHOO_HOST_PRODUCT_NAME = "SP2魔盒主機通配東京";
 const MOHOO_HOST_PRICE_TWD = 499;
 const MOHOO_HOST_ORIGINAL_PRICE_TWD = 845;
 const MOHOO_HOST_DISCOUNT_LABEL = "省 41%";

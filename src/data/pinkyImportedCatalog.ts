@@ -37,7 +37,7 @@ export const pinkyImportedCatalog: readonly PinkyCatalogItem[] = [
   { id: "lana-series-host", title: "LANA系列主機", category: "主機系列" },
   { id: "ilia-series-host", title: "ILIA系列主機", category: "主機系列" },
   { id: "ilia-gen5-host", title: "ILIA五代主機", category: "主機系列" },
-  { id: "tokyo-magic-box-host", title: "SP2魔盒主機統配東京", category: "主機系列" },
+  { id: "tokyo-magic-box-host", title: "SP2魔盒主機通配東京", category: "主機系列" },
   { id: "sars-gen1", title: "殺小SARS 一代通用系列 買3送一隻主機", category: "主機系列" },
   { id: "ilia-gen5", title: "ILIA5代 5代系列 買4送一隻主機", category: "菸彈／通配系列" },
   { id: "ice-bear-gen5", title: "冰熊 5代系列", category: "菸彈／通配系列" },
