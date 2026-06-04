@@ -22,7 +22,6 @@ const BRAND_BY_ID_PREFIX: Array<[string, string]> = [
   ["luckin-", "Luckin"],
   ["lana-series-", "LANA"],
   ["tokyo-magic-box-", "TOKYO"],
-  ["sp2-tokyo-box-", "SP2"],
   ["sars-", "SARS"],
   ["ice-bear-", "ICE BEAR"],
   ["tisic-", "TISIC"],
@@ -253,11 +252,6 @@ function sortCatalogItemsForGrid(items: readonly PinkyCatalogItem[]): PinkyCatal
 /** 已升級至專屬詳情頁模板的匯入目錄條目（覆寫 /catalog/:id 連結） */
 const IMPORTED_CATALOG_CUSTOM_DETAIL_HREF: Record<string, string> = {
   "tokyo-magic-box-host": "/product/mohoo-tokyo-box-host",
-  "sp2-tokyo-box-pods": "/product/sp2-tokyo-box-pods",
-};
-
-const IMPORTED_CATALOG_CUSTOM_IMAGE: Record<string, string> = {
-  "sp2-tokyo-box-pods": pinkyCatalogPhoto("tokyo-magic-box-host"),
 };
 
 function buildImportedCardsByCategory(category: CatalogCategory): DisplayCard[] {
@@ -274,7 +268,7 @@ function buildImportedCardsByCategory(category: CatalogCategory): DisplayCard[] 
       name: item.title,
       flavor: getBrandName(item.id, item.title),
       price: listPrice,
-      image: IMPORTED_CATALOG_CUSTOM_IMAGE[item.id] ?? getPinkyImportedCatalogImage(item.id),
+      image: getPinkyImportedCatalogImage(item.id),
       detailHref: IMPORTED_CATALOG_CUSTOM_DETAIL_HREF[item.id] ?? `/catalog/${item.id}`,
     };
   });

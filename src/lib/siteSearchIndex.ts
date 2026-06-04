@@ -50,7 +50,6 @@ const SITE_EXTRA_ENTRIES: readonly { id: string; title: string; href: string; ca
 /** 已升級至專屬詳情頁的匯入目錄條目（搜尋結果直連專屬頁） */
 const PINKY_CUSTOM_HREF: Record<string, string> = {
   "tokyo-magic-box-host": "/product/mohoo-tokyo-box-host",
-  "sp2-tokyo-box-pods": "/product/sp2-tokyo-box-pods",
 };
 
 let cached: SiteSearchEntry[] | null = null;
