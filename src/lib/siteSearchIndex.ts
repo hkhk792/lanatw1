@@ -32,6 +32,7 @@ const SITE_EXTRA_ENTRIES: readonly { id: string; title: string; href: string; ca
   { id: "diya", title: "DIYA 叮啞霧化桿", href: "/product/diya", category: "主機" },
   { id: "disp-vapengin", title: "VENUS 金星主機", href: "/product/venus-host", category: "主機" },
   { id: "disp-mohoo-box", title: "TOKYO MOHOO BOX 東京魔盒", href: "/product/mohoo-tokyo-box", category: "菸彈" },
+  { id: "sp2-tokyo-box-pods", title: "SP2魔盒煙彈通配東京", href: "/product/sp2-tokyo-box-pods", category: "菸彈" },
   { id: "disp-hebat", title: "HEBAT 喜貝六代", href: "/product/hebat-gen6", category: "拋棄式" },
   { id: "disp-diya-7500", title: "DIYA 拋棄式 7500 口", href: "/product/diya-7500", category: "拋棄式" },
   { id: "disp-vapor-storm", title: "VAPOR STORM 風暴 5000 口", href: "/product/vapor-storm-5000", category: "拋棄式" },
@@ -49,6 +50,7 @@ const SITE_EXTRA_ENTRIES: readonly { id: string; title: string; href: string; ca
 /** 已升級至專屬詳情頁的匯入目錄條目（搜尋結果直連專屬頁） */
 const PINKY_CUSTOM_HREF: Record<string, string> = {
   "tokyo-magic-box-host": "/product/mohoo-tokyo-box-host",
+  "sp2-tokyo-box-pods": "/product/sp2-tokyo-box-pods",
 };
 
 let cached: SiteSearchEntry[] | null = null;

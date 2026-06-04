@@ -5,7 +5,7 @@ import {
   pinkyImportedCatalog,
 } from "@/data/pinkyImportedCatalog";
 import { getPinkyImportedCatalogOverride } from "@/data/pinkyImportedCatalogOverrides";
-import { productPhoto } from "@/lib/productPhotos";
+import { productPhoto, pinkyCatalogPhoto } from "@/lib/productPhotos";
 import { AtomizerHostGemini, DiyaPodsShowcase } from "@/lib/responsiveImageVariants.generated";
 import type { ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
 import { sp2sUniversalPodHeroImage } from "@/data/sp2sUniversalPods";
@@ -22,6 +22,7 @@ const BRAND_BY_ID_PREFIX: Array<[string, string]> = [
   ["luckin-", "Luckin"],
   ["lana-series-", "LANA"],
   ["tokyo-magic-box-", "TOKYO"],
+  ["sp2-tokyo-box-", "SP2"],
   ["sars-", "SARS"],
   ["ice-bear-", "ICE BEAR"],
   ["tisic-", "TISIC"],
@@ -158,6 +159,14 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     detailHref: "/product/mohoo-tokyo-box",
   },
   {
+    id: "sp2-tokyo-box-pods",
+    name: "SP2魔盒煙彈通配東京",
+    flavor: "通配東京魔盒主機 · 12ml · 9 口味",
+    price: "NT$399",
+    image: pinkyCatalogPhoto("tokyo-magic-box-host"),
+    detailHref: "/product/sp2-tokyo-box-pods",
+  },
+  {
     id: "showcase-e-liquid",
     name: "電子煙煙油",
     flavor: "鹽尼古丁配方 · 風味層次",
@@ -244,6 +253,11 @@ function sortCatalogItemsForGrid(items: readonly PinkyCatalogItem[]): PinkyCatal
 /** 已升級至專屬詳情頁模板的匯入目錄條目（覆寫 /catalog/:id 連結） */
 const IMPORTED_CATALOG_CUSTOM_DETAIL_HREF: Record<string, string> = {
   "tokyo-magic-box-host": "/product/mohoo-tokyo-box-host",
+  "sp2-tokyo-box-pods": "/product/sp2-tokyo-box-pods",
+};
+
+const IMPORTED_CATALOG_CUSTOM_IMAGE: Record<string, string> = {
+  "sp2-tokyo-box-pods": pinkyCatalogPhoto("tokyo-magic-box-host"),
 };
 
 function buildImportedCardsByCategory(category: CatalogCategory): DisplayCard[] {
@@ -260,7 +274,7 @@ function buildImportedCardsByCategory(category: CatalogCategory): DisplayCard[] 
       name: item.title,
       flavor: getBrandName(item.id, item.title),
       price: listPrice,
-      image: getPinkyImportedCatalogImage(item.id),
+      image: IMPORTED_CATALOG_CUSTOM_IMAGE[item.id] ?? getPinkyImportedCatalogImage(item.id),
       detailHref: IMPORTED_CATALOG_CUSTOM_DETAIL_HREF[item.id] ?? `/catalog/${item.id}`,
     };
   });

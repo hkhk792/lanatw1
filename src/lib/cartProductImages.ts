@@ -16,6 +16,7 @@ const CART_PRODUCT_IMAGE_BY_ID: Record<string, string> = {
   "lana-e-liquid-30ml": productPhoto("showcase-e-liquid.webp"),
   "lana-pods": productPhoto("product-7.webp"),
   "mohoo-tokyo-box": productPhoto("disposable-mohoo-tokyo.webp"),
+  "sp2-tokyo-box-pods": pinkyCatalogPhoto("tokyo-magic-box-host"),
   pro: productPhoto("product-4.webp"),
   "sp2s-empty-shell-pro": productPhoto("pro-shell.png"),
   "sp2s-empty-shell-standard": productPhoto("standard-white-core.png"),
@@ -30,6 +31,7 @@ const CART_PRODUCT_IMAGE_BY_ID: Record<string, string> = {
 for (const item of pinkyImportedCatalog) {
   CART_PRODUCT_IMAGE_BY_ID[item.id] = pinkyCatalogPhoto(item.id);
 }
+CART_PRODUCT_IMAGE_BY_ID["sp2-tokyo-box-pods"] = pinkyCatalogPhoto("tokyo-magic-box-host");
 
 /** 將各種歷史路徑統一為站內絕對路徑 `/product-photos/...` */
 function normalizeProductPhotoPath(imageUrl?: string): string | undefined {
