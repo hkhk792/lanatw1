@@ -102,7 +102,7 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
   },
   // 東京魔盒主機（Cloudways 匯入）
   "tokyo-magic-box-host": {
-    priceTwd: 650,
+    priceTwd: 499,
     variantLabel: "顏色／款式：",
     variants: [
       "深邃夜黑",
@@ -121,9 +121,9 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
       "薰衣草霜",
     ],
     summary:
-      "東京魔盒主機是專為電子菸愛好者設計的頂級電子菸產品，搭載 500mAh 大電量電池，搭配創新 MESH 鋼網棉霧化芯；搭配 12ml 大容量 MOHOO 煙彈可輕鬆吸食高達約 10,000 口。獨創小螢幕即時顯示電量，鋁合金輕巧機身、扁平吸嘴，煙霧飽滿濃郁、不漏油不燒焦；超過 20 種口味可選涼版或不涼版。",
+      "SP2魔盒主機統配東京是專為電子菸愛好者設計的頂級電子菸產品，搭載 500mAh 大電量電池，搭配創新 MESH 鋼網棉霧化芯；搭配 12ml 大容量 MOHOO 煙彈可輕鬆吸食高達約 10,000 口。獨創小螢幕即時顯示電量，鋁合金輕巧機身、扁平吸嘴，煙霧飽滿濃郁、不漏油不燒焦；超過 20 種口味可選涼版或不涼版。",
     description:
-      "東京魔盒主機輕巧鋁合金機身握感時尚，500mAh 大電量可支撐整日使用，獨創小螢幕隨時顯示電量。搭配 12ml 超大容量 MOHOO 煙彈與 MESH 鋼網棉芯，單顆煙彈即可享有萬口級續航，煙霧飽滿順滑。超過 20 種口味從清涼水果到濃郁菸草任選，忙碌上班族或夜生活族群出門旅行、派對聚會都適合；扁平吸嘴舒適，霧化細膩一口接一口。",
+      "SP2魔盒主機統配東京輕巧鋁合金機身握感時尚，500mAh 大電量可支撐整日使用，獨創小螢幕隨時顯示電量。搭配 12ml 超大容量 MOHOO 煙彈與 MESH 鋼網棉芯，單顆煙彈即可享有萬口級續航，煙霧飽滿順滑。超過 20 種口味從清涼水果到濃郁菸草任選，忙碌上班族或夜生活族群出門旅行、派對聚會都適合；扁平吸嘴舒適，霧化細膩一口接一口。",
     highlights: [
       {
         title: "核心規格",
@@ -144,13 +144,13 @@ export const pinkyImportedCatalogOverrides: Record<string, PinkyImportedCatalogO
       },
     ],
     specs: [
-      ["商品名稱", "東京魔盒主機"],
+      ["商品名稱", "SP2魔盒主機統配東京"],
       ["產品編號", "TOKYO-DEVICE-001"],
       ["分類", "主機"],
       ["電池", "500mAh"],
       ["煙彈容量", "12ml（MOHOO 煙彈另購）"],
       ["參攷口數", "約 10,000 口（依煙彈口味與使用習慣而異）"],
-      ["參攷價格", "NT$650"],
+      ["參攷價格", "NT$499"],
     ],
   },
   // RELX悅刻幻影五代主機

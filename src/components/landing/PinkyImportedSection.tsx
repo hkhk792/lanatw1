@@ -5,7 +5,7 @@ import {
   pinkyImportedCatalog,
 } from "@/data/pinkyImportedCatalog";
 import { getPinkyImportedCatalogOverride } from "@/data/pinkyImportedCatalogOverrides";
-import { productPhoto } from "@/lib/productPhotos";
+import { productPhoto, pinkyCatalogPhoto } from "@/lib/productPhotos";
 import { AtomizerHostGemini, DiyaPodsShowcase } from "@/lib/responsiveImageVariants.generated";
 import type { ResponsiveImageSet } from "@/components/ResponsiveAssetImg";
 import { sp2sUniversalPodHeroImage } from "@/data/sp2sUniversalPods";
@@ -156,6 +156,14 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     price: "NT$399",
     image: productPhoto("disposable-mohoo-tokyo.webp"),
     detailHref: "/product/mohoo-tokyo-box",
+  },
+  {
+    id: "sp2-tokyo-box-pods",
+    name: "SP2魔盒煙彈通配東京",
+    flavor: "通配東京魔盒主機 · 12ml · 9 口味",
+    price: "NT$330",
+    image: pinkyCatalogPhoto("tokyo-magic-box-host"),
+    detailHref: "/product/sp2-tokyo-box-pods",
   },
   {
     id: "showcase-e-liquid",

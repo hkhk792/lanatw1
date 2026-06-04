@@ -57,6 +57,8 @@ const CartSheet = () => {
     else if (productId === "vapor-storm-5000") navigate("/product/vapor-storm-5000");
     else if (productId === "venus-host") navigate("/product/venus-host");
     else if (productId === "mohoo-tokyo-box") navigate("/product/mohoo-tokyo-box");
+    else if (productId === "tokyo-magic-box-host") navigate("/product/mohoo-tokyo-box-host");
+    else if (productId === "sp2-tokyo-box-pods") navigate("/product/sp2-tokyo-box-pods");
     else if (productId === "hebat-gen6") navigate("/product/hebat-gen6");
     else if (productId === "lana-pods") navigate("/product/lana-pods");
     else if (productId === "showcase-gear" || productId === "sp2s-silicone-sleeve")

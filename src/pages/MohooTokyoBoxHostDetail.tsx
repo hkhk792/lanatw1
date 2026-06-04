@@ -15,9 +15,10 @@ const productMain = pinkyCatalogPhoto("tokyo-magic-box-host");
 const logoImage = SITE_LOGO_PHOTO;
 
 const MOHOO_HOST_PRODUCT_ID = "tokyo-magic-box-host";
-const MOHOO_HOST_PRICE_TWD = 650;
+const MOHOO_HOST_PRODUCT_NAME = "SP2魔盒主機統配東京";
+const MOHOO_HOST_PRICE_TWD = 499;
 const MOHOO_HOST_ORIGINAL_PRICE_TWD = 845;
-const MOHOO_HOST_DISCOUNT_LABEL = "省 23%";
+const MOHOO_HOST_DISCOUNT_LABEL = "省 41%";
 
 const colorGroups: { group: string; options: string[] }[] = [
   {
@@ -47,11 +48,11 @@ const MohooTokyoBoxHostDetail = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const getProductTitle = () =>
-    "東京魔盒主機｜MOHOO BOX · 500mAh 鋁合金鋼網棉芯 · 台灣現貨";
+    `${MOHOO_HOST_PRODUCT_NAME}｜MOHOO BOX · 500mAh 鋁合金鋼網棉芯 · 台灣現貨`;
   const getProductDescription = () =>
     "TOKYO MOHOO BOX HOST · 12ml 適配 · 鋁合金機身 · 14 色可選";
-  const getCategory = () => "MOHOO 東京魔盒主機";
-  const getTags = () => "MOHOO，東京魔盒主機，鋁合金，鋼網棉芯，14 色可選";
+  const getCategory = () => `MOHOO ${MOHOO_HOST_PRODUCT_NAME}`;
+  const getTags = () => `${MOHOO_HOST_PRODUCT_NAME}，MOHOO，鋁合金，鋼網棉芯，14 色可選`;
   const getBadgeText = () =>
     selectedOption ? `台灣現貨｜${selectedOption}` : "鋁合金主機｜請先選擇顏色／款式";
 
@@ -175,7 +176,7 @@ const MohooTokyoBoxHostDetail = () => {
             <div className="relative overflow-hidden rounded-lg bg-gray-50">
               <img
                 src={productMain}
-                alt="東京魔盒主機 TOKYO MOHOO BOX HOST"
+                alt={`${MOHOO_HOST_PRODUCT_NAME} TOKYO MOHOO BOX HOST`}
                 className="h-[500px] w-full object-contain"
               />
 
@@ -211,13 +212,13 @@ const MohooTokyoBoxHostDetail = () => {
                 主機系列
               </a>
               <span>/</span>
-              <span className="tracking-tight text-gray-700">東京魔盒主機</span>
+              <span className="tracking-tight text-gray-700">{MOHOO_HOST_PRODUCT_NAME}</span>
             </div>
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
 
             <p className="text-sm text-gray-600">
-              MOHOO BOX 東京魔盒主機｜500mAh 鋁合金機身｜MESH 鋼網棉霧化芯｜搭配 12ml MOHOO 煙彈
+              MOHOO BOX {MOHOO_HOST_PRODUCT_NAME}｜500mAh 鋁合金機身｜MESH 鋼網棉霧化芯｜搭配 12ml MOHOO 煙彈
             </p>
 
             <div className="flex flex-wrap items-end gap-3">
@@ -233,7 +234,7 @@ const MohooTokyoBoxHostDetail = () => {
             </div>
 
             <p className="leading-7 text-gray-700">
-              東京魔盒主機是專為電子菸愛好者設計的頂級電子菸產品，搭載 500mAh
+              {MOHOO_HOST_PRODUCT_NAME}是專為電子菸愛好者設計的頂級電子菸產品，搭載 500mAh
               大電量電池，搭配創新 MESH 鋼網棉霧化芯；搭配 12ml 大容量 MOHOO
               煙彈可輕鬆吸食高達約 10,000 口。獨創小螢幕即時顯示電量，鋁合金輕巧機身、扁平吸嘴，煙霧飽滿濃郁、不漏油不燒焦；超過
               20 種口味可選涼版或不涼版。
@@ -327,7 +328,7 @@ const MohooTokyoBoxHostDetail = () => {
             <h2 className="text-2xl font-bold text-gray-900">產品描述</h2>
             <div className="mt-4 h-px w-14 bg-gray-900" />
             <p className="mt-6 leading-8 text-gray-700">
-              想試試電子菸嗎？東京魔盒主機絕對是你的不二選擇。這款電子菸主機輕巧鋁合金機身，握在手裡像藝術品一樣時尚，500mAh
+              想試試電子菸嗎？{MOHOO_HOST_PRODUCT_NAME}絕對是你的不二選擇。這款電子菸主機輕巧鋁合金機身，握在手裡像藝術品一樣時尚，500mAh
               大電量可支撐一整天；獨創小螢幕隨時顯示電量，再也不怕突然斷電尷尬。搭配 12ml 超大容量 MOHOO
               煙彈，內建創新 MESH
               鋼網棉芯，一顆彈就抽上萬口，煙霧飽滿順滑、不漏油不燒焦；超過 20
@@ -371,7 +372,7 @@ const MohooTokyoBoxHostDetail = () => {
             </ul>
 
             <p className="mt-6 border-l-4 border-blue-200 pl-4 leading-8 text-gray-600">
-              總結：東京魔盒主機以 500mAh 續航、鋁合金機身與 MESH
+              總結：{MOHOO_HOST_PRODUCT_NAME}以 500mAh 續航、鋁合金機身與 MESH
               鋼網棉芯為核心，搭配 12ml 大容量煙彈，提供穩定的萬口級霧化體驗，是兼顧外觀、續航與口感的旗艦級選擇。
             </p>
           </div>
@@ -404,7 +405,7 @@ const MohooTokyoBoxHostDetail = () => {
               <div className="mt-3 h-px w-12 bg-gray-900" />
               <dl className="mt-5 grid grid-cols-1 gap-3 text-sm text-gray-700 sm:grid-cols-2">
                 {[
-                  ["商品名稱", "東京魔盒主機"],
+                  ["商品名稱", MOHOO_HOST_PRODUCT_NAME],
                   ["產品編號", "TOKYO-DEVICE-001"],
                   ["分類", "主機系列"],
                   ["品牌／系列", "MOHOO BOX 東京魔盒"],
@@ -443,6 +444,12 @@ const MohooTokyoBoxHostDetail = () => {
             <div className="mt-3 h-px w-12 bg-gray-900" />
             <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
               {[
+                {
+                  href: "/product/sp2-tokyo-box-pods",
+                  title: "SP2魔盒煙彈通配東京",
+                  desc: "12ml · 9 口味 · 通配主機",
+                  image: productMain,
+                },
                 {
                   href: "/product/mohoo-tokyo-box",
                   title: "TOKYO MOHOO BOX 煙彈",

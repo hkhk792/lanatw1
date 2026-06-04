@@ -24,6 +24,7 @@ import Sp2sGen1PodsDetail from "./pages/Sp2sGen1PodsDetail.tsx";
 import VenusHostDetail from "./pages/VenusHostDetail.tsx";
 import MohooTokyoBoxDetail from "./pages/MohooTokyoBoxDetail.tsx";
 import MohooTokyoBoxHostDetail from "./pages/MohooTokyoBoxHostDetail.tsx";
+import Sp2TokyoBoxPodsDetail from "./pages/Sp2TokyoBoxPodsDetail.tsx";
 import HebatGen6Detail from "./pages/HebatGen6Detail.tsx";
 import Diya7500DisposableDetail from "./pages/Diya7500DisposableDetail.tsx";
 import Jupiter6500SetDetail from "./pages/Jupiter6500SetDetail.tsx";
@@ -81,6 +82,7 @@ const App = () => (
             <Route path="/product/venus-host" element={<VenusHostDetail />} />
             <Route path="/product/mohoo-tokyo-box" element={<MohooTokyoBoxDetail />} />
             <Route path="/product/mohoo-tokyo-box-host" element={<MohooTokyoBoxHostDetail />} />
+            <Route path="/product/sp2-tokyo-box-pods" element={<Sp2TokyoBoxPodsDetail />} />
             <Route path="/product/hebat-gen6" element={<HebatGen6Detail />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/product" element={<ProductDetail />} />
