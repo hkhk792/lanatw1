@@ -16,7 +16,7 @@ const logoImage = SITE_LOGO_PHOTO;
 
 const SP2_TOKYO_BOX_PODS_ID = "sp2-tokyo-box-pods";
 const SP2_TOKYO_BOX_PODS_NAME = "SP2魔盒煙彈通配東京";
-const SP2_TOKYO_BOX_PODS_PRICE_TWD = 330;
+const SP2_TOKYO_BOX_PODS_PRICE_TWD = 399;
 
 const flavorOptions = [
   "葡萄",
