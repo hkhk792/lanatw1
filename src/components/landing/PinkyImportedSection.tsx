@@ -162,7 +162,7 @@ const LEGACY_POD_CARDS: DisplayCard[] = [
     id: "sp2-tokyo-box-pods",
     name: "SP2魔盒煙彈通配東京",
     flavor: "通配東京魔盒主機 · 12ml · 9 口味",
-    price: "NT$399",
+    price: "NT$330",
     image: pinkyCatalogPhoto("tokyo-magic-box-host"),
     detailHref: "/product/sp2-tokyo-box-pods",
   },
