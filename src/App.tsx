@@ -39,6 +39,9 @@ import AdminSupabaseSql from "./pages/AdminSupabaseSql.tsx";
 import PinkyImportedCatalogDetailPage from "./pages/PinkyImportedCatalogDetailPage.tsx";
 import Sp2sUniversalPodsDetail from "./pages/Sp2sUniversalPodsDetail.tsx";
 import { Sp2sEmptyShellProDetail, Sp2sEmptyShellStandardDetail } from "./pages/Sp2sEmptyShellDetails.tsx";
+import ContentPage from "./pages/ContentPage.tsx";
+import FaqPage from "./pages/FaqPage.tsx";
+import GuidesHubPage from "./pages/GuidesHubPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -84,6 +87,14 @@ const App = () => (
             <Route path="/product/mohoo-tokyo-box-host" element={<MohooTokyoBoxHostDetail />} />
             <Route path="/product/sp2-tokyo-box-pods" element={<Sp2TokyoBoxPodsDetail />} />
             <Route path="/product/hebat-gen6" element={<HebatGen6Detail />} />
+            <Route path="/about" element={<ContentPage />} />
+            <Route path="/shipping" element={<ContentPage />} />
+            <Route path="/returns" element={<ContentPage />} />
+            <Route path="/privacy" element={<ContentPage />} />
+            <Route path="/terms" element={<ContentPage />} />
+            <Route path="/age-verification" element={<ContentPage />} />
+            <Route path="/faq" element={<FaqPage />} />
+            <Route path="/guides" element={<GuidesHubPage />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/product" element={<ProductDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

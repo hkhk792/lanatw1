@@ -13,6 +13,8 @@ import Manifesto from "@/components/landing/Manifesto";
 import HuanVapeStoreSection from "@/components/landing/HuanVapeStoreSection";
 import Footer from "@/components/landing/Footer";
 import HealthWarning from "@/components/landing/HealthWarning";
+import HomeSeoContent from "@/components/landing/HomeSeoContent";
+import HomeFaq from "@/components/landing/HomeFaq";
 
 const Index = () => {
   useLayoutEffect(() => {
@@ -39,6 +41,8 @@ const Index = () => {
         <PinkyImportedSection />
         <HuanVapeStoreSection />
         <Manifesto />
+        <HomeSeoContent />
+        <HomeFaq />
       </main>
       <Footer />
       <HealthWarning />

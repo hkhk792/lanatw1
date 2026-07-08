@@ -39,7 +39,7 @@ function absoluteShopAssetUrl(path: string): string {
 }
 
 /** 静态路由 SEO */
-const PRODUCT_STRUCTURED_DATA_BY_PATH: Record<string, ProductStructuredDataMeta> = {
+export const PRODUCT_STRUCTURED_DATA_BY_PATH: Record<string, ProductStructuredDataMeta> = {
   "/product/atomizer": { name: "原子棒一代通配主機", priceTwd: 290 },
   "/product/bullet": { name: "SP2S 思博瑞 一代", priceTwd: 450 },
   "/product/diya": { name: "DIYA 叮啞霧化桿", priceTwd: 320 },
@@ -226,6 +226,47 @@ export const STATIC_SEO_ROUTES: Record<string, SeoMeta> = {
     title: "管理",
     description: "",
     noindex: true,
+  },
+  "/about": {
+    path: "/about",
+    title: "關於我們｜品牌與服務說明",
+    description: "了解本站品牌定位、台灣現貨配送、客服支援與 18 歲以上選購政策。",
+  },
+  "/shipping": {
+    path: "/shipping",
+    title: "配送與運費說明｜超商取貨與免運",
+    description: "台灣配送方式、滿額免運、出貨時間與超商取貨付款說明。",
+  },
+  "/returns": {
+    path: "/returns",
+    title: "退換貨政策｜瑕疵品處理",
+    description: "電子煙與煙彈退換貨、瑕疵品申請流程與客服聯絡方式。",
+  },
+  "/privacy": {
+    path: "/privacy",
+    title: "隱私權政策",
+    description: "個人資料收集、使用方式與資料安全說明。",
+  },
+  "/terms": {
+    path: "/terms",
+    title: "服務條款",
+    description: "網站使用條款、年齡限制、訂單與商品資訊說明。",
+  },
+  "/age-verification": {
+    path: "/age-verification",
+    title: "年齡驗證聲明｜18 歲以上限定",
+    description: "電子煙產品僅供法定年齡以上使用者，健康與責任聲明。",
+  },
+  "/faq": {
+    path: "/faq",
+    title: "常見問題｜訂購、配送與產品 FAQ",
+    description:
+      "LANA 煙彈、主機與配送常見問題：現貨出貨、超商取貨、滿額免運、退換貨與年齡限制。",
+  },
+  "/guides": {
+    path: "/guides",
+    title: "選購指南｜口味、比較與保養",
+    description: "電子煙新手選購、煙彈比較、漏油排查、旅行攜帶與保養知識。",
   },
 };
 

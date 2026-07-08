@@ -16,4 +16,4 @@ Disallow: /admin2589
 Disallow: /checkout
 Disallow: /order-complete
 
-Sitemap: https://sp2spods.com/sitemap.xml
+Sitemap: https://lanatw1.com/sitemap.xml
