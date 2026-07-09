@@ -1,7 +1,11 @@
 /** Build 脚本读取与 src/lib/siteConfig.ts 一致的商城环境变量 */
 
 export function shopSiteUrl() {
-  return (process.env.VITE_SHOP_SITE_URL || "https://sp2spods.com").trim().replace(/\/+$/, "");
+  const base = (process.env.VITE_SHOP_SITE_URL || "https://sp2spods.com").trim().replace(/\/+$/, "");
+  if (base === "https://lanatw1.com" || base === "http://lanatw1.com") {
+    return "https://www.lanatw1.com";
+  }
+  return base;
 }
 
 export function shopHomeTitle() {

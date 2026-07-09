@@ -262,8 +262,6 @@ const DiyaPodsDetail = () => {
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
 
-            <ProductGeoSection />
-
             <p className="text-sm leading-relaxed text-gray-600">
               規格：一盒 3 顆，每顆 2.5ml。相容悅刻（RELX）一代、SP2S、LANA 等一代通用主機。
             </p>
@@ -350,6 +348,8 @@ const DiyaPodsDetail = () => {
             </div>
           </div>
         </div>
+
+        <ProductGeoSection />
 
         <section className="mt-16 space-y-10">
           <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-10">

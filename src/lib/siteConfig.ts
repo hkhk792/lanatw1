@@ -2,6 +2,9 @@
 
 function trimSiteUrl(raw: string | undefined): string {
   const base = (raw?.trim() || "https://sp2spods.com").replace(/\/+$/, "");
+  if (base === "https://lanatw1.com" || base === "http://lanatw1.com") {
+    return "https://www.lanatw1.com";
+  }
   return base;
 }
 

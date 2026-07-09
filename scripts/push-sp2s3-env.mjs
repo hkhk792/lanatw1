@@ -8,7 +8,7 @@ const out = ".env.sp2s3.production";
 
 const overrides = {
   SITE_CODE: "lanatw1",
-  VITE_SHOP_SITE_URL: "https://lanatw1.com",
+  VITE_SHOP_SITE_URL: "https://www.lanatw1.com",
   VITE_SHOP_HOME_TITLE: "LANA \u7159\u5f48\u4e3b\u6a5f\u5b98\u65b9\u5546\u57ce\uff5c\u73fe\u8ca8\u914d\u9001",
   VITE_SHOP_HOME_DESCRIPTION:
     "LANA \u5c0f\u87ba\u8170\u7159\u5f48\u3001\u4e3b\u6a5f\u8207\u901a\u914d\u7cfb\u5217\u73fe\u8ca8\u3002\u53f0\u7063\u914d\u9001\uff0c\u50c5\u9650 18 \u6b72\u4ee5\u4e0a\u3002",

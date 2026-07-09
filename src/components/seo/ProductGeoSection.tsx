@@ -12,14 +12,18 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-/** 商品頁 GEO 區塊：快速解答、重點、適合對象、FAQ。 */
+/** 商品頁 GEO 區塊：快速解答、重點、適合對象、FAQ、評價與長文（置於購買區下方）。 */
 export function ProductGeoSection() {
   const { pathname } = useLocation();
   const geo = getProductGeo(pathname);
   if (!geo) return null;
 
   return (
-    <div className="space-y-4 mt-4">
+    <section
+      aria-label="商品說明與常見問題"
+      id="product-geo-content"
+      className="mt-16 space-y-4 border-t border-gray-200 pt-10"
+    >
       <QuickAnswer data={geo.quickAnswer} variant="product" />
       <KeyTakeaways items={geo.keyTakeaways} variant="product" />
       <BestFor bestFor={geo.bestFor} avoidFor={geo.avoidFor} variant="product" />
@@ -42,6 +46,6 @@ export function ProductGeoSection() {
       ) : null}
       <ProductShowcaseReviews variant="product" />
       <ProductEditorialSection variant="product" />
-    </div>
+    </section>
   );
 }

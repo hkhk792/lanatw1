@@ -278,8 +278,6 @@ const LanaPodsDetail = () => {
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
 
-            <ProductGeoSection />
-
             <div className="text-4xl font-bold text-gray-900">{`NT$${LANA_PODS_PRICE_TWD}.00`}</div>
 
             <div className="space-y-4">
@@ -360,6 +358,8 @@ const LanaPodsDetail = () => {
             </div>
           </div>
         </div>
+
+        <ProductGeoSection />
 
         <section className="mt-16 space-y-10">
           <div className="rounded-2xl border border-gray-100 bg-white p-6 md:p-10 shadow-sm">
