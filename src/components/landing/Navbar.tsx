@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { BookOpen, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { BrandSp2s } from "@/components/BrandSp2s";
 import { useCart } from "@/contexts/CartContext";
 import SiteSearchSheet from "@/components/SiteSearchSheet";
@@ -15,6 +15,13 @@ const HOME_NAV_ITEMS = [
   { id: "manifesto", label: "品牌日誌", hint: "資訊與指南" },
   { id: "contact", label: "聯絡我們", hint: "頁尾與社群" },
 ] as const;
+
+const CONTENT_NAV_ITEMS = [
+  { to: "/knowledge", label: "知識中心", hint: "指南・部落格・比較" },
+  { to: "/guides", label: "選購指南", hint: "保存・通配・口味" },
+  { to: "/blog", label: "部落格", hint: "品牌介紹・心得" },
+] as const;
+
 const Navbar = () => {
   const { itemCount, openCart } = useCart();
   const navigate = useNavigate();
@@ -70,6 +77,13 @@ const Navbar = () => {
 
           <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:gap-4 md:gap-8">
             <nav className="hidden min-w-0 flex-wrap items-center justify-end gap-x-4 gap-y-2 lg:gap-x-8 md:flex">
+              <Link
+                to="/knowledge"
+                className="inline-flex shrink-0 items-center gap-1.5 text-[10px] uppercase tracking-luxury text-gold transition-colors duration-500 hover:text-gradient-gold lg:text-[11px]"
+              >
+                <BookOpen className="h-3.5 w-3.5" aria-hidden />
+                知識中心
+              </Link>
               {HOME_NAV_ITEMS.map((s) => (
                 <button
                   key={s.id}
@@ -132,6 +146,17 @@ const Navbar = () => {
             aria-label="首頁區塊（菸彈・主機・拋棄式）"
           >
             <div className="container grid grid-cols-1 gap-2 py-4 sm:grid-cols-2 sm:gap-3 sm:py-5">
+              {CONTENT_NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="flex flex-col items-start rounded-lg border border-gold/30 bg-gold/5 px-4 py-3 text-left transition-colors hover:border-gold/50 hover:bg-gold/10"
+                >
+                  <span className="text-sm font-medium tracking-wide text-gold">{item.label}</span>
+                  <span className="mt-0.5 text-[11px] text-muted-foreground">{item.hint}</span>
+                </Link>
+              ))}
               {HOME_NAV_ITEMS.map((s) => (
                 <button
                   key={s.id}
