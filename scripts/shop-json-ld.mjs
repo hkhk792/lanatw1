@@ -11,6 +11,10 @@ export function buildHomeJsonLd(env) {
       ? "LANA 小蠻腰煙彈官方商城，提供 LANA 皮革主機、煙彈與通配系列，台灣現貨快速出貨。"
       : "SP2S 思博瑞官方商城：煙彈、主機與拋棄式電子煙現貨。");
   const ogImage = `${site}/huan-taiwan-vape-banner.webp`;
+  const lineUrl = "https://line.me/ti/p/2_fR9iUP_1";
+  const sameAs = isLana
+    ? [lineUrl, "https://podpickguide.com", "https://podpickguide.com/taiwan"]
+    : [lineUrl];
 
   return {
     "@context": "https://schema.org",
@@ -20,10 +24,18 @@ export function buildHomeJsonLd(env) {
         "@id": `${site}/#organization`,
         name: orgName,
         url: site,
-        logo: { "@type": "ImageObject", url: `${site}/favicon.svg` },
+        logo: { "@type": "ImageObject", url: `${site}/favicon.svg`, width: 512, height: 512 },
         image: ogImage,
+        sameAs,
         description,
         areaServed: { "@type": "Country", name: "Taiwan" },
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          areaServed: "TW",
+          availableLanguage: ["zh-Hant"],
+          url: lineUrl,
+        },
       },
       {
         "@type": "WebSite",
@@ -41,6 +53,10 @@ export function buildHomeJsonLd(env) {
         brand: { "@type": "Brand", name: brand },
         areaServed: { "@type": "Country", name: "Taiwan" },
         currenciesAccepted: "TWD",
+        paymentAccepted: "Cash on Delivery, Convenience Store Pickup",
+        knowsAbout: isLana
+          ? ["電子煙", "煙彈", "LANA", "SP2S", "台灣現貨"]
+          : ["電子煙", "煙彈", "SP2S"],
       },
       {
         "@type": "FAQPage",
@@ -60,6 +76,14 @@ export function buildHomeJsonLd(env) {
             acceptedAnswer: {
               "@type": "Answer",
               text: "本站支援台灣超商取貨付款流程，詳見配送說明頁。",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "台灣現貨多久可以出貨？",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "訂單確認後盡快安排出貨，多數地區可透過超商取貨付款，實際到貨時間依物流與地區而異。",
             },
           },
         ],

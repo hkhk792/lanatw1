@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
 import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
+import { ProductGeoSection } from "@/components/seo/ProductGeoSection";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
 const productMain = productPhoto("disposable-hebat-hb10000.webp");
@@ -206,6 +207,8 @@ const HebatGen6Detail = () => {
             </div>
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
+
+            <ProductGeoSection />
 
             <div className="text-4xl font-bold text-gray-900">{`NT$${HEBAT_PRICE_TWD}.00`}</div>
 

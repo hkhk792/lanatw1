@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
 import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { BrandSp2s } from "@/components/BrandSp2s";
+import { ProductGeoSection } from "@/components/seo/ProductGeoSection";
 import {
   SP2S_UNIVERSAL_POD_PRICE_TWD,
   SP2S_UNIVERSAL_POD_PRODUCT_ID,
@@ -141,6 +142,8 @@ const Sp2sUniversalPodsDetail = () => {
             <p className="text-sm leading-relaxed text-gray-600">
               與常見一代規格主機相容思路設計；尼古丁 3% 等標示以實際包裝為準。下單前請透過 LINE 確認現貨。
             </p>
+
+            <ProductGeoSection />
             <div className="text-4xl font-bold text-gray-900">{`NT$${SP2S_UNIVERSAL_POD_PRICE_TWD}.00`}</div>
 
             <div className="space-y-3">

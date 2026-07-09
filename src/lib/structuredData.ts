@@ -1,3 +1,5 @@
+import { LINE_OFFICIAL_CUSTOMER_URL } from "@/constants/lineOfficial";
+import { SITE_LOGO_HEIGHT, SITE_LOGO_PATH, SITE_LOGO_WIDTH, SITE_SAME_AS } from "@/data/site";
 import { SHOP_SITE_URL } from "@/lib/domains";
 import {
   SHOP_OG_DEFAULT,
@@ -48,6 +50,45 @@ export function faqPageNode(items: FaqEntry[], idSuffix = "#faq") {
   };
 }
 
+/** 台灣配送 Offer schema（超商取貨／滿額免運）。 */
+export function offerShippingDetailsTw() {
+  const destination = { "@type": "DefinedRegion", addressCountry: "TW" };
+  const deliveryTime = {
+    "@type": "ShippingDeliveryTime",
+    handlingTime: {
+      "@type": "QuantitativeValue",
+      minValue: 1,
+      maxValue: 2,
+      unitCode: "DAY",
+    },
+    transitTime: {
+      "@type": "QuantitativeValue",
+      minValue: 2,
+      maxValue: 5,
+      unitCode: "DAY",
+    },
+  };
+  return [
+    {
+      "@type": "OfferShippingDetails",
+      shippingDestination: destination,
+      deliveryTime,
+      shippingRate: {
+        "@type": "MonetaryAmount",
+        value: "0",
+        currency: "TWD",
+      },
+      name: "滿 NT$1,500 免運（依活動為準）",
+    },
+    {
+      "@type": "OfferShippingDetails",
+      shippingDestination: destination,
+      deliveryTime,
+      name: "超商取貨付款（運費依結帳頁為準）",
+    },
+  ];
+}
+
 function organizationNode() {
   return {
     "@type": "Organization",
@@ -56,11 +97,12 @@ function organizationNode() {
     url: SHOP_SITE_URL,
     logo: {
       "@type": "ImageObject",
-      url: `${SHOP_SITE_URL}/favicon.svg`,
-      width: 512,
-      height: 512,
+      url: `${SHOP_SITE_URL}${SITE_LOGO_PATH}`,
+      width: SITE_LOGO_WIDTH,
+      height: SITE_LOGO_HEIGHT,
     },
     image: SHOP_OG_DEFAULT,
+    sameAs: SITE_SAME_AS,
     description: SITE_HOME_DESCRIPTION,
     areaServed: { "@type": "Country", name: "Taiwan" },
     contactPoint: {
@@ -68,7 +110,7 @@ function organizationNode() {
       contactType: "customer support",
       areaServed: "TW",
       availableLanguage: ["zh-Hant"],
-      url: `${SHOP_SITE_URL}/#contact`,
+      url: LINE_OFFICIAL_CUSTOMER_URL,
     },
   };
 }
@@ -81,6 +123,14 @@ function websiteNode() {
     url: SHOP_SITE_URL,
     inLanguage: "zh-Hant-TW",
     publisher: { "@id": `${SHOP_SITE_URL}/#organization` },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SHOP_SITE_URL}/#home-catalog-host`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
@@ -124,8 +174,89 @@ export function productNode(meta: ProductStructuredDataMeta, path: string, image
       availability: "https://schema.org/InStock",
       itemCondition: "https://schema.org/NewCondition",
       seller: { "@id": `${SHOP_SITE_URL}/#organization` },
+      shippingDetails: offerShippingDetailsTw(),
     },
   };
+}
+
+export function articleJsonLd(article: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished?: string;
+  dateModified?: string;
+  breadcrumbs?: BreadcrumbEntry[];
+  faq?: FaqEntry[];
+}) {
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "Article",
+      headline: article.title,
+      description: article.description,
+      image: SHOP_OG_DEFAULT,
+      mainEntityOfPage: absoluteShopUrl(article.path),
+      inLanguage: "zh-Hant-TW",
+      datePublished: article.datePublished ?? "2026-01-01",
+      dateModified: article.dateModified ?? article.datePublished ?? "2026-01-01",
+      author: { "@id": `${SHOP_SITE_URL}/#organization` },
+      publisher: { "@id": `${SHOP_SITE_URL}/#organization` },
+    },
+  ];
+
+  if (article.breadcrumbs?.length) {
+    graph.push(breadcrumbNode(article.breadcrumbs));
+  }
+
+  if (article.faq?.length) {
+    graph.push(faqPageNode(article.faq, `${article.path}#faq`));
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
+  };
+}
+
+export function productJsonLdWithFaq(
+  meta: ProductStructuredDataMeta,
+  path: string,
+  image: string | undefined,
+  faq: FaqEntry[],
+  breadcrumbs?: BreadcrumbEntry[],
+  reviews?: { author: string; rating: number; body: string; createdAt: string }[],
+  rating?: { average: number; count: number },
+) {
+  const product: Record<string, unknown> = productNode(meta, path, image);
+
+  if (rating && rating.count > 0) {
+    product.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: rating.average,
+      reviewCount: rating.count,
+      bestRating: 5,
+      worstRating: 1,
+    };
+  }
+
+  if (reviews && reviews.length > 0) {
+    product.review = reviews.map((review) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: review.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      author: { "@type": "Person", name: review.author },
+      reviewBody: review.body,
+      datePublished: review.createdAt,
+    }));
+  }
+
+  const graph: Record<string, unknown>[] = [product];
+  if (breadcrumbs?.length) graph.push(breadcrumbNode(breadcrumbs));
+  if (faq.length) graph.push(faqPageNode(faq, `${path}#product-faq`));
+  return { "@context": "https://schema.org", "@graph": graph };
 }
 
 export function buildSiteGraph(options?: {

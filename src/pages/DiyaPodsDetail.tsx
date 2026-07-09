@@ -8,6 +8,7 @@ import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
 import { LINE_CUSTOMER_ID } from "@/constants/lineOfficial";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
+import { ProductGeoSection } from "@/components/seo/ProductGeoSection";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
 const productMain = productPhoto("product-8.webp");
@@ -260,6 +261,8 @@ const DiyaPodsDetail = () => {
             </div>
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
+
+            <ProductGeoSection />
 
             <p className="text-sm leading-relaxed text-gray-600">
               規格：一盒 3 顆，每顆 2.5ml。相容悅刻（RELX）一代、SP2S、LANA 等一代通用主機。

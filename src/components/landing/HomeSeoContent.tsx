@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import { SITE_JSON_LD_BRAND, SITE_WEBSITE_NAME } from "@/lib/siteConfig";
+import { QuickAnswer } from "@/components/seo/QuickAnswer";
+
+const HOME_QUICK_ANSWER = {
+  question: `${SITE_WEBSITE_NAME} 是什麼？`,
+  answer: `${SITE_WEBSITE_NAME} 是面向台灣的電子煙選購站，提供 ${SITE_JSON_LD_BRAND} 主機、煙彈與拋棄式現貨，支援超商取貨付款與 LINE 客服，僅限 18 歲以上選購。`,
+};
 
 const PRODUCT_LINKS = [
   { to: "/product/lanna", label: "LANA 皮革主機" },
@@ -21,6 +27,8 @@ const HomeSeoContent = () => (
       <h2 id="home-seo-heading" className="text-2xl md:text-3xl font-serif text-foreground tracking-vogue">
         {SITE_WEBSITE_NAME}：{SITE_JSON_LD_BRAND} 主機、煙彈與拋棄式完整選購
       </h2>
+
+      <QuickAnswer data={HOME_QUICK_ANSWER} />
 
       <p>
         歡迎來到 {SITE_WEBSITE_NAME}。我們專注於台灣現貨的電子煙主機、菸彈與一次性產品，

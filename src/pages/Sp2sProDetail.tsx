@@ -7,6 +7,7 @@ import { useCart } from "@/contexts/CartContext";
 import { SelectVariantDialog } from "@/components/SelectVariantDialog";
 import { ProductDetailLineSupportNotice } from "@/components/product/ProductDetailLineSupportNotice";
 import { ProductHeroFeatureTags } from "@/components/ProductHeroFeatureTags";
+import { ProductGeoSection } from "@/components/seo/ProductGeoSection";
 import { productPhoto, SITE_LOGO_PHOTO } from "@/lib/productPhotos";
 
 const productMain = productPhoto("product-4.webp");
@@ -249,6 +250,8 @@ const Sp2sProDetail = () => {
             </div>
 
             <h1 className="text-3xl font-bold text-gray-900">{getProductTitle()}</h1>
+
+            <ProductGeoSection />
 
             <div className="text-4xl font-bold text-gray-900">{`NT$${PRO_PRICE_TWD}.00`}</div>
 
