@@ -12,11 +12,13 @@ const Footer = () => {
   ];
 
   const trustLinks = [
+    { to: "/knowledge", label: "知識中心" },
     { to: "/about", label: "關於我們" },
     { to: "/shipping", label: "配送說明" },
     { to: "/returns", label: "退換貨" },
     { to: "/faq", label: "常見問題" },
     { to: "/guides", label: "選購指南" },
+    { to: "/blog", label: "部落格" },
   ];
 
   const legalLinks = [

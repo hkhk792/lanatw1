@@ -8,6 +8,7 @@ import {
   toSchemaReviews,
 } from "@/data/productShowcaseReviews";
 import { getContentPageBySlug } from "@/data/contentPages";
+import { getArticleBySlug, articlePath, knowledgeArticles } from "@/data/knowledgeArticles";
 import { siteFaqItems } from "@/data/siteFaq";
 import { SHOP_SITE_URL } from "@/lib/domains";
 import {
@@ -26,6 +27,7 @@ import {
   breadcrumbsForPath,
   buildSiteGraph,
   indexRobotsMeta,
+  itemListNode,
   productJsonLdWithFaq,
   productNode,
 } from "@/lib/structuredData";
@@ -37,6 +39,14 @@ const TOP_PRODUCT_PATHS = [
   "/product/bullet",
   "/product/diya-7500",
 ] as const;
+
+const KNOWLEDGE_SEGMENT_TO_CATEGORY: Record<string, "guide" | "blog" | "compare" | "flavor" | "brand"> = {
+  guide: "guide",
+  blog: "blog",
+  compare: "compare",
+  flavors: "flavor",
+  brands: "brand",
+};
 
 const SiteSeo = () => {
   const { pathname } = useLocation();
@@ -60,6 +70,23 @@ const SiteSeo = () => {
         dateModified: contentPage.updated,
         breadcrumbs: breadcrumbsForPath(meta.path),
       });
+    }
+
+    const knowledgeMatch = meta.path.match(/^\/(guide|blog|compare|flavors|brands)\/([^/]+)$/);
+    if (knowledgeMatch) {
+      const category = KNOWLEDGE_SEGMENT_TO_CATEGORY[knowledgeMatch[1]];
+      const article = category ? getArticleBySlug(category, knowledgeMatch[2]) : undefined;
+      if (article) {
+        return articleJsonLd({
+          title: article.title,
+          description: article.description,
+          path: meta.path,
+          datePublished: article.updated,
+          dateModified: article.updated,
+          breadcrumbs: breadcrumbsForPath(meta.path),
+          faq: article.faq,
+        });
+      }
     }
 
     if (isProductPath(meta.path) && productSeo && productGeo) {
@@ -92,17 +119,51 @@ const SiteSeo = () => {
           ? [{ meta: productSeo, path: meta.path, image: ogImage }]
           : undefined,
       breadcrumbs: meta.path !== "/" ? breadcrumbsForPath(meta.path) : undefined,
-      extra:
-        meta.path === "/guides"
-          ? [
-              {
-                "@type": "CollectionPage",
-                name: "選購指南",
-                url: `${SHOP_SITE_URL}/guides`,
-                inLanguage: "zh-Hant-TW",
-              },
-            ]
-          : undefined,
+      extra: (() => {
+        const nodes: Record<string, unknown>[] = [];
+
+        if (isHome) {
+          nodes.push(
+            itemListNode(
+              "熱門商品",
+              TOP_PRODUCT_PATHS.map((path) => {
+                const structured = PRODUCT_STRUCTURED_DATA_BY_PATH[path];
+                return {
+                  name: structured?.name ?? path,
+                  url: `${SHOP_SITE_URL}${path}`,
+                };
+              }),
+            ),
+            itemListNode(
+              "知識中心精選",
+              knowledgeArticles.slice(0, 8).map((a) => ({
+                name: a.title,
+                url: `${SHOP_SITE_URL}${articlePath(a)}`,
+              })),
+            ),
+          );
+        }
+
+        const collectionPages: Record<string, string> = {
+          "/knowledge": "知識中心",
+          "/guides": "選購指南",
+          "/blog": "部落格",
+          "/compare": "產品比較",
+          "/flavors": "口味專區",
+          "/brands": "品牌介紹",
+        };
+        const collectionName = collectionPages[meta.path];
+        if (collectionName) {
+          nodes.push({
+            "@type": "CollectionPage",
+            name: collectionName,
+            url: `${SHOP_SITE_URL}${meta.path}`,
+            inLanguage: "zh-Hant-TW",
+          });
+        }
+
+        return nodes.length ? nodes : undefined;
+      })(),
     });
 
     if (isProductPath(meta.path) && meta.productName && productSeo && !meta.noindex && !productGeo) {

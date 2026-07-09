@@ -4,6 +4,7 @@ import { BestFor } from "./BestFor";
 import { KeyTakeaways } from "./KeyTakeaways";
 import { QuickAnswer } from "./QuickAnswer";
 import { ProductShowcaseReviews } from "./ProductShowcaseReviews";
+import { ProductEditorialSection } from "./ProductEditorialSection";
 import {
   Accordion,
   AccordionContent,
@@ -40,6 +41,7 @@ export function ProductGeoSection() {
         </section>
       ) : null}
       <ProductShowcaseReviews variant="product" />
+      <ProductEditorialSection variant="product" />
     </div>
   );
 }

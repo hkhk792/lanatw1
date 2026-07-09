@@ -3,10 +3,15 @@ import { ExternalLink } from "lucide-react";
 import { PODPICK_GUIDE_TAIWAN_URL, PODPICK_GUIDE_URL } from "@/data/site";
 
 const HUB_LINKS = [
+  { label: "知識中心", to: "/knowledge", description: "指南、部落格、比較、口味、品牌" },
+  { label: "選購指南", to: "/guides", description: "保存、漏油、通配、口味入門" },
+  { label: "部落格", to: "/blog", description: "LANA、DIYA 介紹與使用心得" },
+  { label: "產品比較", to: "/compare", description: "LANA vs SP2S 等對比" },
+  { label: "口味專區", to: "/flavors", description: "煙彈口味分類與選購" },
+  { label: "品牌介紹", to: "/brands", description: "LANA 品牌完整指南" },
   { label: "LANA 主機", to: "/product/lanna", description: "皮革主機一代通配" },
   { label: "LANA 煙彈", to: "/product/lana-pods", description: "小蠻腰 3 顆裝多口味" },
   { label: "SP2S 煙彈", to: "/product/sp2s-universal-pods", description: "二代通用菸彈" },
-  { label: "選購指南", to: "/guides", description: "口味與產品比較" },
   { label: "常見問題", to: "/faq", description: "配送、付款與使用" },
   { label: "配送說明", to: "/shipping", description: "超商取貨與免運" },
   { label: "關於我們", to: "/about", description: "品牌與客服資訊" },
@@ -14,7 +19,7 @@ const HUB_LINKS = [
     label: "PodPick 台灣專區",
     href: PODPICK_GUIDE_TAIWAN_URL,
     external: true,
-    description: "SP2S／LANA 評測與選購參考",
+    description: "SP2S／LANA 深度評測",
   },
   {
     label: "PodPick Guide",
@@ -24,7 +29,7 @@ const HUB_LINKS = [
   },
 ] as const;
 
-/** 知識型頁面底部內鏈樞紐（SEO + GEO）。 */
+/** Internal linking hub surfaced at the end of knowledge articles. */
 export function ContentHubLinks() {
   return (
     <nav aria-label="延伸閱讀" className="mt-14 rounded-2xl border border-gold/20 bg-card/40 p-5 sm:p-6">

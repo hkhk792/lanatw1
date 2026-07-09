@@ -11,7 +11,7 @@ import { getPrerenderRoutes } from "./prerender-routes.mjs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, "../dist");
 const PORT = 4173;
-const CONCURRENCY = 3;
+const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY ?? "2");
 let spaShell = "";
 
 function routeToFile(route: string): string {
@@ -101,7 +101,12 @@ async function runPool(browser: import("puppeteer").Browser, routes: string[]) {
         const route = routes[index++];
         page.on("pageerror", (error) => console.error(`[${route}]`, error.message));
         process.stdout.write(`prerender ${route}\n`);
-        await prerenderRoute(page, route);
+        try {
+          await prerenderRoute(page, route);
+        } catch (error) {
+          const message = error instanceof Error ? error.message : String(error);
+          console.error(`[prerender] failed ${route}: ${message}`);
+        }
       }
     } finally {
       await page.close();

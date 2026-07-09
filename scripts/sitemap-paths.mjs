@@ -32,7 +32,21 @@ export function getSitemapPaths() {
     .filter((id) => !catalogExclude.has(id))
     .map((id) => `/catalog/${id}`);
 
-  const paths = [...productPaths, ...catalogPaths];
+  const knowledgeSrc = readFileSync(join(root, "src/data/knowledgeArticles.ts"), "utf8");
+  const categoryBases = {
+    guide: "/guide",
+    blog: "/blog",
+    compare: "/compare",
+    flavor: "/flavors",
+    brand: "/brands",
+  };
+  const knowledgeArticlePaths = [
+    ...knowledgeSrc.matchAll(
+      /slug:\s*"([^"]+)"[\s\S]*?category:\s*"(guide|blog|compare|flavor|brand)"/g,
+    ),
+  ].map((m) => `${categoryBases[m[2]]}/${m[1]}`);
+
+  const paths = [...productPaths, ...catalogPaths, ...knowledgeArticlePaths];
   if (!paths.includes("/")) paths.unshift("/");
   paths.sort((a, b) => (a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b)));
   return paths;

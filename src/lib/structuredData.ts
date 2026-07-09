@@ -38,6 +38,20 @@ export function breadcrumbNode(items: BreadcrumbEntry[]) {
   };
 }
 
+export function itemListNode(name: string, items: { name: string; url: string }[]) {
+  return {
+    "@type": "ItemList",
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
 export function faqPageNode(items: FaqEntry[], idSuffix = "#faq") {
   return {
     "@type": "FAQPage",
@@ -308,6 +322,32 @@ export function breadcrumbsForPath(pathname: string): BreadcrumbEntry[] {
   if (base.startsWith("/catalog/")) {
     crumbs.push({ name: "目錄", path: "/#home-catalog-pods" });
     crumbs.push({ name: base.replace("/catalog/", ""), path: base });
+    return crumbs;
+  }
+
+  const knowledgeListLabels: Record<string, { label: string; path: string }> = {
+    knowledge: { label: "知識中心", path: "/knowledge" },
+    guides: { label: "選購指南", path: "/guides" },
+    guide: { label: "選購指南", path: "/guides" },
+    blog: { label: "部落格", path: "/blog" },
+    compare: { label: "產品比較", path: "/compare" },
+    flavors: { label: "口味專區", path: "/flavors" },
+    brands: { label: "品牌介紹", path: "/brands" },
+  };
+
+  const segments = base.split("/").filter(Boolean);
+  if (segments[0] && knowledgeListLabels[segments[0]]) {
+    const hub = knowledgeListLabels[segments[0]];
+    crumbs.push({ name: "知識中心", path: "/knowledge" });
+    crumbs.push({ name: hub.label, path: hub.path });
+    if (segments[1]) {
+      crumbs.push({ name: segments[1], path: base });
+    }
+    return crumbs;
+  }
+
+  if (base === "/knowledge") {
+    crumbs.push({ name: "知識中心", path: "/knowledge" });
     return crumbs;
   }
 

@@ -8,6 +8,7 @@ import AgeGate from "@/components/landing/AgeGate";
 import EntryActivityPromoGate from "@/components/landing/EntryActivityPromoGate";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
+import HomeBrandIntro from "@/components/landing/HomeBrandIntro";
 import PinkyImportedSection from "@/components/landing/PinkyImportedSection";
 import Manifesto from "@/components/landing/Manifesto";
 import HuanVapeStoreSection from "@/components/landing/HuanVapeStoreSection";
@@ -38,6 +39,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <HomeBrandIntro />
         <PinkyImportedSection />
         <HuanVapeStoreSection />
         <Manifesto />

@@ -71,6 +71,10 @@ const HomeSeoContent = () => (
         </Link>
         ；換彈式則長期使用成本較低，且可依心情更換不同口味煙彈。
         若不確定哪一種適合您，建議閱讀我們的
+        <Link to="/knowledge" className="text-gold hover:underline mx-1">
+          知識中心
+        </Link>
+        、
         <Link to="/guides" className="text-gold hover:underline mx-1">
           選購指南
         </Link>

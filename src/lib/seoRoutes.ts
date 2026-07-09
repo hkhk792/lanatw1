@@ -3,6 +3,7 @@ import {
   getPinkyImportedCatalogImage,
   pinkyImportedCatalog,
 } from "@/data/pinkyImportedCatalog";
+import { articlePath, getArticleBySlug, knowledgeArticles } from "@/data/knowledgeArticles";
 import { SHOP_SITE_URL } from "@/lib/domains";
 import {
   DEFAULT_SITE_DESCRIPTION,
@@ -10,6 +11,7 @@ import {
   SHOP_OG_DEFAULT,
   SITE_HOME_DESCRIPTION,
   SITE_HOME_TITLE,
+  SITE_ORG_NAME,
 } from "@/lib/siteConfig";
 
 export { DEFAULT_SITE_DESCRIPTION, DEFAULT_SITE_TITLE };
@@ -268,6 +270,31 @@ export const STATIC_SEO_ROUTES: Record<string, SeoMeta> = {
     title: "選購指南｜口味、比較與保養",
     description: "電子煙新手選購、煙彈比較、漏油排查、旅行攜帶與保養知識。",
   },
+  "/knowledge": {
+    path: "/knowledge",
+    title: "知識中心｜LANA、SP2S 選購與保養指南",
+    description: "電子煙知識庫：指南、部落格、產品比較、口味專區與品牌介紹，台灣現貨選購參考。",
+  },
+  "/blog": {
+    path: "/blog",
+    title: "部落格｜電子煙選購與使用心得",
+    description: "LANA、SP2S、DIYA 品牌介紹、拋棄式比較與台灣使用者選購心得。",
+  },
+  "/compare": {
+    path: "/compare",
+    title: "產品比較｜LANA vs SP2S",
+    description: "電子煙品牌與產品比較，協助台灣使用者選擇適合的主機與煙彈。",
+  },
+  "/flavors": {
+    path: "/flavors",
+    title: "口味專區｜煙彈口味選購指南",
+    description: "LANA、SP2S 煙彈口味分類、甜度涼度選擇與入門建議。",
+  },
+  "/brands": {
+    path: "/brands",
+    title: "品牌介紹｜LANA 與合作品牌",
+    description: "LANA 小蠻腰等品牌完整指南，含主機、煙彈與保養說明。",
+  },
 };
 
 /** catalog/tokyo-magic-box-host 已 301 至商品頁，不列入 sitemap */
@@ -278,10 +305,19 @@ export const SITEMAP_PATHS: string[] = [
   ...Object.values(STATIC_SEO_ROUTES)
     .filter((m) => !m.noindex)
     .map((m) => m.path),
+  ...knowledgeArticles.map((a) => articlePath(a)),
   ...pinkyImportedCatalog
     .filter((item) => !CATALOG_SITEMAP_EXCLUDE.has(item.id))
     .map((item) => `/catalog/${item.id}`),
 ];
+
+const KNOWLEDGE_SEGMENT_TO_CATEGORY: Record<string, "guide" | "blog" | "compare" | "flavor" | "brand"> = {
+  guide: "guide",
+  blog: "blog",
+  compare: "compare",
+  flavors: "flavor",
+  brands: "brand",
+};
 
 function catalogSeo(id: string, path: string): SeoMeta | null {
   const item = findPinkyCatalogItemById(id);
@@ -303,6 +339,19 @@ export function getSeoForPath(pathname: string): SeoMeta {
   if (catalogMatch) {
     const catalogSeoMeta = catalogSeo(catalogMatch[1], base);
     if (catalogSeoMeta) return catalogSeoMeta;
+  }
+
+  const knowledgeMatch = base.match(/^\/(guide|blog|compare|flavors|brands)\/([^/]+)$/);
+  if (knowledgeMatch) {
+    const category = KNOWLEDGE_SEGMENT_TO_CATEGORY[knowledgeMatch[1]];
+    const article = category ? getArticleBySlug(category, knowledgeMatch[2]) : undefined;
+    if (article) {
+      return {
+        path: base,
+        title: `${article.title}｜${SITE_ORG_NAME}`,
+        description: article.description,
+      };
+    }
   }
 
   if (base.startsWith("/product/")) {

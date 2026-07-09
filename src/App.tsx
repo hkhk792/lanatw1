@@ -41,7 +41,12 @@ import Sp2sUniversalPodsDetail from "./pages/Sp2sUniversalPodsDetail.tsx";
 import { Sp2sEmptyShellProDetail, Sp2sEmptyShellStandardDetail } from "./pages/Sp2sEmptyShellDetails.tsx";
 import ContentPage from "./pages/ContentPage.tsx";
 import FaqPage from "./pages/FaqPage.tsx";
-import GuidesHubPage from "./pages/GuidesHubPage.tsx";
+import KnowledgeCenterPage from "./pages/KnowledgeCenterPage.tsx";
+import KnowledgeArticlePage from "./pages/KnowledgeArticlePage.tsx";
+import { KnowledgeCategoryIndexPage } from "./pages/KnowledgeCategoryIndexPage.tsx";
+import KnowledgeCenterPage from "./pages/KnowledgeCenterPage.tsx";
+import KnowledgeArticlePage from "./pages/KnowledgeArticlePage.tsx";
+import { KnowledgeCategoryIndexPage } from "./pages/KnowledgeCategoryIndexPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -94,7 +99,25 @@ const App = () => (
             <Route path="/terms" element={<ContentPage />} />
             <Route path="/age-verification" element={<ContentPage />} />
             <Route path="/faq" element={<FaqPage />} />
-            <Route path="/guides" element={<GuidesHubPage />} />
+            <Route path="/knowledge" element={<KnowledgeCenterPage />} />
+            <Route
+              path="/guides"
+              element={
+                <KnowledgeCategoryIndexPage
+                  category="guide"
+                  intro="保存、漏油、口味挑選與通配說明，協助台灣使用者在購買前做出正確選擇。"
+                />
+              }
+            />
+            <Route path="/blog" element={<KnowledgeCategoryIndexPage category="blog" intro="品牌介紹、使用心得與選購觀點，連結商品與指南。" />} />
+            <Route path="/compare" element={<KnowledgeCategoryIndexPage category="compare" intro="LANA、SP2S 等品牌與產品類型比較。" />} />
+            <Route path="/flavors" element={<KnowledgeCategoryIndexPage category="flavor" intro="口味分類、涼度甜度與選購建議。" />} />
+            <Route path="/brands" element={<KnowledgeCategoryIndexPage category="brand" intro="品牌產品線、保養與通配說明。" />} />
+            <Route path="/guide/:slug" element={<KnowledgeArticlePage />} />
+            <Route path="/blog/:slug" element={<KnowledgeArticlePage />} />
+            <Route path="/compare/:slug" element={<KnowledgeArticlePage />} />
+            <Route path="/flavors/:slug" element={<KnowledgeArticlePage />} />
+            <Route path="/brands/:slug" element={<KnowledgeArticlePage />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/product" element={<ProductDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
