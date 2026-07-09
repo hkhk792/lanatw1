@@ -13,6 +13,7 @@ import {
   resolveShippingTwd,
 } from "@/lib/checkoutShipping";
 import { isValidTaiwanMobile, normalizeTaiwanMobile } from "@/lib/phoneTaiwan";
+import { fetchFirstOrderStatus } from "@/lib/fetchFirstOrderStatus";
 import CartLineThumbnail from "@/components/CartLineThumbnail";
 import FirstOrderShippingVerify from "@/components/checkout/FirstOrderShippingVerify";
 import CheckoutLineRebateNotice from "@/components/checkout/CheckoutLineRebateNotice";
@@ -54,7 +55,6 @@ const Checkout = () => {
     [orderItems]
   );
   const [isFirstOrder, setIsFirstOrder] = useState<boolean | null>(null);
-  const [firstOrderChecking, setFirstOrderChecking] = useState(false);
 
   const [country, setCountry] = useState("台灣");
   const [name, setName] = useState("");
@@ -125,27 +125,9 @@ const Checkout = () => {
 
     const addressOk = Boolean(shippingAddress.trim());
     const storeOk = Boolean(pickupStoreCode.trim());
-    if (!name.trim() || !phone.trim() || !addressOk || !storeOk || !lineId.trim()) {
+    if (!name.trim() || !phone.trim() || !addressOk || !storeOk) {
       toast.error("請填寫必填欄位", {
-        description:
-          "姓名、手機號碼、收貨地址、收貨門市號與 LINE ID 皆為必填。",
-      });
-      return;
-    }
-
-    if (firstOrderChecking) {
-      toast.error("正在確認首單免運", { description: "請待手機旁提示完成後再送出。" });
-      return;
-    }
-
-    if (
-      shippingTwd === 0 &&
-      subtotalTwd < FREE_SHIPPING_THRESHOLD_TWD &&
-      !firstOrderFreeShipping
-    ) {
-      toast.error("運費與活動不符", {
-        description:
-          "首單免運僅限此手機首次下單；老客戶請滿 NT$1,500 小計，或依系統顯示運費 NT$70 下單。",
+        description: "姓名、手機號碼、收貨地址與收貨門市號為必填。",
       });
       return;
     }
@@ -155,6 +137,21 @@ const Checkout = () => {
       return;
     }
 
+    let firstOrderEligible = isFirstOrder === true;
+    if (isFirstOrder === null) {
+      try {
+        const isFirst = await fetchFirstOrderStatus(phone);
+        setIsFirstOrder(isFirst);
+        firstOrderEligible = isFirst;
+      } catch {
+        firstOrderEligible = false;
+        setIsFirstOrder(false);
+      }
+    }
+
+    const shippingTwdFinal = resolveShippingTwd(subtotalTwd, firstOrderEligible);
+    const totalTwdFinal = subtotalTwd + shippingTwdFinal;
+
     const payload = {
       country: country.trim() || "台灣",
       paymentMethod: payment,
@@ -162,12 +159,12 @@ const Checkout = () => {
       phone: normalizeTaiwanMobile(phone) || phone.trim(),
       shippingAddress: shippingAddress.trim(),
       pickupStoreCode: pickupStoreCode.trim(),
-      lineId: lineId.trim(),
+      lineId: lineId.trim() || "未提供",
       notes: notes.trim(),
       subtotalTwd,
-      shippingTwd,
-      totalTwd,
-      ...(firstOrderFreeShipping ? { firstOrderFreeShipping: true } : {}),
+      shippingTwd: shippingTwdFinal,
+      totalTwd: totalTwdFinal,
+      ...(firstOrderEligible ? { firstOrderFreeShipping: true } : {}),
       items: orderItems.map((it) => ({
         productModel: it.productModel,
         variant: it.variant,
@@ -210,7 +207,7 @@ const Checkout = () => {
       const orderHint = data?.orderNumber ? `訂單編號 ${data.orderNumber} · ` : "";
       const batchHint = data?.batchDate ? `截單批次 ${data.batchDate} · ` : "";
       toast.success("訂單已送出", {
-        description: `${orderHint}${batchHint}合計 ${formatTwd(totalTwd)} · 貨到付款`,
+        description: `${orderHint}${batchHint}合計 ${formatTwd(totalTwdFinal)} · 貨到付款`,
       });
       navigate("/order-complete", { replace: true });
     } catch (error) {
@@ -296,7 +293,7 @@ const Checkout = () => {
                 <FirstOrderShippingVerify
                   phone={phone}
                   onFirstOrderChange={setIsFirstOrder}
-                  onCheckingChange={setFirstOrderChecking}
+                  onCheckingChange={() => {}}
                 />
               </div>
 
@@ -358,15 +355,14 @@ const Checkout = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="lineId" className="text-neutral-800">
-                  LINE ID <span className="text-red-600">*</span>
+                  LINE ID <span className="text-neutral-400 font-normal">（選填）</span>
                 </Label>
                 <Input
                   id="lineId"
                   value={lineId}
                   onChange={(e) => setLineId(e.target.value)}
                   className={fieldClass}
-                  placeholder="您的 LINE ID（不含 @）"
-                  required
+                  placeholder="選填，方便客服聯絡您"
                   autoComplete="username"
                 />
               </div>
@@ -473,10 +469,13 @@ const Checkout = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-8 w-full bg-neutral-950 py-3.5 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-neutral-800"
+                className="mt-8 w-full bg-neutral-950 py-3.5 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-neutral-800 disabled:opacity-60"
               >
-                {isSubmitting ? "送出中..." : "下單購買"}
+                {isSubmitting ? "送出中…" : "下單購買"}
               </button>
+              <p className="mt-2 text-center text-[11px] text-neutral-500">
+                點一次即可：系統會自動確認首單免運並送出訂單。
+              </p>
             </div>
           </aside>
         </form>

@@ -1,8 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
-  getCachedFirstOrderStatus,
-  setCachedFirstOrderStatus,
-} from "@/lib/firstOrderStatusCache";
+import { fetchFirstOrderStatus } from "@/lib/fetchFirstOrderStatus";
 import { isValidTaiwanMobile, normalizeTaiwanMobile } from "@/lib/phoneTaiwan";
 
 type Props = {
@@ -13,7 +10,7 @@ type Props = {
 
 type UiStatus = "idle" | "checking" | "first" | "returning" | "error";
 
-/** 手機輸滿即查；提示區固定高度，查詢時不重置父層首單狀態以免右側運費跳動 */
+/** 手機號碼一輸入完成即查首單；不阻擋老客下單（僅影響運費顯示）。 */
 const FirstOrderShippingVerify = ({
   phone,
   onFirstOrderChange,
@@ -26,37 +23,16 @@ const FirstOrderShippingVerify = ({
   const requestIdRef = useRef(0);
   const lastResolvedPhoneRef = useRef("");
 
-  const checkEligibility = useCallback(async () => {
+  const runCheck = useCallback(async () => {
     if (!phoneOk || !phoneNorm) return;
-
-    const cached = getCachedFirstOrderStatus(phoneNorm);
-    if (cached !== null) {
-      onFirstOrderChange(cached);
-      onCheckingChange(false);
-      setUiStatus(cached ? "first" : "returning");
-      lastResolvedPhoneRef.current = phoneNorm;
-      return;
-    }
 
     const requestId = ++requestIdRef.current;
     onCheckingChange(true);
     setUiStatus("checking");
 
     try {
-      const res = await fetch("/api/checkout/customer-status", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone: phoneNorm }),
-      });
-      const data = (await res.json().catch(() => null)) as {
-        isFirstOrder?: boolean;
-        error?: string;
-      } | null;
+      const isFirst = await fetchFirstOrderStatus(phone);
       if (requestId !== requestIdRef.current) return;
-      if (!res.ok) throw new Error(data?.error || "無法查詢首單資格");
-
-      const isFirst = Boolean(data?.isFirstOrder);
-      setCachedFirstOrderStatus(phoneNorm, isFirst);
       onFirstOrderChange(isFirst);
       onCheckingChange(false);
       setUiStatus(isFirst ? "first" : "returning");
@@ -78,31 +54,10 @@ const FirstOrderShippingVerify = ({
       return;
     }
 
-    if (phoneNorm !== lastResolvedPhoneRef.current) {
-      onFirstOrderChange(null);
-      setUiStatus("idle");
-    }
+    if (phoneNorm === lastResolvedPhoneRef.current) return;
 
-    const cached = getCachedFirstOrderStatus(phoneNorm);
-    if (cached !== null) {
-      onFirstOrderChange(cached);
-      onCheckingChange(false);
-      setUiStatus(cached ? "first" : "returning");
-      lastResolvedPhoneRef.current = phoneNorm;
-      return;
-    }
-
-    const t = window.setTimeout(() => {
-      void checkEligibility();
-    }, 200);
-    return () => window.clearTimeout(t);
-  }, [
-    checkEligibility,
-    onCheckingChange,
-    onFirstOrderChange,
-    phoneNorm,
-    phoneOk,
-  ]);
+    void runCheck();
+  }, [onCheckingChange, onFirstOrderChange, phoneNorm, phoneOk, runCheck]);
 
   const statusLine = useMemo(() => {
     if (showFormatHint) {
@@ -123,12 +78,12 @@ const FirstOrderShippingVerify = ({
       case "returning":
         return {
           className: "text-neutral-600",
-          text: "此手機曾有訂單紀錄，不適用首單免運；滿 NT$1,500 小計即可免運。",
+          text: "此手機曾有訂單紀錄：運費 NT$70，滿 NT$1,500 小計免運，可直接下單。",
         };
       case "error":
         return {
           className: "text-amber-700",
-          text: "暫時無法線上確認首單資格，送出訂單時會再次驗證。",
+          text: "暫時無法線上確認首單資格；下單時會自動再查一次。",
         };
       default:
         return { className: "text-transparent", text: "\u00a0" };
