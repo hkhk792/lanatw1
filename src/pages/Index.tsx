@@ -12,6 +12,7 @@ import HomeBrandIntro from "@/components/landing/HomeBrandIntro";
 import PinkyImportedSection from "@/components/landing/PinkyImportedSection";
 import Manifesto from "@/components/landing/Manifesto";
 import Sp2sFunGallery from "@/components/landing/Sp2sFunGallery";
+import Sp2sNewsSection from "@/components/landing/Sp2sNewsSection";
 import HuanVapeStoreSection from "@/components/landing/HuanVapeStoreSection";
 import Footer from "@/components/landing/Footer";
 import HealthWarning from "@/components/landing/HealthWarning";
@@ -45,6 +46,7 @@ const Index = () => {
         <HuanVapeStoreSection />
         <Manifesto />
         <Sp2sFunGallery />
+        <Sp2sNewsSection />
         <HomeSeoContent />
         <HomeFaq />
       </main>

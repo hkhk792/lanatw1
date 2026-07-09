@@ -99,8 +99,8 @@ export default {
         "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.22,1,0.36,1) both",
         "fade-in": "fade-in 1.2s ease-out both",
         "float-slow": "float-slow 6s ease-in-out infinite",
-        "marquee-left": "marquee-left 45s linear infinite",
-        "marquee-right": "marquee-right 45s linear infinite",
+        "marquee-left": "marquee-left 55s linear infinite",
+        "marquee-right": "marquee-right 55s linear infinite",
       },
       transitionTimingFunction: {
         luxury: "cubic-bezier(0.22, 1, 0.36, 1)",
