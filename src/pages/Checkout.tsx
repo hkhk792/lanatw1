@@ -137,47 +137,46 @@ const Checkout = () => {
       return;
     }
 
-    let firstOrderEligible = isFirstOrder === true;
-    if (isFirstOrder === null) {
+    setIsSubmitting(true);
+
+    try {
+      let firstOrderEligible = false;
       try {
-        const isFirst = await fetchFirstOrderStatus(phone);
+        // 下單前永遠重新查後台，不採用畫面上的快取結果。
+        const isFirst = await fetchFirstOrderStatus(phone, { forceRefresh: true });
         setIsFirstOrder(isFirst);
         firstOrderEligible = isFirst;
       } catch {
-        firstOrderEligible = false;
         setIsFirstOrder(false);
       }
-    }
 
-    const shippingTwdFinal = resolveShippingTwd(subtotalTwd, firstOrderEligible);
-    const totalTwdFinal = subtotalTwd + shippingTwdFinal;
+      const shippingTwdFinal = resolveShippingTwd(subtotalTwd, firstOrderEligible);
+      const totalTwdFinal = subtotalTwd + shippingTwdFinal;
 
-    const payload = {
-      country: country.trim() || "台灣",
-      paymentMethod: payment,
-      customerName: name.trim(),
-      phone: normalizeTaiwanMobile(phone) || phone.trim(),
-      shippingAddress: shippingAddress.trim(),
-      pickupStoreCode: pickupStoreCode.trim(),
-      lineId: lineId.trim() || "未提供",
-      notes: notes.trim(),
-      subtotalTwd,
-      shippingTwd: shippingTwdFinal,
-      totalTwd: totalTwdFinal,
-      ...(firstOrderEligible ? { firstOrderFreeShipping: true } : {}),
-      items: orderItems.map((it) => ({
-        productModel: it.productModel,
-        variant: it.variant,
-        quantity: it.quantity,
-        unitPriceTwd: it.unitPriceTwd,
-        lineTotalTwd: it.lineTotalTwd,
-        productId: it.productId,
-        imageUrl: it.imageUrl ?? "",
-      })),
-    };
+      const payload = {
+        country: country.trim() || "台灣",
+        paymentMethod: payment,
+        customerName: name.trim(),
+        phone: normalizeTaiwanMobile(phone) || phone.trim(),
+        shippingAddress: shippingAddress.trim(),
+        pickupStoreCode: pickupStoreCode.trim(),
+        lineId: lineId.trim() || "未提供",
+        notes: notes.trim(),
+        subtotalTwd,
+        shippingTwd: shippingTwdFinal,
+        totalTwd: totalTwdFinal,
+        ...(firstOrderEligible ? { firstOrderFreeShipping: true } : {}),
+        items: orderItems.map((it) => ({
+          productModel: it.productModel,
+          variant: it.variant,
+          quantity: it.quantity,
+          unitPriceTwd: it.unitPriceTwd,
+          lineTotalTwd: it.lineTotalTwd,
+          productId: it.productId,
+          imageUrl: it.imageUrl ?? "",
+        })),
+      };
 
-    try {
-      setIsSubmitting(true);
       const response = await fetch("/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -196,7 +195,14 @@ const Checkout = () => {
       }
 
       const data = (await response.json().catch(() => null)) as
-        | { error?: string; orderNumber?: string; batchDate?: string }
+        | {
+            error?: string;
+            orderNumber?: string;
+            batchDate?: string;
+            shippingTwd?: number;
+            totalTwd?: number;
+            shippingAdjusted?: boolean;
+          }
         | null;
 
       if (!response.ok) {
@@ -206,8 +212,13 @@ const Checkout = () => {
       clearCart();
       const orderHint = data?.orderNumber ? `訂單編號 ${data.orderNumber} · ` : "";
       const batchHint = data?.batchDate ? `截單批次 ${data.batchDate} · ` : "";
+      const actualTotalTwd =
+        typeof data?.totalTwd === "number" ? data.totalTwd : totalTwdFinal;
+      const shippingHint = data?.shippingAdjusted
+        ? "已有訂單紀錄，已自動計入運費 NT$70 · "
+        : "";
       toast.success("訂單已送出", {
-        description: `${orderHint}${batchHint}合計 ${formatTwd(totalTwdFinal)} · 貨到付款`,
+        description: `${orderHint}${batchHint}${shippingHint}合計 ${formatTwd(actualTotalTwd)} · 貨到付款`,
       });
       navigate("/order-complete", { replace: true });
     } catch (error) {
@@ -293,7 +304,6 @@ const Checkout = () => {
                 <FirstOrderShippingVerify
                   phone={phone}
                   onFirstOrderChange={setIsFirstOrder}
-                  onCheckingChange={() => {}}
                 />
               </div>
 

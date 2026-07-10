@@ -107,6 +107,7 @@ function mapSupabaseOrderError(message) {
   if (m.includes("first_order_shipping_not_eligible")) {
     return {
       status: 409,
+      code: "FIRST_ORDER_NOT_ELIGIBLE",
       error: "此手機不符合首單免運（已有訂單紀錄）。請改付運費或滿 NT$1,500 再下單。",
     };
   }
@@ -125,6 +126,17 @@ const STANDARD_SHIPPING_FEE = 70;
 
 function expectedStandardShippingTwd(subtotalTwd) {
   return subtotalTwd >= FREE_SHIPPING_THRESHOLD ? 0 : STANDARD_SHIPPING_FEE;
+}
+
+function applyStandardShipping(payload) {
+  const subtotalTwd = Number(payload.subtotalTwd) || 0;
+  const shippingTwd = expectedStandardShippingTwd(subtotalTwd);
+  return {
+    ...payload,
+    shippingTwd,
+    totalTwd: subtotalTwd + shippingTwd,
+    firstOrderFreeShipping: false,
+  };
 }
 
 async function applyFirstOrderShippingRules(payload) {
@@ -153,9 +165,8 @@ async function applyFirstOrderShippingRules(payload) {
 
     const prior = await customerHasPriorOrders({ phone, lineId: "" });
     if (prior.hasPriorOrders) {
-      const err = new Error("此手機已有訂單紀錄，無法使用首單包郵。");
-      err.status = 409;
-      throw err;
+      // 前端資格可能因快取或同時下單而過期；自動改為一般運費並繼續建立訂單。
+      return applyStandardShipping(payload);
     }
 
     return {
@@ -197,6 +208,7 @@ async function placeOrderSupabase(payload) {
     const mapped = mapSupabaseOrderError(error.message);
     const err = new Error(mapped.error);
     err.status = mapped.status;
+    if (mapped.code) err.code = mapped.code;
     throw err;
   }
 
@@ -353,8 +365,11 @@ export default async function handler(req, res) {
     );
 
     let orderPayload = payload;
+    let shippingAdjusted = false;
     if (hasSupabase) {
       orderPayload = await applyFirstOrderShippingRules(payload);
+      shippingAdjusted =
+        Number(orderPayload.shippingTwd) !== Number(payload.shippingTwd);
     } else if (Number(payload.shippingTwd) === 0 && Number(payload.subtotalTwd) < FREE_SHIPPING_THRESHOLD) {
       return res.status(503).json({
         error: "首單包郵須使用 Supabase 訂單後端；請設定 SUPABASE_URL 與 SUPABASE_SERVICE_ROLE_KEY。",
@@ -366,7 +381,22 @@ export default async function handler(req, res) {
       if (!hasSupabase) {
         return res.status(503).json({ error: "Supabase is not configured (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)." });
       }
-      result = await placeOrderSupabase({ ...orderPayload });
+      try {
+        result = await placeOrderSupabase({ ...orderPayload });
+      } catch (error) {
+        if (
+          error?.code !== "FIRST_ORDER_NOT_ELIGIBLE" ||
+          Number(orderPayload.shippingTwd) !== 0 ||
+          Number(orderPayload.subtotalTwd) >= FREE_SHIPPING_THRESHOLD
+        ) {
+          throw error;
+        }
+
+        // 防止資格查詢後、真正寫入前出現另一筆同手機訂單的競態。
+        orderPayload = applyStandardShipping(orderPayload);
+        shippingAdjusted = true;
+        result = await placeOrderSupabase({ ...orderPayload });
+      }
     } else if (backend === "airtable" || (!backend && hasAirtable)) {
       if (!hasAirtable) {
         return res.status(503).json({ error: "Airtable is not configured." });
@@ -383,6 +413,9 @@ export default async function handler(req, res) {
       ok: true,
       orderRecordId: result.orderRecordId,
       orderNumber: result.orderNumber,
+      shippingTwd: Number(orderPayload.shippingTwd) || 0,
+      totalTwd: Number(orderPayload.totalTwd) || 0,
+      shippingAdjusted,
       ...(result.batchDate != null ? { batchDate: result.batchDate } : {}),
     });
   } catch (error) {

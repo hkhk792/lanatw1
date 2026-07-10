@@ -3,15 +3,24 @@ import { normalizeTaiwanMobile } from "@/lib/phoneTaiwan";
 
 const inFlight = new Map<string, Promise<boolean>>();
 
-/** 查詢此手機是否首單（可免運）；結果快取 5 分鐘，並合併進行中的請求。 */
-export async function fetchFirstOrderStatus(phone: string): Promise<boolean> {
+type FetchFirstOrderStatusOptions = {
+  forceRefresh?: boolean;
+};
+
+/** 查詢此手機是否首單（可免運）；送單前可強制向後台重新確認。 */
+export async function fetchFirstOrderStatus(
+  phone: string,
+  { forceRefresh = false }: FetchFirstOrderStatusOptions = {}
+): Promise<boolean> {
   const phoneNorm = normalizeTaiwanMobile(phone);
   if (!phoneNorm) {
     throw new Error("請輸入有效的台灣手機號碼");
   }
 
-  const cached = getCachedFirstOrderStatus(phoneNorm);
-  if (cached !== null) return cached;
+  if (!forceRefresh) {
+    const cached = getCachedFirstOrderStatus(phoneNorm);
+    if (cached !== null) return cached;
+  }
 
   const pending = inFlight.get(phoneNorm);
   if (pending) return pending;

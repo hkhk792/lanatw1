@@ -1,11 +1,10 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { fetchFirstOrderStatus } from "@/lib/fetchFirstOrderStatus";
 import { isValidTaiwanMobile, normalizeTaiwanMobile } from "@/lib/phoneTaiwan";
 
 type Props = {
   phone: string;
   onFirstOrderChange: (isFirstOrder: boolean | null) => void;
-  onCheckingChange: (checking: boolean) => void;
 };
 
 type UiStatus = "idle" | "checking" | "first" | "returning" | "error";
@@ -14,50 +13,42 @@ type UiStatus = "idle" | "checking" | "first" | "returning" | "error";
 const FirstOrderShippingVerify = ({
   phone,
   onFirstOrderChange,
-  onCheckingChange,
 }: Props) => {
   const phoneNorm = normalizeTaiwanMobile(phone);
   const phoneOk = isValidTaiwanMobile(phone);
   const showFormatHint = phone.trim().length > 0 && !phoneOk;
   const [uiStatus, setUiStatus] = useState<UiStatus>("idle");
   const requestIdRef = useRef(0);
-  const lastResolvedPhoneRef = useRef("");
-
-  const runCheck = useCallback(async () => {
-    if (!phoneOk || !phoneNorm) return;
-
-    const requestId = ++requestIdRef.current;
-    onCheckingChange(true);
-    setUiStatus("checking");
-
-    try {
-      const isFirst = await fetchFirstOrderStatus(phone);
-      if (requestId !== requestIdRef.current) return;
-      onFirstOrderChange(isFirst);
-      onCheckingChange(false);
-      setUiStatus(isFirst ? "first" : "returning");
-      lastResolvedPhoneRef.current = phoneNorm;
-    } catch {
-      if (requestId !== requestIdRef.current) return;
-      onFirstOrderChange(null);
-      onCheckingChange(false);
-      setUiStatus("error");
-    }
-  }, [onCheckingChange, onFirstOrderChange, phoneNorm, phoneOk]);
 
   useEffect(() => {
-    if (!phoneOk) {
-      lastResolvedPhoneRef.current = "";
+    const requestId = ++requestIdRef.current;
+
+    if (!phoneOk || !phoneNorm) {
       onFirstOrderChange(null);
-      onCheckingChange(false);
       setUiStatus("idle");
       return;
     }
 
-    if (phoneNorm === lastResolvedPhoneRef.current) return;
+    // 手機一變更就清除上一支手機的資格，避免查詢期間沿用舊的免運結果。
+    onFirstOrderChange(null);
+    setUiStatus("checking");
 
-    void runCheck();
-  }, [onCheckingChange, onFirstOrderChange, phoneNorm, phoneOk, runCheck]);
+    void fetchFirstOrderStatus(phoneNorm, { forceRefresh: true })
+      .then((isFirst) => {
+        if (requestId !== requestIdRef.current) return;
+        onFirstOrderChange(isFirst);
+        setUiStatus(isFirst ? "first" : "returning");
+      })
+      .catch(() => {
+        if (requestId !== requestIdRef.current) return;
+        onFirstOrderChange(null);
+        setUiStatus("error");
+      });
+
+    return () => {
+      if (requestId === requestIdRef.current) requestIdRef.current += 1;
+    };
+  }, [onFirstOrderChange, phoneNorm, phoneOk]);
 
   const statusLine = useMemo(() => {
     if (showFormatHint) {
