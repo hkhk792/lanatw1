@@ -58,12 +58,42 @@ const POOL: ReviewTemplate[] = [
 const BY_PRODUCT_PATH: Record<string, ReviewTemplate[]> = {
   "/product/lanna": [POOL[0], POOL[5], POOL[1]],
   "/product/lana-pods": [POOL[1], POOL[2], POOL[0]],
+  "/product/lana-e-liquid-30ml": [POOL[1], POOL[2], POOL[0]],
   "/product/sp2s-universal-pods": [POOL[3], POOL[2], POOL[1]],
+  "/product/sp2s-gen1-pods": [POOL[3], POOL[2], POOL[1]],
   "/product/bullet": [POOL[3], POOL[5], POOL[0]],
   "/product/pro": [POOL[3], POOL[5]],
+  "/product/atomizer": [POOL[3], POOL[5], POOL[0]],
+  "/product/diya": [POOL[4], POOL[2], POOL[1]],
   "/product/diya-7500": [POOL[4], POOL[2]],
+  "/product/diya-pods": [POOL[4], POOL[2], POOL[1]],
   "/product/hebat-gen6": [POOL[4], POOL[3]],
+  "/product/jupiter-6500": [POOL[4], POOL[3], POOL[2]],
+  "/product/mohoo-tokyo-box": [POOL[3], POOL[4], POOL[1]],
+  "/product/mohoo-tokyo-box-host": [POOL[3], POOL[5], POOL[0]],
+  "/product/sp2-tokyo-box-pods": [POOL[3], POOL[1], POOL[2]],
+  "/product/sp2s-empty-shell-pro": [POOL[5], POOL[3]],
+  "/product/sp2s-empty-shell-standard": [POOL[5], POOL[3]],
+  "/product/sp2s-silicone-sleeve": [POOL[5], POOL[1]],
+  "/product/vapor-storm-5000": [POOL[4], POOL[3]],
+  "/product/vapor-storm-gen5-pods": [POOL[3], POOL[2]],
+  "/product/venus-host": [POOL[0], POOL[5], POOL[3]],
 };
+
+function hashString(input: string): number {
+  let hash = 0;
+  for (let i = 0; i < input.length; i += 1) {
+    hash = (hash * 31 + input.charCodeAt(i)) | 0;
+  }
+  return Math.abs(hash);
+}
+
+function defaultReviewsForPath(path: string): ReviewTemplate[] {
+  const h = hashString(path);
+  const n = POOL.length;
+  const indices = [...new Set([h % n, (h + 2) % n, (h + 4) % n])];
+  return indices.map((index) => POOL[index]);
+}
 
 function withIds(templates: ReviewTemplate[], prefix: string): ShowcaseReview[] {
   return templates.map((t, i) => ({ ...t, id: `${prefix}-${i + 1}` }));
@@ -71,7 +101,7 @@ function withIds(templates: ReviewTemplate[], prefix: string): ShowcaseReview[] 
 
 export function getShowcaseReviewsForPath(path: string): ShowcaseReview[] {
   const base = path.split("?")[0];
-  const templates = BY_PRODUCT_PATH[base] ?? [];
+  const templates = BY_PRODUCT_PATH[base] ?? defaultReviewsForPath(base);
   return withIds(templates, base.replace(/\//g, "-").replace(/^-/, ""));
 }
 

@@ -1,4 +1,9 @@
 import { LINE_OFFICIAL_CUSTOMER_URL } from "@/constants/lineOfficial";
+import {
+  aggregateShowcaseReviews,
+  getShowcaseReviewsForPath,
+  toSchemaReviews,
+} from "@/data/productShowcaseReviews";
 import { SITE_LOGO_HEIGHT, SITE_LOGO_PATH, SITE_LOGO_WIDTH, SITE_SAME_AS } from "@/data/site";
 import { SHOP_SITE_URL } from "@/lib/domains";
 import {
@@ -231,17 +236,18 @@ export function articleJsonLd(article: {
   };
 }
 
-export function productJsonLdWithFaq(
-  meta: ProductStructuredDataMeta,
-  path: string,
-  image: string | undefined,
-  faq: FaqEntry[],
-  breadcrumbs?: BreadcrumbEntry[],
-  reviews?: { author: string; rating: number; body: string; createdAt: string }[],
+export type SchemaReviewInput = {
+  author: string;
+  rating: number;
+  body: string;
+  createdAt: string;
+};
+
+export function attachProductReviews(
+  product: Record<string, unknown>,
+  reviews: SchemaReviewInput[],
   rating?: { average: number; count: number },
 ) {
-  const product: Record<string, unknown> = productNode(meta, path, image);
-
   if (rating && rating.count > 0) {
     product.aggregateRating = {
       "@type": "AggregateRating",
@@ -252,7 +258,7 @@ export function productJsonLdWithFaq(
     };
   }
 
-  if (reviews && reviews.length > 0) {
+  if (reviews.length > 0) {
     product.review = reviews.map((review) => ({
       "@type": "Review",
       reviewRating: {
@@ -266,6 +272,41 @@ export function productJsonLdWithFaq(
       datePublished: review.createdAt,
     }));
   }
+
+  return product;
+}
+
+export function productNodeWithShowcaseReviews(
+  meta: ProductStructuredDataMeta,
+  path: string,
+  image?: string,
+) {
+  const showcase = getShowcaseReviewsForPath(path);
+  const aggregate = aggregateShowcaseReviews(showcase);
+  return attachProductReviews(productNode(meta, path, image), toSchemaReviews(showcase), aggregate);
+}
+
+export function productJsonLdWithFaq(
+  meta: ProductStructuredDataMeta,
+  path: string,
+  image: string | undefined,
+  faq: FaqEntry[],
+  breadcrumbs?: BreadcrumbEntry[],
+  reviews?: SchemaReviewInput[],
+  rating?: { average: number; count: number },
+) {
+  const showcase = reviews ?? toSchemaReviews(getShowcaseReviewsForPath(path));
+  const aggregate =
+    rating ??
+    (reviews
+      ? aggregateShowcaseReviews(
+          reviews.map((review, index) => ({
+            id: `${path}-${index}`,
+            ...review,
+          })),
+        )
+      : aggregateShowcaseReviews(getShowcaseReviewsForPath(path)));
+  const product = attachProductReviews(productNode(meta, path, image), showcase, aggregate);
 
   const graph: Record<string, unknown>[] = [product];
   if (breadcrumbs?.length) graph.push(breadcrumbNode(breadcrumbs));
@@ -290,7 +331,7 @@ export function buildSiteGraph(options?: {
   }
 
   for (const p of options?.products ?? []) {
-    graph.push(productNode(p.meta, p.path, p.image));
+    graph.push(productNodeWithShowcaseReviews(p.meta, p.path, p.image));
   }
 
   if (options?.breadcrumbs?.length) {

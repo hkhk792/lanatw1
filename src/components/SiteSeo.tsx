@@ -29,7 +29,6 @@ import {
   indexRobotsMeta,
   itemListNode,
   productJsonLdWithFaq,
-  productNode,
 } from "@/lib/structuredData";
 
 const TOP_PRODUCT_PATHS = [
@@ -89,17 +88,17 @@ const SiteSeo = () => {
       }
     }
 
-    if (isProductPath(meta.path) && productSeo && productGeo) {
+    if (isProductPath(meta.path) && productSeo) {
       const showcase = getShowcaseReviewsForPath(meta.path);
       const aggregate = aggregateShowcaseReviews(showcase);
       return productJsonLdWithFaq(
         productSeo,
         meta.path,
         ogImage,
-        productGeo.faq,
+        productGeo?.faq ?? [],
         breadcrumbsForPath(meta.path),
-        showcase.length > 0 ? toSchemaReviews(showcase) : undefined,
-        aggregate.count > 0 ? aggregate : undefined,
+        toSchemaReviews(showcase),
+        aggregate,
       );
     }
 
@@ -165,14 +164,6 @@ const SiteSeo = () => {
         return nodes.length ? nodes : undefined;
       })(),
     });
-
-    if (isProductPath(meta.path) && meta.productName && productSeo && !meta.noindex && !productGeo) {
-      const existing = graph["@graph"] as Record<string, unknown>[];
-      const hasProduct = existing.some((n) => n["@type"] === "Product");
-      if (!hasProduct) {
-        existing.push(productNode(productSeo, meta.path, ogImage));
-      }
-    }
 
     return graph;
   }, [meta, ogImage, productGeo, productSeo]);
