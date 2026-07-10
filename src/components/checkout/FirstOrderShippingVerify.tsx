@@ -66,7 +66,7 @@ const FirstOrderShippingVerify = ({ phone, subtotalTwd, onQuoteChange }: Props) 
       case "returning":
         return {
           className: "text-neutral-600",
-          text: "此手機曾有訂單紀錄：運費 NT$70，滿 NT$1,500 小計免運，可直接下單。",
+          text: "歡迎回來！您是老顧客，運費 NT$70；滿 NT$1,500 小計即享免運，可直接下單。",
         };
       case "error":
         return {
