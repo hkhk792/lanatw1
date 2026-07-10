@@ -1,19 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { fetchFirstOrderStatus } from "@/lib/fetchFirstOrderStatus";
+import { fetchShippingQuote, type ShippingQuote } from "@/lib/fetchShippingQuote";
 import { isValidTaiwanMobile, normalizeTaiwanMobile } from "@/lib/phoneTaiwan";
 
 type Props = {
   phone: string;
-  onFirstOrderChange: (isFirstOrder: boolean | null) => void;
+  subtotalTwd: number;
+  onQuoteChange: (quote: ShippingQuote | null) => void;
 };
 
 type UiStatus = "idle" | "checking" | "first" | "returning" | "error";
 
-/** 手機號碼一輸入完成即查首單；不阻擋老客下單（僅影響運費顯示）。 */
-const FirstOrderShippingVerify = ({
-  phone,
-  onFirstOrderChange,
-}: Props) => {
+/** 手機一輸入完成就向後台取運費報價，畫面金額與後台一致。 */
+const FirstOrderShippingVerify = ({ phone, subtotalTwd, onQuoteChange }: Props) => {
   const phoneNorm = normalizeTaiwanMobile(phone);
   const phoneOk = isValidTaiwanMobile(phone);
   const showFormatHint = phone.trim().length > 0 && !phoneOk;
@@ -24,31 +22,30 @@ const FirstOrderShippingVerify = ({
     const requestId = ++requestIdRef.current;
 
     if (!phoneOk || !phoneNorm) {
-      onFirstOrderChange(null);
+      onQuoteChange(null);
       setUiStatus("idle");
       return;
     }
 
-    // 手機一變更就清除上一支手機的資格，避免查詢期間沿用舊的免運結果。
-    onFirstOrderChange(null);
+    onQuoteChange(null);
     setUiStatus("checking");
 
-    void fetchFirstOrderStatus(phoneNorm, { forceRefresh: true })
-      .then((isFirst) => {
+    void fetchShippingQuote(phoneNorm, subtotalTwd, { forceRefresh: true })
+      .then((quote) => {
         if (requestId !== requestIdRef.current) return;
-        onFirstOrderChange(isFirst);
-        setUiStatus(isFirst ? "first" : "returning");
+        onQuoteChange(quote);
+        setUiStatus(quote.isFirstOrder ? "first" : "returning");
       })
       .catch(() => {
         if (requestId !== requestIdRef.current) return;
-        onFirstOrderChange(null);
+        onQuoteChange(null);
         setUiStatus("error");
       });
 
     return () => {
       if (requestId === requestIdRef.current) requestIdRef.current += 1;
     };
-  }, [onFirstOrderChange, phoneNorm, phoneOk]);
+  }, [onQuoteChange, phoneNorm, phoneOk, subtotalTwd]);
 
   const statusLine = useMemo(() => {
     if (showFormatHint) {
@@ -60,7 +57,7 @@ const FirstOrderShippingVerify = ({
     if (!phoneOk) return { className: "text-transparent", text: "\u00a0" };
     switch (uiStatus) {
       case "checking":
-        return { className: "text-neutral-500", text: "正在確認首單免運資格…" };
+        return { className: "text-neutral-500", text: "正在向後台確認運費…" };
       case "first":
         return {
           className: "text-emerald-700",
@@ -74,7 +71,7 @@ const FirstOrderShippingVerify = ({
       case "error":
         return {
           className: "text-amber-700",
-          text: "暫時無法線上確認首單資格；下單時會自動再查一次。",
+          text: "暫時無法線上確認運費；下單時會向後台重新計算。",
         };
       default:
         return { className: "text-transparent", text: "\u00a0" };

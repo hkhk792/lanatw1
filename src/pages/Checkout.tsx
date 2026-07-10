@@ -10,10 +10,9 @@ import { resolveCartLineImageUrl } from "@/lib/cartProductImages";
 import {
   displayShippingTwdForCheckout,
   FREE_SHIPPING_THRESHOLD_TWD,
-  resolveShippingTwd,
 } from "@/lib/checkoutShipping";
 import { isValidTaiwanMobile, normalizeTaiwanMobile } from "@/lib/phoneTaiwan";
-import { fetchFirstOrderStatus } from "@/lib/fetchFirstOrderStatus";
+import { fetchShippingQuote, type ShippingQuote } from "@/lib/fetchShippingQuote";
 import CartLineThumbnail from "@/components/CartLineThumbnail";
 import FirstOrderShippingVerify from "@/components/checkout/FirstOrderShippingVerify";
 import CheckoutLineRebateNotice from "@/components/checkout/CheckoutLineRebateNotice";
@@ -54,7 +53,7 @@ const Checkout = () => {
     () => orderItems.reduce((s, it) => s + it.lineTotalTwd, 0),
     [orderItems]
   );
-  const [isFirstOrder, setIsFirstOrder] = useState<boolean | null>(null);
+  const [shippingQuote, setShippingQuote] = useState<ShippingQuote | null>(null);
 
   const [country, setCountry] = useState("台灣");
   const [name, setName] = useState("");
@@ -67,17 +66,18 @@ const Checkout = () => {
   const [pickupStoreCode, setPickupStoreCode] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const firstOrderFreeShipping = isFirstOrder === true;
-  const shippingTwd = useMemo(
-    () => resolveShippingTwd(subtotalTwd, firstOrderFreeShipping),
-    [subtotalTwd, firstOrderFreeShipping]
-  );
   const displayShippingTwd = useMemo(
-    () => displayShippingTwdForCheckout(subtotalTwd, isFirstOrder),
-    [subtotalTwd, isFirstOrder]
+    () =>
+      shippingQuote !== null
+        ? shippingQuote.shippingTwd
+        : displayShippingTwdForCheckout(subtotalTwd, null),
+    [shippingQuote, subtotalTwd]
   );
   const displayTotalTwd = subtotalTwd + displayShippingTwd;
-  const totalTwd = subtotalTwd + shippingTwd;
+  const showFirstOrderBadge =
+    shippingQuote?.isFirstOrder === true &&
+    shippingQuote.shippingTwd === 0 &&
+    subtotalTwd < FREE_SHIPPING_THRESHOLD_TWD;
 
 
   useEffect(() => {
@@ -140,18 +140,24 @@ const Checkout = () => {
     setIsSubmitting(true);
 
     try {
-      let firstOrderEligible = false;
+      let quote: ShippingQuote;
       try {
-        // 下單前永遠重新查後台，不採用畫面上的快取結果。
-        const isFirst = await fetchFirstOrderStatus(phone, { forceRefresh: true });
-        setIsFirstOrder(isFirst);
-        firstOrderEligible = isFirst;
+        quote = await fetchShippingQuote(phone, subtotalTwd, { forceRefresh: true });
+        setShippingQuote(quote);
       } catch {
-        setIsFirstOrder(false);
+        quote = {
+          phone: normalizeTaiwanMobile(phone) || phone.trim(),
+          isFirstOrder: false,
+          hasPriorOrders: true,
+          shippingTwd: displayShippingTwdForCheckout(subtotalTwd, false),
+        };
+        setShippingQuote(quote);
       }
 
-      const shippingTwdFinal = resolveShippingTwd(subtotalTwd, firstOrderEligible);
+      const shippingTwdFinal = quote.shippingTwd;
       const totalTwdFinal = subtotalTwd + shippingTwdFinal;
+      const firstOrderEligible =
+        quote.isFirstOrder && shippingTwdFinal === 0 && subtotalTwd < FREE_SHIPPING_THRESHOLD_TWD;
 
       const payload = {
         country: country.trim() || "台灣",
@@ -212,11 +218,14 @@ const Checkout = () => {
       clearCart();
       const orderHint = data?.orderNumber ? `訂單編號 ${data.orderNumber} · ` : "";
       const batchHint = data?.batchDate ? `截單批次 ${data.batchDate} · ` : "";
+      const actualShippingTwd =
+        typeof data?.shippingTwd === "number" ? data.shippingTwd : shippingTwdFinal;
       const actualTotalTwd =
         typeof data?.totalTwd === "number" ? data.totalTwd : totalTwdFinal;
-      const shippingHint = data?.shippingAdjusted
-        ? "已有訂單紀錄，已自動計入運費 NT$70 · "
-        : "";
+      const shippingHint =
+        actualShippingTwd > 0
+          ? `運費 ${formatTwd(actualShippingTwd)} · `
+          : "免運 · ";
       toast.success("訂單已送出", {
         description: `${orderHint}${batchHint}${shippingHint}合計 ${formatTwd(actualTotalTwd)} · 貨到付款`,
       });
@@ -303,7 +312,8 @@ const Checkout = () => {
                 />
                 <FirstOrderShippingVerify
                   phone={phone}
-                  onFirstOrderChange={setIsFirstOrder}
+                  subtotalTwd={subtotalTwd}
+                  onQuoteChange={setShippingQuote}
                 />
               </div>
 
@@ -441,7 +451,7 @@ const Checkout = () => {
                 <div className="flex justify-between gap-3 text-neutral-600">
                   <dt className="min-w-0 flex-1 leading-snug">
                     超商取貨
-                    {isFirstOrder === true && subtotalTwd < FREE_SHIPPING_THRESHOLD_TWD ? (
+                    {showFirstOrderBadge ? (
                       <span className="mt-0.5 block text-[11px] font-normal text-emerald-700">
                         首單免運
                       </span>
@@ -484,7 +494,7 @@ const Checkout = () => {
                 {isSubmitting ? "送出中…" : "下單購買"}
               </button>
               <p className="mt-2 text-center text-[11px] text-neutral-500">
-                點一次即可：系統會自動確認首單免運並送出訂單。
+                點一次即可：系統會向後台確認運費並送出訂單。
               </p>
             </div>
           </aside>
