@@ -63,7 +63,7 @@ export const SP2S_BLOG_NEWS: Sp2sNewsItem[] = [
       "多數裝置靠前幾口的極甜極涼取勝，兩三天後卻變得平淡甚至糊芯——這往往是硬體輸出與棉芯設計問題，而非單純「膩了」。",
     date: "2026-06-22",
     category: "news",
-    image: "/product-photos/sp2s.png",
+    image: "/product-photos/sp2s-gen2-pods-flavor-catalog.png",
     href: "/guide/how-to-pick-flavor",
   },
   {
