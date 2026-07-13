@@ -3,12 +3,11 @@ import { BrandSp2s } from "@/components/BrandSp2s";
 import { SP2S_GALLERY_BOTTOM, SP2S_GALLERY_TOP } from "@/data/sp2sGalleryPhotos";
 
 /**
- * 單排圖片寬度 = (100vw − gap×(cols−1)) / cols
- * 複製兩份後 translateX(-50%) 無縫銜接。
- * 手機端降低 cols，單張更大、更易看清。
+ * 桌面端維持原設定：9 列鋪滿 100vw，滾動 -50% 無縫銜接。
+ * 僅手機端（<640px）降低列數、加大單圖。
  */
 const SLIDE_CLASS =
-  "h-[clamp(7rem,30vw,11rem)] w-[calc((100vw-(var(--marquee-gap)*(var(--marquee-cols)-1)))/var(--marquee-cols))] shrink-0 rounded-xl object-cover sm:h-[clamp(5.5rem,18vw,11rem)] sm:rounded-2xl";
+  "h-[clamp(5.5rem,22vw,11rem)] w-[calc((100vw-(var(--marquee-gap)*(var(--marquee-cols)-1)))/var(--marquee-cols))] shrink-0 rounded-2xl object-cover max-sm:h-[clamp(7rem,30vw,10rem)] max-sm:rounded-xl";
 
 type MarqueeRowProps = {
   images: string[];
@@ -22,7 +21,7 @@ function MarqueeRow({ images, direction, rowLabel }: MarqueeRowProps) {
   return (
     <div className="relative w-full overflow-hidden" aria-label={rowLabel}>
       <div
-        className={`flex w-max gap-[var(--marquee-gap)] will-change-transform ${
+        className={`flex w-max gap-[var(--marquee-gap)] ${
           direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
         } motion-reduce:animate-none`}
       >
@@ -31,7 +30,7 @@ function MarqueeRow({ images, direction, rowLabel }: MarqueeRowProps) {
             key={`${src}-${index}`}
             src={src}
             alt=""
-            loading={index < 6 ? "eager" : "lazy"}
+            loading="lazy"
             decoding="async"
             draggable={false}
             className={SLIDE_CLASS}
@@ -42,53 +41,41 @@ function MarqueeRow({ images, direction, rowLabel }: MarqueeRowProps) {
   );
 }
 
-/** 雙排無限滾動相簿：上 9 / 下 9 不重複；手機端加大單圖、縮短動畫時長。 */
+/** 雙排無限滾動相簿：上 9 / 下 9 不重複；桌面原樣，僅手機加大單圖。 */
 const Sp2sFunGallery = () => (
   <section
     id="sp2s-fun-gallery"
     aria-labelledby="sp2s-fun-gallery-heading"
-    className="sp2s-fun-gallery scroll-mt-24 overflow-hidden border-y border-white/5 bg-black py-10 sm:py-14 md:py-20"
+    className="sp2s-fun-gallery scroll-mt-24 overflow-hidden border-y border-white/5 bg-black py-14 sm:py-16 md:py-20"
     style={
       {
-        "--marquee-cols": 2.4,
-        "--marquee-gap": "0.5rem",
+        "--marquee-cols": 9,
+        "--marquee-gap": "0.75rem",
       } as CSSProperties
     }
   >
     <style>{`
+      /* Desktop / tablet: keep original 9-up seamless marquee */
       .sp2s-fun-gallery {
-        --marquee-cols: 2.4;
-        --marquee-gap: 0.5rem;
+        --marquee-cols: 9;
+        --marquee-gap: 0.75rem;
       }
-      .sp2s-fun-gallery .animate-marquee-left,
-      .sp2s-fun-gallery .animate-marquee-right {
-        animation-duration: 28s;
-      }
-      @media (min-width: 640px) {
+      /* Mobile only */
+      @media (max-width: 639px) {
         .sp2s-fun-gallery {
-          --marquee-cols: 5;
-          --marquee-gap: 0.65rem;
+          --marquee-cols: 2.4;
+          --marquee-gap: 0.5rem;
         }
         .sp2s-fun-gallery .animate-marquee-left,
         .sp2s-fun-gallery .animate-marquee-right {
-          animation-duration: 42s;
-        }
-      }
-      @media (min-width: 1024px) {
-        .sp2s-fun-gallery {
-          --marquee-cols: 9;
-          --marquee-gap: 0.75rem;
-        }
-        .sp2s-fun-gallery .animate-marquee-left,
-        .sp2s-fun-gallery .animate-marquee-right {
-          animation-duration: 55s;
+          animation-duration: 28s;
         }
       }
     `}</style>
 
     <h2
       id="sp2s-fun-gallery-heading"
-      className="mb-8 px-4 text-center font-serif text-xl tracking-wide text-white sm:mb-12 sm:text-3xl md:text-4xl"
+      className="mb-10 px-4 text-center font-serif text-2xl tracking-wide text-white sm:mb-12 sm:text-3xl md:text-4xl"
     >
       Have Fun with <BrandSp2s className="text-white" />
     </h2>
