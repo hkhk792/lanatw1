@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
 import { BrandSp2s } from "@/components/BrandSp2s";
+import { PODPICK_GUIDE_URL } from "@/data/site";
 import { SITE_ORG_NAME } from "@/lib/siteConfig";
 
 const Footer = () => {
@@ -88,6 +89,15 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li className="text-sm text-foreground/70">
+                獨立評測與選購指南：
+                <a
+                  href={PODPICK_GUIDE_URL}
+                  className="hover:text-gold transition-colors duration-300"
+                >
+                  PodPick Guide
+                </a>
+              </li>
             </ul>
           </div>
         </div>
