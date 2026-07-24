@@ -1,7 +1,7 @@
 /**
  * GET /api/health — 確認 API 進程與資料庫連線狀態。
  */
-import { getEnv, prefersDirectPostgres } from "./_lib/db.js";
+import { getEnv, hasDatabase, prefersDirectPostgres } from "./_lib/db.js";
 
 export default function handler(req, res) {
   if (req.method !== "GET") {
@@ -10,6 +10,7 @@ export default function handler(req, res) {
   }
 
   const hasPg = prefersDirectPostgres();
+  const hasAnyDb = hasDatabase();
   const hasAirtable = Boolean(
     getEnv("AIRTABLE_TOKEN") &&
       getEnv("AIRTABLE_BASE_ID") &&
@@ -20,15 +21,18 @@ export default function handler(req, res) {
 
   return res.status(200).json({
     ok: true,
-    message: "Ops API route is active",
-    host: "ops",
+    message: hasPg ? "Ops API route is active" : "Vercel API route is active",
+    host: hasPg ? "ops" : "vercel",
     siteCode: getEnv("SITE_CODE") || null,
     orderBackendHint:
-      backend === "postgres" || backend === "supabase" || (!backend && hasPg)
+      backend === "postgres" || (!backend && hasPg)
         ? "postgres"
-        : backend === "airtable" || (!backend && hasAirtable)
-          ? "airtable"
-          : "none",
+        : backend === "supabase" || (!backend && hasAnyDb && !hasPg)
+          ? "supabase"
+          : backend === "airtable" || (!backend && hasAirtable)
+            ? "airtable"
+            : "none",
     databaseUrlPresent: hasPg,
+    supabaseEnvPresent: Boolean(getEnv("SUPABASE_URL") && getEnv("SUPABASE_SERVICE_ROLE_KEY")),
   });
 }

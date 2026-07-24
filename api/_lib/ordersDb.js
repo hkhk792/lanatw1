@@ -1,4 +1,5 @@
-import { getSql } from "../_lib/db.js";
+import { createClient } from "@supabase/supabase-js";
+import { getEnv, getSql, prefersDirectPostgres } from "./db.js";
 
 const ORDER_SELECT_COLS = `
   o.id,
@@ -20,10 +21,41 @@ const ORDER_SELECT_COLS = `
   o.created_at
 `;
 
-/**
- * Attach nested order_items to order rows (Supabase-style shape).
- * @param {Array<Record<string, unknown>>} orders
- */
+const ORDER_EMBED = `
+  id,
+  order_number,
+  site_code,
+  status,
+  batch_date,
+  customer_name,
+  phone,
+  shipping_address,
+  pickup_store_code,
+  line_id,
+  notes,
+  subtotal_twd,
+  shipping_twd,
+  total_twd,
+  country,
+  payment_method,
+  created_at,
+  order_items (
+    product_model,
+    variant,
+    quantity,
+    line_total_twd
+  )
+`;
+
+function createSupabaseAdmin() {
+  const url = getEnv("SUPABASE_URL");
+  const key = getEnv("SUPABASE_SERVICE_ROLE_KEY");
+  if (!url || !key) throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY");
+  return createClient(url, key, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
+
 export async function attachOrderItems(orders) {
   if (!orders?.length) return [];
   const sql = getSql();
@@ -64,10 +96,20 @@ export async function attachOrderItems(orders) {
   }));
 }
 
-/**
- * @param {{ siteCode?: string }} opts
- */
 export async function listOrdersWithItems({ siteCode = "" } = {}) {
+  if (!prefersDirectPostgres()) {
+    const supabase = createSupabaseAdmin();
+    let query = supabase
+      .from("orders")
+      .select(ORDER_EMBED)
+      .order("batch_date", { ascending: false })
+      .order("created_at", { ascending: false });
+    if (siteCode) query = query.eq("site_code", siteCode);
+    const { data, error } = await query;
+    if (error) throw new Error(error.message);
+    return data ?? [];
+  }
+
   const sql = getSql();
   const orders = siteCode
     ? await sql.unsafe(
@@ -85,65 +127,63 @@ export async function listOrdersWithItems({ siteCode = "" } = {}) {
   return attachOrderItems(orders);
 }
 
-/**
- * @param {string} orderId
- * @param {string} status
- */
 export async function updateOrderStatus(orderId, status) {
+  if (!prefersDirectPostgres()) {
+    const supabase = createSupabaseAdmin();
+    const { data, error } = await supabase
+      .from("orders")
+      .update({ status })
+      .eq("id", orderId)
+      .select(ORDER_EMBED)
+      .single();
+    if (error) throw new Error(error.message);
+    return data;
+  }
+
   const sql = getSql();
   const rows = await sql`
     UPDATE public.orders
     SET status = ${status}
     WHERE id = ${orderId}::uuid
     RETURNING
-      id,
-      order_number,
-      site_code,
-      status,
-      batch_date,
-      customer_name,
-      phone,
-      shipping_address,
-      pickup_store_code,
-      line_id,
-      notes,
-      subtotal_twd,
-      shipping_twd,
-      total_twd,
-      country,
-      payment_method,
-      created_at
+      id, order_number, site_code, status, batch_date, customer_name, phone,
+      shipping_address, pickup_store_code, line_id, notes, subtotal_twd,
+      shipping_twd, total_twd, country, payment_method, created_at
   `;
   if (!rows[0]) return null;
   const [withItems] = await attachOrderItems(rows);
   return withItems;
 }
 
-/**
- * @param {{ batchDate: string; siteCode?: string }} opts
- */
 export async function listOrdersForExport({ batchDate, siteCode = "" }) {
+  if (!prefersDirectPostgres()) {
+    const supabase = createSupabaseAdmin();
+    let q = supabase
+      .from("orders")
+      .select(
+        `
+        order_number, site_code, customer_name, phone, country, line_id,
+        shipping_address, pickup_store_code, notes, subtotal_twd, shipping_twd,
+        total_twd, payment_method, status,
+        order_items ( product_model, variant, quantity )
+      `
+      )
+      .eq("batch_date", batchDate)
+      .in("status", ["待确认", "已发出"])
+      .order("created_at", { ascending: true });
+    if (siteCode) q = q.eq("site_code", siteCode);
+    const { data, error } = await q;
+    if (error) throw new Error(error.message);
+    return data ?? [];
+  }
+
   const sql = getSql();
   const statuses = ["待确认", "已发出"];
   const orders = siteCode
     ? await sql`
-        SELECT
-          id,
-          order_number,
-          site_code,
-          customer_name,
-          phone,
-          country,
-          line_id,
-          shipping_address,
-          pickup_store_code,
-          notes,
-          subtotal_twd,
-          shipping_twd,
-          total_twd,
-          payment_method,
-          status,
-          created_at
+        SELECT id, order_number, site_code, customer_name, phone, country, line_id,
+          shipping_address, pickup_store_code, notes, subtotal_twd, shipping_twd,
+          total_twd, payment_method, status, created_at
         FROM public.orders
         WHERE batch_date = ${batchDate}::date
           AND status = ANY(${statuses})
@@ -151,23 +191,9 @@ export async function listOrdersForExport({ batchDate, siteCode = "" }) {
         ORDER BY created_at ASC
       `
     : await sql`
-        SELECT
-          id,
-          order_number,
-          site_code,
-          customer_name,
-          phone,
-          country,
-          line_id,
-          shipping_address,
-          pickup_store_code,
-          notes,
-          subtotal_twd,
-          shipping_twd,
-          total_twd,
-          payment_method,
-          status,
-          created_at
+        SELECT id, order_number, site_code, customer_name, phone, country, line_id,
+          shipping_address, pickup_store_code, notes, subtotal_twd, shipping_twd,
+          total_twd, payment_method, status, created_at
         FROM public.orders
         WHERE batch_date = ${batchDate}::date
           AND status = ANY(${statuses})
@@ -176,12 +202,17 @@ export async function listOrdersForExport({ batchDate, siteCode = "" }) {
   return attachOrderItems(orders);
 }
 
-/**
- * Call place_order RPC. payload is camelCase JSON matching existing frontend.
- * @param {Record<string, unknown>} payload
- * @param {string | null} pSiteCode
- */
 export async function placeOrderRpc(payload, pSiteCode) {
+  if (!prefersDirectPostgres()) {
+    const supabase = createSupabaseAdmin();
+    const { data, error } = await supabase.rpc("place_order", {
+      payload,
+      p_site_code: pSiteCode || null,
+    });
+    if (error) throw new Error(error.message);
+    return data;
+  }
+
   const sql = getSql();
   const rows = await sql`
     SELECT public.place_order(

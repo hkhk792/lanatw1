@@ -375,8 +375,8 @@ export default async function handler(req, res) {
 
     let result;
     if (backend === "postgres" || backend === "supabase" || (!backend && hasPg)) {
-      if (!prefersDirectPostgres()) {
-        return res.status(503).json({ error: "DATABASE_URL is not configured." });
+      if (!hasPg) {
+        return res.status(503).json({ error: "Order database is not configured (DATABASE_URL or SUPABASE_*)." });
       }
       try {
         result = await placeOrderPostgres({ ...orderPayload });

@@ -69,7 +69,10 @@ app.all("/api/cvs/pcsc-callback", vercelCompat(pcscCallback));
 
 if (existsSync(adminDist)) {
   app.use(express.static(adminDist, { index: false, maxAge: "1h" }));
-  app.get(["/admin2589", "/admin2589/*"], (_req, res) => {
+  app.get("/admin2589", (_req, res) => {
+    res.sendFile(path.join(adminDist, "index.html"));
+  });
+  app.get("/admin2589/{*path}", (_req, res) => {
     res.sendFile(path.join(adminDist, "index.html"));
   });
   app.get("/", (_req, res) => {

@@ -220,4 +220,8 @@ END;
 $$;
 
 REVOKE ALL ON FUNCTION public.place_order (jsonb, text) FROM PUBLIC;
-GRANT EXECUTE ON FUNCTION public.place_order (jsonb, text) TO service_role;
+DO $$ BEGIN
+  IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'service_role') THEN
+    GRANT EXECUTE ON FUNCTION public.place_order (jsonb, text) TO service_role;
+  END IF;
+END $$;
