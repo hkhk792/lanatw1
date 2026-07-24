@@ -1,6 +1,6 @@
 # lanatw1.com 方案 B 部署说明
 
-独立品牌与 SEO（`lanatw1.com`），订单与库存与 `sp2spods.com` 共用同一 Supabase，后台统一在 `/admin2589`。
+独立品牌与 SEO（`lanatw1.com`），订单与库存与 `sp2spods.com` **原**共用同一 Supabase；**现已迁到自建 ops**（见 [`OPS-SELFHOST.md`](./OPS-SELFHOST.md)）。后台目标地址：`https://ops.lanatw1.com/admin2589`。
 
 ## 架构
 
@@ -10,8 +10,11 @@
 | GitHub 仓库 | `hkhk792/obsidian-vapor-zen` | **`hkhk792/lanatw1`** |
 | `SITE_CODE` | 不设或 `sp2spods` | **`lanatw1`** |
 | `VITE_SHOP_SITE_URL` | `https://sp2spods.com` | `https://lanatw1.com` |
-| Supabase / `ADMIN_SECRET` | 相同 | **相同** |
-| 订单后台 | `https://sp2spods.com/admin2589` | 同一后台，筛选站点 `lanatw1` |
+| 订单 API / DB | 自建 ops（Postgres + Node） | **相同** |
+| 订单后台 | `https://ops.lanatw1.com/admin2589` | 同一后台，筛选站点 `lanatw1` |
+
+> DNS 未加好前，生产可能仍临时走 Vercel + Supabase 回退；切流步骤见 OPS-SELFHOST.md。
+
 
 ## 1. 新建 Vercel 项目（推荐名：`sp2s-3`）
 

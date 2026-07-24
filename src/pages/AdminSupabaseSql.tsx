@@ -143,7 +143,7 @@ const AdminSupabaseSql = () => {
         <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
           <div>
             <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-neutral-500">後台輔助</p>
-            <h1 className="text-lg font-semibold text-neutral-900">Supabase 查詢範本</h1>
+            <h1 className="text-lg font-semibold text-neutral-900">SQL 查詢範本</h1>
           </div>
           <Link to="/admin2589" className="text-sm text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline">
             返回訂單後台
@@ -153,21 +153,21 @@ const AdminSupabaseSql = () => {
 
       <main className="mx-auto max-w-3xl space-y-6 px-4 py-8 sm:px-6">
         <section className="rounded-sm border border-emerald-200 bg-emerald-50/80 p-5 text-sm leading-relaxed text-emerald-950">
-          <h2 className="font-semibold text-emerald-950">怎麼用（只在 Supabase 執行）</h2>
+          <h2 className="font-semibold text-emerald-950">怎麼用（ops Postgres / 舊 Supabase）</h2>
           <ol className="mt-3 list-decimal space-y-2 pl-5">
             <li>
-              登入 Supabase 專案 → 左側 <span className="font-medium">SQL Editor</span>。
+              優先在伺服器執行：<code className="rounded bg-emerald-100/80 px-1">docker exec -it lanatw1-ops-postgres psql -U lanatw1 -d lanatw1_ops</code>
+              （說明見 <code className="rounded bg-emerald-100/80 px-1">docs/OPS-SELFHOST.md</code>）。
             </li>
             <li>
-              點 <span className="font-medium">New query</span>，從下面任一段按「複製 SQL」貼上。
+              或暫時仍可用舊 Supabase → <span className="font-medium">SQL Editor</span> → New query。
             </li>
             <li>
-              按 <span className="font-medium">Run</span>；結果表可再右上角匯出 CSV。
+              從下面任一段按「複製 SQL」貼上後執行；結果可匯出 CSV。
             </li>
           </ol>
           <p className="mt-3 text-xs text-emerald-900/90">
-            本站<span className="font-medium">不會</span>代你連資料庫；沒有額外密鑰步驟，只是把常用 SELECT 整理好，避免在 Table Editor
-            裡跳來跳去還比 Excel 難讀。
+            本頁<span className="font-medium">不會</span>代你連資料庫；只整理常用 SELECT，方便對照出貨明細。
           </p>
         </section>
 
