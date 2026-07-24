@@ -10,7 +10,7 @@
 | API | `https://ops.lanatw1.com/api/*` |
 | 本机探测 | `curl -H 'Host: ops.lanatw1.com' http://127.0.0.1/api/health` |
 
-生产站通过 Vercel rewrite 将 `/api/*` 转到 `https://ops.lanatw1.com/api/*`；`/admin2589` 301 到 ops 后台。
+生产站通过 Vercel `/api` **函数代理**到 `https://ops.lanatw1.com`（因本地 `api/*` 会抢在 rewrite 之前执行）；`/admin2589` 301 到 ops 后台。
 
 ## DNS / TLS
 
