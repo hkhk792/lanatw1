@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: lanatw1-ops-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lanatw1
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: lanatw1_ops
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lanatw1 -d lanatw1_ops"]
+      interval: 5s
+      timeout: 5s
+      retries: 20

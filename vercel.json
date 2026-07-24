@@ -94,12 +94,22 @@
       "source": "/info/bring-vape-to-japan-korea",
       "destination": "https://podpickguide.com/bring-vape-to-japan-korea",
       "permanent": true
+    },
+    {
+      "source": "/admin2589",
+      "destination": "https://ops.lanatw1.com/admin2589",
+      "permanent": true
+    },
+    {
+      "source": "/admin2589/(.*)",
+      "destination": "https://ops.lanatw1.com/admin2589/$1",
+      "permanent": true
     }
   ],
   "rewrites": [
     {
-      "source": "/api/cvs/pcsc-callback",
-      "destination": "/api/pcsc-callback"
+      "source": "/api/:path*",
+      "destination": "https://ops.lanatw1.com/api/:path*"
     },
     {
       "source": "/((?!api/|assets/|product-photos/|favicon\\.svg|robots\\.txt|sitemap\\.xml|.*\\.[a-zA-Z0-9]+$).*)",

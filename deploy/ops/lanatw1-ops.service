@@ -1,0 +1,18 @@
+[Unit]
+Description=lanatw1 ops API (orders + admin)
+After=network.target docker.service
+Wants=docker.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/lanatw1-ops/apps/api
+EnvironmentFile=/opt/lanatw1-ops/.env
+ExecStart=/usr/bin/node /opt/lanatw1-ops/apps/api/server/index.js
+Restart=always
+RestartSec=3
+User=root
+StandardOutput=append:/opt/lanatw1-ops/logs/api.log
+StandardError=append:/opt/lanatw1-ops/logs/api.err.log
+
+[Install]
+WantedBy=multi-user.target
