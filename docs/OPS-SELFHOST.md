@@ -10,26 +10,15 @@
 | API | `https://ops.lanatw1.com/api/*` |
 | 本机探测 | `curl -H 'Host: ops.lanatw1.com' http://127.0.0.1/api/health` |
 
-当前生产站（`lanatw1` 等）在 **ops DNS 未生效前** 仍走 Vercel serverless + Supabase（`vercel.json` 暂不 rewrite `/api`）。
+生产站通过 Vercel rewrite 将 `/api/*` 转到 `https://ops.lanatw1.com/api/*`；`/admin2589` 301 到 ops 后台。
 
-## DNS（必做）
-
-Cloudflare zone `lanatw1.com` 添加：
+## DNS / TLS
 
 | 类型 | 名称 | 内容 | 代理 |
 |------|------|------|------|
-| A | `ops` | `107.167.13.66` | DNS only（灰云）推荐 |
+| A | `ops` | `107.167.13.66` | DNS only（灰云） |
 
-然后在宝塔为 `ops.lanatw1.com` 申请 Let’s Encrypt，并在 `vercel.json` 恢复：
-
-```json
-{
-  "source": "/api/:path*",
-  "destination": "https://ops.lanatw1.com/api/:path*"
-}
-```
-
-以及 admin 301 到 `https://ops.lanatw1.com/admin2589`。
+证书：`/etc/letsencrypt/live/ops.lanatw1.com/`（certbot 自动续期）。
 
 ## 服务器路径
 
