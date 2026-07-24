@@ -2,6 +2,8 @@ import {
   listOrdersWithItems,
   updateOrderStatus,
 } from "../_lib/ordersDb.js";
+import { prefersDirectPostgres } from "../_lib/db.js";
+import { proxyToOps } from "../_lib/proxyToOps.js";
 
 const ALLOWED_STATUS = ["待确认", "已发出", "已取消", "异常"];
 
@@ -28,6 +30,10 @@ function parseBody(req) {
 }
 
 export default async function handler(req, res) {
+  if (!prefersDirectPostgres()) {
+    return proxyToOps(req, res);
+  }
+
   if (!checkAuth(req)) {
     return unauthorized(res);
   }

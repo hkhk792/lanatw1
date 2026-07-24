@@ -3,6 +3,7 @@ import { normalizeTaiwanMobile } from "./_lib/phoneTaiwan.js";
 import { hasDatabase, prefersDirectPostgres } from "./_lib/db.js";
 import { placeOrderRpc } from "./_lib/ordersDb.js";
 import { getSiteCode } from "./_lib/siteCode.js";
+import { proxyToOps } from "./_lib/proxyToOps.js";
 
 const AIRTABLE_API_BASE = "https://api.airtable.com/v0";
 
@@ -321,6 +322,10 @@ async function placeOrderAirtable(payload) {
 }
 
 export default async function handler(req, res) {
+  if (!prefersDirectPostgres()) {
+    return proxyToOps(req, res);
+  }
+
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method Not Allowed" });

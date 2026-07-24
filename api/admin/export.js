@@ -1,4 +1,6 @@
 import { listOrdersForExport } from "../_lib/ordersDb.js";
+import { prefersDirectPostgres } from "../_lib/db.js";
+import { proxyToOps } from "../_lib/proxyToOps.js";
 
 const EXPORT_STATUSES = ["待确认", "已发出"];
 
@@ -64,6 +66,10 @@ function buildPickingCsv(rows, batchDate, siteCodeLabel) {
 }
 
 export default async function handler(req, res) {
+  if (!prefersDirectPostgres()) {
+    return proxyToOps(req, res);
+  }
+
   if (req.method !== "GET") {
     res.setHeader("Allow", "GET");
     return res.status(405).json({ error: "Method Not Allowed" });

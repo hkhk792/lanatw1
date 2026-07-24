@@ -1,16 +1,18 @@
 /**
- * GET /api/health — 確認 API 進程與資料庫連線狀態。
+ * GET /api/health
+ * Vercel (no DATABASE_URL): proxy to ops.
+ * Ops server (DATABASE_URL set): local status.
  */
-import { getEnv, hasDatabase, prefersDirectPostgres } from "./_lib/db.js";
+import { getEnv, prefersDirectPostgres } from "./_lib/db.js";
+import { proxyToOps } from "./_lib/proxyToOps.js";
 
-export default function handler(req, res) {
+function localHealth(req, res) {
   if (req.method !== "GET") {
     res.setHeader("Allow", "GET");
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
   const hasPg = prefersDirectPostgres();
-  const hasAnyDb = hasDatabase();
   const hasAirtable = Boolean(
     getEnv("AIRTABLE_TOKEN") &&
       getEnv("AIRTABLE_BASE_ID") &&
@@ -21,18 +23,23 @@ export default function handler(req, res) {
 
   return res.status(200).json({
     ok: true,
-    message: hasPg ? "Ops API route is active" : "Vercel API route is active",
-    host: hasPg ? "ops" : "vercel",
+    message: "Ops API route is active",
+    host: "ops",
     siteCode: getEnv("SITE_CODE") || null,
     orderBackendHint:
-      backend === "postgres" || (!backend && hasPg)
+      backend === "postgres" || backend === "supabase" || (!backend && hasPg)
         ? "postgres"
-        : backend === "supabase" || (!backend && hasAnyDb && !hasPg)
-          ? "supabase"
-          : backend === "airtable" || (!backend && hasAirtable)
-            ? "airtable"
-            : "none",
+        : backend === "airtable" || (!backend && hasAirtable)
+          ? "airtable"
+          : "none",
     databaseUrlPresent: hasPg,
-    supabaseEnvPresent: Boolean(getEnv("SUPABASE_URL") && getEnv("SUPABASE_SERVICE_ROLE_KEY")),
+    supabaseEnvPresent: false,
   });
+}
+
+export default async function handler(req, res) {
+  if (!prefersDirectPostgres()) {
+    return proxyToOps(req, res);
+  }
+  return localHealth(req, res);
 }

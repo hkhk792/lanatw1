@@ -1,6 +1,8 @@
 import { customerHasPriorOrders } from "../_lib/customerOrders.js";
 import { normalizeTaiwanMobile } from "../_lib/phoneTaiwan.js";
 import { getSiteCode } from "../_lib/supabaseAdmin.js";
+import { prefersDirectPostgres } from "../_lib/db.js";
+import { proxyToOps } from "../_lib/proxyToOps.js";
 
 const FREE_SHIPPING_THRESHOLD = 1500;
 const STANDARD_SHIPPING_FEE = 70;
@@ -20,6 +22,10 @@ function quoteShippingTwd(subtotalTwd, isFirstOrder) {
 }
 
 export default async function handler(req, res) {
+  if (!prefersDirectPostgres()) {
+    return proxyToOps(req, res);
+  }
+
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method Not Allowed" });
